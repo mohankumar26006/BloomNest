@@ -84,7 +84,9 @@ export type PageView =
   | "baby-care-ai"
   | "baby-care-agent"
   | "safety-care-coordination-ai"
-  | "safety-care-coordination-agent";
+  | "safety-care-coordination-agent"
+  | "terms"
+  | "privacy";
 
 export type JourneyStage = "PRE_PREGNANCY" | "PREGNANCY" | "POST_PREGNANCY";
 

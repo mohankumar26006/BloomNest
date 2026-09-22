@@ -204,30 +204,28 @@ export const MotherRecoveryAiPage: React.FC<MotherRecoveryAiPageProps> = ({
   const formatFactTagLabel = (tag: string) => {
     switch (tag) {
       case "RECORDED_FACT":
-        return "📌 Recorded Fact";
+        return "Recorded Fact";
       case "CALCULATED_OBSERVATION":
-        return "📊 Calculated Observation";
+        return "Calculated Observation";
       case "DETECTED_PATTERN":
-        return "📈 Detected Pattern";
+        return "Detected Pattern";
       case "SAFETY_ALERT":
-        return "🚨 Safety Alert";
+        return "Safety Alert";
       case "AI_SUGGESTION":
       default:
-        return "💡 AI Suggestion";
+        return "AI Suggestion";
     }
   };
 
   return (
     <div className="space-y-6 max-w-5xl mx-auto pb-12">
       {/* HEADER BANNER */}
-      <div className="bg-gradient-to-r from-rose-500 to-rose-600 rounded-3xl p-6 sm:p-8 text-white shadow-xl shadow-rose-500/15 relative overflow-hidden">
-        <div className="absolute right-0 top-0 w-80 h-80 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-
+      <div className="bg-rose-600 rounded-3xl p-6 sm:p-8 text-white shadow-sm relative overflow-hidden">
         <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="space-y-2">
             <div className="flex items-center gap-2">
               <span className="px-3 py-1 rounded-full bg-white/20 text-white font-extrabold text-[10px] uppercase tracking-wider backdrop-blur-md">
-                🌸 Agent 1 of 3 • Mother & Recovery AI
+                Agent 1 of 3 • Mother & Recovery AI
               </span>
               <span className="px-3 py-1 rounded-full bg-emerald-400/30 text-emerald-100 font-extrabold text-[10px] uppercase tracking-wider backdrop-blur-md flex items-center gap-1">
                 <CheckCircle2 className="w-3 h-3" /> F4 Safety Guard Active
@@ -319,7 +317,7 @@ export const MotherRecoveryAiPage: React.FC<MotherRecoveryAiPageProps> = ({
                 className={`flex gap-3 ${isAgent ? "items-start" : "items-end justify-end"}`}
               >
                 {isAgent && (
-                  <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center font-black text-xs shadow-md shrink-0">
+                  <div className="w-9 h-9 rounded-2xl bg-rose-600 text-white flex items-center justify-center font-black text-xs shadow-md shrink-0">
                     <Sparkles className="w-4 h-4" />
                   </div>
                 )}
@@ -328,7 +326,7 @@ export const MotherRecoveryAiPage: React.FC<MotherRecoveryAiPageProps> = ({
                   className={`max-w-[85%] rounded-3xl p-4 sm:p-5 space-y-3 text-xs sm:text-sm ${
                     isAgent
                       ? "bg-rose-50/70 dark:bg-rose-950/30 text-slate-800 dark:text-rose-100 border border-rose-100 dark:border-rose-900/40"
-                      : "bg-gradient-to-r from-rose-500 to-pink-600 text-white shadow-md font-medium"
+                      : "bg-rose-600 text-white shadow-md font-medium"
                   }`}
                 >
                   <div className="flex items-center justify-between gap-4 border-b border-rose-200/50 dark:border-rose-900/40 pb-2">
@@ -485,7 +483,7 @@ export const MotherRecoveryAiPage: React.FC<MotherRecoveryAiPageProps> = ({
           <button
             type="submit"
             disabled={isLoading || !queryInput.trim()}
-            className="px-5 py-3 rounded-2xl bg-rose-500 hover:bg-rose-600 disabled:opacity-50 text-white font-extrabold text-xs transition-colors flex items-center gap-2 shadow-md shadow-rose-500/20"
+            className="px-5 py-3 rounded-2xl bg-rose-500 hover:bg-rose-600 disabled:opacity-50 text-white font-extrabold text-xs transition-colors flex items-center gap-2 shadow-md"
           >
             <span>Ask AI</span>
             <Send className="w-3.5 h-3.5" />

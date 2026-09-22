@@ -330,18 +330,16 @@ export const SafetyShieldPage: React.FC<{
         </div>
       </header>
 
-      {/* 🛡️ OVERALL SAFETY STATUS HERO CARD */}
+      {/* OVERALL SAFETY STATUS HERO CARD */}
       <section
-        className={`rounded-3xl p-6 sm:p-8 shadow-xl text-white relative overflow-hidden transition-all ${
+        className={`rounded-3xl p-6 sm:p-8 shadow-sm text-white relative overflow-hidden transition-all ${
           status === "URGENT"
-            ? "bg-gradient-to-br from-rose-600 via-red-600 to-rose-700 shadow-rose-600/20"
+            ? "bg-rose-700"
             : status === "ATTENTION"
-            ? "bg-gradient-to-br from-amber-500 via-orange-500 to-amber-600 shadow-amber-500/20"
-            : "bg-gradient-to-br from-emerald-600 via-teal-600 to-emerald-700 shadow-emerald-600/20"
+            ? "bg-amber-600"
+            : "bg-emerald-700"
         }`}
       >
-        <div className="absolute top-0 right-0 transform translate-x-6 -translate-y-6 w-44 h-44 bg-white/10 rounded-full blur-2xl pointer-events-none" />
-
         <div className="relative z-10 space-y-5">
           <div className="flex items-center justify-between border-b border-white/20 pb-4">
             <div className="flex items-center gap-2">
@@ -364,9 +362,9 @@ export const SafetyShieldPage: React.FC<{
 
           <div className="space-y-1">
             <div className="text-3xl sm:text-4xl font-black tracking-tight">
-              {status === "URGENT" && "🔴 Urgent Attention Recommended"}
-              {status === "ATTENTION" && "🟡 Something Needs Attention"}
-              {status === "CLEAR" && "🟢 No Immediate Concerns Detected"}
+              {status === "URGENT" && "Urgent Attention Recommended"}
+              {status === "ATTENTION" && "Something Needs Attention"}
+              {status === "CLEAR" && "No Immediate Concerns Detected"}
             </div>
             <p className="text-xs text-white/90 font-medium">
               {status === "URGENT" &&
@@ -400,7 +398,7 @@ export const SafetyShieldPage: React.FC<{
         </div>
       </section>
 
-      {/* 🩺 MOTHER SAFETY EVALUATION SECTION */}
+      {/* MOTHER SAFETY EVALUATION SECTION */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-5">
         <div className="flex items-center gap-3 border-b border-slate-100 dark:border-rose-900/30 pb-3">
           <div className="w-9 h-9 rounded-xl bg-rose-100 dark:bg-rose-900/40 text-rose-600 dark:text-rose-300 flex items-center justify-center">
@@ -430,7 +428,7 @@ export const SafetyShieldPage: React.FC<{
         )}
       </section>
 
-      {/* 👶 BABY SAFETY EVALUATION SECTION */}
+      {/* BABY SAFETY EVALUATION SECTION */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-5">
         <div className="flex items-center gap-3 border-b border-slate-100 dark:border-rose-900/30 pb-3">
           <div className="w-9 h-9 rounded-xl bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-300 flex items-center justify-center">
@@ -474,7 +472,7 @@ export const SafetyShieldPage: React.FC<{
         </div>
       </section>
 
-      {/* 🚨 CLINICAL HOTLINE & EMERGENCY ACTION BAR */}
+      {/* CLINICAL HOTLINE & EMERGENCY ACTION BAR */}
       <section className="bg-rose-50 dark:bg-rose-950/30 rounded-3xl p-6 border border-rose-200 dark:border-rose-900/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-2xl bg-rose-500 text-white flex items-center justify-center shrink-0 shadow-md">
@@ -491,7 +489,7 @@ export const SafetyShieldPage: React.FC<{
         <div className="flex items-center gap-2">
           {profile.hospital && (
             <span className="px-3 py-1.5 rounded-xl bg-white dark:bg-[#1A1523] border border-rose-200 dark:border-rose-800 text-rose-700 dark:text-rose-300 font-bold truncate max-w-[200px]">
-              🏥 {profile.hospital}
+              {profile.hospital}
             </span>
           )}
           <button
@@ -506,7 +504,7 @@ export const SafetyShieldPage: React.FC<{
   );
 };
 
-// 📌 ACTION GUIDANCE CARD COMPONENT (What was detected -> Why it matters -> What to do)
+// ACTION GUIDANCE CARD COMPONENT (What was detected -> Why it matters -> What to do)
 const ActionGuidanceCard: React.FC<{ issue: SafetyIssueItem }> = ({ issue }) => {
   const isUrgent = issue.severity === "URGENT";
 

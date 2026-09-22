@@ -26,7 +26,7 @@ import {
   CheckCircle2,
   RotateCcw,
   BookOpen,
-  Sparkles,
+  Lightbulb,
   Brain,
   Network,
   Bot,
@@ -76,7 +76,7 @@ export const PostpartumSidebar: React.FC<PostpartumNavProps> = ({
     { id: "checkin", label: "Daily Check-in Touchpoint", icon: CheckCircle2, badge: "Feature 23" },
     { id: "followup", label: "Follow-up & Care Continuity", icon: RotateCcw, badge: "Feature 24" },
     { id: "education", label: "Postpartum Education Layer", icon: BookOpen, badge: "Feature 25" },
-    { id: "insight", label: "Personalized Recovery Insight", icon: Sparkles, badge: "Feature 26" },
+    { id: "insight", label: "Personalized Recovery Insight", icon: Lightbulb, badge: "Feature 26" },
     { id: "growth", label: "Baby Growth & Milestones", icon: TrendingUp, badge: "Feature 27" },
     { id: "vaccines", label: "Vaccination Calendar", icon: Syringe, badge: "Feature 28" },
     { id: "memory", label: "AI Memory & Patient History", icon: Brain, badge: "Feature 29" },
@@ -109,7 +109,7 @@ export const PostpartumSidebar: React.FC<PostpartumNavProps> = ({
       >
         {/* Module Header */}
         <div className="p-5 border-b border-rose-100 dark:border-rose-900/40 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-rose-400 to-pink-500 flex items-center justify-center text-white shadow-md shadow-rose-500/20">
+          <div className="w-10 h-10 rounded-xl bg-rose-500 flex items-center justify-center text-white shadow-sm">
             <Heart className="w-5 h-5 fill-white/30" />
           </div>
           <div>
@@ -145,7 +145,7 @@ export const PostpartumSidebar: React.FC<PostpartumNavProps> = ({
                 disabled={isComingSoon}
                 className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all ${
                   isActive
-                    ? "bg-rose-500 text-white shadow-md shadow-rose-500/20"
+                    ? "bg-rose-500 text-white shadow-sm"
                     : isComingSoon
                     ? "opacity-60 text-slate-400 dark:text-slate-500 cursor-not-allowed"
                     : "text-slate-600 dark:text-slate-300 hover:bg-rose-50/70 dark:hover:bg-rose-950/40 hover:text-rose-900 dark:hover:text-rose-200"
@@ -197,7 +197,7 @@ export const PostpartumSidebar: React.FC<PostpartumNavProps> = ({
             className="w-full flex items-center justify-between p-2.5 rounded-2xl bg-white dark:bg-[#231a2c] border border-rose-200/80 dark:border-rose-800/40 hover:border-rose-400 text-rose-700 dark:text-rose-200 transition-all group shadow-xs"
           >
             <div className="flex items-center gap-2 min-w-0">
-              <div className="w-7 h-7 rounded-xl bg-gradient-to-tr from-rose-500 to-pink-600 text-white flex items-center justify-center shadow-xs shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-7 h-7 rounded-xl bg-rose-600 text-white flex items-center justify-center shadow-xs shrink-0">
                 <LogOut className="w-3.5 h-3.5" />
               </div>
               <div className="text-left min-w-0">

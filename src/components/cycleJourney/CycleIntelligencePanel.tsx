@@ -83,7 +83,7 @@ export const CycleIntelligencePanel: React.FC<CycleIntelligencePanelProps> = ({
   };
 
   return (
-    <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-emerald-50/90 via-teal-50/80 to-emerald-50/90 dark:from-emerald-950/40 dark:via-teal-950/30 dark:to-emerald-950/40 border border-emerald-100 dark:border-emerald-900/40 shadow-lg space-y-4">
+    <div className="p-5 sm:p-6 rounded-3xl bg-emerald-50/90 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-900/40 shadow-sm space-y-4">
       
       {/* Header Banner */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">

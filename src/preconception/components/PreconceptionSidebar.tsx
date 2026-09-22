@@ -37,7 +37,7 @@ export const PreconceptionSidebar: React.FC<{
         }`}
       >
         <div className="p-5 border-b border-emerald-100 dark:border-emerald-900/50 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center text-white shadow-lg shadow-emerald-500/20">
+          <div className="w-10 h-10 rounded-xl bg-teal-500 flex items-center justify-center text-white shadow-sm">
             <Flower2 className="w-6 h-6" />
           </div>
           <div>
@@ -75,7 +75,7 @@ export const PreconceptionSidebar: React.FC<{
             className="w-full flex items-center justify-between p-2.5 rounded-2xl bg-emerald-500/10 hover:bg-emerald-500/20 dark:bg-emerald-900/30 dark:hover:bg-emerald-800/40 border border-emerald-200 dark:border-emerald-800/50 text-emerald-800 dark:text-emerald-200 transition-all group"
           >
             <div className="flex items-center gap-2 min-w-0">
-              <div className="w-7 h-7 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-600 text-white flex items-center justify-center shadow-xs shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-7 h-7 rounded-xl bg-teal-600 text-white flex items-center justify-center shadow-xs shrink-0">
                 <UserPlus className="w-3.5 h-3.5" />
               </div>
               <div className="text-left min-w-0">

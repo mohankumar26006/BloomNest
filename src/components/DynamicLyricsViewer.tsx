@@ -169,7 +169,7 @@ export const DynamicLyricsViewer: React.FC<DynamicLyricsViewerProps> = ({ youtub
       {/* Dynamic Lyrics Scroller */}
       <div 
         ref={scrollContainerRef}
-        className="h-[400px] overflow-y-auto rounded-xl bg-gradient-to-b from-rose-50/50 to-amber-50/50 dark:from-rose-950/20 dark:to-amber-950/20 p-8 space-y-6 border border-rose-100/50 dark:border-rose-900/20 scrollbar-hide relative shadow-inner"
+        className="h-[400px] overflow-y-auto rounded-xl bg-rose-50/50 dark:bg-rose-950/20 p-8 space-y-6 border border-rose-100/50 dark:border-rose-900/20 scrollbar-hide relative shadow-inner"
         style={{ scrollBehavior: 'smooth' }}
       >
         {syncedLyrics.length > 0 ? (

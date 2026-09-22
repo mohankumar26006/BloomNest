@@ -66,10 +66,10 @@ export const CrossModalCorrelationMatrix: React.FC<CrossModalCorrelationMatrixPr
                 </div>
                 <Badge variant={badgeVariant} size="sm">
                   {corr.severity === "normal"
-                    ? "Normal Concordance ✓"
+                    ? "Normal Concordance"
                     : corr.severity === "borderline"
-                    ? "Borderline Watchlist ⚠️"
-                    : "Clinical Action Required 🚨"}
+                    ? "Borderline Watchlist"
+                    : "Clinical Action Required"}
                 </Badge>
               </div>
 

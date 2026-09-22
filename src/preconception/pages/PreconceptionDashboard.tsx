@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Activity, Droplet, Sparkles, Stethoscope, Heart, Users, ShieldAlert, ArrowRight, CheckCircle2, Flame, Calendar, MessageSquare } from "lucide-react";
+import { Activity, Droplet, Stethoscope, Heart, Users, ShieldAlert, ArrowRight, CheckCircle2, Flame, Calendar, MessageSquare } from "lucide-react";
 import { Card } from "../../components/ui/Card";
 import { Badge } from "../../components/ui/Badge";
 import { Button } from "../../components/ui/Button";
@@ -31,11 +31,11 @@ export const PreconceptionDashboard: React.FC<{ onNavigate: (page: string) => vo
   return (
     <div className="space-y-6">
       {/* Welcome Banner */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-emerald-700 via-teal-700 to-emerald-900 text-white shadow-xl shadow-emerald-950/15 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div className="p-6 sm:p-8 rounded-3xl bg-emerald-900 text-white shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="p-1.5 rounded-lg bg-emerald-500/30 text-emerald-200">
-              <Sparkles className="w-5 h-5 text-emerald-300" />
+              <Heart className="w-5 h-5 text-emerald-300" />
             </span>
             <span className="text-xs font-bold uppercase tracking-wider text-emerald-200">
               BloomNest Preconception Hub
@@ -85,7 +85,7 @@ export const PreconceptionDashboard: React.FC<{ onNavigate: (page: string) => vo
               Readiness
             </div>
             <div className="text-[10px] font-semibold text-emerald-500 mt-1">
-              {dynamicScore >= 80 ? "Optimal ⭐" : dynamicScore >= 60 ? "Good Pace 🌱" : "Building Up"}
+              {dynamicScore >= 80 ? "Optimal" : dynamicScore >= 60 ? "Good Pace" : "Building Up"}
             </div>
           </div>
         </div>
@@ -159,7 +159,7 @@ export const PreconceptionDashboard: React.FC<{ onNavigate: (page: string) => vo
       <div>
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-bold text-emerald-950 dark:text-emerald-50 text-lg flex items-center gap-2">
-            <Sparkles className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+            <Activity className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
             Preconception Modules & Action Centers
           </h3>
           <span className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">Click any card to launch</span>

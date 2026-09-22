@@ -205,13 +205,13 @@ app.post("/api/auth/signup", async (req: Request, res: Response) => {
                 journeyStage: "PREGNANCY",
                 currentWeek: 24,
                 trimester: 2,
-                eddDate: "2026-11-20"
+                eddDate: new Date("2026-11-20")
               }
             }
           }
         });
-      } catch {
-        // quiet fallback to resilient in-memory user registry
+      } catch (dbError) {
+        console.error("Signup DB write failed, falling back to in-memory:", dbError);
       }
     }
 

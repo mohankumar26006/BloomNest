@@ -131,8 +131,7 @@ export const PostpartumEducationPage: React.FC<PostpartumEducationPageProps> = (
       <div className="max-w-6xl mx-auto space-y-6">
         
         {/* TOP HERO BANNER */}
-        <div className="bg-gradient-to-r from-teal-600 via-emerald-600 to-indigo-600 rounded-3xl p-6 md:p-8 text-white shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div className="bg-teal-600 rounded-3xl p-6 md:p-8 text-white shadow-sm relative overflow-hidden">
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 mb-2">
@@ -165,18 +164,18 @@ export const PostpartumEducationPage: React.FC<PostpartumEducationPageProps> = (
           {/* Main Navigation Tabs */}
           <div className="flex items-center gap-2 overflow-x-auto pb-1">
             {[
-              { id: "learn_today", label: "🌿 Learn Today", count: evaluation?.learnTodayTopics.length || 0 },
-              { id: "based_on_records", label: "📊 Based on My Records", count: evaluation?.basedOnRecordsTopics.length || 0 },
-              { id: "mother", label: "💗 Mother Recovery", count: evaluation?.motherRecoveryTopics.length || 0 },
-              { id: "baby", label: "👶 Baby Care", count: evaluation?.babyCareTopics.length || 0 },
-              { id: "saved", label: "🔖 Saved Topics", count: evaluation?.savedTopics.length || 0 },
+              { id: "learn_today", label: "Learn Today", count: evaluation?.learnTodayTopics.length || 0 },
+              { id: "based_on_records", label: "Based on My Records", count: evaluation?.basedOnRecordsTopics.length || 0 },
+              { id: "mother", label: "Mother Recovery", count: evaluation?.motherRecoveryTopics.length || 0 },
+              { id: "baby", label: "Baby Care", count: evaluation?.babyCareTopics.length || 0 },
+              { id: "saved", label: "Saved Topics", count: evaluation?.savedTopics.length || 0 },
             ].map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id as any)}
                 className={`px-4 py-2.5 rounded-2xl text-xs font-semibold whitespace-nowrap transition-all ${
                   activeTab === tab.id
-                    ? "bg-teal-600 text-white shadow-md shadow-teal-600/20"
+                    ? "bg-teal-600 text-white shadow-sm"
                     : "bg-white dark:bg-[#1A1523] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-50"
                 }`}
               >

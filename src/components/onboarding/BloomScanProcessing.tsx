@@ -62,24 +62,24 @@ export const BloomScanProcessing: React.FC<BloomScanProcessingProps> = ({
   }, [fileName, onComplete]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 bg-gradient-to-br from-[#FFF0F5] via-[#FFF7F9] to-[#F5E6EC] dark:from-[#120E18] dark:via-[#1A1424] dark:to-[#22172A] text-gray-900 dark:text-rose-100">
+    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 bg-[#FFF7F9] dark:bg-[#120E18] text-gray-900 dark:text-rose-100">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4 }}
-        className="w-full max-w-lg bg-white/90 dark:bg-[#1A1523]/90 backdrop-blur-xl p-8 rounded-[36px] border border-rose-100 dark:border-rose-900/40 shadow-2xl shadow-rose-200/50 dark:shadow-none text-center space-y-6"
+        className="w-full max-w-lg bg-white/90 dark:bg-[#1A1523]/90 p-8 rounded-2xl border border-rose-100 dark:border-rose-900/40 shadow-sm text-center space-y-6"
       >
         {/* Animated Bot Icon */}
         <div className="relative w-24 h-24 mx-auto flex items-center justify-center">
           <div className="absolute inset-0 bg-rose-500/20 rounded-full animate-ping" />
-          <div className="w-20 h-20 rounded-3xl bg-gradient-to-tr from-purple-500 via-pink-500 to-rose-500 text-white flex items-center justify-center shadow-xl relative z-10">
+          <div className="w-20 h-20 rounded-3xl bg-rose-500 text-white flex items-center justify-center shadow-sm relative z-10">
             <Bot className="w-10 h-10 animate-pulse" />
           </div>
         </div>
 
         <div className="space-y-1">
           <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-rose-100">
-            🤖 BloomScan AI Digitizing
+            BloomScan AI Digitizing
           </h2>
           <p className="text-xs text-rose-600 dark:text-rose-300 font-semibold truncate max-w-xs mx-auto">
             {fileName}
@@ -95,7 +95,7 @@ export const BloomScanProcessing: React.FC<BloomScanProcessingProps> = ({
 
           <div className="w-full h-3 bg-rose-100 dark:bg-rose-950/60 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-rose-500 to-rose-600 transition-all duration-500 ease-out"
+              className="h-full bg-rose-500 transition-all duration-500 ease-out"
               style={{ width: `${progress}%` }}
             />
           </div>

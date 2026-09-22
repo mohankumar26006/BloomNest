@@ -184,7 +184,7 @@ export const BabyCarePage: React.FC<{
       setBabyData(updatedBaby);
       setIsModalOpen(false);
       setSaveSuccessMsg("Baby profile details updated successfully!");
-      showToast("Baby profile saved 💕");
+      showToast("Baby profile saved!");
       setTimeout(() => setSaveSuccessMsg(null), 3000);
     } catch (err) {
       setFormError("Failed to save baby profile.");
@@ -279,10 +279,8 @@ export const BabyCarePage: React.FC<{
         </button>
       </header>
 
-      {/* 👶 BABY PROFILE CARD */}
-      <section className="bg-gradient-to-br from-purple-600 via-pink-500 to-rose-500 text-white rounded-3xl p-6 sm:p-8 shadow-xl shadow-purple-500/15 relative overflow-hidden">
-        <div className="absolute top-0 right-0 transform translate-x-6 -translate-y-6 w-40 h-40 bg-white/10 rounded-full blur-2xl pointer-events-none" />
-
+      {/* BABY PROFILE CARD */}
+      <section className="bg-purple-600 text-white rounded-3xl p-6 sm:p-8 shadow-sm relative overflow-hidden">
         <div className="relative z-10 space-y-6">
           {/* Top Label */}
           <div className="flex items-center justify-between border-b border-white/20 pb-4">
@@ -292,7 +290,7 @@ export const BabyCarePage: React.FC<{
             </div>
             {babyData?.gender && babyData.gender !== "Unspecified" && (
               <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md font-bold text-xs">
-                {babyData.gender === "Girl" ? "🎀 Baby Girl" : babyData.gender === "Boy" ? "🧸 Baby Boy" : "✨ Surprise"}
+                {babyData.gender === "Girl" ? "Baby Girl" : babyData.gender === "Boy" ? "Baby Boy" : "Surprise"}
               </span>
             )}
           </div>
@@ -364,7 +362,7 @@ export const BabyCarePage: React.FC<{
         </div>
       </section>
 
-      {/* 🍼 TODAY'S BABY CARE SUMMARY (Clean - Shows "Not logged today" when empty) */}
+      {/* TODAY'S BABY CARE SUMMARY (Clean - Shows "Not logged today" when empty) */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-5">
         <div className="flex items-center justify-between border-b border-slate-100 dark:border-rose-900/30 pb-3">
           <div>
@@ -418,7 +416,7 @@ export const BabyCarePage: React.FC<{
         </div>
       </section>
 
-      {/* 🚀 QUICK ACCESS SHORTCUTS */}
+      {/* QUICK ACCESS SHORTCUTS */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-4">
         <div>
           <h2 className="text-base font-bold text-slate-900 dark:text-rose-100">Baby Care Quick Access</h2>
@@ -434,7 +432,7 @@ export const BabyCarePage: React.FC<{
         </div>
       </section>
 
-      {/* 📊 BABY CARE HISTORY SUMMARY */}
+      {/* BABY CARE HISTORY SUMMARY */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-4">
         <div className="flex items-center justify-between border-b border-slate-100 dark:border-rose-900/30 pb-3">
           <div className="flex items-center gap-2">
@@ -508,7 +506,7 @@ export const BabyCarePage: React.FC<{
                           : "bg-white dark:bg-[#15111C] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-gray-800"
                       }`}
                     >
-                      {gnd === "Girl" ? "🎀 Girl" : gnd === "Boy" ? "🧸 Boy" : gnd === "Surprise" ? "✨ Surprise" : "Skip"}
+                      {gnd === "Girl" ? "Girl" : gnd === "Boy" ? "Boy" : gnd === "Surprise" ? "Surprise" : "Skip"}
                     </button>
                   ))}
                 </div>

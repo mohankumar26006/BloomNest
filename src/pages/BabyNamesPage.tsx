@@ -240,7 +240,7 @@ export const BabyNamesPage: React.FC = () => {
 
           setAiGeneratedNames(generated);
           setCurrentIndex(0);
-          showToast(`Generated 5 custom AI baby names! ✨`);
+          showToast(`Generated 5 custom AI baby names!`);
         }
       } else {
         showToast("AI Name generation request failed. Try again.");
@@ -262,7 +262,7 @@ export const BabyNamesPage: React.FC = () => {
     setCuratedList((prev) =>
       prev.map((n) => (n.id === id ? { ...n, isFavorite: !n.isFavorite } : n))
     );
-    showToast("Updated your baby name shortlist! ❤️");
+    showToast("Updated your baby name shortlist!");
   };
 
   // Filter Engine for Swiper & Shortlist
@@ -294,7 +294,7 @@ export const BabyNamesPage: React.FC = () => {
       utterance.pitch = 1.0;
       utterance.lang = "en-IN";
       window.speechSynthesis.speak(utterance);
-      showToast(`Pronouncing "${name}"... 🔊`);
+      showToast(`Pronouncing "${name}"...`);
     } else {
       showToast(`Speech synthesis not supported in this browser.`);
     }
@@ -318,7 +318,7 @@ export const BabyNamesPage: React.FC = () => {
       .map((n, i) => `${i + 1}. ${n.name} (${n.script || ""}) — ${n.meaning} [Lucky No. ${n.luckyNumber || 7}]`)
       .join("\n");
 
-    const fullShareText = `🌸 BloomNest AI Baby Name Shortlist:\n\n${nameListText}\n\nWhich one is your favorite? 💕`;
+    const fullShareText = `BloomNest AI Baby Name Shortlist:\n\n${nameListText}\n\nWhich one is your favorite?`;
 
     if (navigator.share) {
       navigator
@@ -338,7 +338,7 @@ export const BabyNamesPage: React.FC = () => {
     setStartingLetter(syllable);
     setSelectedNakshatra(nakshatra);
     setShowNakshatraModal(false);
-    showToast(`Selected "${syllable}" (${nakshatra.name} · ${nakshatra.tamil}) as starting initial! 🌟`);
+    showToast(`Selected "${syllable}" (${nakshatra.name} · ${nakshatra.tamil}) as starting initial!`);
   };
 
   // Filtered Nakshatras for modal
@@ -461,7 +461,7 @@ export const BabyNamesPage: React.FC = () => {
                     className="text-[11px] font-bold text-purple-600 dark:text-purple-300 hover:text-purple-800 dark:hover:text-purple-100 flex items-center gap-1 transition-colors px-2 py-0.5 rounded-lg bg-purple-50 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800"
                   >
                     <Star className="w-3 h-3 fill-current text-amber-400" />
-                    <span>⭐ Find by Nakshatra (நட்சத்திர எழுத்து)</span>
+                    <span>Find by Nakshatra (நட்சத்திர எழுத்து)</span>
                   </button>
                 </div>
 
@@ -535,7 +535,7 @@ export const BabyNamesPage: React.FC = () => {
               </div>
 
               {/* Row 3: Mom & Dad Name Blending Section */}
-              <div className="rounded-2xl border border-pink-200/80 dark:border-pink-900/50 bg-gradient-to-r from-pink-50/60 to-rose-50/40 dark:from-pink-950/20 dark:to-rose-950/20 p-4 space-y-3">
+              <div className="rounded-2xl border border-pink-200/80 dark:border-pink-900/50 bg-rose-50/50 dark:bg-rose-950/20 p-4 space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <div className="p-1.5 rounded-lg bg-pink-100 dark:bg-pink-900/50 text-pink-600 dark:text-pink-300">
@@ -567,7 +567,7 @@ export const BabyNamesPage: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 animate-in fade-in duration-200">
                     <div>
                       <label className="text-[10.5px] font-bold text-gray-700 dark:text-rose-200 block mb-1">
-                        👩 Mother's Name
+                        Mother's Name
                       </label>
                       <input
                         type="text"
@@ -580,7 +580,7 @@ export const BabyNamesPage: React.FC = () => {
 
                     <div>
                       <label className="text-[10.5px] font-bold text-gray-700 dark:text-rose-200 block mb-1">
-                        👨 Father's Name
+                        Father's Name
                       </label>
                       <input
                         type="text"
@@ -651,7 +651,7 @@ export const BabyNamesPage: React.FC = () => {
                   isLoading={isGenerating}
                   leftIcon={<Wand2 className="w-5 h-5" />}
                 >
-                  {isGenerating ? "Gemini AI is Generating Names..." : "Generate Custom AI Baby Names ✨"}
+                  {isGenerating ? "Gemini AI is Generating Names..." : "Generate Custom AI Baby Names"}
                 </Button>
               </div>
             </form>
@@ -662,7 +662,7 @@ export const BabyNamesPage: React.FC = () => {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Badge variant={aiGeneratedNames.length > 0 ? "rose" : "amber"} size="sm" icon={<Sparkles className="w-3.5 h-3.5" />}>
-                  {aiGeneratedNames.length > 0 ? `AI Generated (${aiGeneratedNames.length})` : "⭐ Trending Curated Starters"}
+                  {aiGeneratedNames.length > 0 ? `AI Generated (${aiGeneratedNames.length})` : "Trending Curated Starters"}
                 </Badge>
                 <CardHeading text-xl>
                   {aiGeneratedNames.length > 0 ? "Your Custom AI Baby Names" : "Popular Modern Baby Names"}
@@ -674,7 +674,7 @@ export const BabyNamesPage: React.FC = () => {
                 size="sm"
                 onClick={() => setActiveTab("swiper")}
               >
-                View in Swiper 🃏
+                View in Swiper
               </Button>
             </div>
 
@@ -699,11 +699,11 @@ export const BabyNamesPage: React.FC = () => {
                           {name.gender} · {name.origin}
                         </Badge>
                         <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10.5px] font-bold bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20">
-                          🍀 Lucky {name.luckyNumber || 7}
+                          Lucky {name.luckyNumber || 7}
                         </span>
                         {(motherName && fatherName && aiGeneratedNames.length > 0) && (
                           <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-pink-500/10 text-pink-600 dark:text-pink-300 border border-pink-500/20">
-                            💕 Blended
+                            Blended
                           </span>
                         )}
                       </div>
@@ -712,7 +712,7 @@ export const BabyNamesPage: React.FC = () => {
                         <button
                           onClick={() => handleSpeakName(name.name)}
                           className="p-1.5 rounded-full text-rose-500 hover:bg-rose-100 dark:hover:bg-rose-950/40"
-                          title="Pronounce 🔊"
+                          title="Pronounce"
                         >
                           <Volume2 className="w-4 h-4" />
                         </button>
@@ -783,21 +783,21 @@ export const BabyNamesPage: React.FC = () => {
             {isGenerating ? (
               /* AI Loading State */
               <Card variant="flat" radius="3xl" className="p-8 text-center space-y-3 max-w-md animate-pulse">
-                <div className="text-3xl animate-bounce">✨</div>
+                <Sparkles className="w-10 h-10 text-rose-400 mx-auto animate-bounce" />
                 <CardHeading text-lg>Gemini AI is Generating Custom Names...</CardHeading>
                 <BodyText>Blending syllables, calculating numerology, and finding authentic meanings.</BodyText>
               </Card>
             ) : filteredNames.length === 0 ? (
               <Card variant="flat" radius="3xl" className="p-8 text-center space-y-3 max-w-md">
-                <div className="text-3xl">🌸</div>
+                <Search className="w-10 h-10 text-rose-400 mx-auto" />
                 <CardHeading text-lg>No Names Match Search</CardHeading>
                 <BodyText>Try adjusting your search query or generate fresh AI names!</BodyText>
                 <Button variant="primary" size="sm" onClick={() => setActiveTab("generator")}>
-                  Go to Generator Form ✨
+                  Go to Generator Form
                 </Button>
               </Card>
             ) : currentCard && (
-              <div className="w-full max-w-md bg-gradient-to-tr from-rose-500 to-rose-600 rounded-[36px] text-white p-8 shadow-2xl relative space-y-6 text-center transform transition-all duration-300 hover:scale-[1.01]">
+              <div className="w-full max-w-md bg-rose-600 rounded-2xl text-white p-8 shadow-sm relative space-y-6 text-center transform transition-all duration-300">
                 
                 {/* Card Top Pills */}
                 <div className="flex items-center justify-between">
@@ -807,7 +807,7 @@ export const BabyNamesPage: React.FC = () => {
                       <span>{currentCard.gender} · {currentCard.origin}</span>
                     </span>
                     <span className="px-2.5 py-1 bg-amber-400/30 backdrop-blur-md rounded-full text-[11px] font-extrabold text-amber-100 border border-amber-300/30">
-                      🍀 Lucky {currentCard.luckyNumber || 7}
+                      Lucky {currentCard.luckyNumber || 7}
                     </span>
                   </div>
 
@@ -816,7 +816,7 @@ export const BabyNamesPage: React.FC = () => {
                     <button
                       onClick={() => handleSpeakName(currentCard.name)}
                       className="p-2 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors"
-                      title="Audio Pronunciation 🔊"
+                      title="Audio Pronunciation"
                     >
                       <Volume2 className="w-4 h-4" />
                     </button>
@@ -908,18 +908,18 @@ export const BabyNamesPage: React.FC = () => {
                 onClick={handleShareShortlist}
                 leftIcon={<Share2 className="w-4 h-4" />}
               >
-                Share Shortlist (WhatsApp) 📲
+                Share Shortlist (WhatsApp)
               </Button>
             )}
           </div>
 
           {favorites.length === 0 ? (
             <Card variant="flat" radius="3xl" className="p-8 text-center space-y-3">
-              <div className="text-3xl">❤️</div>
+              <Heart className="w-10 h-10 text-rose-400 mx-auto" />
               <CardHeading text-lg>No Favorite Names Shortlisted Yet</CardHeading>
               <BodyText>Tap the heart or bookmark icon on any card in the Generator or Swiper tab to bookmark your top picks!</BodyText>
               <Button variant="primary" size="sm" onClick={() => setActiveTab("generator")}>
-                Browse Baby Names ✨
+                Browse Baby Names
               </Button>
             </Card>
           ) : (
@@ -938,7 +938,7 @@ export const BabyNamesPage: React.FC = () => {
                           {name.gender} · {name.origin}
                         </Badge>
                         <span className="text-[10.5px] font-bold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-300 border border-amber-500/20">
-                          🍀 No. {name.luckyNumber || 7}
+                          No. {name.luckyNumber || 7}
                         </span>
                       </div>
                       <div className="flex items-center gap-1">
@@ -994,7 +994,7 @@ export const BabyNamesPage: React.FC = () => {
           <div className="bg-white dark:bg-[#150F1E] rounded-3xl border border-rose-200 dark:border-rose-900/50 shadow-2xl max-w-2xl w-full max-h-[85vh] flex flex-col overflow-hidden">
             
             {/* Modal Header */}
-            <div className="p-5 border-b border-rose-100 dark:border-rose-900/40 flex items-center justify-between bg-gradient-to-r from-purple-500/10 via-rose-500/10 to-transparent">
+            <div className="p-5 border-b border-rose-100 dark:border-rose-900/40 flex items-center justify-between bg-purple-500/10">
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <div className="p-1.5 rounded-lg bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-300">

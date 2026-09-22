@@ -56,7 +56,7 @@ export const AiAssistantPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"copilot" | "care-planner" | "doctor-brief">("copilot");
 
   // Chat state
-  const greetingFallback = `Hello, Dear Mama ${user.fullName}! 🌸 I am **BloomNest 2.0 Agentic Copilot**.\n\nYou are in **Week ${user.currentWeek} (Trimester ${user.trimester})**. Unlike ordinary chatbots, I coordinate specialized clinical agents:\n• 👶 **Journey Agent** (Fetal milestones)\n• 🥗 **Wellness Agent** (ICMR maternal diet & recipes)\n• 🚨 **Safety Agent** (ACOG clinical guardrails & red flags)\n• 📋 **Care Planner Agent** (Daily routines)\n• 🩺 **Doctor Brief Agent** (SBAR handover summaries)\n\nAsk me anything in English or Tamil / Tanglish!`;
+  const greetingFallback = `Hello, Dear Mama ${user.fullName}! I am **BloomNest 2.0 Agentic Copilot**.\n\nYou are in **Week ${user.currentWeek} (Trimester ${user.trimester})**. Unlike ordinary chatbots, I coordinate specialized clinical agents:\n• **Journey Agent** (Fetal milestones)\n• **Wellness Agent** (ICMR maternal diet & recipes)\n• **Safety Agent** (ACOG clinical guardrails & red flags)\n• **Care Planner Agent** (Daily routines)\n• **Doctor Brief Agent** (SBAR handover summaries)\n\nAsk me anything in English or Tamil / Tanglish!`;
 
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
@@ -137,12 +137,12 @@ export const AiAssistantPage: React.FC = () => {
   };
 
   const OBSTETRIC_PROMPTS = [
-    { label: "🥑 Is papaya safe in 2nd trimester?", text: "Is papaya safe during pregnancy in 2nd trimester?" },
-    { label: "🚨 Headache + BP 140/90 (Triage)", text: "I have sudden headache and my BP is 140/92, what should I do?" },
-    { label: "📋 Generate Week " + user.currentWeek + " Care Plan", text: "Create my personalized daily care plan for week " + user.currentWeek },
-    { label: "🩺 Compile Doctor's SBAR Brief", text: "Generate my clinical doctor brief SBAR handover report" },
-    { label: "🌾 High-protein South Indian meal", text: "Suggest a healthy South Indian pregnancy recipe with iron and calcium" },
-    { label: "🗣️ 'Kaal veengirukku' (Tanglish triage)", text: "Enaku 2 naala kaal veengirukku and mild headache irukku" }
+    { label: "Is papaya safe in 2nd trimester?", text: "Is papaya safe during pregnancy in 2nd trimester?" },
+    { label: "Headache + BP 140/90 (Triage)", text: "I have sudden headache and my BP is 140/92, what should I do?" },
+    { label: "Generate Week " + user.currentWeek + " Care Plan", text: "Create my personalized daily care plan for week " + user.currentWeek },
+    { label: "Compile Doctor's SBAR Brief", text: "Generate my clinical doctor brief SBAR handover report" },
+    { label: "High-protein South Indian meal", text: "Suggest a healthy South Indian pregnancy recipe with iron and calcium" },
+    { label: "'Kaal veengirukku' (Tanglish triage)", text: "Enaku 2 naala kaal veengirukku and mild headache irukku" }
   ];
 
   useEffect(() => {
@@ -224,10 +224,10 @@ export const AiAssistantPage: React.FC = () => {
 
     // Dynamic visual orchestration steps
     setActiveOrchestrationSteps([
-      "🧠 Agent Orchestrator: Parsing intent & patient context graph...",
-      "🚨 Safety Agent: Evaluating ACOG preeclampsia & vital thresholds...",
-      "🥗 Wellness Agent: Cross-referencing ICMR maternal guidelines...",
-      "💾 Maternal Memory: Syncing with PostgreSQL context store..."
+      "Agent Orchestrator: Parsing intent & patient context graph...",
+      "Safety Agent: Evaluating ACOG preeclampsia & vital thresholds...",
+      "Wellness Agent: Cross-referencing ICMR maternal guidelines...",
+      "Maternal Memory: Syncing with PostgreSQL context store..."
     ]);
 
     try {
@@ -276,7 +276,7 @@ export const AiAssistantPage: React.FC = () => {
           {
             id: `ai_err_${Date.now()}`,
             sender: "ai",
-            text: "🌸 Dear Mama: Stay hydrated and rest. For acute maternal symptoms, consult Dr. Ananya Sharma or call 108 immediately.",
+            text: "Dear Mama: Stay hydrated and rest. For acute maternal symptoms, consult Dr. Ananya Sharma or call 108 immediately.",
             time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
             evidenceBadge: "Clinical Safety Fallback",
             agentsInvolved: ["ORCHESTRATOR", "SAFETY"],
@@ -343,7 +343,7 @@ Disclaimer: ${sbarData.disclaimer}`;
   return (
     <div className="space-y-6 pb-16 animate-in fade-in duration-300 max-w-6xl mx-auto">
       {/* Top Banner Header */}
-      <div className="bg-gradient-to-r from-rose-50 to-rose-100 dark:from-[#1a1523] dark:via-[#1e172a] dark:to-[#171422] p-6 rounded-3xl border border-rose-200/70 dark:border-rose-900/40 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-rose-100 dark:bg-[#1a1523] p-6 rounded-3xl border border-rose-200/70 dark:border-rose-900/40 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 text-rose-600 dark:text-rose-400 text-xs font-bold uppercase tracking-wider">
             <span className="flex h-2 w-2 relative">
@@ -378,7 +378,7 @@ Disclaimer: ${sbarData.disclaimer}`;
           onClick={() => setActiveTab("copilot")}
           className={`px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 transition-all whitespace-nowrap ${
             activeTab === "copilot"
-              ? "bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-sm"
+              ? "bg-rose-500 text-white shadow-sm"
               : "text-gray-600 dark:text-rose-200 hover:bg-rose-50 dark:hover:bg-rose-950/40"
           }`}
         >
@@ -390,7 +390,7 @@ Disclaimer: ${sbarData.disclaimer}`;
           onClick={() => setActiveTab("care-planner")}
           className={`px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 transition-all whitespace-nowrap ${
             activeTab === "care-planner"
-              ? "bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-sm"
+              ? "bg-rose-500 text-white shadow-sm"
               : "text-gray-600 dark:text-rose-200 hover:bg-rose-50 dark:hover:bg-rose-950/40"
           }`}
         >
@@ -403,7 +403,7 @@ Disclaimer: ${sbarData.disclaimer}`;
           onClick={() => setActiveTab("doctor-brief")}
           className={`px-4 py-2.5 rounded-xl text-xs font-bold flex items-center gap-2 transition-all whitespace-nowrap ${
             activeTab === "doctor-brief"
-              ? "bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-sm"
+              ? "bg-rose-500 text-white shadow-sm"
               : "text-gray-600 dark:text-rose-200 hover:bg-rose-50 dark:hover:bg-rose-950/40"
           }`}
         >
@@ -442,7 +442,7 @@ Disclaimer: ${sbarData.disclaimer}`;
 
           {/* Active Chain-of-Thought Visualizer Banner when thinking */}
           {isLoading && activeOrchestrationSteps.length > 0 && (
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-purple-900/90 to-rose-900/90 text-white shadow-md border border-purple-400/30 animate-pulse space-y-2">
+            <div className="p-4 rounded-2xl bg-purple-900/90 text-white shadow-md border border-purple-400/30 animate-pulse space-y-2">
               <div className="flex items-center gap-2 text-xs font-bold text-purple-200">
                 <Layers className="w-4 h-4 text-purple-300 animate-spin" />
                 <span>Autonomous Multi-Agent Consensus in Progress:</span>
@@ -479,7 +479,7 @@ Disclaimer: ${sbarData.disclaimer}`;
                       className={`w-9 h-9 rounded-2xl flex items-center justify-center font-bold text-xs shrink-0 shadow-xs ${
                         msg.sender === "user"
                           ? "bg-rose-500 text-white"
-                          : "bg-gradient-to-tr from-purple-600 via-rose-500 to-pink-500 text-white"
+                          : "bg-purple-600 text-white"
                       }`}
                     >
                       {msg.sender === "user" ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
@@ -605,7 +605,7 @@ Disclaimer: ${sbarData.disclaimer}`;
               <button
                 type="submit"
                 disabled={isLoading || !input.trim()}
-                className="px-5 py-3 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm disabled:opacity-50 transition-all"
+                className="px-5 py-3 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm disabled:opacity-50 transition-all"
               >
                 <span>{isLoading ? "Analyzing..." : "Ask Agent"}</span>
                 <Send className="w-4 h-4" />
@@ -750,7 +750,7 @@ Disclaimer: ${sbarData.disclaimer}`;
 
                 <button
                   onClick={handlePrintSbar}
-                  className="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-2xl text-xs font-bold flex items-center gap-1.5 shadow-sm hover:from-purple-700 hover:to-indigo-700 transition-all"
+                  className="px-4 py-2 bg-purple-600 text-white rounded-2xl text-xs font-bold flex items-center gap-1.5 shadow-sm hover:bg-purple-700 transition-all"
                 >
                   <Printer className="w-3.5 h-3.5" />
                   <span>Print Clinical Note</span>

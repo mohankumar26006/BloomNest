@@ -355,7 +355,7 @@ export const MotherSleepFatiguePage: React.FC<{
           <div className="space-y-1">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="px-3 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-300 text-xs font-semibold rounded-full flex items-center gap-1.5">
-                😴 Feature 12 • Mother Sleep & Fatigue
+                Feature 12 • Mother Sleep & Fatigue
               </span>
               <span className="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300 text-xs font-medium rounded-full">
                 Postpartum Day {currentPostpartumDay} • Week {currentPostpartumWeek}
@@ -553,10 +553,7 @@ export const MotherSleepFatiguePage: React.FC<{
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                   {(["Night sleep", "Daytime nap", "Rest", "Other"] as SleepType[]).map((t) => {
                     const isSelected = sleepType === t;
-                    let icon = "🌙";
-                    if (t === "Daytime nap") icon = "☀️";
-                    else if (t === "Rest") icon = "🛋️";
-                    else if (t === "Other") icon = "✨";
+                    const TypeIcon = t === "Daytime nap" ? Sun : t === "Rest" ? Bed : t === "Other" ? Sparkles : Moon;
 
                     return (
                       <button
@@ -569,7 +566,7 @@ export const MotherSleepFatiguePage: React.FC<{
                             : "border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
                         }`}
                       >
-                        <span className="text-lg">{icon}</span>
+                        <TypeIcon className="w-4 h-4" />
                         <span>{t}</span>
                       </button>
                     );
@@ -761,7 +758,7 @@ export const MotherSleepFatiguePage: React.FC<{
             </div>
 
             {/* CORRELATED NIGHT CAREGIVING CONTEXT PANEL */}
-            <div className="bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent dark:from-indigo-950/30 border border-indigo-200 dark:border-indigo-900/40 rounded-3xl p-6 space-y-4">
+            <div className="bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-900/40 rounded-3xl p-6 space-y-4">
               <div className="flex items-center gap-2">
                 <Info className="w-5 h-5 text-indigo-600 dark:text-indigo-400 shrink-0" />
                 <h3 className="font-bold text-slate-900 dark:text-white text-sm">Night Caregiving Context Summary</h3>
@@ -773,15 +770,15 @@ export const MotherSleepFatiguePage: React.FC<{
 
               <div className="space-y-2 text-xs">
                 <div className="flex justify-between items-center p-2.5 bg-white/80 dark:bg-slate-800/80 rounded-xl">
-                  <span>🍼 Night Feeding Events (Feature 10)</span>
+                  <span>Night Feeding Events (Feature 10)</span>
                   <span className="font-bold text-indigo-600 dark:text-indigo-400">{nightFeedCount} logged</span>
                 </div>
                 <div className="flex justify-between items-center p-2.5 bg-white/80 dark:bg-slate-800/80 rounded-xl">
-                  <span>💧 Pumping Sessions (Feature 09)</span>
+                  <span>Pumping Sessions (Feature 09)</span>
                   <span className="font-bold text-indigo-600 dark:text-indigo-400">{nightPumpCount} logged</span>
                 </div>
                 <div className="flex justify-between items-center p-2.5 bg-white/80 dark:bg-slate-800/80 rounded-xl">
-                  <span>🧷 Diaper Changes (Feature 11)</span>
+                  <span>Diaper Changes (Feature 11)</span>
                   <span className="font-bold text-indigo-600 dark:text-indigo-400">{nightDiaperCount} logged</span>
                 </div>
               </div>

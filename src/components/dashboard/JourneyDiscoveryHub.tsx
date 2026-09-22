@@ -42,7 +42,7 @@ export const JourneyDiscoveryHub: React.FC<JourneyDiscoveryHubProps> = ({
           <img
             src={sarahAvatar}
             alt="Garbha Sanskar"
-            className="w-10 h-10 rounded-xl object-cover shrink-0 group-hover:scale-105 transition-transform"
+            className="w-10 h-10 rounded-xl object-cover shrink-0 group-hover:opacity-90 transition-opacity"
           />
           <div>
             <div className="text-xs font-bold text-gray-900 dark:text-rose-100">
@@ -67,7 +67,7 @@ export const JourneyDiscoveryHub: React.FC<JourneyDiscoveryHubProps> = ({
           <img
             src={hospitalBagArt}
             alt="Hospital Bag"
-            className="w-10 h-10 rounded-xl object-cover shrink-0 group-hover:scale-105 transition-transform"
+            className="w-10 h-10 rounded-xl object-cover shrink-0 group-hover:opacity-90 transition-opacity"
           />
           <div>
             <div className="text-xs font-bold text-gray-900 dark:text-rose-100 flex items-center gap-1">
@@ -91,7 +91,7 @@ export const JourneyDiscoveryHub: React.FC<JourneyDiscoveryHubProps> = ({
           <img
             src={waterGlassArt}
             alt="Water Tracker"
-            className="w-10 h-10 rounded-xl object-cover shrink-0 group-hover:scale-105 transition-transform"
+            className="w-10 h-10 rounded-xl object-cover shrink-0 group-hover:opacity-90 transition-opacity"
           />
           <div>
             <div className="text-xs font-bold text-gray-900 dark:text-rose-100">
@@ -114,7 +114,7 @@ export const JourneyDiscoveryHub: React.FC<JourneyDiscoveryHubProps> = ({
           <img
             src={prenatalYogaArt}
             alt="Prenatal Yoga"
-            className="w-10 h-10 rounded-xl object-cover shrink-0 group-hover:scale-105 transition-transform"
+            className="w-10 h-10 rounded-xl object-cover shrink-0 group-hover:opacity-90 transition-opacity"
           />
           <div>
             <div className="text-xs font-bold text-gray-900 dark:text-rose-100">

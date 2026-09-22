@@ -32,6 +32,8 @@ const AiAssistantPage = lazy(() => import("./pages/AiAssistantPage").then(m => (
 const EmergencyContactsPage = lazy(() => import("./pages/EmergencyContactsPage").then(m => ({ default: m.EmergencyContactsPage })));
 const ReportsPage = lazy(() => import("./pages/ReportsPage").then(m => ({ default: m.ReportsPage })));
 const SettingsPage = lazy(() => import("./pages/SettingsPage").then(m => ({ default: m.SettingsPage })));
+const TermsPage = lazy(() => import("./pages/TermsPage").then(m => ({ default: m.TermsPage })));
+const PrivacyPage = lazy(() => import("./pages/PrivacyPage").then(m => ({ default: m.PrivacyPage })));
 const ThemeStudioPage = lazy(() => import("./pages/ThemeStudioPage").then(m => ({ default: m.ThemeStudioPage })));
 const AdminPage = lazy(() => import("./pages/AdminPage").then(m => ({ default: m.AdminPage })));
 const BirthPlanPage = lazy(() => import("./pages/BirthPlanPage").then(m => ({ default: m.BirthPlanPage })));
@@ -187,6 +189,10 @@ const MainContent: React.FC = () => {
         return <ReportsPage />;
       case "settings":
         return <SettingsPage />;
+      case "terms":
+        return <TermsPage />;
+      case "privacy":
+        return <PrivacyPage />;
       case "theme-studio":
         return <ThemeStudioPage />;
       case "admin":

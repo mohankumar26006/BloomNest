@@ -112,7 +112,7 @@ export const PreconceptionNutrition: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Banner */}
-      <div className="p-6 rounded-3xl bg-gradient-to-r from-emerald-700 via-teal-700 to-emerald-900 text-white shadow-xl shadow-emerald-950/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="p-6 rounded-3xl bg-emerald-900 text-white shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="p-1.5 rounded-lg bg-emerald-500/30 text-emerald-200">
@@ -131,7 +131,7 @@ export const PreconceptionNutrition: React.FC = () => {
       <Card variant="glass" className="p-6 border-emerald-100 dark:border-emerald-900/40">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex items-center gap-5">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-lg shadow-emerald-500/30">
+            <div className="w-16 h-16 rounded-2xl bg-teal-600 flex items-center justify-center text-white shadow-sm">
               <Flame className="w-8 h-8" />
             </div>
             <div>
@@ -157,7 +157,7 @@ export const PreconceptionNutrition: React.FC = () => {
               onClick={toggleFolateToday}
               className={`w-full sm:w-auto px-6 py-3.5 rounded-2xl font-black text-sm flex items-center justify-center gap-2 transition-all shadow-md ${
                 folateTakenToday
-                  ? "bg-emerald-600 text-white shadow-emerald-600/30"
+                  ? "bg-emerald-600 text-white"
                   : "bg-emerald-100 hover:bg-emerald-200 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-200"
               }`}
             >
@@ -170,7 +170,6 @@ export const PreconceptionNutrition: React.FC = () => {
         {/* Daily Hydration Bar */}
         <div className="mt-6 pt-6 border-t border-emerald-100 dark:border-emerald-900/30 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <span className="text-2xl">💧</span>
             <div>
               <div className="text-xs font-bold text-emerald-900 dark:text-emerald-100">Cellular Hydration</div>
               <p className="text-[11px] text-emerald-700/70 dark:text-emerald-300/70">Adequate water increases fertile cervical mucus volume.</p>

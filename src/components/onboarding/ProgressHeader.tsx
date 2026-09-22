@@ -41,7 +41,7 @@ export const ProgressHeader: React.FC<ProgressHeaderProps> = ({
 
       <div className="w-full h-2 bg-rose-100/60 dark:bg-rose-950/40 rounded-full overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-rose-400 to-pink-500 transition-all duration-500 ease-out"
+          className="h-full bg-rose-500 transition-all duration-500 ease-out"
           style={{ width: `${percentage}%` }}
         />
       </div>

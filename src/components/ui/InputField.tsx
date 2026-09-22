@@ -1,4 +1,5 @@
 import React, { useId } from "react";
+import { AlertCircle } from "lucide-react";
 
 export interface InputFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -52,7 +53,8 @@ export const InputField: React.FC<InputFieldProps> = ({
 
       {error ? (
         <p className="text-[11px] font-bold text-red-500 flex items-center gap-1">
-          ⚠️ {error}
+          <AlertCircle className="w-3 h-3 shrink-0" />
+          {error}
         </p>
       ) : helperText ? (
         <p className="text-[11px] font-semibold text-gray-400 dark:text-rose-400">

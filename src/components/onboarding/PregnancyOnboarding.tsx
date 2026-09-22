@@ -56,17 +56,17 @@ export const PregnancyOnboarding: React.FC<PregnancyOnboardingProps> = ({
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 bg-gradient-to-br from-[#FFF0F5] via-[#FFF7F9] to-[#F5E6EC] dark:from-[#120E18] dark:via-[#1A1424] dark:to-[#22172A] text-gray-900 dark:text-rose-100">
+    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 bg-[#FFF7F9] dark:bg-[#120E18] text-gray-900 dark:text-rose-100">
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="w-full max-w-2xl bg-white/90 dark:bg-[#1A1523]/90 backdrop-blur-xl p-6 sm:p-8 rounded-[36px] border border-rose-100 dark:border-rose-900/40 shadow-2xl shadow-rose-200/50 dark:shadow-none space-y-6"
+        className="w-full max-w-2xl bg-white/90 dark:bg-[#1A1523]/90 p-6 sm:p-8 rounded-2xl border border-rose-100 dark:border-rose-900/40 shadow-sm space-y-6"
       >
         <ProgressHeader
           currentStep={2}
           totalSteps={4}
-          title="🤰 Pregnancy & Gestational Personalization"
+          title="Pregnancy & Gestational Personalization"
           onBack={onBack}
         />
 
@@ -134,7 +134,7 @@ export const PregnancyOnboarding: React.FC<PregnancyOnboardingProps> = ({
                         : "bg-white dark:bg-[#15111C] text-gray-700 dark:text-rose-200 border-gray-200 dark:border-gray-800"
                     }`}
                   >
-                    👶 Single Baby
+                    Single Baby
                   </button>
                   <button
                     type="button"
@@ -145,7 +145,7 @@ export const PregnancyOnboarding: React.FC<PregnancyOnboardingProps> = ({
                         : "bg-white dark:bg-[#15111C] text-gray-700 dark:text-rose-200 border-gray-200 dark:border-gray-800"
                     }`}
                   >
-                    👶👶 Twins / Multiples
+                    Twins / Multiples
                   </button>
                 </div>
               </div>
@@ -209,7 +209,7 @@ export const PregnancyOnboarding: React.FC<PregnancyOnboardingProps> = ({
 
           <button
             type="submit"
-            className="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold text-sm shadow-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.01]"
+            className="w-full py-4 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm shadow-xl flex items-center justify-center gap-2 transition-all"
           >
             <span>Next: Medical Report Check</span>
             <ArrowRight className="w-4 h-4" />

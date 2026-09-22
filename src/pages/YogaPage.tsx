@@ -110,7 +110,7 @@ export const YogaPage: React.FC = () => {
       </div>
 
       {/* Breathing Circle Visualizer Card */}
-      <div className="p-8 rounded-3xl bg-gradient-to-tr from-purple-900 via-indigo-900 to-rose-950 text-white shadow-xl flex flex-col items-center justify-center text-center space-y-6">
+      <div className="p-8 rounded-3xl bg-purple-950 text-white shadow-sm flex flex-col items-center justify-center text-center space-y-6">
         <div className="space-y-1">
           <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-bold text-rose-300">
             {t("guidedBreathPacer")}
@@ -121,7 +121,7 @@ export const YogaPage: React.FC = () => {
         {/* Pulsing Breathing Circle */}
         <div className="relative w-48 h-48 flex items-center justify-center">
           <div
-            className={`absolute inset-0 rounded-full bg-gradient-to-tr from-pink-500 to-purple-500 opacity-30 transition-all duration-1000 ${
+            className={`absolute inset-0 rounded-full bg-purple-500 opacity-30 transition-all duration-1000 ${
               isBreathing && breathPhase === "Inhale"
                 ? "scale-125 duration-[4000ms]"
                 : isBreathing && breathPhase === "Exhale"
@@ -144,7 +144,7 @@ export const YogaPage: React.FC = () => {
 
         <button
           onClick={toggleBreathing}
-          className="px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-bold text-xs flex items-center gap-2 shadow-lg transition-transform active:scale-95"
+          className="px-6 py-3 rounded-full bg-rose-500 hover:bg-rose-600 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-transform active:scale-95"
         >
           {isBreathing ? <Square className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current" />}
           <span>{isBreathing ? t("pauseBreathPacer") : t("startGuidedBreathing")}</span>

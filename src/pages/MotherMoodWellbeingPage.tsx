@@ -362,15 +362,15 @@ export const MotherMoodWellbeingPage: React.FC<{
   const getMoodEmoji = (score: MotherMoodScore) => {
     switch (score) {
       case 1:
-        return "😢 Very Low";
+        return "Very Low";
       case 2:
-        return "😔 Low";
+        return "Low";
       case 3:
-        return "😐 Okay";
+        return "Okay";
       case 4:
-        return "🙂 Good";
+        return "Good";
       case 5:
-        return "😊 Very Good";
+        return "Very Good";
     }
   };
 
@@ -439,7 +439,7 @@ export const MotherMoodWellbeingPage: React.FC<{
       setMoodLogs(updatedLogs);
       loadTimeline(logDate, updatedLogs);
 
-      setSaveSuccessMsg("Emotional check-in saved 💕");
+      setSaveSuccessMsg("Emotional check-in saved");
       showToast("Mood & emotional check-in logged!");
       setTimeout(() => setSaveSuccessMsg(null), 3000);
 
@@ -688,10 +688,7 @@ export const MotherMoodWellbeingPage: React.FC<{
                       : "bg-slate-50 dark:bg-[#15111C] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-gray-800 hover:border-purple-300"
                   }`}
                 >
-                  <span className="text-xl">
-                    {score === 1 ? "😢" : score === 2 ? "😔" : score === 3 ? "😐" : score === 4 ? "🙂" : "😊"}
-                  </span>
-                  <span className="text-[10px] font-extrabold">{getMoodEmoji(score).split(" ")[1]}</span>
+                  <span className="text-[10px] font-extrabold">{getMoodEmoji(score)}</span>
                 </button>
               ))}
             </div>
@@ -916,7 +913,7 @@ export const MotherMoodWellbeingPage: React.FC<{
 
           <button
             type="submit"
-            className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-extrabold text-sm shadow-md transition-all flex items-center justify-center gap-2"
+            className="w-full py-3.5 px-6 rounded-2xl bg-purple-600 hover:bg-purple-700 text-white font-extrabold text-sm shadow-md transition-all flex items-center justify-center gap-2"
           >
             <Plus className="w-4 h-4" />
             <span>Save Emotional Check-In Log</span>
@@ -1044,7 +1041,7 @@ export const MotherMoodWellbeingPage: React.FC<{
       </section>
 
       {/* EDUCATIONAL POSTPARTUM EMOTIONAL WELLBEING GUIDE */}
-      <section className="bg-gradient-to-br from-purple-900 via-indigo-900 to-slate-900 text-white rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl">
+      <section className="bg-purple-900 text-white rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl">
         <div className="flex items-center gap-2 border-b border-purple-800/60 pb-3">
           <Heart className="w-5 h-5 text-pink-400" />
           <h2 className="text-base font-extrabold text-rose-100">Postpartum Emotional Wellbeing & Self-Care</h2>

@@ -34,15 +34,15 @@ import {
 import pastelMotherArt from "../assets/images/pastel_mother_art_1785746033662.jpg";
 
 // Key clinical and developmental milestones
-const CLINICAL_MILESTONES: Record<number, { title: string; badge: string; icon: string; color: string }> = {
-  12: { title: "NT Scan & First Trimester Screen", badge: "12W Scan", icon: "🔬", color: "bg-blue-500 text-white" },
-  18: { title: "First Baby Kicks (Quickening)", badge: "First Kicks", icon: "💖", color: "bg-rose-500 text-white" },
-  20: { title: "Level-II Anomaly Scan", badge: "Anomaly Scan", icon: "🩺", color: "bg-purple-600 text-white" },
-  24: { title: "Fetal Viability & Hearing", badge: "Viability", icon: "🌟", color: "bg-amber-500 text-white" },
-  28: { title: "OGTT Sugar Test & Tdap Shot", badge: "Sugar & Tdap", icon: "🩸", color: "bg-emerald-600 text-white" },
-  32: { title: "Third Trimester Growth Scan", badge: "Growth Scan", icon: "📏", color: "bg-indigo-500 text-white" },
-  36: { title: "Full Term & Hospital Bag Ready", badge: "Full Term", icon: "🎒", color: "bg-pink-600 text-white" },
-  40: { title: "Estimated Due Date Arrival", badge: "Due Date", icon: "🎉", color: "bg-red-500 text-white" },
+const CLINICAL_MILESTONES: Record<number, { title: string; badge: string; color: string }> = {
+  12: { title: "NT Scan & First Trimester Screen", badge: "12W Scan", color: "bg-blue-500 text-white" },
+  18: { title: "First Baby Kicks (Quickening)", badge: "First Kicks", color: "bg-rose-500 text-white" },
+  20: { title: "Level-II Anomaly Scan", badge: "Anomaly Scan", color: "bg-purple-600 text-white" },
+  24: { title: "Fetal Viability & Hearing", badge: "Viability", color: "bg-amber-500 text-white" },
+  28: { title: "OGTT Sugar Test & Tdap Shot", badge: "Sugar & Tdap", color: "bg-emerald-600 text-white" },
+  32: { title: "Third Trimester Growth Scan", badge: "Growth Scan", color: "bg-indigo-500 text-white" },
+  36: { title: "Full Term & Hospital Bag Ready", badge: "Full Term", color: "bg-pink-600 text-white" },
+  40: { title: "Estimated Due Date Arrival", badge: "Due Date", color: "bg-red-500 text-white" },
 };
 
 // Structured weekly task item with optional deep link into app features
@@ -265,7 +265,7 @@ export const TimelinePage: React.FC = () => {
       } catch (err) {
         console.error("Storage full", err);
       }
-      showToast(`Saved Week ${selectedWeek} Bump Photo! 📸`);
+      showToast(`Saved Week ${selectedWeek} Bump Photo!`);
       confetti({
         particleCount: 40,
         spread: 50,
@@ -303,13 +303,13 @@ export const TimelinePage: React.FC = () => {
   // Share text generator
   const getShareText = () => {
     const article = getArticle(detail.babySize.name);
-    return `🌸 BloomNest Pregnancy Milestone! Week ${detail.week}: Our baby is the size of ${article} ${detail.babySize.name} ${detail.babySize.emoji} (${detail.babySize.length}, ${detail.babySize.weight}). ${progress.daysRemaining} days until arrival! 💕`;
+    return `BloomNest Pregnancy Milestone! Week ${detail.week}: Our baby is the size of ${article} ${detail.babySize.name} ${detail.babySize.emoji} (${detail.babySize.length}, ${detail.babySize.weight}). ${progress.daysRemaining} days until arrival!`;
   };
 
   const handleCopyShareText = () => {
     navigator.clipboard.writeText(getShareText());
     setCopiedShareText(true);
-    showToast("Milestone card copied to clipboard! 📋");
+    showToast("Milestone card copied to clipboard!");
     setTimeout(() => setCopiedShareText(false), 2500);
   };
 
@@ -335,7 +335,7 @@ export const TimelinePage: React.FC = () => {
       <div className="bg-white/85 dark:bg-[#1A1523]/85 backdrop-blur-md p-4 sm:p-5 rounded-3xl border border-[#EDE0D4] dark:border-rose-900/40 shadow-xs flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Gestational Progress with Live Week + Days */}
         <div className="w-full md:w-auto flex items-center gap-3">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-100 to-pink-200 dark:from-rose-950/80 dark:to-pink-900/40 border border-rose-300/80 dark:border-rose-800 flex flex-col items-center justify-center text-rose-700 dark:text-rose-200 font-serif shadow-xs">
+          <div className="w-14 h-14 rounded-2xl bg-rose-100 dark:bg-rose-950/80 border border-rose-300/80 dark:border-rose-800 flex flex-col items-center justify-center text-rose-700 dark:text-rose-200 font-serif shadow-xs">
             <span className="text-base font-extrabold leading-none">{currentWeek}W</span>
             <span className="text-[10px] font-bold text-rose-500 dark:text-rose-300 mt-0.5">
               +{progress.dayOfCurrentWeek}d
@@ -355,8 +355,8 @@ export const TimelinePage: React.FC = () => {
               </span>
             </div>
             <div className="w-48 sm:w-72 h-2 bg-gray-200 dark:bg-rose-950/40 rounded-full mt-1.5 overflow-hidden">
-              <div 
-                className="h-full bg-gradient-to-r from-rose-400 via-pink-500 to-rose-600 rounded-full transition-all duration-500"
+              <div
+                className="h-full bg-rose-600 rounded-full transition-all duration-500"
                 style={{ width: `${progress.progressPercent}%` }}
               />
             </div>
@@ -374,7 +374,7 @@ export const TimelinePage: React.FC = () => {
             }`}
           >
             <span>T1 · W1–12</span>
-            {currentWeek > 12 && <span className="text-[10px]">✅</span>}
+            {currentWeek > 12 && <CheckCircle2 className="w-3 h-3" />}
           </button>
 
           <button
@@ -430,12 +430,12 @@ export const TimelinePage: React.FC = () => {
       </div>
 
       {/* 2. BOX 1 (TOP): 40-WEEK PREGNANCY TIMELINE MAP / LIST (SPACIOUS FULL WIDTH) */}
-      <div className="bg-white/90 dark:bg-[#1A1523] p-4 sm:p-5 rounded-[36px] border-2 border-[#EDE0D4] dark:border-rose-900/40 shadow-md relative h-[480px] overflow-hidden flex flex-col">
+      <div className="bg-white/90 dark:bg-[#1A1523] p-4 sm:p-5 rounded-2xl border-2 border-[#EDE0D4] dark:border-rose-900/40 shadow-md relative h-[480px] overflow-hidden flex flex-col">
         
         {/* Sticky Controls Header inside Timeline Box */}
         <div className="shrink-0 z-40 bg-[#FAF4EE]/95 dark:bg-[#14101A]/95 backdrop-blur-md p-3 sm:p-4 rounded-2xl border border-[#EDE0D4] dark:border-rose-900/40 flex items-center justify-between mb-2 shadow-xs">
           <div className="font-serif font-bold text-xs sm:text-sm text-gray-900 dark:text-rose-100 flex items-center gap-2">
-            <span>🌸 {viewMode === "map" ? "Botanical Vine Map" : "Milestone Timeline Feed"}</span>
+            <span>{viewMode === "map" ? "Botanical Vine Map" : "Milestone Timeline Feed"}</span>
             <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-900/60 text-rose-700 dark:text-rose-300">
               Week {currentWeek} Active
             </span>
@@ -455,7 +455,7 @@ export const TimelinePage: React.FC = () => {
               }}
               className="px-3 py-1.5 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-bold text-[11px] sm:text-xs shadow-xs transition-all flex items-center gap-1.5"
             >
-              <span>Reset to W{currentWeek} ✨</span>
+              <span>Reset to W{currentWeek}</span>
             </button>
           </div>
         </div>
@@ -525,7 +525,6 @@ export const TimelinePage: React.FC = () => {
                     {/* Milestone Pill Label above Node */}
                     {milestone && (
                       <div className={`text-[9px] font-bold px-2 py-0.5 rounded-full shadow-xs mb-1 flex items-center gap-1 whitespace-nowrap z-30 animate-pulse ${milestone.color}`}>
-                        <span>{milestone.icon}</span>
                         <span>{milestone.badge}</span>
                       </div>
                     )}
@@ -535,8 +534,8 @@ export const TimelinePage: React.FC = () => {
                       <div className="flex flex-col items-center relative">
                         {/* Compact YOU ARE HERE Stamp */}
                         <div className="text-[9px] font-serif font-extrabold uppercase tracking-wider text-[#B85C47] dark:text-rose-300 bg-white/95 dark:bg-black/80 px-2.5 py-0.5 rounded-full border border-rose-300/80 shadow-xs whitespace-nowrap -mb-1 z-30 flex items-center gap-1">
-                          <span>YOU ARE HERE ✨</span>
-                          {hasPhoto && <span>📸</span>}
+                          <span>YOU ARE HERE</span>
+                          {hasPhoto && <Camera className="w-2.5 h-2.5" />}
                         </div>
 
                         {/* Current Node Circle */}
@@ -545,7 +544,7 @@ export const TimelinePage: React.FC = () => {
                           className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-white dark:bg-[#1A1523] border-2 border-rose-400 shadow-xl flex flex-col items-center justify-center relative ring-4 ring-rose-300/60 transition-all hover:scale-105"
                         >
                           <div className="w-13 h-13 sm:w-15 sm:h-15 rounded-full border border-emerald-400 flex flex-col items-center justify-center p-0.5">
-                            <span className="text-[9px] text-emerald-700 dark:text-emerald-300 font-serif">🌿</span>
+                            <Sparkles className="w-2.5 h-2.5 text-emerald-600 dark:text-emerald-300" />
                             <span className="font-serif font-bold text-base sm:text-lg text-gray-900 dark:text-rose-100">
                               W{w.week}
                             </span>
@@ -571,8 +570,8 @@ export const TimelinePage: React.FC = () => {
                           </span>
                         )}
                         {hasPhoto && !isCompleted && (
-                          <span className="absolute -top-1 -left-1 text-[9px]">
-                            📸
+                          <span className="absolute -top-1 -left-1">
+                            <Camera className="w-2.5 h-2.5 text-rose-500" />
                           </span>
                         )}
                       </button>
@@ -630,7 +629,9 @@ export const TimelinePage: React.FC = () => {
                           <span className="text-[10px] text-emerald-600 font-bold">✓ Logged</span>
                         )}
                         {hasPhoto && (
-                          <span className="text-[9px] font-medium text-rose-500">📸 Photo</span>
+                          <span className="text-[9px] font-medium text-rose-500 inline-flex items-center gap-0.5">
+                            <Camera className="w-2.5 h-2.5" /> Photo
+                          </span>
                         )}
                       </div>
                       <div className="text-[11px] text-gray-500 dark:text-rose-300 mt-0.5 flex items-center gap-2">
@@ -643,7 +644,6 @@ export const TimelinePage: React.FC = () => {
 
                   {milestone && (
                     <div className={`text-[10px] font-bold px-2.5 py-1 rounded-xl shadow-2xs flex items-center gap-1 ${milestone.color}`}>
-                      <span>{milestone.icon}</span>
                       <span>{milestone.badge}</span>
                     </div>
                   )}
@@ -655,7 +655,7 @@ export const TimelinePage: React.FC = () => {
       </div>
 
       {/* 3. BOX 2 (UNDERNEATH): WEEK XX DISCOVERY STORY & INTERACTIVE HUB (ZERO-CLUTTER TABBED DESIGN) */}
-      <div className="bg-white/95 dark:bg-[#1A1523]/95 backdrop-blur-xl p-5 sm:p-7 rounded-[36px] border-2 border-[#E8DCD0] dark:border-rose-900/50 shadow-xl space-y-6 text-gray-900 dark:text-rose-100">
+      <div className="bg-white/95 dark:bg-[#1A1523]/95 backdrop-blur-xl p-5 sm:p-7 rounded-2xl border-2 border-[#E8DCD0] dark:border-rose-900/50 shadow-xl space-y-6 text-gray-900 dark:text-rose-100">
         
         {/* BOX 2 HERO HEADER: ELEGANT, SPACIOUS & MAGAZINE-STYLED */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-[#F0E6DD] dark:border-rose-900/30 pb-5">
@@ -669,7 +669,7 @@ export const TimelinePage: React.FC = () => {
               </span>
               {detail.week === currentWeek && (
                 <span className="px-2 py-0.5 rounded-full text-[10px] font-extrabold bg-rose-500 text-white shadow-2xs">
-                  Current Week ✨
+                  Current Week
                 </span>
               )}
             </div>
@@ -705,12 +705,12 @@ export const TimelinePage: React.FC = () => {
               title="Share Baby Size Milestone"
             >
               <Share2 className="w-4 h-4 text-rose-600" />
-              <span>Share 💌</span>
+              <span>Share</span>
             </button>
 
             <button
               onClick={() => setActivePage("baby-development")}
-              className="px-4 py-2.5 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-bold text-xs shadow-md shadow-rose-200 dark:shadow-none transition-all flex items-center justify-center gap-1.5"
+              className="px-4 py-2.5 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-sm transition-all flex items-center justify-center gap-1.5"
             >
               <Baby className="w-4 h-4" />
               <span>3D Fetal Studio</span>
@@ -787,9 +787,9 @@ export const TimelinePage: React.FC = () => {
           <div className="space-y-6 animate-in fade-in duration-200">
             {/* SCIENCE FUN FACT BANNER */}
             {detail.funFact && (
-              <div className="p-4 sm:p-5 rounded-3xl bg-gradient-to-r from-amber-500/10 via-rose-500/10 to-pink-500/10 dark:from-amber-950/40 dark:via-rose-950/40 dark:to-pink-950/40 border border-amber-300/60 dark:border-amber-700/50 flex items-start gap-3.5 shadow-xs">
-                <div className="w-9 h-9 rounded-2xl bg-amber-100 dark:bg-amber-900/60 text-amber-600 dark:text-amber-300 flex items-center justify-center shrink-0 text-lg shadow-2xs">
-                  💡
+              <div className="p-4 sm:p-5 rounded-3xl bg-amber-500/10 dark:bg-amber-950/40 border border-amber-300/60 dark:border-amber-700/50 flex items-start gap-3.5 shadow-xs">
+                <div className="w-9 h-9 rounded-2xl bg-amber-100 dark:bg-amber-900/60 text-amber-600 dark:text-amber-300 flex items-center justify-center shrink-0 shadow-2xs">
+                  <Sparkles className="w-4 h-4" />
                 </div>
                 <div className="space-y-1">
                   <span className="text-[11px] font-extrabold text-amber-800 dark:text-amber-300 uppercase tracking-widest block">
@@ -1066,7 +1066,7 @@ export const TimelinePage: React.FC = () => {
 
         {/* TAB 4: PARTNER CORNER VIEW */}
         {discoveryTab === "partner" && (
-          <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-indigo-50/80 via-purple-50/40 to-pink-50/30 dark:from-indigo-950/40 dark:via-purple-950/20 dark:to-pink-950/10 border border-indigo-200/80 dark:border-indigo-900/40 space-y-5 shadow-xs animate-in fade-in duration-200 max-w-3xl mx-auto">
+          <div className="p-6 sm:p-8 rounded-3xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200/80 dark:border-indigo-900/40 space-y-5 shadow-xs animate-in fade-in duration-200 max-w-3xl mx-auto">
             <div className="flex items-center justify-between border-b border-indigo-100 dark:border-indigo-900/40 pb-4">
               <div className="flex items-center gap-2.5 font-serif font-bold text-indigo-950 dark:text-indigo-200 text-base uppercase tracking-wider">
                 <div className="w-9 h-9 rounded-2xl bg-indigo-100 dark:bg-indigo-900/60 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
@@ -1077,8 +1077,8 @@ export const TimelinePage: React.FC = () => {
 
               <button
                 onClick={() => {
-                  navigator.clipboard.writeText(`💙 BloomNest Partner Tip (Week ${detail.week}): ${getPartnerTip(detail.week)}`);
-                  showToast("Copied partner tip to clipboard! 📋");
+                  navigator.clipboard.writeText(`BloomNest Partner Tip (Week ${detail.week}): ${getPartnerTip(detail.week)}`);
+                  showToast("Copied partner tip to clipboard!");
                 }}
                 className="px-3 py-1.5 rounded-xl bg-white dark:bg-indigo-900/60 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-200 text-xs font-bold hover:bg-indigo-50 transition-all flex items-center gap-1.5 shadow-2xs"
                 title="Copy tip to share with partner"
@@ -1138,7 +1138,7 @@ export const TimelinePage: React.FC = () => {
             </div>
 
             {/* Aesthetic Card Preview */}
-            <div className="p-5 rounded-2xl bg-gradient-to-br from-rose-50 to-pink-100/70 dark:from-rose-950/60 dark:to-pink-900/30 border border-rose-200 dark:border-rose-800 text-center space-y-2">
+            <div className="p-5 rounded-2xl bg-rose-50 dark:bg-rose-950/60 border border-rose-200 dark:border-rose-800 text-center space-y-2">
               <div className="text-4xl">{detail.babySize.emoji || "👶"}</div>
               <div className="font-serif font-extrabold text-xl text-rose-900 dark:text-rose-100">
                 Week {detail.week} Milestone
@@ -1159,10 +1159,10 @@ export const TimelinePage: React.FC = () => {
             <div className="flex flex-col gap-2 pt-2">
               <button
                 onClick={handleCopyShareText}
-                className="w-full py-3 rounded-xl bg-gradient-to-r from-rose-500 to-pink-600 text-white font-bold text-xs shadow-md flex items-center justify-center gap-2 transition-all hover:opacity-95"
+                className="w-full py-3 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-sm flex items-center justify-center gap-2 transition-all"
               >
                 {copiedShareText ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                <span>{copiedShareText ? "Copied to Clipboard! ✓" : "Copy Milestone Update"}</span>
+                <span>{copiedShareText ? "Copied to Clipboard!" : "Copy Milestone Update"}</span>
               </button>
 
               <a
@@ -1171,7 +1171,7 @@ export const TimelinePage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="w-full py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs shadow-sm flex items-center justify-center gap-2 transition-all text-center"
               >
-                <span>Share via WhatsApp 💬</span>
+                <span>Share via WhatsApp</span>
               </a>
             </div>
           </div>

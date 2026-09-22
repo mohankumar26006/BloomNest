@@ -50,7 +50,7 @@ export const TimelineAIAnalysisCard: React.FC<TimelineAIAnalysisCardProps> = ({
       <Card
         variant="glass"
         radius="3xl"
-        className="p-6 sm:p-7 relative overflow-hidden border-rose-200/80 dark:border-rose-900/60 bg-gradient-to-br from-white via-rose-50/40 to-pink-50/20 dark:from-[#1E1726] dark:via-[#1A1422] dark:to-[#241B2D]"
+        className="p-6 sm:p-7 relative overflow-hidden border-rose-200/80 dark:border-rose-900/60 bg-rose-50/30 dark:bg-[#1E1726]"
       >
         <div className="space-y-5">
           {/* Header Controls & Status */}
@@ -109,7 +109,7 @@ export const TimelineAIAnalysisCard: React.FC<TimelineAIAnalysisCardProps> = ({
               </div>
               <div className="w-full bg-rose-100 dark:bg-rose-950/60 h-2.5 rounded-full overflow-hidden">
                 <div
-                  className="bg-gradient-to-r from-rose-500 to-pink-500 h-full rounded-full transition-all duration-500"
+                  className="bg-rose-500 h-full rounded-full transition-all duration-500"
                   style={{ width: `${analysis.gestationalTimingScore}%` }}
                 />
               </div>

@@ -45,7 +45,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     ],
     checkups: ["Pre-conception counseling checkup, Rubella immunity, and basic blood count (Hb)."],
     thingsToAvoid: ["Alcohol, smoking, unprescribed over-the-counter NSAIDs, and saunas."],
-    funFact: "Although you are considered 1 week pregnant, conception hasn't occurred yet — gestational age is counted from the first day of your last period!"
+    funFact: "Although you are considered 1 week pregnant, conception hasn't occurred yet, gestational age is counted from the first day of your last period!"
   },
   {
     week: 2,
@@ -171,7 +171,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     ],
     checkups: ["Early dating ultrasound (viability scan) to confirm intrauterine gestational sac and cardiac flicker."],
     thingsToAvoid: ["Lying flat immediately after meals, spicy/greasy triggers, and caffeine over 200mg."],
-    funFact: "Baby's neural tube closes completely at both ends this week — neural cells are multiplying at 100,000 per minute!"
+    funFact: "Baby's neural tube closes completely at both ends this week, neural cells are multiplying at 100,000 per minute!"
   },
   {
     week: 7,
@@ -230,7 +230,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     trimester: 1,
     babySize: { name: "Green Grape", length: "2.3 cm", weight: "2.0 g", category: "Fetus Transition", emoji: "🍇", indianComparison: "Angoor" },
     milestones: [
-      "The embryonic stage officially ends — your little one is now medical designated a **Fetus**!",
+      "The embryonic stage officially ends, your little one is now medical designated a **Fetus**!",
       "All four heart chambers are fully partitioned, pumping vigorously at ~165-175 BPM.",
       "Tiny joints (shoulders, elbows, wrists, and knees) are fully functional and bending."
     ],
@@ -270,7 +270,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
       "Drink 8-10 glasses of water daily to maintain amniotic fluid renewal every few hours."
     ],
     exerciseTips: [
-      "Low-impact water aerobics or swimming — water buoyancy eliminates joint pressure completely.",
+      "Low-impact water aerobics or swimming, water buoyancy eliminates joint pressure completely.",
       "Pelvic floor elevator contractions (slow lift, hold for 5 seconds, gentle controlled release)."
     ],
     checkups: ["Chorionic Villus Sampling (CVS) diagnostic testing window opens for high-risk profiles."],
@@ -327,7 +327,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     ],
     checkups: ["Combined First Trimester Screening: NT ultrasound + Double Marker blood test (PAPP-A & Free beta-hCG)."],
     thingsToAvoid: ["Standing still in one place for long periods, hot baths, and skipping breakfast."],
-    funFact: "Baby's vocal cords are fully sculpted this week — though without air, baby cannot make a sound yet!"
+    funFact: "Baby's vocal cords are fully sculpted this week, though without air, baby cannot make a sound yet!"
   },
   {
     week: 13,
@@ -339,7 +339,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
       "Bones in the skull and long limbs are hardening from cartilage into solid bone."
     ],
     motherChanges: [
-      "Congratulations — you are completing your First Trimester! Energy levels start bouncing back.",
+      "Congratulations, you are completing your First Trimester! Energy levels start bouncing back.",
       "Linea nigra (dark vertical abdominal line) and darkened areolas may begin to appear."
     ],
     symptoms: ["Energy returning", "Mild round ligament stretching", "Clearer skin", "Increased appetite"],
@@ -353,7 +353,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     ],
     checkups: ["Finalize first trimester screening review with your doctor; review genetic carrier screening."],
     thingsToAvoid: ["High-impact aerobics, laying flat on back for core work, and unwashed raw salads."],
-    funFact: "Your baby's vocal cords, taste buds, and unique fingerprints are all fully etched — ready for Trimester 2!"
+    funFact: "Your baby's vocal cords, taste buds, and unique fingerprints are all fully etched, ready for Trimester 2!"
   },
 
   // --- TRIMESTER 2: WEEKS 14 TO 27 ---
@@ -419,7 +419,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
       "Circulatory system is fully functioning, pumping ~25 Liters of blood through baby's heart daily."
     ],
     motherChanges: [
-      "Mothers may feel 'Quickening' — tiny fluttery butterfly sensations of baby moving for the first time!",
+      "Mothers may feel 'Quickening', tiny fluttery butterfly sensations of baby moving for the first time!",
       "Breasts may begin producing colostrum (early liquid gold milk)."
     ],
     symptoms: ["Fluttery quickening kicks", "Dry irritated eyes", "Glowing skin", "Occasional backache"],
@@ -432,7 +432,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
       "Cat-Cow tilts on hands and knees to release lower lumbar facet joint compression."
     ],
     checkups: ["Routine prenatal checkup: measure fundal height, maternal weight gain, and fetal heart tones."],
-    thingsToAvoid: ["Lying flat on your back during workouts — use a 30-degree incline wedge."],
+    thingsToAvoid: ["Lying flat on your back during workouts, use a 30-degree incline wedge."],
     funFact: "Your baby's heart is now large enough that you can hear it clearly in the clinic using an acoustic ultrasound Doppler!"
   },
   {
@@ -446,7 +446,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     ],
     motherChanges: [
       "Your center of gravity starts shifting forward as your uterus tilts upward into the abdominal cavity.",
-      "Appetite is strong — baby's growth spurts demand consistent, wholesome nutrition."
+      "Appetite is strong, baby's growth spurts demand consistent, wholesome nutrition."
     ],
     symptoms: ["Sciatica or lower back twinges", "Increased vaginal discharge", "Occasional vivid dreams", "Mild carpal tunnel"],
     nutritionAdvice: [
@@ -466,13 +466,13 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     trimester: 2,
     babySize: { name: "Bell Pepper", length: "14.2 cm", weight: "190.0 g", category: "Second Trimester", emoji: "🫑", indianComparison: "Shimla Mirch" },
     milestones: [
-      "The inner ear cochlea and auditory nerve pathways mature — **baby can now hear sounds inside the womb**!",
+      "The inner ear cochlea and auditory nerve pathways mature, **baby can now hear sounds inside the womb**!",
       "Baby hears mother's aortic pulse, whooshing blood, digestive gurgles, and muffled external voices.",
       "Protective myelin sheaths begin insulating nerve fibers in the spinal cord."
     ],
     motherChanges: [
       "Your cardiovascular system has relaxed vascular resistance, meaning blood pressure may be at its lowest point.",
-      "Movements become more frequent and distinct — especially in the evening when mom rests."
+      "Movements become more frequent and distinct, especially in the evening when mom rests."
     ],
     symptoms: ["Noticeable baby flutters and nudges", "Mild foot swelling in evening", "Leg cramps at night", "Food cravings"],
     nutritionAdvice: [
@@ -492,7 +492,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     trimester: 2,
     babySize: { name: "Mango", length: "15.3 cm", weight: "240.0 g", category: "Second Trimester", emoji: "🥭", indianComparison: "Aam" },
     milestones: [
-      "Vernix caseosa — a greasy, cheese-like protective biofilm — coats baby's skin to shield it from amniotic chapping.",
+      "Vernix caseosa, a greasy, cheese-like protective biofilm, coats baby's skin to shield it from amniotic chapping.",
       "Sensory specialization in the brain: dedicated areas for taste, smell, hearing, vision, and touch are active.",
       "If carrying a girl, baby already has 6 million primitive eggs in her tiny ovaries."
     ],
@@ -510,7 +510,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
       "Cat-Cow and pelvic rocking to ease round ligament stiffness."
     ],
     checkups: ["Complete your Level-II Targeted Ultrasound (TIFFA scan) to inspect heart chambers, kidneys, and spine."],
-    thingsToAvoid: ["Lying flat on your back after Week 20 — transition to sleeping on your left side with knee pillows."],
+    thingsToAvoid: ["Lying flat on your back after Week 20, transition to sleeping on your left side with knee pillows."],
     funFact: "Baby's skin would wrinkle and soften like a long bath without the water-repellent coat of creamy vernix caseosa!"
   },
   {
@@ -576,7 +576,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     ],
     motherChanges: [
       "Stretch marks (striae gravidarum) may appear on the lower abdomen, breasts, or hips.",
-      "Foot ligaments soften under relaxin hormone — shoes may feel a half-size tighter."
+      "Foot ligaments soften under relaxin hormone, shoes may feel a half-size tighter."
     ],
     symptoms: ["Mild swelling in feet and ankles", "Backache along lumbar spine", "Increased vaginal discharge", "Hot flashes"],
     nutritionAdvice: [
@@ -598,7 +598,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     milestones: [
       "**Baby hits the major 500-gram milestone!**",
       "Lungs develop alveolar terminal sacs and begin producing **surfactant** to prevent air sac collapse.",
-      "Inner ear balance structures are mature — baby knows whether they are right side up or upside down."
+      "Inner ear balance structures are mature, baby knows whether they are right side up or upside down."
     ],
     motherChanges: [
       "Swelling (edema) in ankles and feet may be noticeable by late afternoon.",
@@ -640,7 +640,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
       "Modified Child's Pose with wide knees: breathe deeply into the belly to relax pelvic floor muscles."
     ],
     checkups: ["Oral Glucose Tolerance Test (OGTT / GTT) fasting blood test to screen for Gestational Diabetes Mellitus (GDM)."],
-    thingsToAvoid: ["Lying flat on your back — place a firm pillow under your right hip if reclining to avoid IVC compression."],
+    thingsToAvoid: ["Lying flat on your back, place a firm pillow under your right hip if reclining to avoid IVC compression."],
     funFact: "Baby's brain is growing so fast that it has developed distinct sleep cycles: deep sleep, light sleep, and dream-filled REM sleep!"
   },
   {
@@ -667,7 +667,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     ],
     checkups: ["Repeat Complete Blood Count (CBC) and check Ferritin levels to rule out second-trimester iron deficiency anemia."],
     thingsToAvoid: ["Straining during bowel movements (use a footstool/Squatty Potty to align colon), and heavy lifting."],
-    funFact: "Your baby can now tell the difference between your voice and your partner's voice — calming down to familiar rhythms!"
+    funFact: "Your baby can now tell the difference between your voice and your partner's voice, calming down to familiar rhythms!"
   },
   {
     week: 26,
@@ -680,11 +680,11 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     ],
     motherChanges: [
       "Your blood pressure, which hit a low in mid-pregnancy, begins climbing back to its pre-pregnancy baseline.",
-      "You might feel rhythmic, repetitive tap-tap-tap movements inside — baby has the hiccups!"
+      "You might feel rhythmic, repetitive tap-tap-tap movements inside, baby has the hiccups!"
     ],
     symptoms: ["Rhythmic baby hiccups", "Difficulty finding a comfortable sleeping position", "Mild swelling in hands and feet", "Rib soreness"],
     nutritionAdvice: [
-      "Continue 1000mg Calcium daily — baby's skeleton is drawing calcium rapidly to harden long bones.",
+      "Continue 1000mg Calcium daily, baby's skeleton is drawing calcium rapidly to harden long bones.",
       "Eat dark leafy greens (methi, palak), fortified milk, sesame seeds, and ragi for natural calcium."
     ],
     exerciseTips: [
@@ -693,7 +693,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     ],
     checkups: ["If Rh-negative blood type, an antibody screen is checked in preparation for Anti-D immunoglobulin injection."],
     thingsToAvoid: ["Sleeping flat on back, skipping evening walks, and eating large heavy meals within 2 hours of sleep."],
-    funFact: "Baby's eyes are blue/slate colored right now — permanent eye pigment takes up to 6-9 months after birth to settle!"
+    funFact: "Baby's eyes are blue/slate colored right now, permanent eye pigment takes up to 6-9 months after birth to settle!"
   },
   {
     week: 27,
@@ -743,7 +743,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     ],
     exerciseTips: [
       "Begin daily 'Spinning Babies' principles: 10 minutes of Cat-Cow and sitting upright on a birth ball.",
-      "Avoid slumping back on sofas — sit forward on your sitz bones so baby's spine swings toward your belly (LOA position)."
+      "Avoid slumping back on sofas, sit forward on your sitz bones so baby's spine swings toward your belly (LOA position)."
     ],
     checkups: ["RhoGAM (Anti-D) injection for Rh-negative mothers; prenatal checkups now move to every 2 weeks."],
     thingsToAvoid: ["Heavy lifting over 10kg, sleeping on back, and prolonged periods of standing still."],
@@ -791,7 +791,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     symptoms: ["Pelvic girdle pain (PGP/SPD)", "Fatigue", "Mood fluctuations", "Swollen fingers and ankles"],
     nutritionAdvice: [
       "Maintain iron intake to prevent third-trimester anemia: lentils, dates, spinach, and beetroot.",
-      "Drink 2.5 Liters of water daily — proper hydration helps prevent premature uterine contractions."
+      "Drink 2.5 Liters of water daily, proper hydration helps prevent premature uterine contractions."
     ],
     exerciseTips: [
       "The 10-Second Wall Reset: stand against a wall, ensure head, shoulders, and hips align without deep lower back sway.",
@@ -806,7 +806,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     trimester: 3,
     babySize: { name: "Honeydew Melon", length: "43.7 cm", weight: "1.9 kg", category: "Third Trimester", emoji: "🍈", indianComparison: "Kharbooza" },
     milestones: [
-      "Baby is gaining weight rapidly — packing on about 200-250 grams of healthy subcutaneous fat per week.",
+      "Baby is gaining weight rapidly, packing on about 200-250 grams of healthy subcutaneous fat per week.",
       "All five primary senses (sight, hearing, touch, taste, balance) are fully functional.",
       "Central nervous system coordinates breathing motions, swallowing, and body temperature control."
     ],
@@ -833,7 +833,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     babySize: { name: "Cantaloupe", length: "45.0 cm", weight: "2.1 kg", category: "Third Trimester", emoji: "🍈", indianComparison: "Melon" },
     milestones: [
       "**Baby surpasses 2 Kilograms!**",
-      "Baby practices coordinating breathing, sucking, and swallowing simultaneously — vital for nursing at birth.",
+      "Baby practices coordinating breathing, sucking, and swallowing simultaneously, vital for nursing at birth.",
       "Toenails have completely grown to the tips of baby's toes.",
       "Lanugo hair begins shedding into amniotic fluid as subcutaneous fat smooths out baby's wrinkles."
     ],
@@ -916,7 +916,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
       "Most babies are now locked into the cephalic (head-down, vertex) presentation."
     ],
     motherChanges: [
-      "Your fundus reaches its highest point — touching the base of your ribcage and sternum.",
+      "Your fundus reaches its highest point, touching the base of your ribcage and sternum.",
       "Breathing may feel slightly labored, but relief is coming as baby prepares to drop into the pelvis."
     ],
     symptoms: ["Shortness of breath", "Pelvic heaviness", "Frequent urination every 30-45 minutes", "Lightning crotch nerve twinges"],
@@ -942,7 +942,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
       "Digestive meconium is safely sealed inside bowels; lungs have abundant surfactant ready for the first breath."
     ],
     motherChanges: [
-      "When baby drops ('lightening'), pressure on your diaphragm eases — suddenly you can breathe deeply again!",
+      "When baby drops ('lightening'), pressure on your diaphragm eases, suddenly you can breathe deeply again!",
       "However, pressure on your bladder and pelvic floor increases significantly; walking feels more like a waddle."
     ],
     symptoms: ["Easier breathing but heavier pelvic pressure", "Frequent bathroom visits", "Increased vaginal discharge", "Braxton Hicks contractions"],
@@ -963,7 +963,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     trimester: 3,
     babySize: { name: "Pumpkin", length: "50.7 cm", weight: "3.3 kg", category: "Early Full Term", emoji: "🎃", indianComparison: "Kaddu" },
     milestones: [
-      "**Congratulations — Baby is officially considered Early Term!**",
+      "**Congratulations, Baby is officially considered Early Term!**",
       "All organ systems are fully functional; lungs produce rich surfactant ready for independent respiration.",
       "Baby has a firm grasp reflex: if you put a finger into their palm at birth, they hold on tight!"
     ],
@@ -971,7 +971,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
       "The cervix may begin softening, thinning (effacing), and opening slightly (dilating).",
       "Nesting instinct kicks in: you may feel sudden energetic bursts to organize, clean, and pack hospital bags."
     ],
-    symptoms: ["Mucus plug discharge (may be tinged pink or brown — 'bloody show')", "Pelvic pressure and lightning crotch", "Mild diarrhea (body naturally clearing bowels before labor)"],
+    symptoms: ["Mucus plug discharge (may be tinged pink or brown, 'bloody show')", "Pelvic pressure and lightning crotch", "Mild diarrhea (body naturally clearing bowels before labor)"],
     nutritionAdvice: [
       "Eat light, easily digestible meals rich in complex carbs for sustained stamina (porridge, khichdi, idlis).",
       "Keep eating dates (4-6 daily) and drinking warm water to keep uterine tissues supple."
@@ -982,7 +982,7 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     ],
     checkups: ["Weekly checkup: check cervical effacement, blood pressure, non-stress test (NST) if indicated, and hospital bag verification."],
     thingsToAvoid: ["Over-exhausting yourself during nesting bursts, and ignoring signs of true labor (regular contractions < 5 mins apart)."],
-    funFact: "Your baby has about 300 bones right now — some will fuse together after birth, leaving an adult with 206 bones!"
+    funFact: "Your baby has about 300 bones right now, some will fuse together after birth, leaving an adult with 206 bones!"
   },
   {
     week: 38,
@@ -1033,8 +1033,8 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
       "Slow, rhythmic breathing exercises: inhale for 4, exhale for 6 to practice breathing through contractions."
     ],
     checkups: ["Weekly prenatal checkup: monitor fetal heart rate, maternal vitals, and discuss hospital admission timing (5-1-1 rule)."],
-    thingsToAvoid: ["Panicking when contractions start — time them calmly using your BloomNest Contraction Timer!"],
-    funFact: "Only about 5% of babies are born on their exact calculated due date — most arrive between Weeks 38 and 41!"
+    thingsToAvoid: ["Panicking when contractions start, time them calmly using your BloomNest Contraction Timer!"],
+    funFact: "Only about 5% of babies are born on their exact calculated due date, most arrive between Weeks 38 and 41!"
   },
   {
     week: 40,
@@ -1052,14 +1052,14 @@ export const PREGNANCY_WEEKS_DATA: PregnancyWeekDetail[] = [
     symptoms: ["True labor contractions (rhythmic, intensifying, not stopping with rest)", "Amniotic fluid rupture", "Intense pelvic pressure", "Bloody show"],
     nutritionAdvice: [
       "Keep hydration high with electrolyte water, tender coconut water, and easily digestible energy snacks.",
-      "Don't worry if you go past 40 weeks — up to 41 weeks is completely normal and healthy for first-time mothers."
+      "Don't worry if you go past 40 weeks, up to 41 weeks is completely normal and healthy for first-time mothers."
     ],
     exerciseTips: [
       "Curb walking and gentle figure-8 pelvic rolls on a birthing ball to encourage cervical dilation.",
       "Rest and relax: oxytocin flows best when mother feels safe, calm, loved, and unhurried."
     ],
     checkups: ["Post-date checkup: Non-Stress Test (NST), Biophysical Profile (BPP), and amniotic fluid volume assessment."],
-    thingsToAvoid: ["Stress, heavy unverified herbal labor inducers, and exhaustion — trust your body and baby's timing!"],
+    thingsToAvoid: ["Stress, heavy unverified herbal labor inducers, and exhaustion, trust your body and baby's timing!"],
     funFact: "Within seconds of birth, your baby will take their first breath, their fetal cardiac shunts will close, and they will recognize your voice instantly!"
   }
 ];

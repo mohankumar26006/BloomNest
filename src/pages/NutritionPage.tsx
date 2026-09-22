@@ -200,13 +200,13 @@ export const NutritionPage: React.FC = () => {
 
   const copyModalRecipe = () => {
     if (!activeRecipeModal) return;
-    const text = `🍳 ${activeRecipeModal.title} (BloomNest Maternal Recipe)\n\n` +
+    const text = `${activeRecipeModal.title} (BloomNest Maternal Recipe)\n\n` +
       `Trimester: ${activeRecipeModal.trimester === "All" ? "All Trimesters" : `Trimester ${activeRecipeModal.trimester}`}\n` +
       `Prep Time: ${activeRecipeModal.prepTime} | Calories: ${activeRecipeModal.calories} kcal\n` +
       `Protein: ${activeRecipeModal.proteinG}g | Iron: ${activeRecipeModal.ironMg}mg | Calcium: ${activeRecipeModal.calciumMg}mg | Folate: ${activeRecipeModal.folateMcg}mcg\n\n` +
-      `🛒 INGREDIENTS:\n` + activeRecipeModal.ingredients.map((ing) => `• ${ing}`).join("\n") + `\n\n` +
-      `👩‍🍳 INSTRUCTIONS:\n` + activeRecipeModal.instructions.map((step, idx) => `${idx + 1}. ${step}`).join("\n") + `\n\n` +
-      `🌸 KEY BENEFITS:\n` + activeRecipeModal.keyBenefits.map((b) => `• ${b}`).join("\n");
+      `INGREDIENTS:\n` + activeRecipeModal.ingredients.map((ing) => `• ${ing}`).join("\n") + `\n\n` +
+      `INSTRUCTIONS:\n` + activeRecipeModal.instructions.map((step, idx) => `${idx + 1}. ${step}`).join("\n") + `\n\n` +
+      `KEY BENEFITS:\n` + activeRecipeModal.keyBenefits.map((b) => `• ${b}`).join("\n");
 
     navigator.clipboard.writeText(text);
     setModalCopied(true);
@@ -232,11 +232,11 @@ export const NutritionPage: React.FC = () => {
       .join("\n");
     const benefitsList = (recipeResult.pregnancyBenefits || []).map((b) => `• ${b}`).join("\n");
 
-    const text = `🍳 ${recipeResult.dishName} (BloomNest AI Pregnancy Recipe)\n\n` +
-      `🛡️ Safety: ${recipeResult.safetyMessage}\n\n` +
-      `🛒 INGREDIENTS:\n${ingredientsList}\n\n` +
-      `👩‍🍳 INSTRUCTIONS:\n${instructionsList}\n\n` +
-      `🌸 PREGNANCY BENEFITS:\n${benefitsList}`;
+    const text = `${recipeResult.dishName} (BloomNest AI Pregnancy Recipe)\n\n` +
+      `Safety: ${recipeResult.safetyMessage}\n\n` +
+      `INGREDIENTS:\n${ingredientsList}\n\n` +
+      `INSTRUCTIONS:\n${instructionsList}\n\n` +
+      `PREGNANCY BENEFITS:\n${benefitsList}`;
 
     navigator.clipboard.writeText(text);
     setCopiedRecipe(true);
@@ -324,7 +324,7 @@ export const NutritionPage: React.FC = () => {
 
   return (
     <div className="space-y-6 pb-12 animate-in fade-in duration-300">
-      {/* 🌸 PAGE HEADER */}
+      {/* PAGE HEADER */}
       <div className="bg-white dark:bg-[#1a1523] p-6 rounded-3xl border border-rose-100 dark:border-rose-900/40 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 text-rose-500 text-xs font-bold uppercase tracking-wider">
@@ -351,8 +351,8 @@ export const NutritionPage: React.FC = () => {
         </div>
       </div>
 
-      {/* 📊 DAILY MATERNAL MICRONUTRIENT TARGETS BAR */}
-      <div className="bg-gradient-to-r from-rose-500/10 via-amber-500/10 to-purple-500/10 dark:from-rose-950/30 dark:via-amber-950/20 dark:to-purple-950/30 p-4 sm:p-5 rounded-3xl border border-rose-200/70 dark:border-rose-900/30 shadow-xs">
+      {/* DAILY MATERNAL MICRONUTRIENT TARGETS BAR */}
+      <div className="bg-rose-50 dark:bg-rose-950/30 p-4 sm:p-5 rounded-3xl border border-rose-200/70 dark:border-rose-900/30 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
           <div className="flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-rose-500" />
@@ -394,7 +394,7 @@ export const NutritionPage: React.FC = () => {
         </div>
       </div>
 
-      {/* 🧭 SEGMENTED 4-TAB NAVIGATION BAR */}
+      {/* SEGMENTED 4-TAB NAVIGATION BAR */}
       <div className="flex flex-wrap gap-2 p-1.5 bg-gray-100/80 dark:bg-[#15101d] rounded-2xl border border-gray-200 dark:border-rose-900/30">
         <button
           onClick={() => setActiveTab("meal-guide")}
@@ -405,7 +405,7 @@ export const NutritionPage: React.FC = () => {
           }`}
         >
           <Calendar className="w-4 h-4" />
-          <span>📅 Trimester Meal Guide</span>
+          <span>Trimester Meal Guide</span>
         </button>
 
         <button
@@ -417,7 +417,7 @@ export const NutritionPage: React.FC = () => {
           }`}
         >
           <Apple className="w-4 h-4" />
-          <span>🥗 Superfood Recipes</span>
+          <span>Superfood Recipes</span>
         </button>
 
         <button
@@ -429,7 +429,7 @@ export const NutritionPage: React.FC = () => {
           }`}
         >
           <ShieldCheck className="w-4 h-4" />
-          <span>🛡️ Food Safety Shield</span>
+          <span>Food Safety Shield</span>
         </button>
 
         <button
@@ -441,12 +441,12 @@ export const NutritionPage: React.FC = () => {
           }`}
         >
           <ChefHat className="w-4 h-4" />
-          <span>🍳 AI Recipe Kitchen</span>
+          <span>AI Recipe Kitchen</span>
         </button>
       </div>
 
       {/* ========================================================================= */}
-      {/* 📅 TAB 1: TRIMESTER MEAL GUIDE (BRAND NEW CORE FEATURE)                   */}
+      {/* TAB 1: TRIMESTER MEAL GUIDE (BRAND NEW CORE FEATURE)                   */}
       {/* ========================================================================= */}
       {activeTab === "meal-guide" && (
         <div className="space-y-6 animate-in fade-in duration-300">
@@ -468,7 +468,7 @@ export const NutritionPage: React.FC = () => {
                   onClick={() => setSelectedPlanTrimester(tNum)}
                   className={`px-4 py-2 rounded-2xl text-xs font-bold transition-all flex items-center gap-1.5 ${
                     selectedPlanTrimester === tNum
-                      ? "bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-md scale-105"
+                      ? "bg-rose-600 text-white shadow-md scale-105"
                       : "bg-rose-50 dark:bg-rose-950/50 text-rose-700 dark:text-rose-200 hover:bg-rose-100"
                   }`}
                 >
@@ -481,7 +481,7 @@ export const NutritionPage: React.FC = () => {
             </div>
           </div>
 
-          {/* 🩺 MATERNAL CONDITION ADAPTATION SELECTOR */}
+          {/* MATERNAL CONDITION ADAPTATION SELECTOR */}
           <div className="bg-white dark:bg-[#1a1523] p-5 rounded-3xl border border-rose-100 dark:border-rose-900/40 shadow-xs space-y-3">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
@@ -500,17 +500,17 @@ export const NutritionPage: React.FC = () => {
 
             <div className="flex flex-wrap gap-2 pt-1">
               {[
-                { id: "standard", label: "Standard Balanced 🌸" },
-                { id: "gdm", label: "Gestational Diabetes (GDM) 🩸" },
-                { id: "anemia", label: "Iron-Deficiency Anemia 🌿" },
-                { id: "nausea", label: "Nausea & Acid Reflux 🍋" },
+                { id: "standard", label: "Standard Balanced" },
+                { id: "gdm", label: "Gestational Diabetes (GDM)" },
+                { id: "anemia", label: "Iron-Deficiency Anemia" },
+                { id: "nausea", label: "Nausea & Acid Reflux" },
               ].map((cond) => (
                 <button
                   key={cond.id}
                   onClick={() => setSelectedCondition(cond.id as MaternalConditionType)}
                   className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all flex items-center gap-1.5 ${
                     selectedCondition === cond.id
-                      ? "bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-md scale-105"
+                      ? "bg-rose-600 text-white shadow-md scale-105"
                       : "bg-rose-50/60 dark:bg-rose-950/40 text-gray-700 dark:text-rose-200 hover:bg-rose-100/70 border border-rose-100 dark:border-rose-900/30"
                   }`}
                 >
@@ -541,7 +541,7 @@ export const NutritionPage: React.FC = () => {
             )}
           </div>
 
-          {/* 💧 INTERACTIVE HYDRATION TRACKER & 📊 MEAL ADHERENCE SCORE */}
+          {/* INTERACTIVE HYDRATION TRACKER & MEAL ADHERENCE SCORE */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             {/* Widget 1: Interactive Hydration Tracker */}
             <div className="bg-white dark:bg-[#1a1523] p-5 rounded-3xl border border-sky-100 dark:border-sky-900/40 shadow-xs flex flex-col justify-between space-y-3">
@@ -642,7 +642,7 @@ export const NutritionPage: React.FC = () => {
               {/* Progress bar */}
               <div className="w-full bg-gray-100 dark:bg-rose-950/40 h-3 rounded-full overflow-hidden border border-rose-100 dark:border-rose-900/30">
                 <div
-                  className="h-full bg-gradient-to-r from-rose-500 to-emerald-500 transition-all duration-500 rounded-full"
+                  className="h-full bg-rose-500 transition-all duration-500 rounded-full"
                   style={{ width: `${mealAdherencePercent}%` }}
                 />
               </div>
@@ -651,7 +651,7 @@ export const NutritionPage: React.FC = () => {
                 <span>Stabilizes maternal glucose & prevents fatigue</span>
                 <span className="font-bold text-rose-600 dark:text-rose-300">
                   {completedMealsCount === activePlan.meals.length
-                    ? "🎉 Full Day Complete!"
+                    ? "Full Day Complete!"
                     : `${activePlan.meals.length - completedMealsCount} meals remaining`}
                 </span>
               </div>
@@ -659,7 +659,7 @@ export const NutritionPage: React.FC = () => {
           </div>
 
           {/* Active Trimester Spotlight Card */}
-          <div className="bg-gradient-to-br from-rose-50 via-white to-pink-50 dark:from-[#1d1624] dark:via-[#1a1523] dark:to-[#221626] p-6 rounded-3xl border border-rose-200 dark:border-rose-900/50 shadow-sm space-y-4">
+          <div className="bg-rose-50 dark:bg-[#1a1523] p-6 rounded-3xl border border-rose-200 dark:border-rose-900/50 shadow-sm space-y-4">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-rose-100 dark:border-rose-900/30 pb-4">
               <div>
                 <div className="inline-block px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-rose-100 dark:bg-rose-900/60 text-rose-800 dark:text-rose-200 mb-2">
@@ -873,7 +873,7 @@ export const NutritionPage: React.FC = () => {
       )}
 
       {/* ========================================================================= */}
-      {/* 🥗 TAB 2: CURATED SUPERFOOD RECIPES + FIXED INTERACTIVE MODAL              */}
+      {/* TAB 2: CURATED SUPERFOOD RECIPES + FIXED INTERACTIVE MODAL              */}
       {/* ========================================================================= */}
       {activeTab === "superfoods" && (
         <div className="space-y-6 animate-in fade-in duration-300">
@@ -913,10 +913,10 @@ export const NutritionPage: React.FC = () => {
               </span>
               {[
                 { id: "All", label: "All Diets" },
-                { id: "veg", label: "Vegetarian 🥬" },
-                { id: "egg", label: "Eggetarian 🥚" },
-                { id: "South Indian", label: "South Indian 🥥" },
-                { id: "Quick", label: "Quick (<15m) ⚡" },
+                { id: "veg", label: "Vegetarian" },
+                { id: "egg", label: "Eggetarian" },
+                { id: "South Indian", label: "South Indian" },
+                { id: "Quick", label: "Quick (<15m)" },
               ].map((d) => (
                 <button
                   key={d.id}
@@ -949,7 +949,7 @@ export const NutritionPage: React.FC = () => {
                     <img
                       src={recipe.imageUrl}
                       alt={recipe.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover transition-transform duration-500"
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
@@ -1018,7 +1018,7 @@ export const NutritionPage: React.FC = () => {
                           key={i}
                           className="px-2.5 py-1 rounded-lg text-[10px] font-semibold bg-gray-100 dark:bg-rose-950/40 text-gray-700 dark:text-rose-200"
                         >
-                          ✨ {benefit}
+                          {benefit}
                         </span>
                       ))}
                     </div>
@@ -1041,7 +1041,7 @@ export const NutritionPage: React.FC = () => {
             ))}
           </div>
 
-          {/* 🍳 FIXED INTERACTIVE RECIPE DETAIL MODAL */}
+          {/* FIXED INTERACTIVE RECIPE DETAIL MODAL */}
           {activeRecipeModal && (
             <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 animate-in fade-in duration-200">
               <div className="bg-white dark:bg-[#1a1523] w-full max-w-3xl rounded-3xl border border-rose-200 dark:border-rose-900/50 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col animate-in zoom-in-95 duration-200">
@@ -1053,7 +1053,7 @@ export const NutritionPage: React.FC = () => {
                     className="w-full h-full object-cover"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                  <div className="absolute inset-0 bg-black/70" />
 
                   <button
                     onClick={() => setActiveRecipeModal(null)}
@@ -1112,7 +1112,7 @@ export const NutritionPage: React.FC = () => {
                   <div className="p-4 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/40 space-y-2">
                     <div className="font-bold text-emerald-900 dark:text-emerald-300 flex items-center gap-1.5 text-xs">
                       <Sparkles className="w-4 h-4 text-emerald-500" />
-                      <span>🌸 Maternal Nutritional & Fetal Growth Benefits:</span>
+                      <span>Maternal Nutritional & Fetal Growth Benefits:</span>
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {activeRecipeModal.keyBenefits.map((b, i) => (
@@ -1231,7 +1231,7 @@ export const NutritionPage: React.FC = () => {
       )}
 
       {/* ========================================================================= */}
-      {/* 🛡️ TAB 3: EXPANDED FOOD SAFETY SHIELD + INDIAN MATERNAL MYTH BUSTERS       */}
+      {/* TAB 3: EXPANDED FOOD SAFETY SHIELD + INDIAN MATERNAL MYTH BUSTERS       */}
       {/* ========================================================================= */}
       {activeTab === "food-safety" && (
         <div className="space-y-6 animate-in fade-in duration-300">
@@ -1345,9 +1345,9 @@ export const NutritionPage: React.FC = () => {
                   <span className="font-bold text-gray-400 text-[11px] shrink-0">Safety Level:</span>
                   {[
                     { id: "All", label: "All Levels" },
-                    { id: "safe", label: "🟢 Safe to Eat" },
-                    { id: "moderation", label: "🟡 In Moderation" },
-                    { id: "avoid", label: "🔴 Strictly Avoid" },
+                    { id: "safe", label: "Safe to Eat" },
+                    { id: "moderation", label: "In Moderation" },
+                    { id: "avoid", label: "Strictly Avoid" },
                   ].map((s) => (
                     <button
                       key={s.id}
@@ -1367,7 +1367,7 @@ export const NutritionPage: React.FC = () => {
                 </div>
 
                 {/* Ask AI Banner in Tab 3 */}
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-3.5 rounded-2xl bg-gradient-to-r from-rose-500/10 via-pink-500/5 to-purple-500/10 dark:from-rose-950/40 dark:via-pink-950/20 dark:to-purple-950/40 border border-rose-200/70 dark:border-rose-800/40">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-3.5 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200/70 dark:border-rose-800/40">
                   <div className="flex items-center gap-2 text-xs">
                     <Sparkles className="w-4 h-4 text-rose-500 shrink-0" />
                     <span className="text-gray-700 dark:text-rose-200 font-medium">
@@ -1454,7 +1454,7 @@ export const NutritionPage: React.FC = () => {
                         {/* Safe Alternative (if any) */}
                         {item.safeAlternative && (
                           <div className="text-[11px] p-2 rounded-xl bg-emerald-100/50 dark:bg-emerald-950/30 text-emerald-900 dark:text-emerald-300 font-medium">
-                            💡 <strong>Healthy Alternative:</strong> {item.safeAlternative}
+                            <strong>Healthy Alternative:</strong> {item.safeAlternative}
                           </div>
                         )}
                       </div>
@@ -1496,7 +1496,7 @@ export const NutritionPage: React.FC = () => {
                       setActiveSafetySection("ai-checker");
                       handleAiSearch(q);
                     }}
-                    className="px-6 py-3 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-xs shadow-md hover:from-rose-600 hover:to-pink-600 transition-all inline-flex items-center gap-2"
+                    className="px-6 py-3 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-md transition-all inline-flex items-center gap-2"
                   >
                     <Sparkles className="w-4 h-4 text-amber-300" />
                     <span>Ask Safety AI About {safetySearch ? `"${safetySearch}"` : "Any Food"}</span>
@@ -1510,7 +1510,7 @@ export const NutritionPage: React.FC = () => {
           {/* VIEW B: LIVE AI FOOD SAFETY QUESTION CHECKER */}
           {activeSafetySection === "ai-checker" && (
             <div className="space-y-6 animate-in fade-in duration-200">
-              <div className="bg-gradient-to-br from-rose-500/10 via-pink-500/5 to-purple-500/10 dark:from-rose-950/40 dark:via-pink-950/20 dark:to-purple-950/40 p-6 rounded-3xl border border-rose-200/80 dark:border-rose-800/50 shadow-sm space-y-4">
+              <div className="bg-rose-50 dark:bg-rose-950/40 p-6 rounded-3xl border border-rose-200/80 dark:border-rose-800/50 shadow-sm space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2.5">
                     <div className="w-9 h-9 rounded-2xl bg-rose-500 text-white flex items-center justify-center shadow-md">
@@ -1552,7 +1552,7 @@ export const NutritionPage: React.FC = () => {
                     <button
                       type="submit"
                       disabled={aiLoading || aiQuery.trim().length === 0}
-                      className="absolute right-2 px-4 py-2 rounded-xl bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-bold text-xs shadow-md transition-all disabled:opacity-40 flex items-center gap-1.5"
+                      className="absolute right-2 px-4 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-md transition-all disabled:opacity-40 flex items-center gap-1.5"
                     >
                       {aiLoading ? (
                         <>
@@ -1625,25 +1625,25 @@ export const NutritionPage: React.FC = () => {
                         {aiResult.safetyStatus === "SAFE" && (
                           <>
                             <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                            <span>🟢 Safe to Eat</span>
+                            <span>Safe to Eat</span>
                           </>
                         )}
                         {aiResult.safetyStatus === "MODERATION" && (
                           <>
                             <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400" />
-                            <span>🟡 In Moderation</span>
+                            <span>In Moderation</span>
                           </>
                         )}
                         {aiResult.safetyStatus === "AVOID" && (
                           <>
                             <XCircle className="w-4 h-4 text-white" />
-                            <span>🔴 Strictly Avoid</span>
+                            <span>Strictly Avoid</span>
                           </>
                         )}
                         {aiResult.safetyStatus === "UNKNOWN" && (
                           <>
                             <Info className="w-4 h-4 text-gray-500" />
-                            <span>⚪ Consult Doctor</span>
+                            <span>Consult Doctor</span>
                           </>
                         )}
                       </div>
@@ -1797,7 +1797,7 @@ export const NutritionPage: React.FC = () => {
           {activeSafetySection === "myths" && (
             <div className="space-y-6 animate-in fade-in duration-200">
               {/* Myth Busters Header Card */}
-              <div className="bg-gradient-to-br from-purple-500/10 via-rose-500/5 to-amber-500/10 dark:from-purple-950/30 dark:via-rose-950/20 dark:to-amber-950/30 p-6 rounded-3xl border border-purple-200/80 dark:border-purple-800/40 shadow-xs space-y-3">
+              <div className="bg-purple-50 dark:bg-purple-950/30 p-6 rounded-3xl border border-purple-200/80 dark:border-purple-800/40 shadow-xs space-y-3">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
                   <div>
                     <div className="flex items-center gap-2 text-purple-600 dark:text-purple-300 text-xs font-bold uppercase tracking-wider">
@@ -1918,7 +1918,7 @@ export const NutritionPage: React.FC = () => {
                           <div className="mt-3 space-y-3 animate-in fade-in duration-200 text-xs">
                             <div className="p-3.5 rounded-2xl bg-purple-50/60 dark:bg-purple-950/20 border border-purple-200 dark:border-purple-900/30 space-y-1">
                               <div className="font-bold text-purple-900 dark:text-purple-300 text-[11px]">
-                                🔬 Scientific Rationale:
+                                Scientific Rationale:
                               </div>
                               <p className="text-gray-700 dark:text-rose-200 leading-relaxed">
                                 {item.scientificExplanation}
@@ -1947,12 +1947,12 @@ export const NutritionPage: React.FC = () => {
       )}
 
       {/* ========================================================================= */}
-      {/* 🍳 TAB 4: DEDICATED AI RECIPE KITCHEN                                      */}
+      {/* TAB 4: DEDICATED AI RECIPE KITCHEN                                      */}
       {/* ========================================================================= */}
       {activeTab === "ai-kitchen" && (
         <div className="space-y-6 animate-in fade-in duration-300">
           {/* AI Recipe Generator Card */}
-          <div className="bg-gradient-to-br from-amber-500/10 via-rose-500/5 to-purple-500/10 dark:from-amber-950/30 dark:via-rose-950/20 dark:to-purple-950/30 p-6 rounded-3xl border border-amber-200/80 dark:border-amber-800/40 shadow-sm space-y-4">
+          <div className="bg-amber-50 dark:bg-amber-950/30 p-6 rounded-3xl border border-amber-200/80 dark:border-amber-800/40 shadow-sm space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div className="flex items-center gap-2.5">
                 <div className="w-10 h-10 rounded-2xl bg-amber-500 text-white flex items-center justify-center shadow-md">
@@ -1993,7 +1993,7 @@ export const NutritionPage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={recipeLoading || recipeQuery.trim().length === 0}
-                  className="absolute right-2 px-4 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-rose-500 hover:from-amber-600 hover:to-rose-600 text-white font-bold text-xs shadow-md transition-all disabled:opacity-40 flex items-center gap-1.5"
+                  className="absolute right-2 px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs shadow-md transition-all disabled:opacity-40 flex items-center gap-1.5"
                 >
                   {recipeLoading ? (
                     <>
@@ -2086,7 +2086,7 @@ export const NutritionPage: React.FC = () => {
                     </div>
 
                     <div className="p-3 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/30 text-xs text-emerald-900 dark:text-emerald-300 font-medium">
-                      🛡️ <strong>Pregnancy Safety:</strong> {recipeResult.safetyMessage}
+                      <strong>Pregnancy Safety:</strong> {recipeResult.safetyMessage}
                     </div>
 
                     {/* Quick Meta Stats */}
@@ -2234,7 +2234,7 @@ export const NutritionPage: React.FC = () => {
                     <div className="p-4 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/40 space-y-2">
                       <div className="font-bold text-emerald-900 dark:text-emerald-300 flex items-center gap-1.5">
                         <Sparkles className="w-4 h-4 text-emerald-500" />
-                        <span>🌸 Maternal Health Benefits:</span>
+                        <span>Maternal Health Benefits:</span>
                       </div>
                       <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-rose-200 font-medium">
                         {recipeResult.pregnancyBenefits.map((b, i) => (
@@ -2247,7 +2247,7 @@ export const NutritionPage: React.FC = () => {
                   <div className="p-4 rounded-2xl bg-rose-50/60 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/40 space-y-2">
                     <div className="font-bold text-rose-900 dark:text-rose-200 flex items-center gap-1.5">
                       <Heart className="w-4 h-4 text-rose-500" />
-                      <span>💡 BloomNest Cooking Guidance:</span>
+                      <span>BloomNest Cooking Guidance:</span>
                     </div>
                     <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-rose-200 font-medium">
                       {recipeResult.additionalInfo &&
@@ -2265,7 +2265,7 @@ export const NutritionPage: React.FC = () => {
           </div>
 
           {/* Quick Bridge to Food Safety Shield */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-4 rounded-2xl bg-gradient-to-r from-rose-50 via-pink-50 to-amber-50 dark:from-rose-950/30 dark:via-pink-950/20 dark:to-amber-950/30 border border-rose-200/80 dark:border-rose-900/40">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/30 border border-rose-200/80 dark:border-rose-900/40">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-xl bg-rose-500/10 dark:bg-rose-900/50 text-rose-600 dark:text-rose-300 flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-5 h-5" />

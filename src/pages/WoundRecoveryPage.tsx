@@ -151,8 +151,8 @@ export const WoundRecoveryPage: React.FC<{
       );
       localStorage.setItem(WOUND_LOGS_KEY, JSON.stringify(updatedLogs));
       setLogs(updatedLogs);
-      setSaveSuccessMsg(`Wound recovery log saved for Day ${day}! 🩹`);
-      showToast("Wound condition logged successfully 🌸");
+      setSaveSuccessMsg(`Wound recovery log saved for Day ${day}!`);
+      showToast("Wound condition logged successfully");
       setTimeout(() => setSaveSuccessMsg(null), 3000);
       setNotes("");
     } catch (err) {
@@ -266,7 +266,7 @@ export const WoundRecoveryPage: React.FC<{
         )}
       </header>
 
-      {/* 📝 DAILY WOUND LOGGING FORM */}
+      {/* DAILY WOUND LOGGING FORM */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-6">
         <div className="flex flex-wrap items-center justify-between border-b border-slate-100 dark:border-rose-900/30 pb-3 gap-2">
           <div className="flex items-center gap-2.5">
@@ -422,7 +422,15 @@ export const WoundRecoveryPage: React.FC<{
                         : "bg-white dark:bg-[#1A1523] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-gray-800 hover:border-rose-300"
                     }`}
                   >
-                    {opn === "No" ? "✅ No Opening" : "🚨 Yes / Opening"}
+                    {opn === "No" ? (
+                      <span className="inline-flex items-center gap-1.5">
+                        <CheckCircle2 className="w-3.5 h-3.5" /> No Opening
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1.5">
+                        <AlertCircle className="w-3.5 h-3.5" /> Yes / Opening
+                      </span>
+                    )}
                   </button>
                 ))}
               </div>
@@ -475,7 +483,7 @@ export const WoundRecoveryPage: React.FC<{
                       : "bg-white dark:bg-[#1A1523] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-gray-800 hover:border-rose-300"
                   }`}
                 >
-                  {trnd === "Improving" ? "📈 Improving" : trnd === "Same" ? "➡️ Same" : "📉 Worsening"}
+                  {trnd === "Improving" ? "Improving" : trnd === "Same" ? "Same" : "Worsening"}
                 </button>
               ))}
             </div>
@@ -497,7 +505,7 @@ export const WoundRecoveryPage: React.FC<{
 
           <button
             type="submit"
-            className="w-full py-3.5 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-extrabold text-xs shadow-md shadow-rose-500/20 transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
+            className="w-full py-3.5 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-extrabold text-xs shadow-sm transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
           >
             <Plus className="w-4 h-4" />
             <span>Save Today's Wound Condition Log</span>
@@ -505,7 +513,7 @@ export const WoundRecoveryPage: React.FC<{
         </form>
       </section>
 
-      {/* 📊 WOUND LOG HISTORY */}
+      {/* WOUND LOG HISTORY */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-4">
         <div className="flex items-center justify-between border-b border-slate-100 dark:border-rose-900/30 pb-3">
           <div className="flex items-center gap-2">
@@ -565,7 +573,7 @@ export const WoundRecoveryPage: React.FC<{
         )}
       </section>
 
-      {/* 📘 EDUCATIONAL WOUND CARE GUIDELINES */}
+      {/* EDUCATIONAL WOUND CARE GUIDELINES */}
       <section className="bg-rose-50/60 dark:bg-rose-950/20 rounded-3xl p-6 border border-rose-100 dark:border-rose-900/30 space-y-3">
         <div className="flex items-center gap-2">
           <Info className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" />
@@ -575,13 +583,15 @@ export const WoundRecoveryPage: React.FC<{
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600 dark:text-slate-300">
           <div className="p-3 bg-white dark:bg-[#15111C] rounded-2xl border border-rose-100 dark:border-rose-900/30 space-y-1">
-            <h4 className="font-extrabold text-slate-800 dark:text-rose-200">💧 Clean & Dry Routine</h4>
+            <h4 className="font-extrabold text-slate-800 dark:text-rose-200">Clean & Dry Routine</h4>
             <p className="text-[11px]">
               Wash C-section incision or perineal wound gently with warm water. Pat dry thoroughly with a fresh clean towel. Avoid scrubbing.
             </p>
           </div>
           <div className="p-3 bg-white dark:bg-[#15111C] rounded-2xl border border-rose-100 dark:border-rose-900/30 space-y-1">
-            <h4 className="font-extrabold text-slate-800 dark:text-rose-200">🚩 Red Flag Warning Signs</h4>
+            <h4 className="font-extrabold text-slate-800 dark:text-rose-200 flex items-center gap-1.5">
+              <ShieldAlert className="w-3.5 h-3.5 text-rose-500" /> Red Flag Warning Signs
+            </h4>
             <p className="text-[11px]">
               Report foul-smelling yellow/green discharge, sudden wound gaping/opening, high fever (&gt;100.4°F), or worsening redness immediately.
             </p>

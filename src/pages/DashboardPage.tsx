@@ -118,7 +118,7 @@ export const DashboardPage: React.FC = () => {
 
       {/* ACTIVE LABOR 5-1-1 TRIAGE BANNER (Connected from Contraction Timer) */}
       {isRule511Met && (
-        <div className="p-5 sm:p-6 rounded-3xl bg-gradient-to-r from-red-600 via-rose-600 to-pink-600 text-white shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 animate-pulse">
+        <div className="p-5 sm:p-6 rounded-3xl bg-red-600 text-white shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4 animate-pulse">
           <div className="flex items-start gap-3">
             <div className="p-3 bg-white/20 rounded-2xl shrink-0">
               <Siren className="w-6 h-6 text-white" />
@@ -149,7 +149,7 @@ export const DashboardPage: React.FC = () => {
           <div className="flex items-center gap-3">
             <AlertTriangle className="w-6 h-6 shrink-0 text-white" />
             <div>
-              <div className="text-sm font-extrabold">🚨 Clinical Emergency Alert ({todayVital?.systolicBp}/{todayVital?.diastolicBp} mmHg)</div>
+              <div className="text-sm font-extrabold">Clinical Emergency Alert ({todayVital?.systolicBp}/{todayVital?.diastolicBp} mmHg)</div>
               <div className="text-xs opacity-95">{bpAlertText} Contact Dr. {user.doctorName || "your obstetrician"} immediately.</div>
             </div>
           </div>
@@ -168,7 +168,7 @@ export const DashboardPage: React.FC = () => {
           <div className="flex items-center gap-3">
             <AlertTriangle className="w-6 h-6 shrink-0 text-white" />
             <div>
-              <div className="text-sm font-extrabold">⚠️ Blood Pressure Attention ({todayVital?.systolicBp}/{todayVital?.diastolicBp} mmHg)</div>
+              <div className="text-sm font-extrabold">Blood Pressure Attention ({todayVital?.systolicBp}/{todayVital?.diastolicBp} mmHg)</div>
               <div className="text-xs opacity-95">{bpAlertText}</div>
             </div>
           </div>
@@ -228,9 +228,9 @@ export const DashboardPage: React.FC = () => {
       />
 
       {/* 4.5. MY DIGITAL TWIN (ADAPTIVE 3D MATERNAL TWIN) */}
-      <div className="p-6 rounded-3xl bg-gradient-to-r from-rose-50/80 to-white/90 dark:from-slate-900/90 dark:to-slate-900/90 border border-rose-200/70 dark:border-rose-900/40 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 backdrop-blur-md">
+      <div className="p-6 rounded-3xl bg-rose-50/90 dark:bg-slate-900/90 border border-rose-200/70 dark:border-rose-900/40 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 backdrop-blur-md">
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-rose-500 to-rose-600 text-white flex items-center justify-center shrink-0 shadow-md">
+          <div className="w-12 h-12 rounded-2xl bg-rose-600 text-white flex items-center justify-center shrink-0 shadow-sm">
             <Sparkles className="w-6 h-6" />
           </div>
           <div>
@@ -254,7 +254,7 @@ export const DashboardPage: React.FC = () => {
         <button
           type="button"
           onClick={() => setActivePage("digital-twin")}
-          className="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold text-xs shadow-md transition-all flex items-center gap-2 shrink-0"
+          className="px-5 py-2.5 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-sm transition-all flex items-center gap-2 shrink-0"
         >
           <span>Open 3D Twin View</span>
           <ArrowRight className="w-4 h-4" />

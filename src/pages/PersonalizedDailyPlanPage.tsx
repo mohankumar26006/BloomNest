@@ -212,7 +212,7 @@ export const PersonalizedDailyPlanPage: React.FC<DailyPlanPageProps> = ({
         {/* Progress Bar */}
         <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-3 overflow-hidden">
           <div
-            className="bg-gradient-to-r from-rose-500 to-amber-500 h-full rounded-full transition-all duration-500"
+            className="bg-rose-500 h-full rounded-full transition-all duration-500"
             style={{ width: `${completionPercentage}%` }}
           />
         </div>
@@ -229,10 +229,10 @@ export const PersonalizedDailyPlanPage: React.FC<DailyPlanPageProps> = ({
         {[
           { id: "all", label: `All Tasks (${planResult.totalTasks})` },
           { id: "priority", label: `High Priority (${planResult.priorityCount})` },
-          { id: "morning", label: "🌅 Morning" },
-          { id: "afternoon", label: "☀️ Afternoon" },
-          { id: "evening", label: "🌙 Evening" },
-          { id: "rest_recovery", label: "🛏 Rest & Recovery" },
+          { id: "morning", label: "Morning" },
+          { id: "afternoon", label: "Afternoon" },
+          { id: "evening", label: "Evening" },
+          { id: "rest_recovery", label: "Rest & Recovery" },
         ].map((tab) => (
           <button
             key={tab.id}

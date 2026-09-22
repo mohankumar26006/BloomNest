@@ -294,7 +294,7 @@ export const BabySleepPage: React.FC<{
           <div className="space-y-1">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="px-3 py-1 bg-indigo-100 text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-300 text-xs font-semibold rounded-full flex items-center gap-1.5">
-                😴 Feature 13 • Baby Sleep Care
+                Feature 13 • Baby Sleep Care
               </span>
               <span className="px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300 text-xs font-medium rounded-full">
                 Infant Sleep Event Source
@@ -515,10 +515,10 @@ export const BabySleepPage: React.FC<{
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                   {(["Night sleep", "Daytime nap", "Short nap", "Other/rest"] as BabySleepType[]).map((t) => {
                     const isSelected = sleepType === t;
-                    let icon = "🌙";
-                    if (t === "Daytime nap") icon = "☀️";
-                    else if (t === "Short nap") icon = "💤";
-                    else if (t === "Other/rest") icon = "🛋️";
+                    let Icon = Moon;
+                    if (t === "Daytime nap") Icon = Sun;
+                    else if (t === "Short nap") Icon = Bed;
+                    else if (t === "Other/rest") Icon = Smile;
 
                     return (
                       <button
@@ -531,7 +531,7 @@ export const BabySleepPage: React.FC<{
                             : "border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
                         }`}
                       >
-                        <span className="text-lg">{icon}</span>
+                        <Icon className="w-4 h-4" />
                         <span>{t}</span>
                       </button>
                     );
@@ -550,9 +550,9 @@ export const BabySleepPage: React.FC<{
                     onChange={(e) => setSettlingEase(e.target.value as BabySettlingEase)}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   >
-                    <option value="Settled easily">😌 Settled easily</option>
-                    <option value="Needed some soothing">🤗 Needed some soothing</option>
-                    <option value="Difficult to settle">🥺 Difficult to settle</option>
+                    <option value="Settled easily">Settled easily</option>
+                    <option value="Needed some soothing">Needed some soothing</option>
+                    <option value="Difficult to settle">Difficult to settle</option>
                   </select>
                 </div>
 
@@ -565,12 +565,12 @@ export const BabySleepPage: React.FC<{
                     onChange={(e) => setOnsetMethod(e.target.value as BabySleepOnsetMethod)}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   >
-                    <option value="Feeding">🍼 Feeding</option>
-                    <option value="Rocking">👶 Rocking</option>
-                    <option value="Holding">🤗 Holding</option>
-                    <option value="Swaddling">🛌 Swaddling</option>
-                    <option value="Pacifier">👶 Pacifier</option>
-                    <option value="Self-settled">✨ Self-settled</option>
+                    <option value="Feeding">Feeding</option>
+                    <option value="Rocking">Rocking</option>
+                    <option value="Holding">Holding</option>
+                    <option value="Swaddling">Swaddling</option>
+                    <option value="Pacifier">Pacifier</option>
+                    <option value="Self-settled">Self-settled</option>
                     <option value="Other">Other</option>
                   </select>
                 </div>
@@ -613,10 +613,10 @@ export const BabySleepPage: React.FC<{
                       onChange={(e) => setAwakeningReason(e.target.value as BabyAwakeningReason)}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                     >
-                      <option value="Feeding">🍼 Feeding</option>
-                      <option value="Diaper change">🧷 Diaper change</option>
-                      <option value="Crying">😭 Crying</option>
-                      <option value="Discomfort">😣 Discomfort</option>
+                      <option value="Feeding">Feeding</option>
+                      <option value="Diaper change">Diaper change</option>
+                      <option value="Crying">Crying</option>
+                      <option value="Discomfort">Discomfort</option>
                       <option value="Unknown">Unknown</option>
                       <option value="Other">Other</option>
                     </select>
@@ -651,11 +651,11 @@ export const BabySleepPage: React.FC<{
                     onChange={(e) => setWakingState(e.target.value as BabyWakingState)}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   >
-                    <option value="Calm">😌 Calm</option>
-                    <option value="Alert">👀 Alert</option>
-                    <option value="Sleepy">😴 Sleepy</option>
-                    <option value="Fussy">🥺 Fussy</option>
-                    <option value="Crying">😭 Crying</option>
+                    <option value="Calm">Calm</option>
+                    <option value="Alert">Alert</option>
+                    <option value="Sleepy">Sleepy</option>
+                    <option value="Fussy">Fussy</option>
+                    <option value="Crying">Crying</option>
                     <option value="Other">Other</option>
                   </select>
                 </div>
@@ -689,7 +689,7 @@ export const BabySleepPage: React.FC<{
           <div className="lg:col-span-5 space-y-6">
 
             {/* SHARED TIMELINE SUMMARY WIDGET */}
-            <div className="bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-transparent dark:from-indigo-950/30 border border-indigo-200 dark:border-indigo-900/40 rounded-3xl p-6 space-y-4">
+            <div className="bg-indigo-500/10 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-900/40 rounded-3xl p-6 space-y-4">
               <div className="flex items-center gap-2">
                 <Info className="w-5 h-5 text-indigo-600 dark:text-indigo-400 shrink-0" />
                 <h3 className="font-bold text-slate-900 dark:text-white text-sm">Correlated Caregiving Events Today</h3>
@@ -773,7 +773,7 @@ export const BabySleepPage: React.FC<{
 
                     <div className="text-slate-600 dark:text-slate-300 space-y-1">
                       <p>
-                        😴 <strong>Settling:</strong> {log.settlingEase || "Standard"} • <strong>Onset:</strong> {log.onsetMethod || "Not recorded"} • <strong>State:</strong> {log.wakingState || "Calm"}
+                        <strong>Settling:</strong> {log.settlingEase || "Standard"} • <strong>Onset:</strong> {log.onsetMethod || "Not recorded"} • <strong>State:</strong> {log.wakingState || "Calm"}
                       </p>
                       <p className="text-slate-500 dark:text-slate-400">
                         <strong>Awakenings:</strong> {log.awakeningsCount} {log.awakeningReason ? `(Reason: ${log.awakeningReason})` : ""} • <strong>Environment:</strong> {log.sleepEnvironment || "Bassinet"}

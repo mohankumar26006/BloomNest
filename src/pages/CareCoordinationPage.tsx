@@ -169,9 +169,7 @@ export const CareCoordinationPage: React.FC<{
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-16 px-4 sm:px-6">
       {/* 1. HERO HEADER */}
-      <section className="bg-gradient-to-br from-indigo-700 via-purple-700 to-teal-600 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 transform translate-x-8 -translate-y-8 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none" />
-
+      <section className="bg-indigo-700 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
         <div className="relative z-10 space-y-4">
           <div className="flex flex-wrap items-center gap-2">
             <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider">
@@ -184,7 +182,7 @@ export const CareCoordinationPage: React.FC<{
 
           <div className="space-y-1">
             <h1 className="text-3xl sm:text-4xl font-black tracking-tight">
-              Care Coordination & Orchestration Hub 🕸️
+              Care Coordination & Orchestration Hub
             </h1>
             <p className="text-sm sm:text-base text-indigo-100 max-w-3xl leading-relaxed">
               Connects detection → review → safety → appointment → doctor brief → provider outcome → follow-up → monitoring → resolution into a seamless care journey.
@@ -315,7 +313,7 @@ export const CareCoordinationPage: React.FC<{
                         {item.priority} Priority
                       </span>
                       <span className="px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[10px] font-bold">
-                        {item.personType === "BABY" ? "👶 Baby Care" : "💗 Mother Care"}
+                        {item.personType === "BABY" ? "Baby Care" : "Mother Care"}
                       </span>
                       <span className="px-2.5 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950 text-indigo-800 dark:text-indigo-300 text-[10px] font-bold">
                         {item.sourceFeature}
@@ -395,11 +393,11 @@ export const CareCoordinationPage: React.FC<{
                       onChange={(e) => handleStatusChange(item.coordinationId, e.target.value as CareCoordinationStatus)}
                       className="p-2 rounded-xl text-xs font-bold border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-800 dark:text-rose-100"
                     >
-                      <option value="ACTION_REQUIRED">🔴 Action Required</option>
-                      <option value="NEEDS_REVIEW">🟠 Needs Review</option>
-                      <option value="SCHEDULED">🗓️ Scheduled</option>
-                      <option value="IN_PROGRESS">🔵 In Progress</option>
-                      <option value="COMPLETED">🟢 Completed</option>
+                      <option value="ACTION_REQUIRED">Action Required</option>
+                      <option value="NEEDS_REVIEW">Needs Review</option>
+                      <option value="SCHEDULED">Scheduled</option>
+                      <option value="IN_PROGRESS">In Progress</option>
+                      <option value="COMPLETED">Completed</option>
                       <option value="RESOLVED_CLOSED">✓ Closed</option>
                     </select>
 
@@ -460,7 +458,7 @@ export const CareCoordinationPage: React.FC<{
                     {m.specialty}
                   </p>
                   <p className="text-xs font-semibold text-slate-500 dark:text-rose-400">
-                    🏥 {m.clinicName}
+                    {m.clinicName}
                   </p>
 
                   <div className="space-y-1 pt-2 text-[11px] text-slate-600 dark:text-rose-200">
@@ -612,8 +610,8 @@ export const CareCoordinationPage: React.FC<{
                     onChange={(e) => setFormPersonType(e.target.value as "MOTHER" | "BABY")}
                     className="w-full p-2.5 rounded-2xl border border-rose-100 dark:border-rose-900/40 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-rose-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-semibold"
                   >
-                    <option value="MOTHER">💗 Mother Care</option>
-                    <option value="BABY">👶 Baby Care</option>
+                    <option value="MOTHER">Mother Care</option>
+                    <option value="BABY">Baby Care</option>
                   </select>
                 </div>
 
@@ -626,9 +624,9 @@ export const CareCoordinationPage: React.FC<{
                     onChange={(e) => setFormPriority(e.target.value as CareCoordinationPriority)}
                     className="w-full p-2.5 rounded-2xl border border-rose-100 dark:border-rose-900/40 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-rose-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-semibold"
                   >
-                    <option value="HIGH">🔴 High Priority</option>
-                    <option value="MEDIUM">🟡 Medium Priority</option>
-                    <option value="ROUTINE">🟢 Routine</option>
+                    <option value="HIGH">High Priority</option>
+                    <option value="MEDIUM">Medium Priority</option>
+                    <option value="ROUTINE">Routine</option>
                   </select>
                 </div>
               </div>
@@ -725,11 +723,11 @@ export const CareCoordinationPage: React.FC<{
                   onChange={(e) => setProvRole(e.target.value as CareTeamMember["role"])}
                   className="w-full p-2.5 rounded-2xl border border-rose-100 dark:border-rose-900/40 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-rose-100 focus:outline-none focus:ring-2 focus:ring-purple-500 font-semibold"
                 >
-                  <option value="PEDIATRICIAN">🩺 Pediatrician</option>
-                  <option value="OBSTETRICIAN">💗 Obstetrician / Gynecologist</option>
-                  <option value="LACTATION_CONSULTANT">🤱 Lactation Consultant</option>
-                  <option value="PRIMARY_CARE">🏥 Primary Care Physician</option>
-                  <option value="OTHER">⚪ Other Specialist</option>
+                  <option value="PEDIATRICIAN">Pediatrician</option>
+                  <option value="OBSTETRICIAN">Obstetrician / Gynecologist</option>
+                  <option value="LACTATION_CONSULTANT">Lactation Consultant</option>
+                  <option value="PRIMARY_CARE">Primary Care Physician</option>
+                  <option value="OTHER">Other Specialist</option>
                 </select>
               </div>
 

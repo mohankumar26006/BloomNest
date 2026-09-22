@@ -211,7 +211,7 @@ export const InteractiveAgentMessage: React.FC<InteractiveAgentMessageProps> = (
         <div className="space-y-2.5">
           {/* 1. QUICK SUMMARY CARD */}
           {sections.summary && (
-            <div className="p-3 rounded-xl bg-gradient-to-br from-rose-100/80 via-pink-50/70 to-rose-50/60 dark:from-rose-950/40 dark:via-[#1e1728] dark:to-[#171220] border border-rose-200 dark:border-rose-900/50 shadow-xs">
+            <div className="p-3 rounded-xl bg-rose-100/60 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/50 shadow-xs">
               <div className="flex items-start gap-2.5">
                 <div className="w-7 h-7 rounded-lg bg-rose-500 text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5">
                   <Lightbulb className="w-4 h-4" />

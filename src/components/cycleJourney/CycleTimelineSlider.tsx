@@ -60,7 +60,7 @@ export const CycleTimelineSlider: React.FC<CycleTimelineSliderProps> = ({
         <button
           onClick={onTogglePlay}
           aria-label={isPlaying ? "Pause cycle journey" : "Play cycle journey"}
-          className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white flex items-center justify-center shadow-md shadow-purple-500/20 shrink-0 transition-transform active:scale-95"
+          className="w-10 h-10 rounded-2xl bg-purple-600 hover:bg-purple-700 text-white flex items-center justify-center shadow-sm shrink-0 transition-colors active:scale-95"
         >
           {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4 fill-current ml-0.5" />}
         </button>
@@ -113,7 +113,7 @@ export const CycleTimelineSlider: React.FC<CycleTimelineSliderProps> = ({
                 onClick={() => onSelectDay(day)}
                 className={`w-8 h-8 rounded-full flex flex-col items-center justify-center text-[11px] font-bold transition-all relative ${
                   isSelected
-                    ? "ring-2 ring-purple-600 scale-110 bg-gradient-to-tr from-purple-600 to-indigo-600 text-white shadow-md font-extrabold z-10"
+                    ? "ring-2 ring-purple-600 scale-110 bg-purple-600 text-white shadow-md font-extrabold z-10"
                     : isPeak
                     ? "bg-amber-100 dark:bg-amber-950/60 text-amber-900 dark:text-amber-200 border border-amber-300 dark:border-amber-700"
                     : isFertile
@@ -148,7 +148,7 @@ export const CycleTimelineSlider: React.FC<CycleTimelineSliderProps> = ({
           <span>Fertile Window</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <span className="w-3 h-3 rounded-full bg-amber-400 flex items-center justify-center text-[8px]">✨</span>
+          <span className="w-3 h-3 rounded-full bg-amber-400" />
           <span>Peak Ovulation</span>
         </div>
         <div className="flex items-center gap-1.5">

@@ -118,7 +118,7 @@ export const CycleJourneyPage: React.FC = () => {
 
         {/* Dynamic Current Cycle Day Badge Header */}
         <div className="flex items-center gap-3 bg-white/90 dark:bg-[#15201c]/90 backdrop-blur-md p-3 rounded-2xl border border-rose-100 dark:border-rose-900/40 shadow-sm shrink-0">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-500 to-pink-600 text-white flex items-center justify-center shadow-sm">
+          <div className="w-10 h-10 rounded-xl bg-pink-600 text-white flex items-center justify-center shadow-sm">
             <Calendar className="w-5 h-5" />
           </div>
           <div>
@@ -164,15 +164,15 @@ export const CycleJourneyPage: React.FC = () => {
               <div className="mt-2">
                 {isSelectedPeakDay ? (
                   <Badge variant="success" className="bg-amber-500 text-white font-extrabold px-3 py-1 text-xs">
-                    Estimated Peak Ovulation Day 🔥
+                    Estimated Peak Ovulation Day
                   </Badge>
                 ) : isSelectedFertileWindow ? (
                   <Badge variant="warning" className="bg-teal-600 text-white font-bold px-3 py-1 text-xs">
-                    Estimated Fertile Window 🌱
+                    Estimated Fertile Window
                   </Badge>
                 ) : isSelectedPeriod ? (
                   <Badge variant="neutral" className="bg-rose-600 text-white font-bold px-3 py-1 text-xs">
-                    Menstruation Period 🩸
+                    Menstruation Period
                   </Badge>
                 ) : (
                   <Badge variant="neutral" className="bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold px-3 py-1 text-xs">

@@ -15,7 +15,7 @@ export const FloatingSOS: React.FC = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="group relative flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-red-600 via-rose-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white rounded-full shadow-2xl shadow-rose-500/50 hover:scale-105 active:scale-95 transition-all font-bold text-xs uppercase tracking-wider"
+          className="group relative flex items-center gap-2 px-4 py-3 bg-red-600 hover:bg-red-700 text-white rounded-full shadow-md transition-all font-bold text-xs uppercase tracking-wider"
         >
           <PhoneCall className="w-5 h-5 animate-bounce" />
           <span>1-Tap SOS</span>
@@ -25,7 +25,7 @@ export const FloatingSOS: React.FC = () => {
 
       {/* Emergency Drawer Popup */}
       {isOpen && (
-        <div className="w-80 sm:w-96 bg-white dark:bg-[#1a1523] rounded-3xl shadow-2xl border-2 border-red-500/30 p-5 animate-in fade-in slide-in-from-bottom duration-200">
+        <div className="w-80 sm:w-96 bg-white dark:bg-[#1a1523] rounded-3xl shadow-md border-2 border-red-500/30 p-5 animate-in fade-in slide-in-from-bottom duration-200">
           <div className="flex items-center justify-between pb-3 border-b border-rose-100 dark:border-rose-900/40">
             <div className="flex items-center gap-2 text-red-600 dark:text-red-400 font-bold text-sm">
               <AlertTriangle className="w-5 h-5" />
@@ -132,7 +132,7 @@ export const Toast: React.FC = () => {
   if (!toast) return null;
 
   return (
-    <div className="fixed top-20 right-6 z-50 bg-rose-900 dark:bg-rose-100 text-white dark:text-rose-950 px-4 py-3 rounded-2xl shadow-2xl text-xs font-medium flex items-center gap-2 border border-rose-700/50 animate-in fade-in slide-in-from-top-2 duration-300">
+    <div className="fixed top-20 right-6 z-50 bg-rose-900 dark:bg-rose-100 text-white dark:text-rose-950 px-4 py-3 rounded-2xl shadow-md text-xs font-medium flex items-center gap-2 border border-rose-700/50 animate-in fade-in slide-in-from-top-2 duration-300">
       <Shield className="w-4 h-4 text-rose-300 dark:text-rose-700 shrink-0" />
       <span>{toast}</span>
     </div>

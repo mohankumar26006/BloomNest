@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Sparkles, Heart, Sun, Moon } from "lucide-react";
+import { Menu, Heart, Sun, Moon } from "lucide-react";
 import { useApp } from "../../context/AppContext";
 
 export const PreconceptionHeader: React.FC<{
@@ -31,8 +31,8 @@ export const PreconceptionHeader: React.FC<{
         </button>
 
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-md shadow-emerald-500/20 lg:hidden">
-            <Sparkles className="w-4 h-4" />
+          <div className="w-8 h-8 rounded-xl bg-teal-600 flex items-center justify-center text-white shadow-sm lg:hidden">
+            <Heart className="w-4 h-4" />
           </div>
           <div>
             <h2 className="font-black text-emerald-950 dark:text-emerald-50 text-sm sm:text-base leading-tight">

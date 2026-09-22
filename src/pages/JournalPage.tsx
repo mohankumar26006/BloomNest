@@ -104,7 +104,7 @@ export const JournalPage: React.FC = () => {
 
           <button
             type="submit"
-            className="w-full py-3 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-bold text-xs shadow-md"
+            className="w-full py-3 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-md"
           >
             {t("publishJournalEntry")}
           </button>

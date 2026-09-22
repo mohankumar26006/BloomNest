@@ -209,10 +209,10 @@ const STOTRA_MANTRAS = [
 ];
 
 const SATTVIC_FOODS = [
-  { id: "saffron", name: "Saffron A2 Milk", benefits: "Rich in calcium and calming bioactive peptides for night sleep.", icon: "🥛" },
-  { id: "almonds", name: "Soaked Almonds & Walnuts", benefits: "High DHA and Vitamin E for optimal fetal brain maturation.", icon: "🥜" },
-  { id: "coconut", name: "Fresh Tender Coconut Water", benefits: "Electrolyte balance and natural hydration for amniotic fluid.", icon: "🥥" },
-  { id: "ghee", name: "Ghee & Dates Concoction", benefits: "Natural stamina building and iron absorption.", icon: "🌴" },
+  { id: "saffron", name: "Saffron A2 Milk", benefits: "Rich in calcium and calming bioactive peptides for night sleep." },
+  { id: "almonds", name: "Soaked Almonds & Walnuts", benefits: "High DHA and Vitamin E for optimal fetal brain maturation." },
+  { id: "coconut", name: "Fresh Tender Coconut Water", benefits: "Electrolyte balance and natural hydration for amniotic fluid." },
+  { id: "ghee", name: "Ghee & Dates Concoction", benefits: "Natural stamina building and iron absorption." },
 ];
 
 // Global Web Audio Context singleton to satisfy browser user gesture requirements
@@ -319,7 +319,7 @@ export const GarbhaWellnessPage: React.FC = () => {
       osc.start();
       osc.stop(ctx.currentTime + 1.2);
 
-      showToast("🔊 Playing 528Hz Healing Tone test! Verify your speaker volume.");
+      showToast("Playing 528Hz Healing Tone test! Verify your speaker volume.");
     } catch (e) {
       console.error("Test sound error:", e);
     }
@@ -358,7 +358,7 @@ export const GarbhaWellnessPage: React.FC = () => {
       setActiveRaga(ragaId);
       setIsPlayingAudio(true);
       setCompletedRituals((prev) => ({ ...prev, music: true }));
-      showToast(`Playing ${selectedRaga?.name || "Garbha Raga"} at ${baseFreq}Hz 🎶`);
+      showToast(`Playing ${selectedRaga?.name || "Garbha Raga"} at ${baseFreq}Hz`);
     } catch (e) {
       console.error("Raga synth error", e);
       showToast("Unable to start audio context. Please check browser sound permissions.");
@@ -431,7 +431,7 @@ export const GarbhaWellnessPage: React.FC = () => {
               return nextCount;
             } else {
               stopAllAudio();
-              showToast(`Completed ${target} chant repetitions for ${selectedStotra.title}! 🙏`);
+              showToast(`Completed ${target} chant repetitions for ${selectedStotra.title}!`);
               return 0;
             }
           });
@@ -447,7 +447,7 @@ export const GarbhaWellnessPage: React.FC = () => {
       setActiveStotraId(stotraId);
       setIsPlayingStotra(true);
       setCompletedRituals((prev) => ({ ...prev, mantra: true }));
-      showToast(`Chanting ${selectedStotra.title} 🕉️`);
+      showToast(`Chanting ${selectedStotra.title}`);
     } catch (e) {
       console.error("Stotra audio error:", e);
     }
@@ -472,7 +472,7 @@ export const GarbhaWellnessPage: React.FC = () => {
   const handleCompleteSamvad = () => {
     setSpokenSamvad(true);
     setCompletedRituals((prev) => ({ ...prev, samvad: true }));
-    showToast("Garbha Samvad completed! Your baby feels your peaceful bond 💕");
+    showToast("Garbha Samvad completed! Your baby feels your peaceful bond.");
   };
 
   const handleGenerateStory = async () => {
@@ -493,7 +493,7 @@ export const GarbhaWellnessPage: React.FC = () => {
 
       const data = await response.json();
       setGeneratedStory(data.story);
-      showToast("✨ A beautiful new story has been created for your baby!");
+      showToast("A beautiful new story has been created for your baby!");
     } catch (error) {
       console.error(error);
       showToast("Oops, the AI storyteller needs a moment to rest. Try again shortly!");
@@ -505,7 +505,7 @@ export const GarbhaWellnessPage: React.FC = () => {
   const toggleRitual = (key: string, name: string) => {
     setCompletedRituals((prev) => {
       const nextVal = !prev[key];
-      if (nextVal) showToast(`Completed daily Garbha ritual: ${name}! ✨`);
+      if (nextVal) showToast(`Completed daily Garbha ritual: ${name}!`);
       return { ...prev, [key]: nextVal };
     });
   };
@@ -527,7 +527,7 @@ export const GarbhaWellnessPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-rose-500 to-pink-600 text-white p-5 rounded-2xl shadow-md shrink-0 flex flex-col justify-between w-full md:w-64">
+        <div className="bg-pink-600 text-white p-5 rounded-2xl shadow-sm shrink-0 flex flex-col justify-between w-full md:w-64">
           <div className="text-xs uppercase font-bold text-rose-100 flex items-center justify-between">
             <span>{t("dailySanskarScore")}</span>
             <Sparkles className="w-4 h-4 text-amber-300" />
@@ -572,7 +572,7 @@ export const GarbhaWellnessPage: React.FC = () => {
           </button>
         </div>
 
-        <div className="bg-gradient-to-r from-rose-50/60 to-pink-50/60 dark:from-rose-950/20 dark:to-purple-950/20 p-6 rounded-2xl border border-rose-100 dark:border-rose-900/30 space-y-4">
+        <div className="bg-pink-50/60 dark:bg-purple-950/20 p-6 rounded-2xl border border-rose-100 dark:border-rose-900/30 space-y-4">
           <div className="text-xs font-bold text-rose-500 uppercase tracking-wider flex items-center gap-1.5">
             <Volume2 className="w-4 h-4" />
             <span>{t("todaysGuidedSpeechPrompt")}</span>
@@ -584,7 +584,7 @@ export const GarbhaWellnessPage: React.FC = () => {
 
           <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
             <div className="text-xs text-gray-500 dark:text-rose-300">
-              💡 <em>{t("samvadTip")}</em>
+              <em>{t("samvadTip")}</em>
             </div>
 
             <button
@@ -649,7 +649,7 @@ export const GarbhaWellnessPage: React.FC = () => {
           </div>
 
           {generatedStory && (
-            <div className="bg-gradient-to-r from-indigo-50/60 to-purple-50/60 dark:from-indigo-950/20 dark:to-purple-950/20 p-6 rounded-2xl border border-indigo-100 dark:border-indigo-900/30 space-y-4 animate-in fade-in zoom-in duration-500">
+            <div className="bg-purple-50/60 dark:bg-purple-950/20 p-6 rounded-2xl border border-indigo-100 dark:border-indigo-900/30 space-y-4 animate-in fade-in zoom-in duration-500">
               <div className="text-xs font-bold text-indigo-500 uppercase tracking-wider flex items-center gap-1.5 border-b border-indigo-100 dark:border-indigo-900/50 pb-2">
                 <BookOpen className="w-4 h-4" />
                 <span>Your Personalized Womb Story</span>
@@ -728,8 +728,8 @@ export const GarbhaWellnessPage: React.FC = () => {
                 </div>
 
                 <div className="flex items-center justify-between text-[11px] font-semibold text-gray-500 dark:text-rose-300 border-t border-black/5 dark:border-white/5 pt-3">
-                  <span>🎯 {t("idealLabel")}: {raga.trimester}</span>
-                  <span>⏰ {raga.timeOfDay}</span>
+                  <span>{t("idealLabel")}: {raga.trimester}</span>
+                  <span>{raga.timeOfDay}</span>
                 </div>
               </div>
             );
@@ -917,7 +917,7 @@ export const GarbhaWellnessPage: React.FC = () => {
                         </div>
 
                         <div className="text-[11px] text-gray-300 flex items-center justify-between px-1">
-                          <span>✨ {t("authenticChantingNote")}</span>
+                          <span>{t("authenticChantingNote")}</span>
                           <button
                             onClick={() => setActiveYoutubeEmbedId(null)}
                             className="text-[11px] text-red-300 hover:text-white font-bold"
@@ -998,7 +998,6 @@ export const GarbhaWellnessPage: React.FC = () => {
               className="p-4 bg-emerald-50/30 dark:bg-emerald-950/20 rounded-2xl border border-emerald-100 dark:border-emerald-900/30 flex flex-col justify-between space-y-3"
             >
               <div className="flex items-center gap-3">
-                <span className="text-3xl">{food.icon}</span>
                 <h4 className="font-bold text-xs text-gray-900 dark:text-rose-100">{t(`food_${food.id}_name`) || food.name}</h4>
               </div>
               <p className="text-[11px] text-gray-600 dark:text-rose-300 leading-relaxed">{t(`food_${food.id}_benefits`) || food.benefits}</p>

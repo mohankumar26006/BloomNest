@@ -49,7 +49,7 @@ export const TodaysPriorities: React.FC<TodaysPrioritiesProps> = ({
             <span>All Medications Taken Today!</span>
           </div>
           <p className="text-[11px] text-emerald-600 dark:text-emerald-400 font-medium">
-            Great job keeping up with your prenatal health routine 🌸
+            Great job keeping up with your prenatal health routine.
           </p>
         </div>
       ) : (

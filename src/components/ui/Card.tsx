@@ -12,33 +12,33 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const Card: React.FC<CardProps> = ({
-  variant = "glass",
-  radius = "3xl",
+  variant = "flat",
+  radius = "xl",
   children,
   className = "",
   isHoverable = false,
   ...props
 }) => {
   const radiusStyles: Record<CardRadius, string> = {
-    lg: "rounded-xl",
-    xl: "rounded-2xl",
-    "2xl": "rounded-[24px]",
-    "3xl": "rounded-[32px]",
+    lg: "rounded-lg",
+    xl: "rounded-xl",
+    "2xl": "rounded-2xl",
+    "3xl": "rounded-3xl",
   };
 
   const variantStyles: Record<CardVariant, string> = {
     glass:
-      "bg-white/80 dark:bg-[#1A1523]/80 backdrop-blur-xl border border-rose-100/80 dark:border-rose-900/40 shadow-xl shadow-rose-200/40 dark:shadow-none text-gray-900 dark:text-rose-100",
+      "bg-white/95 dark:bg-[#1A1523]/95 border border-rose-100/80 dark:border-rose-900/40 shadow-sm text-gray-900 dark:text-rose-100",
     flat:
       "bg-white dark:bg-[#1A1523] border border-gray-100 dark:border-rose-900/30 shadow-sm text-gray-900 dark:text-rose-100",
     gradient:
-      "bg-gradient-to-br from-rose-50/80 to-rose-100/60 dark:from-[#221221] dark:to-[#2e172e] border border-rose-200/60 dark:border-rose-900/50 shadow-md text-gray-900 dark:text-rose-100",
+      "bg-rose-50 dark:bg-[#221221] border border-rose-200/60 dark:border-rose-900/50 shadow-sm text-gray-900 dark:text-rose-100",
     border:
       "bg-transparent border-2 border-rose-200 dark:border-rose-900/50 text-gray-900 dark:text-rose-100",
   };
 
   const hoverStyles = isHoverable
-    ? "transition-all duration-300 hover:shadow-2xl hover:scale-[1.01] cursor-pointer"
+    ? "transition-colors duration-150 hover:border-rose-300 dark:hover:border-rose-700 cursor-pointer"
     : "";
 
   return (

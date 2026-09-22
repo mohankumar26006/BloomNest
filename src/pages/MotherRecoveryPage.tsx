@@ -175,8 +175,8 @@ export const MotherRecoveryPage: React.FC<{
       );
       localStorage.setItem(RECOVERY_LOGS_KEY, JSON.stringify(updatedLogs));
       setLogs(updatedLogs);
-      setSaveSuccessMsg(`Recovery log saved for Day ${day}! 💕`);
-      showToast("Mother physical recovery logged! 🌸");
+      setSaveSuccessMsg(`Recovery log saved for Day ${day}!`);
+      showToast("Mother physical recovery logged!");
       setTimeout(() => setSaveSuccessMsg(null), 3000);
       setNotes("");
     } catch (err) {
@@ -319,7 +319,7 @@ export const MotherRecoveryPage: React.FC<{
         )}
       </header>
 
-      {/* 📝 DAILY RECOVERY LOGGING FORM */}
+      {/* DAILY RECOVERY LOGGING FORM */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-6">
         <div className="flex items-center justify-between border-b border-slate-100 dark:border-rose-900/30 pb-3">
           <div className="flex items-center gap-2.5">
@@ -413,20 +413,24 @@ export const MotherRecoveryPage: React.FC<{
                 <span>Energy Level</span>
               </label>
               <div className="grid grid-cols-3 gap-2 pt-1">
-                {(["Low", "Medium", "Good"] as EnergyLevel[]).map((lvl) => (
-                  <button
-                    key={lvl}
-                    type="button"
-                    onClick={() => setEnergy(lvl)}
-                    className={`py-2.5 rounded-xl font-extrabold text-xs transition-all border ${
-                      energy === lvl
-                        ? "bg-amber-500 text-white border-amber-600 shadow-xs"
-                        : "bg-white dark:bg-[#1A1523] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-gray-800 hover:border-amber-300"
-                    }`}
-                  >
-                    {lvl === "Low" ? "🪫 Low" : lvl === "Medium" ? "⚡ Medium" : "🔋 Good"}
-                  </button>
-                ))}
+                {(["Low", "Medium", "Good"] as EnergyLevel[]).map((lvl) => {
+                  const LvlIcon = lvl === "Low" ? BatteryLow : lvl === "Medium" ? BatteryMedium : Battery;
+                  return (
+                    <button
+                      key={lvl}
+                      type="button"
+                      onClick={() => setEnergy(lvl)}
+                      className={`py-2.5 rounded-xl font-extrabold text-xs transition-all border flex items-center justify-center gap-1.5 ${
+                        energy === lvl
+                          ? "bg-amber-500 text-white border-amber-600 shadow-xs"
+                          : "bg-white dark:bg-[#1A1523] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-gray-800 hover:border-amber-300"
+                      }`}
+                    >
+                      <LvlIcon className="w-3.5 h-3.5" />
+                      <span>{lvl}</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -448,7 +452,7 @@ export const MotherRecoveryPage: React.FC<{
                         : "bg-white dark:bg-[#1A1523] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-gray-800 hover:border-teal-300"
                     }`}
                   >
-                    {mob === "Difficult" ? "🛋️ Difficult" : mob === "Moderate" ? "🚶‍♀️ Moderate" : "🏃‍♀️ Comfortable"}
+                    {mob}
                   </button>
                 ))}
               </div>
@@ -475,7 +479,7 @@ export const MotherRecoveryPage: React.FC<{
                         : "bg-white dark:bg-[#1A1523] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-gray-800 hover:border-indigo-300"
                     }`}
                   >
-                    {rst === "Poor" ? "😴 Poor" : rst === "Fair" ? "😌 Fair" : "🌟 Good"}
+                    {rst}
                   </button>
                 ))}
               </div>
@@ -488,20 +492,24 @@ export const MotherRecoveryPage: React.FC<{
                 <span>Overall Recovery Feel</span>
               </label>
               <div className="grid grid-cols-3 gap-2 pt-1">
-                {(["Worse", "Same", "Better"] as OverallRecoveryStatus[]).map((ovr) => (
-                  <button
-                    key={ovr}
-                    type="button"
-                    onClick={() => setOverallRecovery(ovr)}
-                    className={`py-2.5 rounded-xl font-extrabold text-xs transition-all border ${
-                      overallRecovery === ovr
-                        ? "bg-emerald-600 text-white border-emerald-700 shadow-xs"
-                        : "bg-white dark:bg-[#1A1523] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-gray-800 hover:border-emerald-300"
-                    }`}
-                  >
-                    {ovr === "Worse" ? "📉 Worse" : ovr === "Same" ? "➡️ Same" : "📈 Better"}
-                  </button>
-                ))}
+                {(["Worse", "Same", "Better"] as OverallRecoveryStatus[]).map((ovr) => {
+                  const OvrIcon = ovr === "Worse" ? TrendingDown : ovr === "Same" ? Minus : TrendingUp;
+                  return (
+                    <button
+                      key={ovr}
+                      type="button"
+                      onClick={() => setOverallRecovery(ovr)}
+                      className={`py-2.5 rounded-xl font-extrabold text-xs transition-all border flex items-center justify-center gap-1.5 ${
+                        overallRecovery === ovr
+                          ? "bg-emerald-600 text-white border-emerald-700 shadow-xs"
+                          : "bg-white dark:bg-[#1A1523] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-gray-800 hover:border-emerald-300"
+                      }`}
+                    >
+                      <OvrIcon className="w-3.5 h-3.5" />
+                      <span>{ovr}</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -522,7 +530,7 @@ export const MotherRecoveryPage: React.FC<{
 
           <button
             type="submit"
-            className="w-full py-3.5 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-extrabold text-xs shadow-md shadow-rose-500/20 transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
+            className="w-full py-3.5 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-extrabold text-xs shadow-md transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
           >
             <Plus className="w-4 h-4" />
             <span>Save Today's Recovery Log</span>
@@ -530,7 +538,7 @@ export const MotherRecoveryPage: React.FC<{
         </form>
       </section>
 
-      {/* 📊 RECOVERY HISTORY TIMELINE */}
+      {/* RECOVERY HISTORY TIMELINE */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-4">
         <div className="flex items-center justify-between border-b border-slate-100 dark:border-rose-900/30 pb-3">
           <div className="flex items-center gap-2">

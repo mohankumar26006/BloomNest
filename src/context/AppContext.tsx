@@ -388,12 +388,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       }
       return merged;
     });
-    showToast("Profile updated successfully! 💕");
+    showToast("Profile updated successfully!");
   };
 
   const toggleAudioMute = () => {
     setIsAudioMuted((prev) => !prev);
-    showToast(isAudioMuted ? "Alert sound unmuted 🔔" : "Alert sound muted 🔕");
+    showToast(isAudioMuted ? "Alert sound unmuted" : "Alert sound muted");
   };
 
   const addVital = async (vital: Omit<HealthVital, "id">): Promise<HealthVital> => {
@@ -413,9 +413,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
         if (serverEntry.evaluation?.playAlertSound) {
           playUrgentAlertSound(isAudioMuted);
-          showToast("⚠️ Alert: Severe vital reading evaluated by backend");
+          showToast("Alert: Severe vital reading evaluated by backend");
         } else {
-          showToast("Health vitals logged! ✨");
+          showToast("Health vitals logged!");
         }
 
         return serverEntry;
@@ -442,9 +442,9 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
     if (localEntry.evaluation?.playAlertSound) {
       playUrgentAlertSound(isAudioMuted);
-      showToast("⚠️ Alert: Severe vital reading evaluated");
+      showToast("Alert: Severe vital reading evaluated");
     } else {
-      showToast("Health vitals logged! ✨");
+      showToast("Health vitals logged!");
     }
 
     return localEntry;
@@ -468,20 +468,20 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         if (data && data.entry) {
           setVitals((prev) => [data.entry, ...prev.slice(1)]);
           enqueueMutation(user.id, "HealthVitalLog", "UPDATE", data.entry).catch(() => {});
-          showToast(`Hydration +${amountMl}ml logged! 💧`);
+          showToast(`Hydration +${amountMl}ml logged!`);
         }
       })
       .catch(() => {
         // Fallback local update
         setVitals((prev) => [updatedCandidate, ...prev.slice(1)]);
-        showToast(`Hydration +${amountMl}ml logged! 💧`);
+        showToast(`Hydration +${amountMl}ml logged!`);
       });
   };
 
   const deleteVital = async (id: number | string): Promise<void> => {
     setVitals((prev) => prev.filter((v) => String(v.id) !== String(id)));
     enqueueMutation(user.id, "HealthVitalLog", "DELETE", { id }).catch(() => {});
-    showToast("Vitals entry removed 🗑️");
+    showToast("Vitals entry removed");
   };
 
   const updateVital = async (id: number | string, updated: Partial<HealthVital>): Promise<HealthVital> => {
@@ -501,7 +501,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
         setVitals((prev) => prev.map((v) => (String(v.id) === String(id) ? serverEntry : v)));
         enqueueMutation(user.id, "HealthVitalLog", "UPDATE", serverEntry).catch(() => {});
-        showToast("Health vital record updated! ✨");
+        showToast("Health vital record updated!");
         return serverEntry;
       }
     } catch (err) {
@@ -517,7 +517,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
     setVitals((prev) => prev.map((v) => (String(v.id) === String(id) ? localEntry : v)));
     enqueueMutation(user.id, "HealthVitalLog", "UPDATE", localEntry).catch(() => {});
-    showToast("Health vital record updated! ✨");
+    showToast("Health vital record updated!");
     return localEntry;
   };
 
@@ -535,14 +535,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       isTakenToday: false,
     };
     setMedicines((prev) => [...prev, newMed]);
-    showToast("Medicine reminder added! 💊");
+    showToast("Medicine reminder added!");
   };
 
   const addAppointment = (apt: Omit<Appointment, "id" | "status">) => {
     const newApt: Appointment = { ...apt, id: Date.now(), status: "upcoming" };
     setAppointments((prev) => [newApt, ...prev]);
     enqueueMutation(user.id, "Appointment", "CREATE", newApt).catch(() => {});
-    showToast("Doctor appointment scheduled! 🩺");
+    showToast("Doctor appointment scheduled!");
     triggerNotification("Appointment Scheduled", `Dr. visit set for ${apt.appointmentDate}`);
   };
 
@@ -565,7 +565,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       return prevVitals;
     });
 
-    showToast("Kick session saved! 👶");
+    showToast("Kick session saved!");
   };
 
   const addContraction = (contraction: Omit<ContractionLog, "id">) => {
@@ -579,14 +579,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const newLog: MoodLog = { ...log, id: Date.now() };
     setMoodLogs((prev) => [newLog, ...prev]);
     enqueueMutation(user.id, "MoodLog", "CREATE", newLog).catch(() => {});
-    showToast("Mood & sleep entry logged! 🌸");
+    showToast("Mood & sleep entry logged!");
   };
 
   const addJournalEntry = (entry: Omit<JournalEntry, "id">) => {
     const newEntry: JournalEntry = { ...entry, id: Date.now() };
     setJournalEntries((prev) => [newEntry, ...prev]);
     enqueueMutation(user.id, "JournalEntry", "CREATE", newEntry).catch(() => {});
-    showToast("Journal entry published! 📖");
+    showToast("Journal entry published!");
   };
 
   const toggleHospitalItem = (id: number) => {
@@ -604,14 +604,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const newItem: HospitalBagItem = { ...item, id: Date.now(), isPacked: false };
     setHospitalBag((prev) => [...prev, newItem]);
     enqueueMutation(user.id, "HospitalBagItem", "CREATE", newItem).catch(() => {});
-    showToast("Added item to hospital bag! 💼");
+    showToast("Added item to hospital bag!");
   };
 
   const addEmergencyContact = (contact: Omit<EmergencyContact, "id">) => {
     const newContact: EmergencyContact = { ...contact, id: Date.now() };
     setEmergencyContacts((prev) => [...prev, newContact]);
     enqueueMutation(user.id, "EmergencyContact", "CREATE", newContact).catch(() => {});
-    showToast("Emergency contact saved! 📞");
+    showToast("Emergency contact saved!");
   };
 
   const toggleFavoriteBabyName = (id: string) => {
@@ -638,7 +638,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setEmergencyContacts(DEMO_EMERGENCY_CONTACTS);
     setBabyNames(BABY_NAMES_DATABASE);
     setNotifications(DEMO_NOTIFICATIONS);
-    showToast("Loaded Sarah's Demo Account! 🌸");
+    showToast("Loaded Sarah's Demo Account!");
   };
 
   const signInUser = (profile: {
@@ -672,7 +672,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }));
 
     setActivePage("dashboard");
-    showToast(`🌸 Welcome back, ${profile.fullName || "Mom"}! Direct login to Dashboard.`);
+    showToast(`Welcome back, ${profile.fullName || "Mom"}! Direct login to Dashboard.`);
   };
 
   const initializeNewUser = (profile: Partial<UserProfile>) => {
@@ -793,14 +793,14 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     setNotifications([
       {
         id: Date.now(),
-        title: `Welcome to BloomNest, ${newUser.fullName}! 🌸`,
+        title: `Welcome to BloomNest, ${newUser.fullName}!`,
         message: `Your dashboard is personalized to Week ${newUser.currentWeek}. Verified clinical baseline, medication timers, and AI guidance are calibrated.`,
         time: "Just now",
         isRead: false,
         type: "system",
       },
     ]);
-    showToast(`Welcome, ${newUser.fullName}! Your personalized hub is ready ✨`);
+    showToast(`Welcome, ${newUser.fullName}! Your personalized hub is ready`);
   };
 
   const resetAllData = () => {

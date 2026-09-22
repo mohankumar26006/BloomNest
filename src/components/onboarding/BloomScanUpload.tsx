@@ -36,17 +36,17 @@ export const BloomScanUpload: React.FC<BloomScanUploadProps> = ({
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 bg-gradient-to-br from-[#FFF0F5] via-[#FFF7F9] to-[#F5E6EC] dark:from-[#120E18] dark:via-[#1A1424] dark:to-[#22172A] text-gray-900 dark:text-rose-100">
+    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 bg-[#FFF7F9] dark:bg-[#120E18] text-gray-900 dark:text-rose-100">
       <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4 }}
-        className="w-full max-w-xl bg-white/90 dark:bg-[#1A1523]/90 backdrop-blur-xl p-6 sm:p-8 rounded-[36px] border border-rose-100 dark:border-rose-900/40 shadow-2xl shadow-rose-200/50 dark:shadow-none space-y-6"
+        className="w-full max-w-xl bg-white/90 dark:bg-[#1A1523]/90 p-6 sm:p-8 rounded-2xl border border-rose-100 dark:border-rose-900/40 shadow-sm space-y-6"
       >
         <ProgressHeader
           currentStep={3}
           totalSteps={4}
-          title="🤖 BloomScan Medical Digitizer"
+          title="BloomScan Medical Digitizer"
           onBack={onBack}
         />
 
@@ -119,7 +119,7 @@ export const BloomScanUpload: React.FC<BloomScanUploadProps> = ({
         <button
           disabled={!selectedFile}
           onClick={() => onStartAnalyze(selectedFile?.name || "Report.pdf")}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold text-sm shadow-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.01] disabled:opacity-50"
+          className="w-full py-4 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm shadow-xl flex items-center justify-center gap-2 transition-all disabled:opacity-50"
         >
           <Sparkles className="w-4 h-4" />
           <span>Analyze Report with BloomScan →</span>

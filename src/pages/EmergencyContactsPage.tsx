@@ -67,7 +67,7 @@ export const EmergencyContactsPage: React.FC = () => {
                 </div>
                 {contact.address && (
                   <div className="text-[11px] text-gray-500 dark:text-rose-400">
-                    📍 {contact.address}
+                    {contact.address}
                   </div>
                 )}
               </div>
@@ -151,7 +151,7 @@ export const EmergencyContactsPage: React.FC = () => {
 
           <button
             type="submit"
-            className="w-full py-3 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-xs shadow-md"
+            className="w-full py-3 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-bold text-xs shadow-sm"
           >
             {t("saveEmergencyContact")}
           </button>

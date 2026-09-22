@@ -24,10 +24,10 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
 
   const journeyText =
     user.currentJourney === "PRE_PREGNANCY"
-      ? "🌱 Preconception Journey"
+      ? "Preconception Journey"
       : user.currentJourney === "POST_PREGNANCY"
-      ? "🌷 Fourth Trimester Journey"
-      : "🤰 Gestational Journey";
+      ? "Fourth Trimester Journey"
+      : "Gestational Journey";
 
   return (
     <div className="flex items-center justify-between gap-4">
@@ -77,7 +77,7 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
         <img
           src={user.avatarUrl || sarahAvatar}
           alt={user.fullName}
-          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-pink-200 dark:border-rose-700 shadow-md group-hover:scale-105 transition-transform"
+          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-pink-200 dark:border-rose-700 shadow-md group-hover:border-rose-400 transition-colors"
         />
         <span className="absolute bottom-0 right-0 w-4 h-4 bg-emerald-400 border-2 border-white dark:border-[#120e18] rounded-full" />
       </div>

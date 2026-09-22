@@ -377,7 +377,7 @@ export const MotherNutritionHydrationPage: React.FC<{
       setMealLogs(updated);
       loadTimeline(mealDate, updated, fluidLogs);
 
-      setSaveSuccessMsg("Meal log saved 🥗");
+      setSaveSuccessMsg("Meal log saved");
       showToast("Meal log saved!");
       setTimeout(() => setSaveSuccessMsg(null), 3000);
 
@@ -427,7 +427,7 @@ export const MotherNutritionHydrationPage: React.FC<{
       setFluidLogs(updated);
       loadTimeline(fluidDate, mealLogs, updated);
 
-      setSaveSuccessMsg(`Logged ${amountMl} mL ${drinkType} 🥤`);
+      setSaveSuccessMsg(`Logged ${amountMl} mL ${drinkType}`);
       showToast(`Logged ${amountMl} mL ${drinkType}`);
       setTimeout(() => setSaveSuccessMsg(null), 3000);
 
@@ -467,7 +467,7 @@ export const MotherNutritionHydrationPage: React.FC<{
       loadTimeline(todayStr, mealLogs, updated);
 
       setSaveSuccessMsg(`Added +${addedMl} mL Water!`);
-      showToast(`+${addedMl} mL Water added 💧`);
+      showToast(`+${addedMl} mL Water added`);
       setTimeout(() => setSaveSuccessMsg(null), 3000);
     } catch (err) {
       showToast("Failed to add fluid log");
@@ -716,7 +716,7 @@ export const MotherNutritionHydrationPage: React.FC<{
                   : "bg-slate-100 dark:bg-[#15111C] text-slate-600 dark:text-slate-400 hover:bg-slate-200"
               }`}
             >
-              🥗 Log Meal / Snack
+              Log Meal / Snack
             </button>
             <button
               onClick={() => setActiveTab("fluids")}
@@ -726,7 +726,7 @@ export const MotherNutritionHydrationPage: React.FC<{
                   : "bg-slate-100 dark:bg-[#15111C] text-slate-600 dark:text-slate-400 hover:bg-slate-200"
               }`}
             >
-              🥤 Log Fluid Intake
+              Log Fluid Intake
             </button>
             <button
               onClick={() => setActiveTab("timeline")}
@@ -736,7 +736,7 @@ export const MotherNutritionHydrationPage: React.FC<{
                   : "bg-slate-100 dark:bg-[#15111C] text-slate-600 dark:text-slate-400 hover:bg-slate-200"
               }`}
             >
-              ⚡ Connected Timeline
+              Connected Timeline
             </button>
           </div>
           <span className="text-xs text-slate-400 hidden sm:inline">Feature 15 Source of Truth</span>
@@ -1197,7 +1197,7 @@ export const MotherNutritionHydrationPage: React.FC<{
       </section>
 
       {/* EDUCATIONAL NUTRITION & HYDRATION GUIDE */}
-      <section className="bg-gradient-to-br from-emerald-900 via-teal-900 to-slate-900 text-white rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl">
+      <section className="bg-emerald-900 text-white rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl">
         <div className="flex items-center gap-2 border-b border-emerald-800/60 pb-3">
           <Apple className="w-5 h-5 text-emerald-400" />
           <h2 className="text-base font-extrabold text-rose-100">Postpartum Nutrition & Lactation Hydration Guide</h2>

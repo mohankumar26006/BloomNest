@@ -162,8 +162,8 @@ export const PainMonitoringPage: React.FC<{
       );
       localStorage.setItem(PAIN_LOGS_KEY, JSON.stringify(updatedLogs));
       setLogs(updatedLogs);
-      setSaveSuccessMsg(`Pain record saved for Day ${day}! 🩹`);
-      showToast("Detailed pain entry logged 💕");
+      setSaveSuccessMsg(`Pain record saved for Day ${day}!`);
+      showToast("Detailed pain entry logged");
       setTimeout(() => setSaveSuccessMsg(null), 3000);
       setNotes("");
     } catch (err) {
@@ -257,7 +257,7 @@ export const PainMonitoringPage: React.FC<{
         </div>
       </header>
 
-      {/* 🩹 DAILY DETAILED PAIN LOGGING FORM */}
+      {/* DAILY DETAILED PAIN LOGGING FORM */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-6">
         <div className="flex items-center justify-between border-b border-slate-100 dark:border-rose-900/30 pb-3">
           <div className="flex items-center gap-2.5">
@@ -441,7 +441,7 @@ export const PainMonitoringPage: React.FC<{
                         : "bg-white dark:bg-[#1A1523] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-gray-800 hover:border-rose-300"
                     }`}
                   >
-                    {trd === "Improving" ? "📉 Improving" : trd === "Same" ? "➡️ Same" : "📈 Worsening"}
+                    {trd}
                   </button>
                 ))}
               </div>
@@ -483,7 +483,7 @@ export const PainMonitoringPage: React.FC<{
 
           <button
             type="submit"
-            className="w-full py-3.5 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-extrabold text-xs shadow-md shadow-rose-500/20 transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
+            className="w-full py-3.5 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-extrabold text-xs shadow-md transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
           >
             <Plus className="w-4 h-4" />
             <span>Save Today's Pain Record</span>
@@ -491,7 +491,7 @@ export const PainMonitoringPage: React.FC<{
         </form>
       </section>
 
-      {/* 📊 PAIN HISTORY TIMELINE */}
+      {/* PAIN HISTORY TIMELINE */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-4">
         <div className="flex items-center justify-between border-b border-slate-100 dark:border-rose-900/30 pb-3">
           <div className="flex items-center gap-2">

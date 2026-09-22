@@ -42,7 +42,7 @@ export const PreconceptionSafety: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Banner */}
-      <div className="p-6 rounded-3xl bg-gradient-to-r from-rose-800 via-emerald-900 to-slate-900 text-white shadow-xl shadow-slate-950/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="p-6 rounded-3xl bg-slate-900 text-white shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="p-1.5 rounded-lg bg-rose-500/30 text-rose-200">

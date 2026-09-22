@@ -95,9 +95,7 @@ export const AiMemoryHistoryPage: React.FC<{
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-16 px-4 sm:px-6">
       {/* 1. HERO HEADER */}
-      <section className="bg-gradient-to-br from-purple-700 via-indigo-700 to-rose-600 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 transform translate-x-8 -translate-y-8 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none" />
-
+      <section className="bg-purple-700 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
         <div className="relative z-10 space-y-4">
           <div className="flex flex-wrap items-center gap-2">
             <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider">
@@ -110,7 +108,7 @@ export const AiMemoryHistoryPage: React.FC<{
 
           <div className="space-y-1">
             <h1 className="text-3xl sm:text-4xl font-black tracking-tight">
-              AI Memory & Patient History 🧠
+              AI Memory & Patient History
             </h1>
             <p className="text-sm sm:text-base text-purple-100 max-w-3xl leading-relaxed">
               "BloomNest remembers your journey, not just your data." Connects maternal, baby, safety, and appointment events across Features 1–28 through source references without duplicating records.

@@ -209,7 +209,7 @@ export const MedicalProfilePage: React.FC = () => {
         </div>
 
         {/* Digital Medical ID Card Widget */}
-        <div className="bg-gradient-to-br from-slate-900 via-zinc-900 to-rose-950 text-white p-6 rounded-3xl shadow-2xl space-y-6 border border-rose-900/50 flex flex-col justify-between print:bg-white print:text-black">
+        <div className="bg-rose-950 text-white p-6 rounded-3xl shadow-2xl space-y-6 border border-rose-900/50 flex flex-col justify-between print:bg-white print:text-black">
           <div className="space-y-4">
             <div className="flex items-center justify-between border-b border-white/10 pb-4">
               <div className="flex items-center gap-2">

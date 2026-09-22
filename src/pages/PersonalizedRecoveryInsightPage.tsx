@@ -79,8 +79,7 @@ export const PersonalizedRecoveryInsightPage: React.FC<PersonalizedRecoveryInsig
       <div className="max-w-6xl mx-auto space-y-6">
         
         {/* TOP HERO BANNER */}
-        <div className="bg-gradient-to-r from-rose-600 via-pink-600 to-indigo-600 rounded-3xl p-6 md:p-8 text-white shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div className="bg-rose-600 rounded-3xl p-6 md:p-8 text-white shadow-sm relative overflow-hidden">
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 mb-2">
@@ -260,7 +259,7 @@ export const PersonalizedRecoveryInsightPage: React.FC<PersonalizedRecoveryInsig
         </div>
 
         {/* WHAT MIGHT HELP TODAY (ACTION BRIDGE TO F21, F25, F24) */}
-        <div className="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30 rounded-3xl p-6 border border-indigo-100 dark:border-indigo-900/40 space-y-4">
+        <div className="bg-purple-50 dark:bg-purple-950/30 rounded-3xl p-6 border border-indigo-100 dark:border-indigo-900/40 space-y-4">
           <h3 className="text-base font-bold text-indigo-900 dark:text-indigo-200 flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-indigo-500" /> What Might Help Today?
           </h3>

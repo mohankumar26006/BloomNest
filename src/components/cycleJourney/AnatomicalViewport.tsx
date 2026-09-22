@@ -29,7 +29,7 @@ export const AnatomicalViewport: React.FC<AnatomicalViewportProps> = ({
   const activeImage = getPhaseImage();
 
   return (
-    <div className="relative w-full aspect-[16/9] max-h-[520px] min-h-[350px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#1a1222] via-[#140e1b] to-[#0d0912] border border-rose-900/40 shadow-2xl flex items-center justify-center p-0">
+    <div className="relative w-full aspect-[16/9] max-h-[520px] min-h-[350px] rounded-3xl overflow-hidden bg-[#140e1b] border border-rose-900/40 shadow-md flex items-center justify-center p-0">
       
       {/* Background Soft Glow & Phase Environment Lighting */}
       <div
@@ -75,7 +75,7 @@ export const AnatomicalViewport: React.FC<AnatomicalViewportProps> = ({
           </AnimatePresence>
 
           {/* Soft Edge Glow Overlay to blend seamlessly into container */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-slate-950/20 pointer-events-none" />
           <div className="absolute inset-0 border border-white/10 rounded-3xl pointer-events-none" />
         </div>
 

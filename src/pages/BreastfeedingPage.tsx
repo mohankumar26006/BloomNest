@@ -170,8 +170,8 @@ export const BreastfeedingPage: React.FC<{
       );
       localStorage.setItem(BREASTFEEDING_LOGS_KEY, JSON.stringify(updatedLogs));
       setLogs(updatedLogs);
-      setSaveSuccessMsg(`Breastfeeding session saved! 🤱`);
-      showToast("Direct breastfeeding logged 💕");
+      setSaveSuccessMsg(`Breastfeeding session saved!`);
+      showToast("Direct breastfeeding logged");
       setTimeout(() => setSaveSuccessMsg(null), 3000);
       setNotes("");
       // Refresh time string for next session
@@ -289,7 +289,7 @@ export const BreastfeedingPage: React.FC<{
         )}
       </header>
 
-      {/* 📊 TODAY'S SUMMARY CARDS (DYNAMICALLY COMPUTED FROM SAVED SESSION RECORDS) */}
+      {/* TODAY'S SUMMARY CARDS (DYNAMICALLY COMPUTED FROM SAVED SESSION RECORDS) */}
       <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="bg-white dark:bg-[#1A1523] p-4 rounded-2xl border border-slate-200/80 dark:border-rose-900/40 shadow-xs flex items-center justify-between">
           <div>
@@ -327,7 +327,7 @@ export const BreastfeedingPage: React.FC<{
         </div>
       </section>
 
-      {/* 📝 LOG BREASTFEEDING SESSION FORM */}
+      {/* LOG BREASTFEEDING SESSION FORM */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-6">
         <div className="flex flex-wrap items-center justify-between border-b border-slate-100 dark:border-rose-900/30 pb-3 gap-2">
           <div className="flex items-center gap-2.5">
@@ -406,7 +406,7 @@ export const BreastfeedingPage: React.FC<{
                         : "bg-white dark:bg-[#1A1523] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-gray-800 hover:border-rose-300"
                     }`}
                   >
-                    {b === "Left" ? "⬅️ Left" : b === "Right" ? "➡️ Right" : "🔄 Both"}
+                    {b === "Left" ? "Left" : b === "Right" ? "Right" : "Both"}
                   </button>
                 ))}
               </div>
@@ -486,12 +486,12 @@ export const BreastfeedingPage: React.FC<{
                   }`}
                 >
                   {exp === "Comfortable"
-                    ? "😌 Comfortable"
+                    ? "Comfortable"
                     : exp === "Some discomfort"
-                    ? "😐 Mild Discomfort"
+                    ? "Mild Discomfort"
                     : exp === "Difficult"
-                    ? "😣 Difficult"
-                    : "🚨 Very Difficult"}
+                    ? "Difficult"
+                    : "Very Difficult"}
                 </button>
               ))}
             </div>
@@ -580,7 +580,7 @@ export const BreastfeedingPage: React.FC<{
 
           <button
             type="submit"
-            className="w-full py-3.5 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-extrabold text-xs shadow-md shadow-rose-500/20 transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
+            className="w-full py-3.5 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-extrabold text-xs shadow-sm transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
           >
             <Plus className="w-4 h-4" />
             <span>Save Breastfeeding Session</span>
@@ -588,7 +588,7 @@ export const BreastfeedingPage: React.FC<{
         </form>
       </section>
 
-      {/* 📊 BREASTFEEDING SESSION HISTORY */}
+      {/* BREASTFEEDING SESSION HISTORY */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-4">
         <div className="flex items-center justify-between border-b border-slate-100 dark:border-rose-900/30 pb-3">
           <div className="flex items-center gap-2">
@@ -641,7 +641,7 @@ export const BreastfeedingPage: React.FC<{
         )}
       </section>
 
-      {/* 📘 CONTEXT-AWARE LACTATION & POSITIONING GUIDE */}
+      {/* CONTEXT-AWARE LACTATION & POSITIONING GUIDE */}
       <section className="bg-rose-50/60 dark:bg-rose-950/20 rounded-3xl p-6 border border-rose-100 dark:border-rose-900/30 space-y-3">
         <div className="flex items-center gap-2">
           <Info className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0" />
@@ -653,13 +653,13 @@ export const BreastfeedingPage: React.FC<{
         {profile.deliveryType === "c_section" ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600 dark:text-slate-300">
             <div className="p-3 bg-white dark:bg-[#15111C] rounded-2xl border border-rose-100 dark:border-rose-900/30 space-y-1">
-              <h4 className="font-extrabold text-slate-800 dark:text-rose-200">🏈 Football Hold (Recommended for C-Section)</h4>
+              <h4 className="font-extrabold text-slate-800 dark:text-rose-200">Football Hold (Recommended for C-Section)</h4>
               <p className="text-[11px]">
                 Tuck baby under your arm like a football. Helps reduce direct pressure on your abdominal C-section incision while maintaining neck support.
               </p>
             </div>
             <div className="p-3 bg-white dark:bg-[#15111C] rounded-2xl border border-rose-100 dark:border-rose-900/30 space-y-1">
-              <h4 className="font-extrabold text-slate-800 dark:text-rose-200">🛏️ Side-Lying Position</h4>
+              <h4 className="font-extrabold text-slate-800 dark:text-rose-200">Side-Lying Position</h4>
               <p className="text-[11px]">
                 Lie comfortably on your side with baby facing you. Ideal for nighttime nursing and avoiding contact with your lower abdomen.
               </p>
@@ -668,13 +668,13 @@ export const BreastfeedingPage: React.FC<{
         ) : profile.deliveryType === "assisted_vaginal" ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600 dark:text-slate-300">
             <div className="p-3 bg-white dark:bg-[#15111C] rounded-2xl border border-rose-100 dark:border-rose-900/30 space-y-1">
-              <h4 className="font-extrabold text-slate-800 dark:text-rose-200">🛏️ Side-Lying Hold (Perineal Comfort)</h4>
+              <h4 className="font-extrabold text-slate-800 dark:text-rose-200">Side-Lying Hold (Perineal Comfort)</h4>
               <p className="text-[11px]">
                 Lying on your side relieves pressure on perineal stitches or pelvic soreness, allowing rest during longer feeding sessions.
               </p>
             </div>
             <div className="p-3 bg-white dark:bg-[#15111C] rounded-2xl border border-rose-100 dark:border-rose-900/30 space-y-1">
-              <h4 className="font-extrabold text-slate-800 dark:text-rose-200">🛋️ Laid-Back Nursing</h4>
+              <h4 className="font-extrabold text-slate-800 dark:text-rose-200">Laid-Back Nursing</h4>
               <p className="text-[11px]">
                 Recline comfortably supported by pillows, placing baby tummy-to-tummy on your chest to encourage natural latching.
               </p>
@@ -683,13 +683,13 @@ export const BreastfeedingPage: React.FC<{
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600 dark:text-slate-300">
             <div className="p-3 bg-white dark:bg-[#15111C] rounded-2xl border border-rose-100 dark:border-rose-900/30 space-y-1">
-              <h4 className="font-extrabold text-slate-800 dark:text-rose-200">🤱 Cradle & Cross-Cradle Hold</h4>
+              <h4 className="font-extrabold text-slate-800 dark:text-rose-200">Cradle & Cross-Cradle Hold</h4>
               <p className="text-[11px]">
                 Support baby's back and neck with your arm or opposite hand. Use nursing pillows under your elbows for comfortable posture.
               </p>
             </div>
             <div className="p-3 bg-white dark:bg-[#15111C] rounded-2xl border border-rose-100 dark:border-rose-900/30 space-y-1">
-              <h4 className="font-extrabold text-slate-800 dark:text-rose-200">🏈 Football Hold</h4>
+              <h4 className="font-extrabold text-slate-800 dark:text-rose-200">Football Hold</h4>
               <p className="text-[11px]">
                 Hold baby along your side resting on a pillow. Great for controlling latch angle and comfortable for mothers with full breasts.
               </p>

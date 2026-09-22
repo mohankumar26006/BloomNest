@@ -6,7 +6,6 @@ import {
   Plus,
   CheckCircle2,
   TrendingUp,
-  Sparkles,
   Info,
   Heart,
   HelpCircle,
@@ -414,7 +413,7 @@ export const PreconceptionCycleLab: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="p-6 rounded-3xl bg-gradient-to-r from-teal-800 via-emerald-800 to-teal-950 text-white shadow-xl shadow-emerald-950/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="p-6 rounded-3xl bg-teal-950 text-white shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="p-1.5 rounded-lg bg-emerald-500/30 text-emerald-200">
@@ -554,11 +553,11 @@ export const PreconceptionCycleLab: React.FC = () => {
               Cycle Day {currentCycleDay}
               {isEstimatedPeakDay ? (
                 <Badge variant="success" className="bg-emerald-600 text-white font-bold">
-                  Estimated Peak Ovulation Day 🔥
+                  Estimated Peak Ovulation Day
                 </Badge>
               ) : isEstimatedFertileWindow ? (
                 <Badge variant="warning" className="bg-teal-600 text-white font-bold">
-                  Estimated Fertile Window 🌱
+                  Estimated Fertile Window
                 </Badge>
               ) : (
                 <Badge variant="neutral" className="bg-slate-200 dark:bg-slate-700 font-bold">
@@ -647,8 +646,6 @@ export const PreconceptionCycleLab: React.FC = () => {
                   }`}
                 >
                   <span className="text-[10px] font-mono">D{day}</span>
-                  {isPeak ? <Sparkles className="w-3.5 h-3.5 mt-0.5 text-amber-500" /> : null}
-                  {isPeriod && !isPeak ? <span className="text-[9px] font-bold">🩸</span> : null}
                 </div>
               );
             })}
@@ -823,7 +820,7 @@ export const PreconceptionCycleLab: React.FC = () => {
             <div className="flex items-center justify-between pb-4 border-b border-emerald-100 dark:border-emerald-900/30">
               <div>
                 <h3 className="font-black text-xl text-emerald-950 dark:text-emerald-50 flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-emerald-500" />
+                  <CalendarHeart className="w-5 h-5 text-emerald-500" />
                   Today's Check-in
                 </h3>
                 <p className="text-xs text-emerald-700/80 dark:text-emerald-300/80 mt-0.5">

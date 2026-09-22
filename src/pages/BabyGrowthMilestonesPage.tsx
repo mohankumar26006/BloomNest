@@ -152,9 +152,7 @@ export const BabyGrowthMilestonesPage: React.FC<{
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-16 px-4 sm:px-6">
       {/* 1. HERO HEADER */}
-      <section className="bg-gradient-to-br from-indigo-600 via-purple-600 to-rose-600 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 transform translate-x-8 -translate-y-8 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none" />
-
+      <section className="bg-indigo-600 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
         <div className="relative z-10 space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-2">
@@ -191,7 +189,7 @@ export const BabyGrowthMilestonesPage: React.FC<{
 
           <div className="space-y-1">
             <h1 className="text-3xl sm:text-4xl font-black tracking-tight">
-              {babyName}'s Growth & Milestones 👶🏻
+              {babyName}'s Growth & Milestones
             </h1>
             <p className="text-sm sm:text-base text-indigo-100 max-w-3xl leading-relaxed">
               Track physical measurements and age-appropriate developmental observations over time. Derived from canonical baby profile context without clinical diagnoses.
@@ -358,10 +356,10 @@ export const BabyGrowthMilestonesPage: React.FC<{
                         </span>
                         <span className="px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[10px] font-bold">
                           {r.measurementSource === "PEDIATRICIAN_VISIT"
-                            ? "🩺 Pediatric Visit"
+                            ? "Pediatric Visit"
                             : r.measurementSource === "HOME_SCALE"
-                            ? "🏡 Home Scale"
-                            : "🏥 Clinic"}
+                            ? "Home Scale"
+                            : "Clinic"}
                         </span>
                         {r.measurementLocation && (
                           <span className="text-[11px] text-slate-400 dark:text-rose-300 font-medium">
@@ -439,11 +437,11 @@ export const BabyGrowthMilestonesPage: React.FC<{
           <div className="flex flex-wrap gap-2">
             {[
               { id: "ALL", label: "All Categories" },
-              { id: "GROSS_MOTOR", label: "🏃 Gross Motor" },
-              { id: "FINE_MOTOR", label: "✋ Fine Motor" },
-              { id: "COMMUNICATION", label: "🗣️ Communication" },
-              { id: "SOCIAL_EMOTIONAL", label: "💕 Social / Emotional" },
-              { id: "COGNITIVE", label: "🧠 Cognitive" },
+              { id: "GROSS_MOTOR", label: "Gross Motor" },
+              { id: "FINE_MOTOR", label: "Fine Motor" },
+              { id: "COMMUNICATION", label: "Communication" },
+              { id: "SOCIAL_EMOTIONAL", label: "Social / Emotional" },
+              { id: "COGNITIVE", label: "Cognitive" },
             ].map((cat) => (
               <button
                 key={cat.id}
@@ -511,9 +509,9 @@ export const BabyGrowthMilestonesPage: React.FC<{
                     >
                       <option value="NOT_YET_OBSERVED">○ Not yet observed</option>
                       <option value="OBSERVED">✓ Observed</option>
-                      <option value="CONSISTENTLY_OBSERVED">🌟 Consistently observed</option>
-                      <option value="DISCUSS_WITH_PEDIA">🩺 Discuss with pediatrician</option>
-                      <option value="NOT_APPLICABLE">⚪ Not applicable / Unsure</option>
+                      <option value="CONSISTENTLY_OBSERVED">Consistently observed</option>
+                      <option value="DISCUSS_WITH_PEDIA">Discuss with pediatrician</option>
+                      <option value="NOT_APPLICABLE">Not applicable / Unsure</option>
                     </select>
 
                     <input
@@ -560,7 +558,7 @@ export const BabyGrowthMilestonesPage: React.FC<{
                   <span className="text-[11px] font-bold text-indigo-600 dark:text-indigo-400">
                     Day 1 • Birth
                   </span>
-                  <h4 className="text-sm font-bold text-slate-900 dark:text-rose-100">Welcome to the World! 💖</h4>
+                  <h4 className="text-sm font-bold text-slate-900 dark:text-rose-100">Welcome to the World!</h4>
                   <p className="text-xs text-slate-600 dark:text-rose-300">
                     Birth Weight recorded: <strong>{summary.birthWeightKg || "3.2"} kg</strong> • Delivery: {profile.deliveryType.replace("_", " ")}
                   </p>
@@ -598,7 +596,7 @@ export const BabyGrowthMilestonesPage: React.FC<{
                       <div className="absolute -left-[31px] top-0 w-4 h-4 rounded-full bg-amber-500 border-2 border-white dark:border-[#1a1420]" />
                       <div className="space-y-1">
                         <span className="text-[11px] font-bold text-amber-600 dark:text-amber-400">
-                          ✨ First Memory • {m.firstObservedAt || "Recent"}
+                          First Memory • {m.firstObservedAt || "Recent"}
                         </span>
                         <h4 className="text-sm font-bold text-slate-900 dark:text-rose-100">
                           Milestone Observed: {def?.title || "Skill"}
@@ -795,10 +793,10 @@ export const BabyGrowthMilestonesPage: React.FC<{
                   onChange={(e) => setFormSource(e.target.value as GrowthMeasurementSource)}
                   className="w-full p-2.5 rounded-2xl border border-rose-100 dark:border-rose-900/40 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-rose-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-semibold"
                 >
-                  <option value="PEDIATRICIAN_VISIT">🩺 Pediatrician Visit</option>
-                  <option value="HOME_SCALE">🏡 Home Scale</option>
-                  <option value="CLINIC">🏥 Community Clinic</option>
-                  <option value="OTHER">⚪ Other</option>
+                  <option value="PEDIATRICIAN_VISIT">Pediatrician Visit</option>
+                  <option value="HOME_SCALE">Home Scale</option>
+                  <option value="CLINIC">Community Clinic</option>
+                  <option value="OTHER">Other</option>
                 </select>
               </div>
 

@@ -26,17 +26,17 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   // Base styling: 44px min touch target, smooth transitions, focus ring
   const baseStyles =
-    "inline-flex items-center justify-center font-bold font-sans rounded-2xl transition-all duration-200 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2 dark:focus:ring-offset-gray-900 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none active:scale-[0.98]";
+    "inline-flex items-center justify-center font-bold font-sans rounded-lg transition-colors duration-150 min-h-[44px] focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2 dark:focus:ring-offset-gray-900 disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none";
 
   const variantStyles: Record<ButtonVariant, string> = {
     primary:
-      "bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white shadow-md shadow-rose-300/40 dark:shadow-none border border-rose-400/20",
+      "bg-rose-600 hover:bg-rose-700 text-white border border-rose-700/20",
     secondary:
-      "bg-rose-50/80 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/60 text-rose-700 dark:text-rose-200 border border-rose-200/60 dark:border-rose-900/40 shadow-xs",
+      "bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/60 text-rose-700 dark:text-rose-200 border border-rose-200 dark:border-rose-900/40",
     ghost:
-      "bg-transparent hover:bg-rose-50/60 dark:hover:bg-rose-950/30 text-gray-700 dark:text-rose-300 hover:text-rose-600",
+      "bg-transparent hover:bg-rose-50 dark:hover:bg-rose-950/30 text-gray-700 dark:text-rose-300 hover:text-rose-600",
     danger:
-      "bg-red-500 hover:bg-red-600 text-white shadow-md shadow-red-200/40 dark:shadow-none border border-red-400/20",
+      "bg-red-600 hover:bg-red-700 text-white border border-red-700/20",
   };
 
   const sizeStyles: Record<ButtonSize, string> = {

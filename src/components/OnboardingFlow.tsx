@@ -213,7 +213,7 @@ export const OnboardingFlow: React.FC = () => {
     });
 
     setActivePage("dashboard");
-    showToast(`🌸 Welcome, ${userFullName}! Your dashboard is auto-calibrated to Week ${finalWeek}.`);
+    showToast(`Welcome, ${userFullName}! Your dashboard is auto-calibrated to Week ${finalWeek}.`);
   };
 
   // Render Current Flow Step

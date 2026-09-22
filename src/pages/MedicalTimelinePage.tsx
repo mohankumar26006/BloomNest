@@ -101,7 +101,7 @@ export const MedicalTimelinePage: React.FC = () => {
     { month: 2, trimester: 1, weeks: "Weeks 5 – 8", title: "Month 2 · Viability & Heartbeat Check", sub: "First dating ultrasound & early thyroid check" },
     { month: 3, trimester: 1, weeks: "Weeks 9 – 13+6", title: "Month 3 · First Trimester Screening", sub: "NT ultrasound scan & Dual Marker screening" },
     { month: 4, trimester: 2, weeks: "Weeks 14 – 17", title: "Month 4 · Second Trimester Antenatal Care", sub: "Routine checkup & optional quadruple screen" },
-    { month: 5, trimester: 2, weeks: "Weeks 18 – 22", title: "Month 5 · The Big Level-II Anomaly Scan 🌟", sub: "Head-to-toe structural check of baby's organs" },
+    { month: 5, trimester: 2, weeks: "Weeks 18 – 22", title: "Month 5 · The Big Level-II Anomaly Scan", sub: "Head-to-toe structural check of baby's organs" },
     { month: 6, trimester: 2, weeks: "Weeks 23 – 27", title: "Month 6 · Sugar & Wellness Screening", sub: "75g OGTT gestational diabetes test & CBC" },
     { month: 7, trimester: 3, weeks: "Weeks 28 – 31", title: "Month 7 · Third Trimester Growth & Tdap", sub: "Growth monitoring, Tdap shot & blood test" },
     { month: 8, trimester: 3, weeks: "Weeks 32 – 35", title: "Month 8 · Fetal Growth & Umbilical Doppler", sub: "Fetal weight percentiles & blood flow check" },
@@ -194,20 +194,20 @@ export const MedicalTimelinePage: React.FC = () => {
 
   // Friendly Jargon Dictionary
   const JARGON_DICTIONARY = [
-    { term: "CRL", name: "Crown-Rump Length", meaning: "Baby's length from top of head to little bottom.", normal: "Used in Weeks 6–13 to fix your exact due date.", status: "Normal & Safe ✅" },
-    { term: "FHR", name: "Fetal Heart Rate", meaning: "How fast baby's tiny heart is beating in one minute.", normal: "Normal range is 120 – 160 beats per minute.", status: "Strong Rhythm 💖" },
-    { term: "NT", name: "Nuchal Translucency", meaning: "Clear, protective fluid cushion behind baby's neck.", normal: "Healthy threshold is under 2.5 mm.", status: "Optimal Finding ✅" },
-    { term: "BPD", name: "Biparietal Diameter", meaning: "Width across baby's head (ear to ear).", normal: "Ensures healthy brain and cranial growth.", status: "Growing Nicely 🧠" },
-    { term: "HC", name: "Head Circumference", meaning: "Distance all the way around baby's head.", normal: "Monitors symmetrical brain growth on schedule.", status: "Symmetrical ✅" },
-    { term: "AC", name: "Abdominal Circumference", meaning: "Measurement around baby's little tummy.", normal: "Best indicator of baby's weight and nutrition.", status: "Well-Nourished 🍼" },
-    { term: "FL", name: "Femur Length", meaning: "Length of baby's thigh bone (longest bone).", normal: "Reflects baby's height and skeletal strength.", status: "Healthy Bones 🦴" },
-    { term: "EFW", name: "Estimated Fetal Weight", meaning: "Baby's estimated weight calculated by ultrasound.", normal: "Within the 10th to 90th percentile for your week.", status: "On Track ⚖️" },
-    { term: "AFI", name: "Amniotic Fluid Index", meaning: "Depth of the warm water cushion protecting baby.", normal: "Healthy range is 8 cm to 18 cm.", status: "Safe Water Cushion 🌊" },
-    { term: "Hb", name: "Hemoglobin", meaning: "Iron-rich protein in mama's blood carrying oxygen.", normal: "Optimal maternal range is 11.0 to 13.5 g/dL.", status: "Energized & Strong 🩸" },
-    { term: "TSH", name: "Thyroid Stimulating Hormone", meaning: "Hormone managing mama's energy and baby's brain.", normal: "Ideal in pregnancy when under 2.5 mIU/L.", status: "Balanced Metabolism ⚡" },
-    { term: "OGTT", name: "75g Oral Glucose Test", meaning: "Checks how gently mama's body handles natural sugar.", normal: "Fasting < 92 mg/dL, 2-hr < 153 mg/dL.", status: "Healthy Glucose 🍯" },
-    { term: "Cephalic", name: "Head-Down Position", meaning: "Baby is nestled head-down facing your back.", normal: "Most babies settle here between Weeks 32 and 36.", status: "Ideal for Birth 👶" },
-    { term: "Placenta Grade", name: "Placental Maturity", meaning: "How mature the placenta is as due date approaches.", normal: "Grade 0 early on, Grade II/III at full term.", status: "Healthy Placenta 🛡️" },
+    { term: "CRL", name: "Crown-Rump Length", meaning: "Baby's length from top of head to little bottom.", normal: "Used in Weeks 6–13 to fix your exact due date.", status: "Normal & Safe" },
+    { term: "FHR", name: "Fetal Heart Rate", meaning: "How fast baby's tiny heart is beating in one minute.", normal: "Normal range is 120 – 160 beats per minute.", status: "Strong Rhythm" },
+    { term: "NT", name: "Nuchal Translucency", meaning: "Clear, protective fluid cushion behind baby's neck.", normal: "Healthy threshold is under 2.5 mm.", status: "Optimal Finding" },
+    { term: "BPD", name: "Biparietal Diameter", meaning: "Width across baby's head (ear to ear).", normal: "Ensures healthy brain and cranial growth.", status: "Growing Nicely" },
+    { term: "HC", name: "Head Circumference", meaning: "Distance all the way around baby's head.", normal: "Monitors symmetrical brain growth on schedule.", status: "Symmetrical" },
+    { term: "AC", name: "Abdominal Circumference", meaning: "Measurement around baby's little tummy.", normal: "Best indicator of baby's weight and nutrition.", status: "Well-Nourished" },
+    { term: "FL", name: "Femur Length", meaning: "Length of baby's thigh bone (longest bone).", normal: "Reflects baby's height and skeletal strength.", status: "Healthy Bones" },
+    { term: "EFW", name: "Estimated Fetal Weight", meaning: "Baby's estimated weight calculated by ultrasound.", normal: "Within the 10th to 90th percentile for your week.", status: "On Track" },
+    { term: "AFI", name: "Amniotic Fluid Index", meaning: "Depth of the warm water cushion protecting baby.", normal: "Healthy range is 8 cm to 18 cm.", status: "Safe Water Cushion" },
+    { term: "Hb", name: "Hemoglobin", meaning: "Iron-rich protein in mama's blood carrying oxygen.", normal: "Optimal maternal range is 11.0 to 13.5 g/dL.", status: "Energized & Strong" },
+    { term: "TSH", name: "Thyroid Stimulating Hormone", meaning: "Hormone managing mama's energy and baby's brain.", normal: "Ideal in pregnancy when under 2.5 mIU/L.", status: "Balanced Metabolism" },
+    { term: "OGTT", name: "75g Oral Glucose Test", meaning: "Checks how gently mama's body handles natural sugar.", normal: "Fasting < 92 mg/dL, 2-hr < 153 mg/dL.", status: "Healthy Glucose" },
+    { term: "Cephalic", name: "Head-Down Position", meaning: "Baby is nestled head-down facing your back.", normal: "Most babies settle here between Weeks 32 and 36.", status: "Ideal for Birth" },
+    { term: "Placenta Grade", name: "Placental Maturity", meaning: "How mature the placenta is as due date approaches.", normal: "Grade 0 early on, Grade II/III at full term.", status: "Healthy Placenta" },
   ];
 
   const filteredJargon = JARGON_DICTIONARY.filter(
@@ -316,7 +316,7 @@ export const MedicalTimelinePage: React.FC = () => {
               )}
             </div>
 
-            <PageHeading>Pregnancy Scans & Lab Guide 🌸</PageHeading>
+            <PageHeading>Pregnancy Scans & Lab Guide</PageHeading>
 
             <BodyText>
               A calm, simple guide to every scan and routine test for you and your baby — with plain-English explanations and zero confusing jargon.
@@ -330,7 +330,7 @@ export const MedicalTimelinePage: React.FC = () => {
               onClick={() => setShowJargonDecoder(true)}
               leftIcon={<BookOpen className="w-4 h-4 text-amber-500" />}
             >
-              Jargon Decoder 📖
+              Jargon Decoder
             </Button>
 
             <Button
@@ -368,7 +368,7 @@ export const MedicalTimelinePage: React.FC = () => {
               }`}
             >
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Detailed Clinical Analysis 🔬</span>
+              <span>Detailed Clinical Analysis</span>
             </button>
           </div>
 
@@ -472,7 +472,7 @@ export const MedicalTimelinePage: React.FC = () => {
 
             {filteredScans.length === 0 ? (
               <Card variant="flat" radius="3xl" className="p-8 text-center space-y-3">
-                <div className="text-3xl">🌿</div>
+                <Info className="w-8 h-8 text-rose-300 mx-auto" />
                 <CardHeading>No Major Routine Scan Listed for Month {selectedMonth}</CardHeading>
                 <BodyText className="max-w-md mx-auto">
                   Regular antenatal care continues throughout pregnancy. If your doctor requests an individual check during this stage, you can log it here anytime.
@@ -484,16 +484,16 @@ export const MedicalTimelinePage: React.FC = () => {
                   const categoryType = scan.type || "ULTRASOUND";
                   const categoryLabel =
                     categoryType === "LAB_INVESTIGATION"
-                      ? "Maternal Blood / Lab Test 🧪"
+                      ? "Maternal Blood / Lab Test"
                       : categoryType === "FETAL_MONITORING"
-                      ? "Baby Heart & Movement 💖"
-                      : "Baby Ultrasound Scan 👶";
+                      ? "Baby Heart & Movement"
+                      : "Baby Ultrasound Scan";
 
                   const classification = scan.classification || "RECOMMENDED";
                   const classBadge =
                     classification === "RECOMMENDED"
-                      ? "Routine & Essential ✅"
-                      : "Doctor's Advice 📋";
+                      ? "Routine & Essential"
+                      : "Doctor's Advice";
 
                   const attachedReports = getScanReportsByScanId(scan.id);
                   const hasAttachedReports = attachedReports.length > 0;
@@ -528,7 +528,7 @@ export const MedicalTimelinePage: React.FC = () => {
 
                           {scan.supportNote && (
                             <div className="text-[11px] font-medium text-amber-800 dark:text-amber-200 bg-amber-50/80 dark:bg-amber-950/30 p-2.5 rounded-xl mt-2 flex items-start gap-1.5 border border-amber-200/60">
-                              <span>💡</span>
+                              <Info className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
                               <span>{scan.supportNote}</span>
                             </div>
                           )}
@@ -588,7 +588,7 @@ export const MedicalTimelinePage: React.FC = () => {
           </div>
 
           {/* F. COMPLETE 40-WEEK SCANS & REPORT STATUS TRACKER TABLE */}
-          <div className="bg-white dark:bg-[#1A1523] p-5 sm:p-7 rounded-[32px] border border-rose-100 dark:border-rose-900/40 shadow-xs space-y-6">
+          <div className="bg-white dark:bg-[#1A1523] p-5 sm:p-7 rounded-2xl border border-rose-100 dark:border-rose-900/40 shadow-xs space-y-6">
             
             {/* Header & Stats */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-rose-100 dark:border-rose-900/40 pb-5">
@@ -603,7 +603,7 @@ export const MedicalTimelinePage: React.FC = () => {
                   </span>
                 </div>
                 <h3 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 dark:text-rose-100">
-                  All Scans & Reports Status Tracker 📋
+                  All Scans & Reports Status Tracker
                 </h3>
                 <p className="text-xs text-gray-500 dark:text-rose-300">
                   Quick summary of all required pregnancy investigations. Green checkbox means report is attached; red means report is needed.
@@ -647,7 +647,7 @@ export const MedicalTimelinePage: React.FC = () => {
               </div>
               <div className="w-full h-2.5 rounded-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
                 <div
-                  className="h-full rounded-full bg-linear-to-r from-rose-500 to-emerald-500 transition-all duration-500"
+                  className="h-full rounded-full bg-rose-500 transition-all duration-500"
                   style={{ width: `${completionPercentage}%` }}
                 />
               </div>
@@ -657,9 +657,9 @@ export const MedicalTimelinePage: React.FC = () => {
             <div className="flex items-center gap-2 overflow-x-auto pb-1">
               {[
                 { key: "all", label: `All Scans (${allScansWithStatus.length})` },
-                { key: "attached", label: `🟢 Attached (${attachedScansCount})` },
-                { key: "missing", label: `🔴 Needs Report (${missingScansCount})` },
-                { key: "upcoming", label: `⏳ Upcoming (${upcomingScansCount})` },
+                { key: "attached", label: `Attached (${attachedScansCount})` },
+                { key: "missing", label: `Needs Report (${missingScansCount})` },
+                { key: "upcoming", label: `Upcoming (${upcomingScansCount})` },
               ].map((f) => {
                 const isActive = tableFilter === f.key;
                 return (
@@ -727,10 +727,10 @@ export const MedicalTimelinePage: React.FC = () => {
                         <td className="py-3.5 pr-4 whitespace-nowrap">
                           <span className="text-[11px] font-semibold text-gray-700 dark:text-rose-200">
                             {scan.type === "ULTRASOUND"
-                              ? "👶 Ultrasound"
+                              ? "Ultrasound"
                               : scan.type === "LAB_INVESTIGATION"
-                              ? "🧪 Blood Lab"
-                              : "💖 Monitoring"}
+                              ? "Blood Lab"
+                              : "Monitoring"}
                           </span>
                         </td>
 
@@ -845,7 +845,7 @@ export const MedicalTimelinePage: React.FC = () => {
                         {scan.weeks}
                       </span>
                       <span className="text-[10px] font-semibold text-gray-500">
-                        {scan.type === "ULTRASOUND" ? "👶 Scan" : "🧪 Lab"}
+                        {scan.type === "ULTRASOUND" ? "Scan" : "Lab"}
                       </span>
                     </div>
 
@@ -973,7 +973,7 @@ export const MedicalTimelinePage: React.FC = () => {
                   <span>Plain-English Medical Translator</span>
                 </span>
                 <h3 className="font-serif text-xl sm:text-2xl font-bold text-gray-900 dark:text-rose-100 mt-1">
-                  Common Scan & Lab Terms Decoder 📖
+                  Common Scan & Lab Terms Decoder
                 </h3>
               </div>
 

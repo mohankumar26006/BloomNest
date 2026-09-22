@@ -121,8 +121,8 @@ export const BleedingMonitoringPage: React.FC<{
       );
       localStorage.setItem(BLEEDING_LOGS_KEY, JSON.stringify(updatedLogs));
       setLogs(updatedLogs);
-      setSaveSuccessMsg(`Bleeding record saved for Day ${day}! 🩸`);
-      showToast("Postpartum bleeding entry logged 💕");
+      setSaveSuccessMsg(`Bleeding record saved for Day ${day}!`);
+      showToast("Postpartum bleeding entry logged");
       setTimeout(() => setSaveSuccessMsg(null), 3000);
       setNotes("");
     } catch (err) {
@@ -209,7 +209,7 @@ export const BleedingMonitoringPage: React.FC<{
         </div>
       </header>
 
-      {/* 🩸 DAILY BLEEDING LOGGING FORM */}
+      {/* DAILY BLEEDING LOGGING FORM */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-6">
         <div className="flex items-center justify-between border-b border-slate-100 dark:border-rose-900/30 pb-3">
           <div className="flex items-center gap-2.5">
@@ -260,7 +260,7 @@ export const BleedingMonitoringPage: React.FC<{
                       : "bg-white dark:bg-[#1A1523] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-gray-800 hover:border-rose-300"
                   }`}
                 >
-                  {amt === "None" ? "⚪ None" : amt === "Light" ? "🌸 Light" : amt === "Moderate" ? "🩸 Moderate" : "🚨 Heavy"}
+                  {amt === "None" ? "None" : amt === "Light" ? "Light" : amt === "Moderate" ? "Moderate" : "Heavy"}
                 </button>
               ))}
             </div>
@@ -276,10 +276,10 @@ export const BleedingMonitoringPage: React.FC<{
               <div className="grid grid-cols-2 gap-2 pt-1">
                 {(
                   [
-                    { key: "Red", label: "🔴 Red (Rubra)" },
-                    { key: "Pink", label: "🌸 Pink (Serosa)" },
-                    { key: "Brown", label: "🟤 Brown (Serosa)" },
-                    { key: "Yellow/White", label: "🟡 Yellow/White (Alba)" },
+                    { key: "Red", label: "Red (Rubra)" },
+                    { key: "Pink", label: "Pink (Serosa)" },
+                    { key: "Brown", label: "Brown (Serosa)" },
+                    { key: "Yellow/White", label: "Yellow/White (Alba)" },
                   ] as const
                 ).map((c) => (
                   <button
@@ -317,7 +317,7 @@ export const BleedingMonitoringPage: React.FC<{
                         : "bg-white dark:bg-[#1A1523] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-gray-800 hover:border-rose-300"
                     }`}
                   >
-                    {clt === "None" ? "✨ None" : clt === "Small" ? "🔹 Small" : "⚠️ Large"}
+                    {clt === "None" ? "None" : clt === "Small" ? "Small" : "Large"}
                   </button>
                 ))}
               </div>
@@ -361,7 +361,7 @@ export const BleedingMonitoringPage: React.FC<{
                         : "bg-white dark:bg-[#1A1523] text-slate-700 dark:text-slate-300 border-slate-200 dark:border-gray-800 hover:border-rose-300"
                     }`}
                   >
-                    {trd === "Improving" ? "📉 Improving" : trd === "Same" ? "➡️ Same" : "📈 Increasing"}
+                    {trd === "Improving" ? "Improving" : trd === "Same" ? "Same" : "Increasing"}
                   </button>
                 ))}
               </div>
@@ -384,7 +384,7 @@ export const BleedingMonitoringPage: React.FC<{
 
           <button
             type="submit"
-            className="w-full py-3.5 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-extrabold text-xs shadow-md shadow-rose-500/20 transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
+            className="w-full py-3.5 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-extrabold text-xs shadow-sm transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
           >
             <Plus className="w-4 h-4" />
             <span>Save Today's Bleeding Entry</span>
@@ -392,7 +392,7 @@ export const BleedingMonitoringPage: React.FC<{
         </form>
       </section>
 
-      {/* 📊 BLEEDING HISTORY TIMELINE */}
+      {/* BLEEDING HISTORY TIMELINE */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-4">
         <div className="flex items-center justify-between border-b border-slate-100 dark:border-rose-900/30 pb-3">
           <div className="flex items-center gap-2">
@@ -464,7 +464,7 @@ export const BleedingMonitoringPage: React.FC<{
         )}
       </section>
 
-      {/* 📚 LOCHIA PROGRESSION EDUCATIONAL GUIDE */}
+      {/* LOCHIA PROGRESSION EDUCATIONAL GUIDE */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-4">
         <div className="flex items-center gap-2 border-b border-slate-100 dark:border-rose-900/30 pb-3">
           <Info className="w-4 h-4 text-rose-500" />

@@ -141,7 +141,7 @@ export const HealthTrackerPage: React.FC = () => {
       setSymptomCheck(vital.symptomCheck);
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
-    showToast(`Editing vital record from ${vital.date} ✏️`);
+    showToast(`Editing vital record from ${vital.date}`);
   };
 
   const handleCancelEdit = () => {
@@ -206,7 +206,7 @@ export const HealthTrackerPage: React.FC = () => {
 
     if (errors.length > 0) {
       setValidationErrors(errors);
-      showToast(`⚠️ ${errors[0]}`);
+      showToast(errors[0]);
       return;
     }
     setValidationErrors([]);
@@ -246,17 +246,17 @@ export const HealthTrackerPage: React.FC = () => {
       if (editingVitalId) {
         await updateVital(editingVitalId, payload);
         setEditingVitalId(null);
-        showToast("Vital record updated & evaluated! ✨");
+        showToast("Vital record updated & evaluated!");
       } else {
         await addVital(payload);
-        showToast("Vitals saved & clinically evaluated! 🌸");
+        showToast("Vitals saved & clinically evaluated!");
       }
       setNotes("");
       setActivePageTab("overview");
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err: any) {
       setApiError(err.message || "Unable to save health vital. Please check connection.");
-      showToast("⚠️ Could not reach server. Saved locally.");
+      showToast("Could not reach server. Saved locally.");
     } finally {
       setIsSubmitting(false);
     }
@@ -311,23 +311,23 @@ export const HealthTrackerPage: React.FC = () => {
   const maxDiastolic = Math.max(...recentVitals.map((v) => v.diastolicBp || 0), 80);
   const totalAlerts = recentVitals.filter((v) => v.evaluation?.requiresUrgentAttention).length;
 
-  const doctorBriefText = `🌸 *BloomNest Maternal Clinical Summary*
-📋 Patient: ${user?.name || "Expecting Mother"} | Week ${user?.currentWeek || 24} (Trimester ${user?.trimester || 2})
-🗓️ Reporting Period: Last 14 Days (${recentVitals.length} logs recorded)
+  const doctorBriefText = `*BloomNest Maternal Clinical Summary*
+Patient: ${user?.name || "Expecting Mother"} | Week ${user?.currentWeek || 24} (Trimester ${user?.trimester || 2})
+Reporting Period: Last 14 Days (${recentVitals.length} logs recorded)
 --------------------------------------------------
-🩺 *Cardiovascular & Vitals Profile*:
+*Cardiovascular & Vitals Profile*:
 • Average Blood Pressure: ${avgSystolic}/${avgDiastolic} mmHg (Target: 90-120/60-80)
 • Highest Recorded BP: ${maxSystolic}/${maxDiastolic} mmHg
 • Mean Arterial Pressure (MAP): ${Math.round((avgSystolic + 2 * avgDiastolic) / 3)} mmHg
 • Average Resting Pulse: ${avgPulse} BPM
 
-🩸 *Metabolic & Nutrition*:
+*Metabolic & Nutrition*:
 • Latest Glucose: ${vitals[0]?.glucoseMgDl || vitals[0]?.bloodSugarMgDl || 92} mg/dL (${(vitals[0]?.glucoseContext || "fasting").replace(/_/g, " ")})
 • Current Weight: ${vitals[0]?.weightKg || 64.0} kg
 • Daily Hydration Average: ${(avgWater / 1000).toFixed(1)} L / day
 
-🔍 *Clinical Trend & Safety Shield*:
-• 48-Hour Trend Status: ${vitalsTrend.advisoryLevel === "NONE" ? "✓ Stable (No progressive upward drift)" : `⚠️ ${vitalsTrend.advisoryTitle} (${vitalsTrend.advisoryMessage})`}
+*Clinical Trend & Safety Shield*:
+• 48-Hour Trend Status: ${vitalsTrend.advisoryLevel === "NONE" ? "Stable (No progressive upward drift)" : `${vitalsTrend.advisoryTitle} (${vitalsTrend.advisoryMessage})`}
 • High-Risk Symptoms Checked: ${vitals[0]?.symptoms && vitals[0].symptoms.length > 0 ? vitals[0].symptoms.join(", ") : "None reported"}
 • Severe Red-Flag Alerts Triggered: ${totalAlerts}
 --------------------------------------------------
@@ -336,7 +336,7 @@ Generated via BloomNest Maternal Health Companion.`;
   const handleCopyDoctorBrief = () => {
     navigator.clipboard.writeText(doctorBriefText);
     setIsCopied(true);
-    showToast("Doctor summary copied to clipboard! 📋");
+    showToast("Doctor summary copied to clipboard!");
     setTimeout(() => setIsCopied(false), 2500);
   };
 
@@ -369,7 +369,7 @@ Generated via BloomNest Maternal Health Companion.`;
             className="flex items-center gap-1.5 px-3 py-2 rounded-2xl bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 text-xs font-bold hover:bg-purple-100 transition-colors shadow-xs"
           >
             <BookOpen className="w-3.5 h-3.5" />
-            <span>Clinical Range Guide 📖</span>
+            <span>Clinical Range Guide</span>
           </button>
 
           <button
@@ -377,7 +377,7 @@ Generated via BloomNest Maternal Health Companion.`;
             className="flex items-center gap-1.5 px-3.5 py-2 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white text-xs font-bold transition-all shadow-sm"
           >
             <Share2 className="w-3.5 h-3.5" />
-            <span>Doctor Brief 📲</span>
+            <span>Doctor Brief</span>
           </button>
 
           <button
@@ -430,7 +430,7 @@ Generated via BloomNest Maternal Health Companion.`;
             }`}
           >
             <Plus className="w-3.5 h-3.5" />
-            <span>{editingVitalId ? "Edit Vital Entry ✏️" : "Log Vitals 📝"}</span>
+            <span>{editingVitalId ? "Edit Vital Entry" : "Log Vitals"}</span>
           </button>
 
           <button
@@ -483,7 +483,7 @@ Generated via BloomNest Maternal Health Companion.`;
                 </div>
                 <div>
                   <div className="text-sm font-black uppercase tracking-wide">
-                    ⚠️ Severe-Range Reading Alert
+                    Severe-Range Reading Alert
                   </div>
                   <div className="text-xs opacity-95 mt-0.5">
                     {latestEval.bp?.status === "SEVERE"
@@ -551,13 +551,13 @@ Generated via BloomNest Maternal Health Companion.`;
                 onClick={() => setShowDoctorReportModal(true)}
                 className="px-3.5 py-2 rounded-xl bg-white dark:bg-black/40 border border-current/20 font-bold text-xs hover:bg-black/5 dark:hover:bg-white/10 shrink-0 transition-colors shadow-xs"
               >
-                Review in Doctor Brief 📋
+                Review in Doctor Brief
               </button>
             </div>
           )}
 
           {/* TODAY'S HEALTH SNAPSHOT (Summary Cards Grid) */}
-          <div className="bg-gradient-to-br from-rose-500/10 via-pink-500/5 to-purple-500/10 dark:from-rose-950/40 dark:via-pink-950/20 dark:to-purple-950/40 p-6 rounded-3xl border border-rose-200/70 dark:border-rose-800/50 shadow-sm space-y-4">
+          <div className="bg-rose-50/80 dark:bg-rose-950/40 p-6 rounded-3xl border border-rose-200/70 dark:border-rose-800/50 shadow-sm space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
                 <h2 className="font-serif text-lg font-bold text-gray-900 dark:text-rose-100 flex items-center gap-2">
@@ -849,7 +849,7 @@ Generated via BloomNest Maternal Health Companion.`;
                 className="px-4 py-2.5 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-bold text-xs shadow-xs shrink-0 flex items-center gap-1.5 transition-all"
               >
                 <Plus className="w-3.5 h-3.5" />
-                <span>Log Vitals 📝</span>
+                <span>Log Vitals</span>
               </button>
             </div>
 
@@ -868,7 +868,7 @@ Generated via BloomNest Maternal Health Companion.`;
                 className="px-4 py-2.5 rounded-2xl bg-purple-50 hover:bg-purple-100 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 font-bold text-xs shrink-0 flex items-center gap-1.5 transition-all"
               >
                 <Share2 className="w-3.5 h-3.5" />
-                <span>Doctor Brief 📲</span>
+                <span>Doctor Brief</span>
               </button>
             </div>
           </div>
@@ -1210,11 +1210,11 @@ Generated via BloomNest Maternal Health Companion.`;
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {[
-                    { key: "headache" as const, label: "Persistent Headache", icon: "🤕" },
-                    { key: "visionChanges" as const, label: "Vision Changes / Spots", icon: "👁️" },
-                    { key: "upperAbdominalPain" as const, label: "Upper Abdominal Pain", icon: "⚡" },
-                    { key: "breathingDifficulty" as const, label: "Shortness of Breath", icon: "🫁" },
-                    { key: "unusualSwelling" as const, label: "Sudden Facial Swelling", icon: "💧" },
+                    { key: "headache" as const, label: "Persistent Headache" },
+                    { key: "visionChanges" as const, label: "Vision Changes / Spots" },
+                    { key: "upperAbdominalPain" as const, label: "Upper Abdominal Pain" },
+                    { key: "breathingDifficulty" as const, label: "Shortness of Breath" },
+                    { key: "unusualSwelling" as const, label: "Sudden Facial Swelling" },
                   ].map((opt) => {
                     const isSelected = symptomCheck[opt.key];
                     return (
@@ -1229,7 +1229,6 @@ Generated via BloomNest Maternal Health Companion.`;
                         }`}
                       >
                         <span className="flex items-center gap-1.5">
-                          <span>{opt.icon}</span>
                           <span className="text-[11px]">{opt.label}</span>
                         </span>
                         {isSelected ? (
@@ -1272,20 +1271,20 @@ Generated via BloomNest Maternal Health Companion.`;
                   onClick={handleCancelEdit}
                   className="px-5 py-3 rounded-2xl border border-rose-200 dark:border-rose-900/50 text-rose-700 dark:text-rose-200 font-bold text-xs hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors"
                 >
-                  Cancel Edit ✕
+                  Cancel Edit
                 </button>
               )}
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-bold text-xs shadow-md transition-all active:scale-[0.99] disabled:opacity-50"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-sm transition-all active:scale-[0.99] disabled:opacity-50"
               >
                 {isSubmitting
                   ? "Evaluating via Clinical Authority..."
                   : editingVitalId
-                  ? "Update Vital Entry ✨"
-                  : "Save & Evaluate Health Vitals ✨"}
+                  ? "Update Vital Entry"
+                  : "Save & Evaluate Health Vitals"}
               </button>
             </div>
           </div>
@@ -1350,7 +1349,7 @@ Generated via BloomNest Maternal Health Companion.`;
                       : "text-gray-600 dark:text-rose-300 hover:text-rose-600"
                   }`}
                 >
-                  🩺 BP & MAP
+                  BP & MAP
                 </button>
 
                 <button
@@ -1362,7 +1361,7 @@ Generated via BloomNest Maternal Health Companion.`;
                       : "text-gray-600 dark:text-rose-300 hover:text-rose-600"
                   }`}
                 >
-                  ⚖️ Weight Trend
+                  Weight Trend
                 </button>
 
                 <button
@@ -1374,7 +1373,7 @@ Generated via BloomNest Maternal Health Companion.`;
                       : "text-gray-600 dark:text-rose-300 hover:text-rose-600"
                   }`}
                 >
-                  ❤️ Pulse (BPM)
+                  Pulse (BPM)
                 </button>
 
                 <button
@@ -1386,7 +1385,7 @@ Generated via BloomNest Maternal Health Companion.`;
                       : "text-gray-600 dark:text-rose-300 hover:text-rose-600"
                   }`}
                 >
-                  🧪 Glucose
+                  Glucose
                 </button>
               </div>
             </div>
@@ -1500,7 +1499,7 @@ Generated via BloomNest Maternal Health Companion.`;
                     historyFilter === "bp" ? "bg-rose-500 text-white shadow-xs" : "text-gray-600 dark:text-rose-300 hover:bg-rose-100"
                   }`}
                 >
-                  🩺 BP & Pulse
+                  BP & Pulse
                 </button>
                 <button
                   onClick={() => setHistoryFilter("glucose")}
@@ -1508,7 +1507,7 @@ Generated via BloomNest Maternal Health Companion.`;
                     historyFilter === "glucose" ? "bg-rose-500 text-white shadow-xs" : "text-gray-600 dark:text-rose-300 hover:bg-rose-100"
                   }`}
                 >
-                  🧪 Glucose
+                  Glucose
                 </button>
                 <button
                   onClick={() => setHistoryFilter("alerts")}
@@ -1516,7 +1515,7 @@ Generated via BloomNest Maternal Health Companion.`;
                     historyFilter === "alerts" ? "bg-rose-500 text-white shadow-xs" : "text-gray-600 dark:text-rose-300 hover:bg-rose-100"
                   }`}
                 >
-                  ⚠️ Alerts Only
+                  Alerts Only
                 </button>
               </div>
             </div>
@@ -1663,7 +1662,7 @@ Generated via BloomNest Maternal Health Companion.`;
                 className="px-4 py-2.5 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-bold text-xs shadow-sm flex items-center gap-1.5 transition-colors"
               >
                 {isCopied ? <Check className="w-4 h-4 text-white" /> : <Copy className="w-4 h-4" />}
-                <span>{isCopied ? "Copied to Clipboard!" : "Copy for WhatsApp 📲"}</span>
+                <span>{isCopied ? "Copied to Clipboard!" : "Copy for WhatsApp"}</span>
               </button>
               <button
                 type="button"

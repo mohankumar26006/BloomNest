@@ -58,7 +58,7 @@ export const Modal: React.FC<ModalProps> = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
             transition={{ duration: 0.2 }}
-            className={`relative z-10 w-full max-w-lg bg-white dark:bg-[#1A1523] p-6 sm:p-8 rounded-[32px] border border-rose-100 dark:border-rose-900/40 shadow-2xl space-y-5 text-gray-900 dark:text-rose-100 ${className}`}
+            className={`relative z-10 w-full max-w-lg bg-white dark:bg-[#1A1523] p-6 sm:p-8 rounded-2xl border border-rose-100 dark:border-rose-900/40 shadow-md space-y-5 text-gray-900 dark:text-rose-100 ${className}`}
           >
             {/* Header */}
             <div className="flex items-center justify-between border-b border-rose-100 dark:border-rose-900/40 pb-4">

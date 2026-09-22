@@ -123,9 +123,7 @@ export const VaccinationPage: React.FC<{
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-16 px-4 sm:px-6">
       {/* 1. HERO HEADER */}
-      <section className="bg-gradient-to-br from-teal-600 via-emerald-600 to-indigo-600 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
-        <div className="absolute top-0 right-0 transform translate-x-8 -translate-y-8 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none" />
-
+      <section className="bg-teal-600 rounded-3xl p-6 sm:p-10 text-white shadow-sm relative overflow-hidden">
         <div className="relative z-10 space-y-4">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-2">
@@ -162,7 +160,7 @@ export const VaccinationPage: React.FC<{
 
           <div className="space-y-1">
             <h1 className="text-3xl sm:text-4xl font-black tracking-tight">
-              {babyName}'s Vaccination Tracking 🛡️
+              {babyName}'s Vaccination Tracking
             </h1>
             <p className="text-sm sm:text-base text-teal-100 max-w-3xl leading-relaxed">
               Living preventive-care & immunization timeline. Tracks scheduled vs. verified administered doses with complete verification transparency.
@@ -425,7 +423,7 @@ export const VaccinationPage: React.FC<{
                                   : "bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-slate-300"
                               }`}
                             >
-                              {isCompleted ? "✓ Completed" : isDue ? "⚠ Due Now" : "⏳ Upcoming"}
+                              {isCompleted ? "Completed" : isDue ? "Due Now" : "Upcoming"}
                             </span>
                           </div>
 
@@ -639,10 +637,10 @@ export const VaccinationPage: React.FC<{
                   onChange={(e) => setFormSource(e.target.value as VaccineVerificationSource)}
                   className="w-full p-2.5 rounded-2xl border border-rose-100 dark:border-rose-900/40 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-rose-100 focus:outline-none focus:ring-2 focus:ring-teal-500 font-semibold"
                 >
-                  <option value="VACCINATION_CARD">📄 Physical Vaccination Card</option>
-                  <option value="HOSPITAL_RECORD">🏥 Hospital / Clinic Discharge Summary</option>
-                  <option value="PEDIATRICIAN_CLINIC">🩺 Pediatrician Direct Record</option>
-                  <option value="PARENT_MEMORY">🧠 Parent Memory / Unverified</option>
+                  <option value="VACCINATION_CARD">Physical Vaccination Card</option>
+                  <option value="HOSPITAL_RECORD">Hospital / Clinic Discharge Summary</option>
+                  <option value="PEDIATRICIAN_CLINIC">Pediatrician Direct Record</option>
+                  <option value="PARENT_MEMORY">Parent Memory / Unverified</option>
                 </select>
               </div>
 

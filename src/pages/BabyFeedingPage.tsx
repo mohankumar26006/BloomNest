@@ -336,7 +336,7 @@ export const BabyFeedingPage: React.FC<{
         )}
       </header>
 
-      {/* 📊 TODAY'S BABY FEEDING SUMMARY CARDS */}
+      {/* TODAY'S BABY FEEDING SUMMARY CARDS */}
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white dark:bg-[#1A1523] p-4 rounded-2xl border border-slate-200/80 dark:border-rose-900/40 shadow-xs flex items-center justify-between">
           <div>
@@ -389,7 +389,7 @@ export const BabyFeedingPage: React.FC<{
         </div>
       </section>
 
-      {/* 📝 LOG BABY FEEDING SESSION FORM */}
+      {/* LOG BABY FEEDING SESSION FORM */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-6">
         <div className="flex flex-wrap items-center justify-between border-b border-slate-100 dark:border-rose-900/30 pb-3 gap-2">
           <div className="flex items-center gap-2.5">
@@ -695,7 +695,7 @@ export const BabyFeedingPage: React.FC<{
 
           <button
             type="submit"
-            className="w-full py-3.5 rounded-2xl bg-pink-600 hover:bg-pink-700 text-white font-extrabold text-xs shadow-md shadow-pink-500/20 transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
+            className="w-full py-3.5 rounded-2xl bg-pink-600 hover:bg-pink-700 text-white font-extrabold text-xs shadow-sm transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
           >
             <Plus className="w-4 h-4" />
             <span>Save Baby Feeding Log</span>
@@ -703,7 +703,7 @@ export const BabyFeedingPage: React.FC<{
         </form>
       </section>
 
-      {/* 📊 FEEDING HISTORY TIMELINE & FEEDING CUES GUIDE */}
+      {/* FEEDING HISTORY TIMELINE & FEEDING CUES GUIDE */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* HISTORY LIST (7 COLS) */}
         <section className="lg:col-span-7 bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-4">

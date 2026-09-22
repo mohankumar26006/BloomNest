@@ -265,7 +265,7 @@ export const DiaperMonitoringPage: React.FC<{
           <div className="space-y-1">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="px-3 py-1 bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300 text-xs font-semibold rounded-full flex items-center gap-1.5">
-                🧷 Feature 11 • Baby Diaper Monitoring
+                Feature 11 • Baby Diaper Monitoring
               </span>
               <span className="px-3 py-1 bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300 text-xs font-medium rounded-full">
                 Output Monitoring Source
@@ -459,16 +459,12 @@ export const DiaperMonitoringPage: React.FC<{
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                   {(["Wet", "Dirty", "Wet + Dirty", "Dry"] as DiaperType[]).map((t) => {
                     const isSelected = diaperType === t;
-                    let icon = "💧";
                     let activeBg = "bg-sky-50 dark:bg-sky-950/40 border-sky-500 text-sky-800 dark:text-sky-300";
                     if (t === "Dirty") {
-                      icon = "💩";
                       activeBg = "bg-amber-50 dark:bg-amber-950/40 border-amber-600 text-amber-800 dark:text-amber-300";
                     } else if (t === "Wet + Dirty") {
-                      icon = "💧💩";
                       activeBg = "bg-purple-50 dark:bg-purple-950/40 border-purple-500 text-purple-800 dark:text-purple-300";
                     } else if (t === "Dry") {
-                      icon = "⚪";
                       activeBg = "bg-slate-100 dark:bg-slate-800 border-slate-400 text-slate-700 dark:text-slate-300";
                     }
 
@@ -483,7 +479,6 @@ export const DiaperMonitoringPage: React.FC<{
                             : "border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
                         }`}
                       >
-                        <span className="text-lg">{icon}</span>
                         <span>{t}</span>
                       </button>
                     );
@@ -530,12 +525,12 @@ export const DiaperMonitoringPage: React.FC<{
                       onChange={(e) => setStoolColor(e.target.value as StoolColor)}
                       className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
                     >
-                      <option value="Yellow / Mustard">💛 Yellow / Mustard (Normal milk stool)</option>
-                      <option value="Green / Transitional">💚 Green / Transitional (Days 3-4)</option>
-                      <option value="Meconium (Black/Tarry)">🖤 Meconium (Black/Tarry - Days 1-2)</option>
-                      <option value="Brown">🤎 Brown</option>
-                      <option value="Red / Bloody">🚨 Red / Bloody (Safety concern)</option>
-                      <option value="Pale / White / Clay">🚨 Pale / White / Clay (Biliary concern)</option>
+                      <option value="Yellow / Mustard">Yellow / Mustard (Normal milk stool)</option>
+                      <option value="Green / Transitional">Green / Transitional (Days 3-4)</option>
+                      <option value="Meconium (Black/Tarry)">Meconium (Black/Tarry - Days 1-2)</option>
+                      <option value="Brown">Brown</option>
+                      <option value="Red / Bloody">Red / Bloody (Safety concern)</option>
+                      <option value="Pale / White / Clay">Pale / White / Clay (Biliary concern)</option>
                       <option value="Other">Other</option>
                       <option value="Not assessed">Not assessed</option>
                     </select>
@@ -591,10 +586,10 @@ export const DiaperMonitoringPage: React.FC<{
                     onChange={(e) => setBabyBehavior(e.target.value as DiaperBabyBehavior)}
                     className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
                   >
-                    <option value="Calm">😌 Calm</option>
-                    <option value="Fussy">🥺 Fussy</option>
-                    <option value="Crying">😭 Crying</option>
-                    <option value="Sleepy">😴 Sleepy</option>
+                    <option value="Calm">Calm</option>
+                    <option value="Fussy">Fussy</option>
+                    <option value="Crying">Crying</option>
+                    <option value="Sleepy">Sleepy</option>
                   </select>
                 </div>
               </div>
@@ -642,10 +637,10 @@ export const DiaperMonitoringPage: React.FC<{
                     </div>
                     <div className="flex gap-2 text-xs text-slate-500 dark:text-slate-400">
                       <span className="px-2 py-0.5 bg-sky-100 dark:bg-sky-900/40 text-sky-800 dark:text-sky-300 rounded-md">
-                        💧 {day.wet} Wet
+                        {day.wet} Wet
                       </span>
                       <span className="px-2 py-0.5 bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 rounded-md">
-                        💩 {day.dirty} Dirty
+                        {day.dirty} Dirty
                       </span>
                     </div>
                   </div>
@@ -654,39 +649,30 @@ export const DiaperMonitoringPage: React.FC<{
             </div>
 
             {/* NEWBORN STOOL & HYDRATION EDUCATIONAL GUIDE */}
-            <div className="bg-gradient-to-br from-amber-500/10 via-amber-500/5 to-transparent dark:from-amber-950/30 border border-amber-200 dark:border-amber-900/40 rounded-3xl p-6 space-y-4">
+            <div className="bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/40 rounded-3xl p-6 space-y-4">
               <div className="flex items-center gap-2">
                 <Info className="w-5 h-5 text-amber-700 dark:text-amber-400 shrink-0" />
                 <h3 className="font-bold text-slate-900 dark:text-white text-sm">Newborn Stool & Hydration Guide</h3>
               </div>
 
               <div className="space-y-2.5 text-xs text-slate-700 dark:text-slate-300">
-                <div className="flex items-start gap-2 p-2.5 bg-white/70 dark:bg-slate-800/70 rounded-xl">
-                  <span className="text-base">🖤</span>
-                  <div>
-                    <strong className="block text-slate-900 dark:text-white">Days 1–2: Meconium</strong>
-                    Black, sticky, tar-like. Expected 1–2 wet & 1+ dirty diaper per day.
-                  </div>
+                <div className="p-2.5 bg-white/70 dark:bg-slate-800/70 rounded-xl">
+                  <strong className="block text-slate-900 dark:text-white">Days 1–2: Meconium</strong>
+                  Black, sticky, tar-like. Expected 1–2 wet & 1+ dirty diaper per day.
                 </div>
 
-                <div className="flex items-start gap-2 p-2.5 bg-white/70 dark:bg-slate-800/70 rounded-xl">
-                  <span className="text-base">💚</span>
-                  <div>
-                    <strong className="block text-slate-900 dark:text-white">Days 3–4: Transitional Stool</strong>
-                    Greenish-brown, less sticky. Expected 3–4 wet & 2+ dirty diapers per day.
-                  </div>
+                <div className="p-2.5 bg-white/70 dark:bg-slate-800/70 rounded-xl">
+                  <strong className="block text-slate-900 dark:text-white">Days 3–4: Transitional Stool</strong>
+                  Greenish-brown, less sticky. Expected 3–4 wet & 2+ dirty diapers per day.
                 </div>
 
-                <div className="flex items-start gap-2 p-2.5 bg-white/70 dark:bg-slate-800/70 rounded-xl">
-                  <span className="text-base">💛</span>
-                  <div>
-                    <strong className="block text-slate-900 dark:text-white">Days 5+: Milk Stool</strong>
-                    Yellow/Mustard, seedy (breastfed) or tan/soft (formula). Expected 5–6+ wet & 3+ dirty per day.
-                  </div>
+                <div className="p-2.5 bg-white/70 dark:bg-slate-800/70 rounded-xl">
+                  <strong className="block text-slate-900 dark:text-white">Days 5+: Milk Stool</strong>
+                  Yellow/Mustard, seedy (breastfed) or tan/soft (formula). Expected 5–6+ wet & 3+ dirty per day.
                 </div>
 
                 <div className="p-3 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/40 rounded-xl text-rose-800 dark:text-rose-300">
-                  <strong>🚨 Safety Warning Colors:</strong> Contact pediatrician immediately if stool is <strong>Red / Bloody</strong> or <strong>Pale / White / Clay</strong>.
+                  <strong>Safety Warning Colors:</strong> Contact pediatrician immediately if stool is <strong>Red / Bloody</strong> or <strong>Pale / White / Clay</strong>.
                 </div>
               </div>
             </div>
@@ -714,16 +700,12 @@ export const DiaperMonitoringPage: React.FC<{
             <div className="space-y-3">
               {logs.map((log) => {
                 let badgeBg = "bg-sky-100 text-sky-800 dark:bg-sky-900/40 dark:text-sky-300";
-                let icon = "💧";
                 if (log.type === "Dirty") {
                   badgeBg = "bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300";
-                  icon = "💩";
                 } else if (log.type === "Wet + Dirty") {
                   badgeBg = "bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300";
-                  icon = "💧💩";
                 } else if (log.type === "Dry") {
                   badgeBg = "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300";
-                  icon = "⚪";
                 }
 
                 return (
@@ -733,8 +715,7 @@ export const DiaperMonitoringPage: React.FC<{
                   >
                     <div className="space-y-1.5 flex-1">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className={`px-2.5 py-1 rounded-lg text-xs font-bold flex items-center gap-1 ${badgeBg}`}>
-                          <span>{icon}</span>
+                        <span className={`px-2.5 py-1 rounded-lg text-xs font-bold ${badgeBg}`}>
                           <span>{log.type}</span>
                         </span>
                         <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">
@@ -747,11 +728,11 @@ export const DiaperMonitoringPage: React.FC<{
 
                       <div className="text-xs text-slate-600 dark:text-slate-300 space-y-1">
                         {log.urineAmount && (
-                          <p>💧 <strong>Urine:</strong> {log.urineAmount}</p>
+                          <p><strong>Urine:</strong> {log.urineAmount}</p>
                         )}
                         {log.stoolColor && (
                           <p>
-                            💩 <strong>Stool:</strong> {log.stoolColor} ({log.stoolConsistency || "Standard"})
+                            <strong>Stool:</strong> {log.stoolColor} ({log.stoolConsistency || "Standard"})
                           </p>
                         )}
                         <p className="text-slate-500 dark:text-slate-400">

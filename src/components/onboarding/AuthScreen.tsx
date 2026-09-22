@@ -15,7 +15,8 @@ import {
   RefreshCw,
   Eye,
   EyeOff,
-  Inbox
+  Inbox,
+  AlertTriangle
 } from "lucide-react";
 import { setAuthToken } from "../../services/apiClient";
 
@@ -151,7 +152,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
         }
 
         setAuthToken(data.token || null);
-        setSuccessMsg("Credentials verified! Taking you straight to Dashboard... 🌸");
+        setSuccessMsg("Credentials verified! Taking you straight to Dashboard...");
         setTimeout(() => {
           onAuthenticated({
             fullName: data.user?.name || "Mom",
@@ -252,7 +253,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
       }
 
       // Password successfully updated!
-      setSuccessMsg("🌸 Password successfully updated! Taking you to Sign In with your new credentials...");
+      setSuccessMsg("Password successfully updated! Taking you to Sign In with your new credentials...");
       setEmail(recoveryEmail.trim().toLowerCase());
       setPassword(newPassword);
 
@@ -281,12 +282,12 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 bg-gradient-to-br from-[#FFF0F5] via-[#FFF7F9] to-[#F5E6EC] dark:from-[#120E18] dark:via-[#1A1424] dark:to-[#22172A] text-gray-900 dark:text-rose-100">
+    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 bg-[#FFF7F9] dark:bg-[#120E18] text-gray-900 dark:text-rose-100">
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="w-full max-w-md bg-white/90 dark:bg-[#1A1523]/90 backdrop-blur-xl p-8 rounded-[32px] border border-rose-100 dark:border-rose-900/40 shadow-2xl shadow-rose-200/50 dark:shadow-none space-y-6"
+        className="w-full max-w-md bg-white/90 dark:bg-[#1A1523]/90 p-8 rounded-2xl border border-rose-100 dark:border-rose-900/40 shadow-sm space-y-6"
       >
         {/* Top Header */}
         <div className="flex items-center justify-between">
@@ -368,7 +369,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
             animate={{ opacity: 1, scale: 1 }}
             className="p-3.5 rounded-2xl bg-red-50 dark:bg-red-950/50 border border-red-200 dark:border-red-900/50 text-red-700 dark:text-red-300 text-xs font-semibold flex items-start gap-2"
           >
-            <span className="text-base leading-none">⚠️</span>
+            <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
             <span>{errorMsg}</span>
           </motion.div>
         )}
@@ -490,7 +491,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold text-xs shadow-md flex items-center justify-center gap-2 transition-all mt-2 disabled:opacity-60"
+              className="w-full py-3.5 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-md flex items-center justify-center gap-2 transition-all mt-2 disabled:opacity-60"
             >
               {isLoading ? (
                 <>
@@ -550,7 +551,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold text-xs shadow-md flex items-center justify-center gap-2 transition-all disabled:opacity-60"
+                  className="w-full py-3.5 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-md flex items-center justify-center gap-2 transition-all disabled:opacity-60"
                 >
                   {isLoading ? (
                     <>
@@ -659,7 +660,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold text-xs shadow-md flex items-center justify-center gap-2 transition-all disabled:opacity-60"
+                  className="w-full py-3.5 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-md flex items-center justify-center gap-2 transition-all disabled:opacity-60"
                 >
                   {isLoading ? (
                     <>

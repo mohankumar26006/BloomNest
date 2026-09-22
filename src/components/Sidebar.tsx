@@ -222,7 +222,7 @@ export const Sidebar: React.FC<{
         {/* Sidebar Header & Brand Logo */}
         <div className="flex items-center justify-between pb-3 mb-3 border-b border-rose-100 dark:border-rose-900/30">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-2xl bg-gradient-to-tr from-rose-500 via-pink-500 to-rose-600 text-white flex items-center justify-center shadow-md shadow-rose-500/20">
+            <div className="w-9 h-9 rounded-2xl bg-rose-600 text-white flex items-center justify-center shadow-sm">
               <Heart className="w-5 h-5 fill-current" />
             </div>
             <div>
@@ -305,7 +305,7 @@ export const Sidebar: React.FC<{
                             onClick={() => handleSelect(item.page)}
                             className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition-all ${
                               isActive
-                                ? "bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 text-white shadow-sm font-bold scale-[1.01]"
+                                ? "bg-rose-600 text-white shadow-sm font-bold"
                                 : "text-gray-700 dark:text-rose-200/90 hover:bg-rose-50/80 dark:hover:bg-rose-950/40 hover:text-rose-600 dark:hover:text-rose-100"
                             }`}
                           >
@@ -348,10 +348,10 @@ export const Sidebar: React.FC<{
               updateUser({ hasCompletedOnboarding: false });
               onClose();
             }}
-            className="w-full flex items-center justify-between p-2.5 rounded-2xl bg-gradient-to-r from-rose-500/10 to-pink-500/10 dark:from-rose-950/40 dark:to-pink-950/40 border border-rose-200/60 dark:border-rose-800/40 hover:border-rose-400 text-rose-700 dark:text-rose-200 transition-all group"
+            className="w-full flex items-center justify-between p-2.5 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200/60 dark:border-rose-800/40 hover:border-rose-400 text-rose-700 dark:text-rose-200 transition-all group"
           >
             <div className="flex items-center gap-2 min-w-0">
-              <div className="w-7 h-7 rounded-xl bg-gradient-to-tr from-rose-500 to-pink-600 text-white flex items-center justify-center shadow-xs shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-7 h-7 rounded-xl bg-rose-600 text-white flex items-center justify-center shadow-xs shrink-0">
                 <UserPlus className="w-3.5 h-3.5" />
               </div>
               <div className="text-left min-w-0">

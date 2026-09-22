@@ -190,8 +190,7 @@ export const DailyCheckInPage: React.FC<DailyCheckInPageProps> = ({ onNavigateSu
       <div className="max-w-5xl mx-auto space-y-6">
         
         {/* TOP HEADER BANNER */}
-        <div className="bg-gradient-to-r from-rose-500 to-rose-600 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div className="bg-rose-600 rounded-3xl p-6 text-white shadow-sm relative overflow-hidden">
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <div className="flex items-[#E0E7FF] items-center gap-2 mb-2">
@@ -240,7 +239,7 @@ export const DailyCheckInPage: React.FC<DailyCheckInPageProps> = ({ onNavigateSu
                 onClick={() => setActiveStep(s.num)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm transition-all whitespace-nowrap ${
                   isActive
-                    ? "bg-rose-500 text-white shadow-md shadow-rose-500/20"
+                    ? "bg-rose-500 text-white shadow-sm"
                     : isCompleted
                     ? "bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400"
                     : "text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
@@ -420,11 +419,11 @@ export const DailyCheckInPage: React.FC<DailyCheckInPageProps> = ({ onNavigateSu
               </label>
               <div className="grid grid-cols-5 gap-2">
                 {[
-                  { label: "😊 Good", val: "Good" },
-                  { label: "🙂 Okay", val: "Okay" },
-                  { label: "😐 Low", val: "Low" },
-                  { label: "😟 Worried", val: "Worried" },
-                  { label: "😔 Very low", val: "Very low" },
+                  { label: "Good", val: "Good" },
+                  { label: "Okay", val: "Okay" },
+                  { label: "Low", val: "Low" },
+                  { label: "Worried", val: "Worried" },
+                  { label: "Very low", val: "Very low" },
                 ].map((m) => (
                   <button
                     key={m.val}
@@ -483,7 +482,7 @@ export const DailyCheckInPage: React.FC<DailyCheckInPageProps> = ({ onNavigateSu
               <button
                 type="button"
                 onClick={() => setActiveStep(2)}
-                className="px-6 py-3 bg-rose-500 text-white font-semibold rounded-2xl hover:bg-rose-600 transition flex items-center gap-2 shadow-md shadow-rose-500/20"
+                className="px-6 py-3 bg-rose-500 text-white font-semibold rounded-2xl hover:bg-rose-600 transition flex items-center gap-2 shadow-sm"
               >
                 Continue to Baby Check <ArrowRight className="w-4 h-4" />
               </button>
@@ -516,7 +515,7 @@ export const DailyCheckInPage: React.FC<DailyCheckInPageProps> = ({ onNavigateSu
               >
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-indigo-500 text-white flex items-center justify-center font-bold">
-                    👶
+                    <Baby className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">
@@ -625,7 +624,7 @@ export const DailyCheckInPage: React.FC<DailyCheckInPageProps> = ({ onNavigateSu
               <button
                 type="button"
                 onClick={() => setActiveStep(3)}
-                className="px-6 py-3 bg-rose-500 text-white font-semibold rounded-2xl hover:bg-rose-600 transition flex items-center gap-2 shadow-md shadow-rose-500/20"
+                className="px-6 py-3 bg-rose-500 text-white font-semibold rounded-2xl hover:bg-rose-600 transition flex items-center gap-2 shadow-sm"
               >
                 Continue to Concerns <ArrowRight className="w-4 h-4" />
               </button>
@@ -692,7 +691,7 @@ export const DailyCheckInPage: React.FC<DailyCheckInPageProps> = ({ onNavigateSu
               </button>
               <button
                 type="submit"
-                className="px-8 py-3 bg-gradient-to-r from-rose-500 to-pink-600 text-white font-bold rounded-2xl hover:opacity-95 transition flex items-center gap-2 shadow-lg shadow-rose-500/25 text-base"
+                className="px-8 py-3 bg-rose-600 hover:bg-rose-700 text-white font-bold rounded-2xl transition flex items-center gap-2 shadow-sm text-base"
               >
                 Complete Daily Check-in <Check className="w-5 h-5" />
               </button>
@@ -707,7 +706,7 @@ export const DailyCheckInPage: React.FC<DailyCheckInPageProps> = ({ onNavigateSu
             <div className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 md:p-8 shadow-md border border-slate-200/80 dark:border-slate-800 relative overflow-hidden">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center font-bold shadow-lg shadow-emerald-500/20">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center font-bold shadow-sm">
                     <CheckCircle2 className="w-7 h-7" />
                   </div>
                   <div>

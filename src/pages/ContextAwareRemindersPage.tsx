@@ -282,10 +282,10 @@ export const ContextAwareRemindersPage: React.FC<ContextRemindersPageProps> = ({
       <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none border-b border-slate-200 dark:border-slate-800">
         {[
           { id: "all", label: `All Reminders (${evalResult.totalRemindersCount})` },
-          { id: "safety_med", label: "🚨 Safety & Medical" },
-          { id: "recovery", label: "🩺 Mother Recovery" },
-          { id: "baby_care", label: "👶 Baby Care" },
-          { id: "wellbeing", label: "💗 Wellbeing" },
+          { id: "safety_med", label: "Safety & Medical" },
+          { id: "recovery", label: "Mother Recovery" },
+          { id: "baby_care", label: "Baby Care" },
+          { id: "wellbeing", label: "Wellbeing" },
         ].map((tab) => (
           <button
             key={tab.id}

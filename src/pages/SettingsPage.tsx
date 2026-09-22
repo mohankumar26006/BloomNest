@@ -8,7 +8,7 @@ import {
 } from "../utils/pregnancyCalculation";
 
 export const SettingsPage: React.FC = () => {
-  const { user, updateUser, loadDemoData, resetAllData, t } = useApp();
+  const { user, updateUser, loadDemoData, resetAllData, t, setActivePage } = useApp();
 
   const [fullName, setFullName] = useState(user.fullName);
   const [email, setEmail] = useState(user.email);
@@ -131,7 +131,7 @@ export const SettingsPage: React.FC = () => {
                 />
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-gradient-to-r from-rose-50 to-pink-50 dark:from-rose-950/40 dark:to-purple-950/20 border border-rose-200/70 dark:border-rose-900/40 space-y-1">
+              <div className="p-3.5 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200/70 dark:border-rose-900/40 space-y-1">
                 <div className="flex items-center justify-between">
                   <span className="text-gray-600 dark:text-rose-300 font-semibold">Calculated Due Date:</span>
                   <span className="font-bold text-rose-600 dark:text-rose-300">
@@ -146,9 +146,9 @@ export const SettingsPage: React.FC = () => {
               <button
                 type="button"
                 onClick={handleApplyWeekEdd}
-                className="w-full py-2.5 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-bold text-xs shadow-md transition-all"
+                className="w-full py-2.5 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-bold text-xs shadow-sm transition-all"
               >
-                Apply Week & Due Date to Timeline ✨
+                Apply Week & Due Date to Timeline
               </button>
             </div>
           ) : (
@@ -168,7 +168,7 @@ export const SettingsPage: React.FC = () => {
               <button
                 type="button"
                 onClick={handleCalculateEdd}
-                className="w-full py-2.5 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold text-xs shadow-md"
+                className="w-full py-2.5 rounded-2xl bg-purple-500 hover:bg-purple-600 text-white font-bold text-xs shadow-sm"
               >
                 {t("calculateEdd")}
               </button>
@@ -237,7 +237,7 @@ export const SettingsPage: React.FC = () => {
 
           <button
             type="submit"
-            className="w-full py-3 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-xs shadow-md"
+            className="w-full py-3 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-bold text-xs shadow-sm"
           >
             {t("saveProfileChanges")}
           </button>
@@ -273,10 +273,20 @@ export const SettingsPage: React.FC = () => {
 
         <button
           onClick={() => updateUser({ hasCompletedOnboarding: false })}
-          className="px-4 py-2.5 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold text-xs shadow-md shrink-0 flex items-center gap-1.5 transition-all"
+          className="px-4 py-2.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shrink-0 flex items-center gap-1.5 transition-colors"
         >
           <LogOut className="w-4 h-4" />
           <span>Setup New User Profile</span>
+        </button>
+      </div>
+
+      <div className="flex items-center justify-center gap-4 text-[11px] font-semibold text-gray-400 dark:text-rose-500 pt-2">
+        <button onClick={() => setActivePage("terms")} className="hover:text-rose-600 dark:hover:text-rose-300 transition-colors">
+          Terms of Service
+        </button>
+        <span className="text-gray-300 dark:text-rose-800">&middot;</span>
+        <button onClick={() => setActivePage("privacy")} className="hover:text-rose-600 dark:hover:text-rose-300 transition-colors">
+          Privacy Policy
         </button>
       </div>
     </div>

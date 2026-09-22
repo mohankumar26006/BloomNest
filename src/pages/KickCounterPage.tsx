@@ -157,7 +157,7 @@ export const KickCounterPage: React.FC = () => {
 
       {/* AUTOMATED SAFETY THRESHOLD ALERT CARD */}
       {(showLowMovementGuide || (elapsedSeconds >= 7200 && kickCount < GOAL_KICKS)) && (
-        <div className="p-6 rounded-3xl bg-gradient-to-r from-amber-600 via-rose-600 to-red-600 text-white shadow-xl space-y-4 animate-in slide-in-from-top duration-300">
+        <div className="p-6 rounded-3xl bg-red-600 text-white shadow-xl space-y-4 animate-in slide-in-from-top duration-300">
           <div className="flex items-start justify-between border-b border-white/20 pb-3">
             <div className="flex items-center gap-3">
               <div className="p-3 bg-white/20 rounded-2xl">
@@ -217,7 +217,7 @@ export const KickCounterPage: React.FC = () => {
       )}
 
       {/* Main Counter Stage */}
-      <div className="p-8 rounded-3xl bg-gradient-to-tr from-rose-500 to-rose-600 text-white shadow-xl flex flex-col items-center justify-center text-center space-y-6 relative overflow-hidden">
+      <div className="p-8 rounded-3xl bg-rose-600 text-white shadow-xl flex flex-col items-center justify-center text-center space-y-6 relative overflow-hidden">
         <div className="text-xs font-bold px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md flex items-center gap-2">
           <Clock className="w-4 h-4" />
           <span>{t("elapsedTime")}: {formatTime(elapsedSeconds)}</span>
@@ -227,7 +227,7 @@ export const KickCounterPage: React.FC = () => {
         <div className="relative">
           <button
             onClick={handleKickTap}
-            className="w-48 h-48 rounded-full bg-white text-rose-600 shadow-2xl flex flex-col items-center justify-center hover:scale-105 active:scale-95 transition-all group relative z-10"
+            className="w-48 h-48 rounded-full bg-white text-rose-600 shadow-2xl flex flex-col items-center justify-center hover:bg-rose-50 transition-colors group relative z-10"
           >
             <Footprints className="w-11 h-11 group-hover:animate-bounce text-rose-500" />
             <span className="text-5xl font-extrabold my-1 text-gray-900 font-serif">{kickCount}</span>

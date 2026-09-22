@@ -61,7 +61,7 @@ export const HospitalBagPage: React.FC = () => {
           </div>
           <div className="w-full bg-rose-100 dark:bg-rose-950 rounded-full h-3 overflow-hidden p-0.5">
             <div
-              className="bg-gradient-to-r from-rose-500 to-pink-500 h-full rounded-full transition-all duration-500"
+              className="bg-rose-500 h-full rounded-full transition-all duration-500"
               style={{ width: `${progressPct}%` }}
             />
           </div>
@@ -159,7 +159,7 @@ export const HospitalBagPage: React.FC = () => {
 
           <button
             type="submit"
-            className="w-full py-3 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-xs shadow-md"
+            className="w-full py-3 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-bold text-xs shadow-sm"
           >
             {t("addToHospitalBag")}
           </button>

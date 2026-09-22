@@ -38,9 +38,8 @@ export const Navbar: React.FC<{ onOpenMobileMenu: () => void }> = ({ onOpenMobil
   const pregnancyProgress = calculatePregnancyProgress(user);
 
   return (
-    <header className="sticky top-0 z-30 bg-white/80 dark:bg-[#120e18]/85 backdrop-blur-xl border-b border-rose-100/80 dark:border-rose-900/40 transition-all shadow-xs">
-      {/* Top Rose Gold Accent Line */}
-      <div className="h-0.5 bg-gradient-to-r from-rose-400 to-rose-500 w-full" />
+    <header className="sticky top-0 z-30 bg-white dark:bg-[#120e18] border-b border-rose-100 dark:border-rose-900/40 transition-colors">
+      <div className="h-0.5 bg-rose-500 w-full" />
 
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
         {/* Left: Mobile Menu Button & Logo */}
@@ -57,11 +56,11 @@ export const Navbar: React.FC<{ onOpenMobileMenu: () => void }> = ({ onOpenMobil
             onClick={() => setActivePage("dashboard")}
             className="flex items-center gap-2 text-left group shrink-0"
           >
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-rose-400 to-rose-500 flex items-center justify-center text-white shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all shrink-0">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-rose-500 flex items-center justify-center text-white shrink-0">
               <Heart className="w-4 h-4 fill-current" />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="font-serif text-lg sm:text-xl font-bold bg-gradient-to-r from-rose-600 to-rose-700 dark:from-rose-200 dark:to-pink-200 bg-clip-text text-transparent tracking-tight leading-none">
+              <span className="font-serif text-lg sm:text-xl font-bold text-rose-700 dark:text-rose-200 tracking-tight leading-none">
                 BloomNest
               </span>
               <span className="hidden xl:block text-[9px] font-bold tracking-widest text-rose-500/90 dark:text-rose-300/80 uppercase mt-0.5 whitespace-nowrap">
@@ -223,7 +222,7 @@ export const Navbar: React.FC<{ onOpenMobileMenu: () => void }> = ({ onOpenMobil
                 referrerPolicy="no-referrer"
               />
             ) : (
-              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-rose-500 to-pink-600 text-white flex items-center justify-center font-bold text-xs shadow-xs shrink-0">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-rose-600 text-white flex items-center justify-center font-bold text-xs shrink-0">
                 {user.fullName.charAt(0)}
               </div>
             )}

@@ -219,30 +219,28 @@ export const BabyCareAiPage: React.FC<BabyCareAiPageProps> = ({ onNavigatePage }
   const formatFactTagLabel = (tag: string) => {
     switch (tag) {
       case "RECORDED_FACT":
-        return "📌 Recorded Fact";
+        return "Recorded Fact";
       case "CALCULATED_OBSERVATION":
-        return "📊 Calculated Observation";
+        return "Calculated Observation";
       case "DETECTED_PATTERN":
-        return "📈 Detected Pattern";
+        return "Detected Pattern";
       case "SAFETY_ALERT":
-        return "🚨 Safety Alert";
+        return "Safety Alert";
       case "AI_SUGGESTION":
       default:
-        return "💡 AI Suggestion";
+        return "AI Suggestion";
     }
   };
 
   return (
     <div className="space-y-6 max-w-5xl mx-auto pb-12">
       {/* HEADER BANNER */}
-      <div className="bg-gradient-to-r from-rose-500 to-rose-600 rounded-3xl p-6 sm:p-8 text-white shadow-xl shadow-pink-500/15 relative overflow-hidden">
-        <div className="absolute right-0 top-0 w-80 h-80 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
-
+      <div className="bg-rose-600 rounded-3xl p-6 sm:p-8 text-white shadow-sm relative overflow-hidden">
         <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="space-y-2">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="px-3 py-1 rounded-full bg-white/20 text-white font-extrabold text-[10px] uppercase tracking-wider backdrop-blur-md">
-                👶 Agent 2 of 3 • Baby Care AI
+                Agent 2 of 3 • Baby Care AI
               </span>
               <span className="px-3 py-1 rounded-full bg-emerald-400/30 text-emerald-100 font-extrabold text-[10px] uppercase tracking-wider backdrop-blur-md flex items-center gap-1">
                 <CheckCircle2 className="w-3 h-3" /> F4 Safety Guard Active
@@ -313,7 +311,7 @@ export const BabyCareAiPage: React.FC<BabyCareAiPageProps> = ({ onNavigatePage }
               >
                 {babies.map((b) => (
                   <option key={b.id} value={b.id}>
-                    👶 {b.babyName}
+                    {b.babyName}
                   </option>
                 ))}
               </select>
@@ -331,15 +329,15 @@ export const BabyCareAiPage: React.FC<BabyCareAiPageProps> = ({ onNavigatePage }
               Age: {context.babyAgeFormatted}
             </span>
             {context.safetyStatus === "URGENT_ATTENTION" ? (
-              <span className="px-3 py-1.5 bg-rose-600 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 animate-pulse shadow-md shadow-rose-500/20">
+              <span className="px-3 py-1.5 bg-rose-600 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 animate-pulse shadow-sm">
                 <AlertTriangle className="w-4 h-4" /> URGENT ALERT
               </span>
             ) : context.safetyStatus === "ATTENTION_NEEDED" ? (
-              <span className="px-3 py-1.5 bg-amber-500 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 shadow-md shadow-amber-500/20">
+              <span className="px-3 py-1.5 bg-amber-500 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 shadow-sm">
                 <Shield className="w-4 h-4" /> ATTENTION NEEDED
               </span>
             ) : (
-              <span className="px-3 py-1.5 bg-emerald-600 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 shadow-md shadow-emerald-500/20">
+              <span className="px-3 py-1.5 bg-emerald-600 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 shadow-sm">
                 <ShieldCheck className="w-4 h-4" /> SAFETY CLEAR
               </span>
             )}
@@ -461,7 +459,7 @@ export const BabyCareAiPage: React.FC<BabyCareAiPageProps> = ({ onNavigatePage }
                 className={`flex gap-3 ${isAgent ? "items-start" : "items-end justify-end"}`}
               >
                 {isAgent && (
-                  <div className="w-9 h-9 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 text-white flex items-center justify-center font-black text-xs shadow-md shrink-0">
+                  <div className="w-9 h-9 rounded-2xl bg-rose-600 text-white flex items-center justify-center font-black text-xs shadow-sm shrink-0">
                     <Baby className="w-4 h-4" />
                   </div>
                 )}
@@ -470,7 +468,7 @@ export const BabyCareAiPage: React.FC<BabyCareAiPageProps> = ({ onNavigatePage }
                   className={`max-w-[85%] rounded-3xl p-4 sm:p-5 space-y-3 text-xs sm:text-sm ${
                     isAgent
                       ? "bg-pink-50/70 dark:bg-pink-950/30 text-slate-800 dark:text-pink-100 border border-pink-100 dark:border-pink-900/40"
-                      : "bg-gradient-to-r from-pink-600 to-rose-500 text-white shadow-md font-medium"
+                      : "bg-rose-600 text-white shadow-sm font-medium"
                   }`}
                 >
                   <div className="flex items-center justify-between gap-4 border-b border-pink-200/50 dark:border-pink-900/40 pb-2">
@@ -638,7 +636,7 @@ export const BabyCareAiPage: React.FC<BabyCareAiPageProps> = ({ onNavigatePage }
           <button
             type="submit"
             disabled={isLoading || !inputQuery.trim()}
-            className="px-5 py-3 rounded-2xl bg-pink-500 hover:bg-pink-600 disabled:opacity-50 text-white font-extrabold text-xs transition-colors flex items-center gap-2 shadow-md shadow-pink-500/20"
+            className="px-5 py-3 rounded-2xl bg-pink-500 hover:bg-pink-600 disabled:opacity-50 text-white font-extrabold text-xs transition-colors flex items-center gap-2 shadow-sm"
           >
             <span>Ask AI</span>
             <Send className="w-3.5 h-3.5" />

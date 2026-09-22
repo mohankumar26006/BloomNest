@@ -296,7 +296,7 @@ export const MotherMedicationPage: React.FC<MotherMedicationPageProps> = ({
   const skippedCount = medLogs.filter((l) => l.doseStatus === "skipped").length;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50/40 via-white to-pink-50/30 p-4 md:p-8">
+    <div className="min-h-screen bg-purple-50/40 p-4 md:p-8">
       <div className="max-w-6xl mx-auto space-y-6">
         
         {/* TOP HEADER WITH POSTPARTUM STAGE CONTEXT */}
@@ -455,7 +455,7 @@ export const MotherMedicationPage: React.FC<MotherMedicationPageProps> = ({
 
                         {med.purpose && (
                           <p className="text-xs text-purple-700 font-medium mb-3">
-                            🎯 Purpose: {med.purpose}
+                            Purpose: {med.purpose}
                           </p>
                         )}
 
@@ -595,7 +595,7 @@ export const MotherMedicationPage: React.FC<MotherMedicationPageProps> = ({
                           <td className="p-3">
                             {log.reportedReactions && log.reportedReactions.length > 0 ? (
                               <span className="text-rose-600 font-medium">
-                                ⚠️ {log.reportedReactions.join(", ")}
+                                {log.reportedReactions.join(", ")}
                               </span>
                             ) : (
                               <span className="text-emerald-600">None</span>

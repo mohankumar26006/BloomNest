@@ -97,7 +97,7 @@ export const MaternalAvatar3D: React.FC<MaternalAvatar3DProps> = ({
   const IconComponent = config.icon;
 
   return (
-    <div className="relative w-full h-full min-h-[460px] sm:min-h-[520px] rounded-3xl overflow-hidden bg-gradient-to-b from-purple-50/60 via-white to-purple-50/30 border border-purple-100 shadow-sm flex flex-col justify-between p-4 sm:p-5 select-none transition-colors">
+    <div className="relative w-full h-full min-h-[460px] sm:min-h-[520px] rounded-3xl overflow-hidden bg-purple-50/40 border border-purple-100 shadow-sm flex flex-col justify-between p-4 sm:p-5 select-none transition-colors">
       {/* Top Status & Pregnancy Context Bar */}
       <div className="relative z-10 flex items-center justify-between pointer-events-auto gap-2">
         <div className="flex items-center gap-2">

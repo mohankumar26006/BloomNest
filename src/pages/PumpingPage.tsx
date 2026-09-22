@@ -349,7 +349,7 @@ export const PumpingPage: React.FC<{
         )}
       </header>
 
-      {/* 📊 TODAY'S PUMPING SUMMARY CARDS */}
+      {/* TODAY'S PUMPING SUMMARY CARDS */}
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div className="bg-white dark:bg-[#1A1523] p-4 rounded-2xl border border-slate-200/80 dark:border-rose-900/40 shadow-xs flex items-center justify-between">
           <div>
@@ -404,7 +404,7 @@ export const PumpingPage: React.FC<{
         </div>
       </section>
 
-      {/* 📝 LOG PUMPING SESSION FORM */}
+      {/* LOG PUMPING SESSION FORM */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-6">
         <div className="flex flex-wrap items-center justify-between border-b border-slate-100 dark:border-rose-900/30 pb-3 gap-2">
           <div className="flex items-center gap-2.5">
@@ -767,7 +767,7 @@ export const PumpingPage: React.FC<{
 
           <button
             type="submit"
-            className="w-full py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs shadow-md shadow-blue-500/20 transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
+            className="w-full py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-xs shadow-sm transition-all flex items-center justify-center gap-2 active:scale-[0.99]"
           >
             <Plus className="w-4 h-4" />
             <span>Save Pumping Session</span>
@@ -775,7 +775,7 @@ export const PumpingPage: React.FC<{
         </form>
       </section>
 
-      {/* 📊 PUMPING HISTORY TIMELINE & FLANGE GUIDE */}
+      {/* PUMPING HISTORY TIMELINE & FLANGE GUIDE */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* HISTORY LIST (7 COLS) */}
         <section className="lg:col-span-7 bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/40 shadow-xs space-y-4">

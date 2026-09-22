@@ -39,7 +39,7 @@ export const NextAppointmentCard: React.FC<NextAppointmentCardProps> = ({
       </div>
 
       <div className="flex items-start gap-3.5">
-        <div className="w-11 h-11 bg-rose-100 dark:bg-rose-950/80 text-rose-600 dark:text-rose-300 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+        <div className="w-11 h-11 bg-rose-100 dark:bg-rose-950/80 text-rose-600 dark:text-rose-300 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-rose-200 dark:group-hover:bg-rose-900 transition-colors">
           <Stethoscope className="w-5 h-5" />
         </div>
 

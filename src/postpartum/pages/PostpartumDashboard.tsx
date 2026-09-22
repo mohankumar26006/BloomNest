@@ -14,7 +14,6 @@ import {
   Moon,
   Utensils,
   Clock,
-  Sparkles,
   ChevronRight,
   ShieldCheck,
   Bot,
@@ -64,9 +63,7 @@ export const PostpartumDashboard: React.FC<{ onNavigateSubPage: (page: string) =
   return (
     <div className="space-y-8 max-w-7xl mx-auto pb-12">
       {/* 1. HERO RECOVERY HEADER */}
-      <section className="bg-gradient-to-br from-rose-500 via-pink-500 to-rose-600 rounded-3xl p-6 sm:p-10 text-white shadow-xl shadow-rose-500/20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 transform translate-x-8 -translate-y-8 w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none" />
-
+      <section className="bg-rose-600 rounded-3xl p-6 sm:p-10 text-white shadow-md relative overflow-hidden">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-3">
             <div className="flex flex-wrap items-center gap-2">
@@ -79,7 +76,7 @@ export const PostpartumDashboard: React.FC<{ onNavigateSubPage: (page: string) =
             </div>
 
             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-              Welcome to Postpartum Recovery, {user.fullName || user.name || "Mama"}! 💕
+              Welcome to Postpartum Recovery, {user.fullName || user.name || "Mama"}!
             </h1>
 
             <p className="text-sm sm:text-base text-rose-100 max-w-2xl font-normal leading-relaxed">
@@ -96,9 +93,9 @@ export const PostpartumDashboard: React.FC<{ onNavigateSubPage: (page: string) =
       </section>
 
       {/* 2. FEATURE 23 DAILY CHECK-IN HERO TOUCHPOINT */}
-      <section className="bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 rounded-3xl p-6 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+      <section className="bg-rose-600 rounded-3xl p-6 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0">
+          <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center shrink-0">
             <CheckCircle2 className="w-7 h-7 text-white" />
           </div>
           <div>
@@ -125,9 +122,9 @@ export const PostpartumDashboard: React.FC<{ onNavigateSubPage: (page: string) =
       </section>
 
       {/* 3. FEATURE 24 FOLLOW-UP & CONTINUITY HERO BANNER */}
-      <section className="bg-gradient-to-r from-purple-600 via-indigo-600 to-rose-600 rounded-3xl p-6 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+      <section className="bg-indigo-600 rounded-3xl p-6 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0">
+          <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center shrink-0">
             <RotateCcw className="w-7 h-7 text-white" />
           </div>
           <div>
@@ -154,9 +151,9 @@ export const PostpartumDashboard: React.FC<{ onNavigateSubPage: (page: string) =
       </section>
 
       {/* 3.5 AGENT 1 — MOTHER & RECOVERY AI COPILOT HERO BANNER */}
-      <section className="bg-gradient-to-r from-rose-600 to-rose-700 rounded-3xl p-6 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+      <section className="bg-rose-700 rounded-3xl p-6 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0">
+          <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center shrink-0">
             <Bot className="w-7 h-7 text-white" />
           </div>
           <div>
@@ -183,9 +180,9 @@ export const PostpartumDashboard: React.FC<{ onNavigateSubPage: (page: string) =
       </section>
 
       {/* AGENT 2 — BABY CARE AI AGENT HERO BANNER */}
-      <section className="bg-gradient-to-r from-rose-500 to-rose-600 rounded-3xl p-6 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+      <section className="bg-rose-600 rounded-3xl p-6 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0">
+          <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center shrink-0">
             <Baby className="w-7 h-7 text-white" />
           </div>
           <div>
@@ -211,9 +208,9 @@ export const PostpartumDashboard: React.FC<{ onNavigateSubPage: (page: string) =
       </section>
 
       {/* AGENT 3 SAFETY & CARE COORDINATION AI HERO BANNER */}
-      <section className="bg-gradient-to-r from-purple-600 via-pink-500 to-rose-500 rounded-3xl p-6 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+      <section className="bg-rose-600 rounded-3xl p-6 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0">
+          <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center shrink-0">
             <ShieldCheck className="w-7 h-7 text-white" />
           </div>
           <div>
@@ -240,9 +237,9 @@ export const PostpartumDashboard: React.FC<{ onNavigateSubPage: (page: string) =
       </section>
 
       {/* 4. FEATURE 25 POSTPARTUM EDUCATION HERO BANNER */}
-      <section className="bg-gradient-to-r from-teal-600 via-emerald-600 to-indigo-600 rounded-3xl p-6 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+      <section className="bg-teal-600 rounded-3xl p-6 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0">
+          <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center shrink-0">
             <BookOpen className="w-7 h-7 text-white" />
           </div>
           <div>
@@ -269,10 +266,10 @@ export const PostpartumDashboard: React.FC<{ onNavigateSubPage: (page: string) =
       </section>
 
       {/* 5. FEATURE 26 PERSONALIZED RECOVERY INSIGHT HERO BANNER */}
-      <section className="bg-gradient-to-r from-amber-500 via-rose-500 to-pink-600 rounded-3xl p-6 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+      <section className="bg-rose-600 rounded-3xl p-6 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0">
-            <Sparkles className="w-7 h-7 text-white" />
+          <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center shrink-0">
+            <TrendingUp className="w-7 h-7 text-white" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -298,9 +295,9 @@ export const PostpartumDashboard: React.FC<{ onNavigateSubPage: (page: string) =
       </section>
 
       {/* 6. FEATURE 27 BABY GROWTH & MILESTONES HERO BANNER */}
-      <section className="bg-gradient-to-r from-indigo-600 via-purple-600 to-rose-600 rounded-3xl p-6 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+      <section className="bg-indigo-600 rounded-3xl p-6 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0">
+          <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center shrink-0">
             <TrendingUp className="w-7 h-7 text-white" />
           </div>
           <div>
@@ -327,9 +324,9 @@ export const PostpartumDashboard: React.FC<{ onNavigateSubPage: (page: string) =
       </section>
 
       {/* 7. FEATURE 28 VACCINATION TRACKING HERO BANNER */}
-      <section className="bg-gradient-to-r from-teal-600 via-emerald-600 to-indigo-600 rounded-3xl p-6 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+      <section className="bg-teal-600 rounded-3xl p-6 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0">
+          <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center shrink-0">
             <Syringe className="w-7 h-7 text-white" />
           </div>
           <div>
@@ -356,9 +353,9 @@ export const PostpartumDashboard: React.FC<{ onNavigateSubPage: (page: string) =
       </section>
 
       {/* 8. FEATURE 29 AI MEMORY / PATIENT HISTORY HERO BANNER */}
-      <section className="bg-gradient-to-r from-purple-700 via-indigo-700 to-rose-600 rounded-3xl p-6 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+      <section className="bg-purple-700 rounded-3xl p-6 text-white shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0">
+          <div className="w-12 h-12 rounded-2xl bg-white/20 flex items-center justify-center shrink-0">
             <Brain className="w-7 h-7 text-white" />
           </div>
           <div>
@@ -405,7 +402,7 @@ export const PostpartumDashboard: React.FC<{ onNavigateSubPage: (page: string) =
 
         <button
           onClick={() => onNavigateSubPage("care")}
-          className="px-5 py-2.5 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-semibold text-xs shadow-md shadow-rose-500/20 inline-flex items-center gap-2 shrink-0 transition-all"
+          className="px-5 py-2.5 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-semibold text-xs shadow-sm inline-flex items-center gap-2 shrink-0 transition-all"
         >
           <span>Open Postpartum Care</span>
           <ChevronRight className="w-4 h-4" />
@@ -519,7 +516,7 @@ export const PostpartumDashboard: React.FC<{ onNavigateSubPage: (page: string) =
         <div className="bg-white p-5 rounded-3xl border border-slate-200/60 shadow-xs space-y-3">
           <div className="flex items-center justify-between">
             <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Daily Orchestration</span>
-            <Sparkles className="w-4 h-4 text-rose-500" />
+            <Calendar className="w-4 h-4 text-rose-500" />
           </div>
           <div>
             <span className="text-2xl font-extrabold text-slate-800">Personalized Daily Plan</span>

@@ -179,7 +179,7 @@ export const ThemeStudioPage: React.FC = () => {
 
   const handleSelectTheme = (themeId: UiThemeOption, name: string) => {
     setUiTheme(themeId);
-    showToast(`Applied ${name} UI/UX Theme! ✨`);
+    showToast(`Applied ${name} UI/UX Theme!`);
   };
 
   return (
@@ -224,7 +224,7 @@ export const ThemeStudioPage: React.FC = () => {
                   src={theme.image}
                   alt={theme.name}
                   referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover object-center transition-transform duration-700"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6 flex flex-col justify-end text-white">
@@ -257,7 +257,7 @@ export const ThemeStudioPage: React.FC = () => {
                         src={gImg}
                         alt={`${theme.name} pictorial ${gIdx + 1}`}
                         referrerPolicy="no-referrer"
-                        className="w-16 h-12 object-cover rounded-lg border border-rose-500/40 hover:scale-105 transition-transform cursor-pointer"
+                        className="w-16 h-12 object-cover rounded-lg border border-rose-500/40 hover:border-rose-300 transition-colors cursor-pointer"
                       />
                     ))}
                   </div>
@@ -311,10 +311,10 @@ export const ThemeStudioPage: React.FC = () => {
                 {/* Action CTA Button */}
                 <button
                   onClick={() => handleSelectTheme(theme.id, theme.name)}
-                  className={`w-full py-3.5 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all mt-2 ${
+                  className={`w-full py-3.5 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all mt-2 ${
                     isActive
                       ? "bg-rose-500 text-white cursor-default opacity-90"
-                      : "bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white"
+                      : "bg-rose-500 hover:bg-rose-600 text-white"
                   }`}
                 >
                   <Eye className="w-4 h-4" />

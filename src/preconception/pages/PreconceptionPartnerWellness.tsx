@@ -23,7 +23,7 @@ export const PreconceptionPartnerWellness: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Banner */}
-      <div className="p-6 rounded-3xl bg-gradient-to-r from-emerald-700 via-teal-800 to-indigo-900 text-white shadow-xl shadow-emerald-950/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="p-6 rounded-3xl bg-indigo-900 text-white shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="p-1.5 rounded-lg bg-teal-400/30 text-teal-200">

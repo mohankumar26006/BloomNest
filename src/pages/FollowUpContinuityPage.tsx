@@ -135,8 +135,7 @@ export const FollowUpContinuityPage: React.FC<FollowUpContinuityPageProps> = ({ 
       <div className="max-w-6xl mx-auto space-y-6">
         
         {/* TOP HERO BANNER */}
-        <div className="bg-gradient-to-r from-purple-600 via-indigo-600 to-rose-600 rounded-3xl p-6 md:p-8 text-white shadow-xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div className="bg-purple-600 rounded-3xl p-6 md:p-8 text-white shadow-sm relative overflow-hidden">
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 mb-2">
@@ -234,10 +233,10 @@ export const FollowUpContinuityPage: React.FC<FollowUpContinuityPageProps> = ({ 
         <div className="flex items-center gap-2 overflow-x-auto pb-1">
           {[
             { id: "all", label: "All Threads", count: threads.length },
-            { id: "attention", label: "🔴 Needs Attention", count: (evaluation?.safetyLinkedCount || 0) + (evaluation?.dueCount || 0) },
-            { id: "active", label: "🔵 Active Continuity", count: evaluation?.activeCount || 0 },
-            { id: "needs_review", label: "🟠 Needs Review", count: evaluation?.needsReviewCount || 0 },
-            { id: "resolved", label: "🟢 Resolved", count: evaluation?.resolvedCount || 0 },
+            { id: "attention", label: "Needs Attention", count: (evaluation?.safetyLinkedCount || 0) + (evaluation?.dueCount || 0) },
+            { id: "active", label: "Active Continuity", count: evaluation?.activeCount || 0 },
+            { id: "needs_review", label: "Needs Review", count: evaluation?.needsReviewCount || 0 },
+            { id: "resolved", label: "Resolved", count: evaluation?.resolvedCount || 0 },
           ].map((tab) => (
             <button
               key={tab.id}

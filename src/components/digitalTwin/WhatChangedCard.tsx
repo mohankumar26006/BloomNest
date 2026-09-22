@@ -5,7 +5,7 @@ import {
   TrendingDown,
   AlertCircle,
   Clock,
-  Sparkles,
+  Baby,
   Calendar,
   HeartHandshake,
   Moon,
@@ -36,7 +36,7 @@ export const WhatChangedCard: React.FC<WhatChangedCardProps> = ({ changes }) => 
   const getCategoryIcon = (category: TwinChangeItem["category"]) => {
     switch (category) {
       case "pregnancy":
-        return Sparkles;
+        return Baby;
       case "health":
         return HeartHandshake;
       case "wellness":
@@ -74,7 +74,7 @@ export const WhatChangedCard: React.FC<WhatChangedCardProps> = ({ changes }) => 
       default:
         return {
           bg: "bg-purple-50 text-purple-700 border-purple-200",
-          icon: Sparkles,
+          icon: Info,
           iconColor: "text-purple-600",
         };
     }

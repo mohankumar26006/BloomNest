@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Flower2, Send, Sparkles, User, Stethoscope, Utensils, Heart, Activity, ShieldCheck } from "lucide-react";
+import { Flower2, Send, User, Stethoscope, Utensils, Heart, Activity, ShieldCheck } from "lucide-react";
 import { Card } from "../../components/ui/Card";
 import { Button } from "../../components/ui/Button";
 
@@ -153,7 +153,7 @@ export const PreconceptionCopilot: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Banner */}
-      <div className="p-6 rounded-3xl bg-gradient-to-r from-emerald-800 via-teal-800 to-emerald-950 text-white shadow-xl shadow-emerald-950/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div className="p-6 rounded-3xl bg-emerald-950 text-white shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-2">
             <span className="p-1.5 rounded-lg bg-emerald-500/30 text-emerald-200">
@@ -179,7 +179,7 @@ export const PreconceptionCopilot: React.FC = () => {
               onClick={() => handleSelectAgent(agent)}
               className={`p-3 rounded-2xl border text-left transition-all flex flex-col items-start gap-2 ${
                 isActive
-                  ? "bg-emerald-600 text-white border-emerald-600 shadow-md shadow-emerald-600/20 scale-[1.02]"
+                  ? "bg-emerald-600 text-white border-emerald-600 shadow-sm"
                   : "bg-white dark:bg-[#15201c] border-emerald-100 dark:border-emerald-900/40 hover:border-emerald-300 text-emerald-950 dark:text-emerald-50"
               }`}
             >
@@ -227,7 +227,7 @@ export const PreconceptionCopilot: React.FC = () => {
               <div
                 className={`max-w-[80%] p-3.5 rounded-2xl text-xs leading-relaxed ${
                   m.sender === "user"
-                    ? "bg-emerald-600 text-white font-medium rounded-tr-none shadow-md shadow-emerald-600/10"
+                    ? "bg-emerald-600 text-white font-medium rounded-tr-none shadow-sm"
                     : "bg-emerald-50 dark:bg-emerald-900/20 text-emerald-950 dark:text-emerald-100 border border-emerald-100 dark:border-emerald-900/40 rounded-tl-none"
                 }`}
               >
@@ -244,7 +244,7 @@ export const PreconceptionCopilot: React.FC = () => {
 
           {isTyping && (
             <div className="flex items-center gap-2 text-xs text-emerald-600 dark:text-emerald-400 p-2">
-              <Sparkles className="w-4 h-4 animate-spin text-emerald-500" />
+              <Activity className="w-4 h-4 animate-spin text-emerald-500" />
               <span>{selectedAgent.name} is formulating response...</span>
             </div>
           )}

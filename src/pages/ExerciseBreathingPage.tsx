@@ -135,7 +135,7 @@ export const ExerciseBreathingPage: React.FC = () => {
               className={`w-32 h-32 rounded-full border-4 flex flex-col items-center justify-center transition-all duration-700 ${
                 kegelActive
                   ? kegelPhase === "contract"
-                    ? "border-emerald-500 bg-emerald-500/10 scale-110 shadow-lg shadow-emerald-500/20"
+                    ? "border-emerald-500 bg-emerald-500/10 scale-110 shadow-sm"
                     : "border-sky-500 bg-sky-500/10 scale-95"
                   : "border-gray-300 dark:border-rose-900/40"
               }`}
@@ -197,7 +197,7 @@ export const ExerciseBreathingPage: React.FC = () => {
               className={`w-32 h-32 rounded-full border-4 flex flex-col items-center justify-center transition-all duration-1000 ${
                 breathActive
                   ? breathPhase === "inhale"
-                    ? "border-purple-500 bg-purple-500/20 scale-110 shadow-lg shadow-purple-500/20"
+                    ? "border-purple-500 bg-purple-500/20 scale-110 shadow-sm"
                     : breathPhase === "hold"
                     ? "border-amber-500 bg-amber-500/20 scale-105"
                     : "border-sky-500 bg-sky-500/10 scale-90"

@@ -31,7 +31,7 @@ export const HeroFetalProgress: React.FC<HeroFetalProgressProps> = ({
     name: "Corn Cob",
     length: "35.6 cm",
     weight: "760 g",
-    emoji: "🌽",
+    emoji: "",
     indianComparison: "Bhutta",
   };
   return (
@@ -70,10 +70,10 @@ export const HeroFetalProgress: React.FC<HeroFetalProgressProps> = ({
             <img
               src={cornCobArt}
               alt="Size of Corn Cob"
-              className="w-14 h-14 sm:w-16 sm:h-16 object-contain rounded-2xl bg-amber-50/80 dark:bg-amber-950/40 p-1 border border-amber-100 dark:border-amber-900/40 shrink-0 group-hover:scale-105 transition-transform"
+              className="w-14 h-14 sm:w-16 sm:h-16 object-contain rounded-2xl bg-amber-50/80 dark:bg-amber-950/40 p-1 border border-amber-100 dark:border-amber-900/40 shrink-0 group-hover:border-amber-300 transition-colors"
             />
           ) : (
-            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-rose-50 dark:bg-rose-950/50 border border-rose-100 dark:border-rose-900/40 flex items-center justify-center text-3xl shrink-0 group-hover:scale-105 transition-transform shadow-2xs">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-rose-50 dark:bg-rose-950/50 border border-rose-100 dark:border-rose-900/40 flex items-center justify-center text-3xl shrink-0 group-hover:border-rose-300 transition-colors shadow-2xs">
               <span>{babySize.emoji}</span>
             </div>
           )}

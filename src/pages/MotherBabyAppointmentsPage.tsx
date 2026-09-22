@@ -365,7 +365,8 @@ export const MotherBabyAppointmentsPage: React.FC<MotherBabyAppointmentsPageProp
             </span>
             {babyProfile && (
               <span className="px-3 py-1 bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300 text-xs font-semibold rounded-full flex items-center gap-1 border border-purple-200 dark:border-purple-800">
-                👶 {babyProfile.babyName} ({formatBabyAge(babyProfile.birthDate || deliveryDateStr)})
+                <Baby className="w-3.5 h-3.5" />
+                {babyProfile.babyName} ({formatBabyAge(babyProfile.birthDate || deliveryDateStr)})
               </span>
             )}
           </div>
@@ -477,7 +478,7 @@ export const MotherBabyAppointmentsPage: React.FC<MotherBabyAppointmentsPageProp
                   : "text-slate-500 dark:text-slate-400"
               }`}
             >
-              🌸 Mother
+              Mother
             </button>
             <button
               onClick={() => setFilterTarget("baby")}
@@ -487,7 +488,7 @@ export const MotherBabyAppointmentsPage: React.FC<MotherBabyAppointmentsPageProp
                   : "text-slate-500 dark:text-slate-400"
               }`}
             >
-              🍼 Baby
+              Baby
             </button>
           </div>
         )}
@@ -533,7 +534,7 @@ export const MotherBabyAppointmentsPage: React.FC<MotherBabyAppointmentsPageProp
                                 : "bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300"
                             }`}
                           >
-                            {appt.target === "mother" ? "🌸 Mother Visit" : appt.target === "baby" ? `🍼 Baby Visit (${appt.babyName || "Baby"})` : "👩‍🍼 Joint Visit"}
+                            {appt.target === "mother" ? "Mother Visit" : appt.target === "baby" ? `Baby Visit (${appt.babyName || "Baby"})` : "Joint Visit"}
                           </span>
                           <h3 className="text-lg font-bold text-slate-900 dark:text-white mt-2">{appt.title}</h3>
                         </div>
@@ -561,7 +562,7 @@ export const MotherBabyAppointmentsPage: React.FC<MotherBabyAppointmentsPageProp
                           </div>
                         )}
                         <div className="text-slate-600 dark:text-slate-400 pt-1">
-                          🎯 <strong>Purpose:</strong> {appt.purpose}
+                          <strong>Purpose:</strong> {appt.purpose}
                         </div>
                       </div>
 
@@ -788,9 +789,9 @@ export const MotherBabyAppointmentsPage: React.FC<MotherBabyAppointmentsPageProp
                 <label className="font-bold text-slate-700 dark:text-slate-300 block mb-1">Who is this visit for?</label>
                 <div className="grid grid-cols-3 gap-2">
                   {[
-                    { id: "mother", label: "🌸 Mother" },
-                    { id: "baby", label: "🍼 Baby" },
-                    { id: "both", label: "👩‍🍼 Joint" },
+                    { id: "mother", label: "Mother" },
+                    { id: "baby", label: "Baby" },
+                    { id: "both", label: "Joint" },
                   ].map((t) => (
                     <button
                       key={t.id}

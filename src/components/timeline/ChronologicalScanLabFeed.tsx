@@ -256,7 +256,7 @@ export const ChronologicalScanLabFeed: React.FC<ChronologicalScanLabFeedProps> =
                     {rec.reportAttached ? (
                       <span className="flex items-center gap-1 text-emerald-700 dark:text-emerald-300 font-bold">
                         <FileCheck className="w-3.5 h-3.5 text-emerald-600" />
-                        <span>Diagnostic Report Attached ✓</span>
+                        <span>Diagnostic Report Attached</span>
                       </span>
                     ) : (
                       <span className="text-gray-400 dark:text-rose-400">No report file attached</span>

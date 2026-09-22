@@ -139,7 +139,7 @@ export const PostpartumCarePage: React.FC = () => {
       setProfile(updatedProfile);
       setIsModalOpen(false);
       setSaveSuccessMsg("Postpartum details updated!");
-      showToast("Postpartum details saved 💕");
+      showToast("Postpartum details saved!");
       setTimeout(() => setSaveSuccessMsg(null), 3000);
     } catch (err) {
       setFormError("Failed to save postpartum details.");
@@ -253,10 +253,8 @@ export const PostpartumCarePage: React.FC = () => {
         </button>
       </header>
 
-      {/* 🌟 MAIN OVERALL RECOVERY HERO CARD (Answers: "Naan ipo recovery-la endha stage-la irukken?") */}
-      <section className="bg-gradient-to-br from-rose-500 via-pink-500 to-rose-600 text-white rounded-3xl p-6 sm:p-8 shadow-xl shadow-rose-500/15 relative overflow-hidden">
-        <div className="absolute top-0 right-0 transform translate-x-8 -translate-y-8 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none" />
-
+      {/* MAIN OVERALL RECOVERY HERO CARD (Answers: "Naan ipo recovery-la endha stage-la irukken?") */}
+      <section className="bg-rose-600 text-white rounded-3xl p-6 sm:p-8 shadow-sm relative overflow-hidden">
         <div className="relative z-10 space-y-6">
           {/* Top Stage Badge & Delivery Type */}
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/20 pb-4">
@@ -324,7 +322,7 @@ export const PostpartumCarePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 🧭 4-STAGE INTERACTIVE TRACKER (Simple & Visual) */}
+      {/* 4-STAGE INTERACTIVE TRACKER (Simple & Visual) */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-5 sm:p-6 border border-slate-200/80 dark:border-rose-900/30 shadow-xs space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="text-sm font-extrabold text-slate-900 dark:text-rose-100 uppercase tracking-wider flex items-center gap-2">
@@ -386,7 +384,7 @@ export const PostpartumCarePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 📌 IMPORTANT RECOVERY INFORMATION (Stage Relevant Only) */}
+      {/* IMPORTANT RECOVERY INFORMATION (Stage Relevant Only) */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/30 shadow-xs space-y-5">
         <div className="flex items-center gap-3 border-b border-slate-100 dark:border-rose-900/30 pb-3">
           <div className="w-9 h-9 rounded-xl bg-rose-100 dark:bg-rose-900/40 text-rose-600 dark:text-rose-300 flex items-center justify-center">
@@ -418,7 +416,7 @@ export const PostpartumCarePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 📚 GENERAL POSTPARTUM EDUCATION (Stage Relevant Only) */}
+      {/* GENERAL POSTPARTUM EDUCATION (Stage Relevant Only) */}
       <section className="bg-white dark:bg-[#1A1523] rounded-3xl p-6 sm:p-8 border border-slate-200/80 dark:border-rose-900/30 shadow-xs space-y-6">
         <div className="flex items-center gap-3 border-b border-slate-100 dark:border-rose-900/30 pb-3">
           <div className="w-9 h-9 rounded-xl bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-300 flex items-center justify-center">

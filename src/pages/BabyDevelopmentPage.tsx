@@ -657,14 +657,14 @@ export const BabyDevelopmentPage: React.FC = () => {
       setEcgPulseActive(false);
     } else {
       if (currentBpm === 0) {
-        showToast("Cardiac activity detects starting from Week 6 ✨");
+        showToast("Cardiac activity detects starting from Week 6");
         return;
       }
 
       const ctx = getOrCreateAudioContext();
       startHeartbeatInterval(ctx, currentBpm);
       setIsPlayingHeartbeat(true);
-      const label = soundTypeRef.current === "doppler" ? "Ultrasound Doppler 🩺" : "Stethoscope Lub-Dub 💖";
+      const label = soundTypeRef.current === "doppler" ? "Ultrasound Doppler" : "Stethoscope Lub-Dub";
       showToast(`Playing Week ${selectedWeek} Heartbeat (${currentBpm} BPM · ${label})`);
     }
   };
@@ -678,7 +678,7 @@ export const BabyDevelopmentPage: React.FC = () => {
         startHeartbeatInterval(ctx, currentBpm);
       }
     }
-    const label = type === "doppler" ? "Ultrasound Doppler (Galloping Horse) 📡" : "Natural Stethoscope (In-Utero Lub-Dub) 🩺";
+    const label = type === "doppler" ? "Ultrasound Doppler (Galloping Horse)" : "Natural Stethoscope (In-Utero Lub-Dub)";
     showToast(`Switched sound: ${label}`);
   };
 
@@ -895,7 +895,7 @@ export const BabyDevelopmentPage: React.FC = () => {
       setIsWombHearingMode(false);
     } else {
       if (selectedWeek < 16) {
-        showToast("Fetal hearing organs (cochlea) mature between Weeks 18-24 👂");
+        showToast("Fetal hearing organs (cochlea) mature between Weeks 18-24");
       }
       const ctx = getOrCreateAudioContext();
       if (ctx.state === "suspended") {
@@ -904,10 +904,10 @@ export const BabyDevelopmentPage: React.FC = () => {
       startWombSoundscape(ctx, wombModeRef.current, wombVolumeRef.current);
       setIsWombHearingMode(true);
       const modeLabel = wombModeRef.current === "placental_flow"
-        ? "Mother's Placental Pulse (72 BPM) 🤱"
+        ? "Mother's Placental Pulse (72 BPM)"
         : wombModeRef.current === "amniotic_drift"
-        ? "Deep Amniotic Fluid Drift 🌊"
-        : "Maternal Humming & Voice 🎶";
+        ? "Deep Amniotic Fluid Drift"
+        : "Maternal Humming & Voice";
       showToast(`Activated Womb Audio: ${modeLabel}`);
     }
   };
@@ -920,10 +920,10 @@ export const BabyDevelopmentPage: React.FC = () => {
       startWombSoundscape(ctx, mode, wombVolumeRef.current);
     }
     const label = mode === "placental_flow"
-      ? "Mother's Placental Pulse (72 BPM) 🤱"
+      ? "Mother's Placental Pulse (72 BPM)"
       : mode === "amniotic_drift"
-      ? "Deep Amniotic Fluid Drift 🌊"
-      : "Maternal Humming & Voice 🎶";
+      ? "Deep Amniotic Fluid Drift"
+      : "Maternal Humming & Voice";
     showToast(`Switched soundscape: ${label}`);
   };
 
@@ -984,7 +984,7 @@ export const BabyDevelopmentPage: React.FC = () => {
       playDopplerPulse();
       dopplerIntervalRef.current = setInterval(playDopplerPulse, intervalMs);
       setIsDopplerPlaying(true);
-      showToast("Playing Clinical Doppler Ultrasound Flow 🩺");
+      showToast("Playing Clinical Doppler Ultrasound Flow");
     }
   };
 
@@ -1042,7 +1042,7 @@ export const BabyDevelopmentPage: React.FC = () => {
 
     // Baby gentle stir reaction
     setIsBabyStirring(true);
-    setTouchMessage("Baby felt mom's gentle touch! 💕");
+    setTouchMessage("Baby felt mom's gentle touch!");
 
     confetti({
       particleCount: 25,
@@ -1088,7 +1088,7 @@ export const BabyDevelopmentPage: React.FC = () => {
               className="px-2.5 py-1 rounded-xl bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/60 dark:hover:bg-rose-900 text-rose-700 dark:text-rose-200 text-xs font-bold transition-all flex items-center gap-1 border border-rose-200 dark:border-rose-800"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Timeline 🌸</span>
+              <span>Timeline</span>
             </button>
 
             <span className="text-rose-500 text-xs font-bold uppercase tracking-wider flex items-center gap-1">
@@ -1148,7 +1148,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                   }`}
                   title="Mother's Placental Pulse (72 BPM)"
                 >
-                  🤱 Pulse
+                  Pulse
                 </button>
                 <button
                   type="button"
@@ -1160,7 +1160,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                   }`}
                   title="Amniotic Fluid Drift"
                 >
-                  🌊 Drift
+                  Drift
                 </button>
                 <button
                   type="button"
@@ -1172,7 +1172,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                   }`}
                   title="Maternal Voice Hum"
                 >
-                  🎶 Voice
+                  Voice
                 </button>
               </div>
             )}
@@ -1182,9 +1182,9 @@ export const BabyDevelopmentPage: React.FC = () => {
           <div className="flex items-center gap-1.5">
             <button
               onClick={toggleHeartbeat}
-              className={`px-4 py-2 rounded-2xl font-bold text-xs flex items-center gap-2 shadow-md transition-all ${
+              className={`px-4 py-2 rounded-2xl font-bold text-xs flex items-center gap-2 shadow-sm transition-all ${
                 isPlayingHeartbeat
-                  ? "bg-rose-600 text-white shadow-rose-200 animate-pulse"
+                  ? "bg-rose-600 text-white animate-pulse"
                   : "bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-200 border border-rose-200 dark:border-rose-900/40 hover:bg-rose-100"
               }`}
             >
@@ -1199,7 +1199,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                 className="px-2.5 py-2 rounded-2xl bg-white dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/40 text-[10px] font-bold text-rose-600 dark:text-rose-300 shadow-xs hover:bg-rose-50 transition-all flex items-center gap-1"
                 title="Click to switch between Ultrasound Doppler and Stethoscope sound"
               >
-                <span>{heartbeatSoundType === "doppler" ? "📡 Doppler" : "🩺 Stethoscope"}</span>
+                <span>{heartbeatSoundType === "doppler" ? "Doppler" : "Stethoscope"}</span>
               </button>
             )}
           </div>
@@ -1221,7 +1221,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                 onClick={() => setSelectedWeek(currentWeek)}
                 className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-200 border border-amber-300 hover:bg-amber-200 transition-all flex items-center gap-1"
               >
-                <span>Jump to My Week {currentWeek} ✨</span>
+                <span>Jump to My Week {currentWeek}</span>
               </button>
             )}
 
@@ -1259,7 +1259,7 @@ export const BabyDevelopmentPage: React.FC = () => {
       </div>
 
       {/* 3. PICTORIAL REPRESENTATION STUDIO & CINEMATIC DISPLAY */}
-      <div className="bg-white dark:bg-[#1A1523] p-5 sm:p-7 rounded-[36px] border border-rose-100 dark:border-rose-900/40 shadow-sm space-y-6">
+      <div className="bg-white dark:bg-[#1A1523] p-5 sm:p-7 rounded-2xl border border-rose-100 dark:border-rose-900/40 shadow-sm space-y-6">
         
         {/* Studio Mode Switcher Tabs */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-rose-100 dark:border-rose-900/40 pb-4">
@@ -1390,14 +1390,14 @@ export const BabyDevelopmentPage: React.FC = () => {
                   onClick={() => {
                     const nextMode = rotationSpeedMode === "gentle" ? "slow" : rotationSpeedMode === "slow" ? "normal" : "gentle";
                     setRotationSpeedMode(nextMode);
-                    const label = nextMode === "gentle" ? "Gentle 🪶 (Porumaya)" : nextMode === "slow" ? "Slow 🌊" : "Normal ⚡";
+                    const label = nextMode === "gentle" ? "Gentle (Porumaya)" : nextMode === "slow" ? "Slow" : "Normal";
                     showToast(`Speed: ${label}`);
                   }}
                   className="px-2.5 py-1.5 rounded-xl border border-rose-200 dark:border-rose-900/60 bg-white dark:bg-rose-950/30 text-xs font-bold text-gray-700 dark:text-rose-200 hover:bg-rose-50 dark:hover:bg-rose-900/30 transition-all flex items-center gap-1 shadow-2xs"
                   title="Cycle Rotation Speed: Gentle (Porumaya) / Slow / Normal"
                 >
                   <span className="text-rose-500">Speed:</span>
-                  <span>{rotationSpeedMode === "gentle" ? "Gentle 🪶" : rotationSpeedMode === "slow" ? "Slow 🌊" : "Normal ⚡"}</span>
+                  <span>{rotationSpeedMode === "gentle" ? "Gentle" : rotationSpeedMode === "slow" ? "Slow" : "Normal"}</span>
                 </button>
 
                 {/* Auto Rotate Toggle */}
@@ -1418,7 +1418,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                 <button
                   onClick={() => {
                     setRotationAngle(0);
-                    showToast("Reset baby position to upright (0°) ✨");
+                    showToast("Reset baby position to upright (0°)");
                   }}
                   className="p-1.5 rounded-xl bg-white dark:bg-rose-950/30 border border-gray-200 dark:border-rose-900 text-gray-600 dark:text-rose-300 hover:text-rose-600 transition-all"
                   title="Reset to upright 0°"
@@ -1439,7 +1439,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                 }
               }}
               onTouchEnd={handlePointerUp}
-              className="relative rounded-3xl overflow-hidden shadow-2xl h-[480px] md:h-[530px] w-full max-w-5xl mx-auto border border-rose-200/50 dark:border-rose-900/40 transition-all duration-700 bg-gradient-to-br from-[#FFF5F2] via-[#FDECE8] to-[#FCD9DF] dark:from-[#1E1425] dark:via-[#191020] dark:to-[#2A1733]"
+              className="relative rounded-3xl overflow-hidden shadow-sm h-[480px] md:h-[530px] w-full max-w-5xl mx-auto border border-rose-200/50 dark:border-rose-900/40 transition-all duration-700 bg-rose-50 dark:bg-[#1E1425]"
             >
               
               {/* LAYER 1: MATERNAL SILHOUETTE PORTRAIT */}
@@ -1450,8 +1450,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                   loading="lazy"
                   className="w-full h-full object-cover object-center md:object-[center_70%]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-l from-rose-500/20 dark:from-purple-900/30 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-r from-white/90 dark:from-[#1A1523] via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-rose-500/10 dark:bg-purple-900/15" />
               </div>
 
               {/* LAYER 2: THE COSMIC WOMB BUBBLE & 360° CIRCULAR ROTATING BABY ORB */}
@@ -1483,9 +1482,9 @@ export const BabyDevelopmentPage: React.FC = () => {
 
                 {/* THE CIRCULAR ROTATABLE WOMB ORB (NO FRONT/BACK FLIPPING!) */}
                 <div 
-                  className={`absolute inset-0 rounded-full backdrop-blur-xs transition-all duration-300 shadow-2xl overflow-hidden ${
+                  className={`absolute inset-0 rounded-full backdrop-blur-xs transition-all duration-300 shadow-sm overflow-hidden ${
                     ecgPulseActive ? "ring-4 ring-rose-400 scale-102" : "ring-2 ring-rose-300/60"
-                  } ${isBabyStirring ? "ring-4 ring-pink-400 scale-105" : ""} bg-gradient-to-br from-rose-100/40 via-pink-200/20 to-purple-900/30 dark:from-rose-950/70 dark:to-purple-950/60`}
+                  } ${isBabyStirring ? "ring-4 ring-pink-400 scale-105" : ""} bg-rose-200/30 dark:bg-purple-950/60`}
                   style={{
                     maskImage: 'radial-gradient(circle, rgba(0,0,0,1) 58%, rgba(0,0,0,0) 72%)',
                     WebkitMaskImage: 'radial-gradient(circle, rgba(0,0,0,1) 58%, rgba(0,0,0,0) 72%)',
@@ -1567,7 +1566,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                     </h2>
                     {selectedWeek === currentWeek && (
                       <span className="text-[10px] font-extrabold px-2.5 py-0.5 rounded-full bg-rose-500 text-white shadow-xs">
-                        Active Week ✨
+                        Active Week
                       </span>
                     )}
                   </div>
@@ -1686,7 +1685,7 @@ export const BabyDevelopmentPage: React.FC = () => {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                 
                 {/* 1. THE INTERACTIVE FETUS CANVAS WITH DIRECT CLICKABLE HOTSPOT RADARS */}
-                <div className="lg:col-span-7 relative rounded-[32px] overflow-hidden shadow-xl border-2 border-rose-200/70 dark:border-rose-900/50 bg-gradient-to-br from-[#FFF5F2] via-[#FDECE8] to-[#FCD9DF] dark:from-[#1E1425] dark:via-[#191020] dark:to-[#2A1733] min-h-[380px] sm:min-h-[420px] flex items-center justify-center p-4 sm:p-6">
+                <div className="lg:col-span-7 relative rounded-2xl overflow-hidden shadow-sm border-2 border-rose-200/70 dark:border-rose-900/50 bg-rose-50 dark:bg-[#1E1425] min-h-[380px] sm:min-h-[420px] flex items-center justify-center p-4 sm:p-6">
                   
                   {/* Calibrated 1:1 Aspect-Square Container Anchoring Hotspot Pins Directly to Image Space */}
                   <div className="relative w-full max-w-[340px] sm:max-w-[400px] aspect-square flex items-center justify-center rounded-2xl overflow-hidden shadow-2xl bg-black/40">
@@ -1720,9 +1719,9 @@ export const BabyDevelopmentPage: React.FC = () => {
                             ? "w-10 h-10 bg-rose-500/40 animate-ping"
                             : "w-6 h-6 bg-rose-400/20 group-hover:scale-125"
                         }`} />
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all shadow-lg ${
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all shadow-sm ${
                           activeHotspot === "brain"
-                            ? "bg-rose-500 text-white scale-110 ring-4 ring-white dark:ring-rose-900 shadow-rose-500/50"
+                            ? "bg-rose-500 text-white scale-110 ring-4 ring-white dark:ring-rose-900"
                             : "bg-white/90 dark:bg-black/80 text-rose-600 border border-rose-300 hover:scale-110"
                         }`}>
                           <Brain className="w-4 h-4" />
@@ -1733,7 +1732,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                           ? "bg-rose-500 text-white"
                           : "bg-white/90 dark:bg-black/80 text-gray-800 dark:text-rose-200 border border-rose-200"
                       }`}>
-                        🧠 Brain & CNS
+                        Brain & CNS
                       </span>
                     </div>
 
@@ -1750,9 +1749,9 @@ export const BabyDevelopmentPage: React.FC = () => {
                             ? "w-10 h-10 bg-amber-500/40 animate-ping"
                             : "w-6 h-6 bg-amber-400/20 group-hover:scale-125"
                         }`} />
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all shadow-lg ${
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all shadow-sm ${
                           activeHotspot === "senses"
-                            ? "bg-amber-500 text-white scale-110 ring-4 ring-white dark:ring-amber-900 shadow-amber-500/50"
+                            ? "bg-amber-500 text-white scale-110 ring-4 ring-white dark:ring-amber-900"
                             : "bg-white/90 dark:bg-black/80 text-amber-600 border border-amber-300 hover:scale-110"
                         }`}>
                           <Eye className="w-4 h-4" />
@@ -1763,7 +1762,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                           ? "bg-amber-500 text-white"
                           : "bg-white/90 dark:bg-black/80 text-gray-800 dark:text-amber-200 border border-amber-200"
                       }`}>
-                        👁️ Senses & Ears
+                        Senses & Ears
                       </span>
                     </div>
 
@@ -1780,9 +1779,9 @@ export const BabyDevelopmentPage: React.FC = () => {
                             ? "w-12 h-12 bg-rose-600/40 animate-ping"
                             : "w-7 h-7 bg-rose-500/20 group-hover:scale-125"
                         }`} />
-                        <div className={`w-9 h-9 rounded-full flex items-center justify-center transition-all shadow-lg ${
+                        <div className={`w-9 h-9 rounded-full flex items-center justify-center transition-all shadow-sm ${
                           activeHotspot === "heart"
-                            ? "bg-rose-600 text-white scale-115 ring-4 ring-white dark:ring-rose-900 shadow-rose-600/50 animate-pulse"
+                            ? "bg-rose-600 text-white scale-115 ring-4 ring-white dark:ring-rose-900 animate-pulse"
                             : "bg-white/90 dark:bg-black/80 text-rose-600 border border-rose-300 hover:scale-110"
                         }`}>
                           <Heart className="w-4 h-4" />
@@ -1793,7 +1792,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                           ? "bg-rose-600 text-white"
                           : "bg-white/90 dark:bg-black/80 text-gray-800 dark:text-rose-200 border border-rose-200"
                       }`}>
-                        💖 Heart ({currentBpm} BPM)
+                        Heart ({currentBpm} BPM)
                       </span>
                     </div>
 
@@ -1810,9 +1809,9 @@ export const BabyDevelopmentPage: React.FC = () => {
                             ? "w-10 h-10 bg-purple-500/40 animate-ping"
                             : "w-6 h-6 bg-purple-400/20 group-hover:scale-125"
                         }`} />
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all shadow-lg ${
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all shadow-sm ${
                           activeHotspot === "limbs"
-                            ? "bg-purple-600 text-white scale-110 ring-4 ring-white dark:ring-purple-900 shadow-purple-500/50"
+                            ? "bg-purple-600 text-white scale-110 ring-4 ring-white dark:ring-purple-900"
                             : "bg-white/90 dark:bg-black/80 text-purple-600 border border-purple-300 hover:scale-110"
                         }`}>
                           <Activity className="w-4 h-4" />
@@ -1823,7 +1822,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                           ? "bg-purple-600 text-white"
                           : "bg-white/90 dark:bg-black/80 text-gray-800 dark:text-purple-200 border border-purple-200"
                       }`}>
-                        🦶 Limbs & Kicks
+                        Limbs & Kicks
                       </span>
                     </div>
 
@@ -1837,7 +1836,7 @@ export const BabyDevelopmentPage: React.FC = () => {
 
                   {/* Bottom-Right Measurement Badge */}
                   <div className="absolute bottom-4 right-4 bg-white/80 dark:bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-2xl border border-rose-200/60 dark:border-rose-900/40 text-[11px] font-bold text-gray-800 dark:text-rose-200 shadow-xs">
-                    <span>📏 {detail.babySize.length} · ⚖️ {detail.babySize.weight}</span>
+                    <span>{detail.babySize.length} · {detail.babySize.weight}</span>
                   </div>
 
                 </div>
@@ -1906,9 +1905,9 @@ export const BabyDevelopmentPage: React.FC = () => {
                           {/* Play / Pause Primary Button */}
                           <button
                             onClick={toggleHeartbeat}
-                            className={`w-full py-3 px-4 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all ${
+                            className={`w-full py-3 px-4 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all ${
                               isPlayingHeartbeat
-                                ? "bg-rose-600 text-white shadow-rose-200 animate-pulse"
+                                ? "bg-rose-600 text-white animate-pulse"
                                 : "bg-rose-500 hover:bg-rose-600 text-white"
                             }`}
                           >
@@ -1916,7 +1915,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                             <span>
                               {isPlayingHeartbeat
                                 ? `Pause Fetal Heartbeat (${currentBpm} BPM)`
-                                : `Listen to Real Heartbeat (${currentBpm} BPM) 💖`}
+                                : `Listen to Real Heartbeat (${currentBpm} BPM)`}
                             </span>
                           </button>
 
@@ -1940,7 +1939,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                                   }`}
                                   title="Clinical Ultrasound Doppler Transducer (Galloping Horse Rhythm)"
                                 >
-                                  📡 Doppler
+                                  Doppler
                                 </button>
                                 <button
                                   type="button"
@@ -1952,7 +1951,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                                   }`}
                                   title="In-Utero Acoustic Stethoscope (Lub-Dub Double Beat)"
                                 >
-                                  🩺 Stethoscope
+                                  Stethoscope
                                 </button>
                               </div>
                             </div>
@@ -1960,10 +1959,10 @@ export const BabyDevelopmentPage: React.FC = () => {
                             {/* Volume Slider & Audio Status */}
                             <div className="flex items-center justify-between gap-3 pt-1 border-t border-rose-100 dark:border-rose-900/30">
                               <span className="text-[10px] font-semibold text-gray-500 dark:text-rose-300/80">
-                                {heartbeatSoundType === "doppler" ? "Ultrasound Gallop 🐎" : "Organic Lub-Dub 💖"}
+                                {heartbeatSoundType === "doppler" ? "Ultrasound Gallop" : "Organic Lub-Dub"}
                               </span>
                               <div className="flex items-center gap-2">
-                                <span className="text-[10px] text-gray-400">🔈</span>
+                                <Volume2 className="w-3 h-3 text-gray-400" />
                                 <input
                                   type="range"
                                   min="0.1"
@@ -1977,7 +1976,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                                   }}
                                   className="w-20 accent-rose-500 h-1.5 bg-rose-200 dark:bg-rose-950 rounded-lg cursor-pointer"
                                 />
-                                <span className="text-[10px] text-gray-400">🔊</span>
+                                <Volume2 className="w-3.5 h-3.5 text-gray-400" />
                               </div>
                             </div>
                           </div>
@@ -1989,9 +1988,9 @@ export const BabyDevelopmentPage: React.FC = () => {
                           {/* Main Play/Pause Button */}
                           <button
                             onClick={toggleWombHearingMode}
-                            className={`w-full py-3 px-4 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all ${
+                            className={`w-full py-3 px-4 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all ${
                               isWombHearingMode
-                                ? "bg-indigo-600 text-white shadow-indigo-200 animate-pulse"
+                                ? "bg-indigo-600 text-white animate-pulse"
                                 : "bg-indigo-500 hover:bg-indigo-600 text-white"
                             }`}
                           >
@@ -1999,7 +1998,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                             <span>
                               {isWombHearingMode
                                 ? "Pause Intrauterine Soundscape"
-                                : "Immerse in Womb Soundscape 🎧"}
+                                : "Immerse in Womb Soundscape"}
                             </span>
                           </button>
 
@@ -2013,10 +2012,10 @@ export const BabyDevelopmentPage: React.FC = () => {
                               </span>
                               <span className="text-[10px] font-semibold text-gray-500 dark:text-indigo-200">
                                 {selectedWeek < 18
-                                  ? `Week ${selectedWeek}: Cochlea Forming 👂`
+                                  ? `Week ${selectedWeek}: Cochlea Forming`
                                   : selectedWeek < 24
-                                  ? `Week ${selectedWeek}: Low-Freq Perception 🌊`
-                                  : `Week ${selectedWeek}: Recognizes Mother's Voice 🤱`}
+                                  ? `Week ${selectedWeek}: Low-Freq Perception`
+                                  : `Week ${selectedWeek}: Recognizes Mother's Voice`}
                               </span>
                             </div>
 
@@ -2036,7 +2035,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                                   }`}
                                   title="Maternal Placental Flow Pulse (72 BPM)"
                                 >
-                                  <span>🤱 Placental</span>
+                                  <span>Placental</span>
                                   <span className="text-[8px] opacity-80">72 BPM Bruit</span>
                                 </button>
                                 <button
@@ -2049,7 +2048,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                                   }`}
                                   title="Amniotic Fluid Drift (Lowpass Noise Bed)"
                                 >
-                                  <span>🌊 Amniotic</span>
+                                  <span>Amniotic</span>
                                   <span className="text-[8px] opacity-80">Fluid Drift</span>
                                 </button>
                                 <button
@@ -2062,7 +2061,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                                   }`}
                                   title="Maternal Bone-Conducted Voice / Hum"
                                 >
-                                  <span>🎶 Voice Hum</span>
+                                  <span>Voice Hum</span>
                                   <span className="text-[8px] opacity-80">130Hz Drone</span>
                                 </button>
                               </div>
@@ -2072,13 +2071,13 @@ export const BabyDevelopmentPage: React.FC = () => {
                             <div className="flex items-center justify-between gap-3 pt-1 border-t border-indigo-100 dark:border-indigo-900/30">
                               <span className="text-[10px] font-semibold text-gray-500 dark:text-indigo-300/80">
                                 {wombSoundscapeMode === "placental_flow"
-                                  ? "Aortic / Placental Flow 🤱"
+                                  ? "Aortic / Placental Flow"
                                   : wombSoundscapeMode === "amniotic_drift"
-                                  ? "Amniotic Sac Resonance 🌊"
-                                  : "Maternal Spine Conducted Hum 🎶"}
+                                  ? "Amniotic Sac Resonance"
+                                  : "Maternal Spine Conducted Hum"}
                               </span>
                               <div className="flex items-center gap-2">
-                                <span className="text-[10px] text-gray-400">🔈</span>
+                                <Volume2 className="w-3 h-3 text-gray-400" />
                                 <input
                                   type="range"
                                   min="0.1"
@@ -2088,7 +2087,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                                   onChange={(e) => handleWombVolumeChange(parseFloat(e.target.value))}
                                   className="w-20 accent-indigo-600 h-1.5 bg-indigo-200 dark:bg-indigo-950 rounded-lg cursor-pointer"
                                 />
-                                <span className="text-[10px] text-gray-400">🔊</span>
+                                <Volume2 className="w-3.5 h-3.5 text-gray-400" />
                               </div>
                             </div>
 
@@ -2103,20 +2102,20 @@ export const BabyDevelopmentPage: React.FC = () => {
                       {activeHotspot === "limbs" && (
                         <button
                           onClick={() => setActivePage("kick-counter")}
-                          className="w-full py-3 px-4 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white shadow-md transition-all"
+                          className="w-full py-3 px-4 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm transition-all"
                         >
                           <Activity className="w-4 h-4" />
-                          <span>Open Kick Counter & Movement Tracker 🦶 ↗</span>
+                          <span>Open Kick Counter & Movement Tracker</span>
                         </button>
                       )}
 
                       {activeHotspot === "brain" && (
                         <button
                           onClick={() => setActivePage("ai-assistant")}
-                          className="w-full py-3 px-4 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white shadow-md transition-all"
+                          className="w-full py-3 px-4 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 bg-rose-600 hover:bg-rose-700 text-white shadow-sm transition-all"
                         >
                           <Brain className="w-4 h-4" />
-                          <span>Ask AI About Week {selectedWeek} Brain Development 🤖</span>
+                          <span>Ask AI About Week {selectedWeek} Brain Development</span>
                         </button>
                       )}
                     </div>
@@ -2136,7 +2135,7 @@ export const BabyDevelopmentPage: React.FC = () => {
           <div className="space-y-6">
             
             {/* 1. Header Banner & Gestational Biomechanical Metrics */}
-            <div className="bg-gradient-to-br from-rose-500/10 via-purple-500/5 to-transparent p-5 sm:p-6 rounded-3xl border border-rose-200/70 dark:border-rose-900/50 space-y-4">
+            <div className="bg-rose-500/10 p-5 sm:p-6 rounded-3xl border border-rose-200/70 dark:border-rose-900/50 space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
                   <div className="flex items-center gap-2">
@@ -2250,7 +2249,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                       postureTab === "standing" ? "bg-rose-500 text-white shadow-xs" : "text-gray-600 dark:text-rose-300 hover:text-rose-600"
                     }`}
                   >
-                    🚶‍♀️ Standing & Walking
+                    Standing & Walking
                   </button>
                   <button
                     onClick={() => setPostureTab("sitting")}
@@ -2258,7 +2257,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                       postureTab === "sitting" ? "bg-rose-500 text-white shadow-xs" : "text-gray-600 dark:text-rose-300 hover:text-rose-600"
                     }`}
                   >
-                    💻 Sitting & Working
+                    Sitting & Working
                   </button>
                   <button
                     onClick={() => setPostureTab("sleeping")}
@@ -2266,7 +2265,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                       postureTab === "sleeping" ? "bg-rose-500 text-white shadow-xs" : "text-gray-600 dark:text-rose-300 hover:text-rose-600"
                     }`}
                   >
-                    🛌 Rest & Sleep
+                    Rest & Sleep
                   </button>
                   <button
                     onClick={() => setPostureTab("lifting")}
@@ -2274,7 +2273,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                       postureTab === "lifting" ? "bg-rose-500 text-white shadow-xs" : "text-gray-600 dark:text-rose-300 hover:text-rose-600"
                     }`}
                   >
-                    📦 Safe Bending & Lifting
+                    Safe Bending & Lifting
                   </button>
                 </div>
               </div>
@@ -2335,7 +2334,7 @@ export const BabyDevelopmentPage: React.FC = () => {
             </div>
 
             {/* 4. Interactive 1-Minute Posture Self-Check */}
-            <div className="bg-gradient-to-br from-purple-500/5 via-rose-500/5 to-transparent p-5 sm:p-6 rounded-3xl border border-purple-200/60 dark:border-purple-900/40 space-y-4">
+            <div className="bg-purple-500/5 p-5 sm:p-6 rounded-3xl border border-purple-200/60 dark:border-purple-900/40 space-y-4">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div>
                   <h4 className="font-serif text-lg font-bold text-gray-900 dark:text-rose-100 flex items-center gap-2">
@@ -2368,7 +2367,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                           try {
                             confetti({ particleCount: 40, spread: 60, origin: { y: 0.7 } });
                           } catch {}
-                          showToast("✨ Perfect 100% Postural Alignment Achieved! Back strain reduced.");
+                          showToast("Perfect 100% Postural Alignment Achieved! Back strain reduced.");
                         }
                       }}
                       className={`p-3.5 rounded-2xl border text-left transition-all flex items-start gap-3 ${
@@ -2401,7 +2400,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                 <div className="p-3 bg-emerald-50 dark:bg-emerald-950/40 rounded-2xl border border-emerald-300 dark:border-emerald-800 flex items-center justify-between text-xs text-emerald-800 dark:text-emerald-200 animate-fadeIn">
                   <div className="flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-emerald-600 animate-spin" />
-                    <span className="font-bold">✨ Excellent! Your pelvis and spine are aligned for optimal comfort & fetal positioning.</span>
+                    <span className="font-bold">Excellent! Your pelvis and spine are aligned for optimal comfort & fetal positioning.</span>
                   </div>
                   <button
                     type="button"
@@ -2423,7 +2422,7 @@ export const BabyDevelopmentPage: React.FC = () => {
                   referrerPolicy="no-referrer"
                   className="w-full h-56 object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent p-4 flex flex-col justify-end text-white">
+                <div className="absolute inset-0 bg-black/40 p-4 flex flex-col justify-end text-white">
                   <span className="text-[10px] font-bold text-rose-300 uppercase tracking-widest">
                     Prenatal Movement Guide
                   </span>
@@ -2461,17 +2460,17 @@ export const BabyDevelopmentPage: React.FC = () => {
                 <div className="flex flex-wrap gap-2 pt-2">
                   <button
                     onClick={() => setActivePage("yoga")}
-                    className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-bold text-xs shadow-md transition-all flex items-center gap-2"
+                    className="px-4 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-sm transition-all flex items-center gap-2"
                   >
                     <Heart className="w-4 h-4" />
-                    <span>Open BloomNest Yoga & Breathwork Studio 🧘 ↗</span>
+                    <span>Open BloomNest Yoga & Breathwork Studio</span>
                   </button>
                   <button
                     onClick={() => setActivePage("ai-assistant")}
                     className="px-4 py-2.5 rounded-xl bg-rose-50 dark:bg-rose-950/50 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-900/40 font-bold text-xs hover:bg-rose-100 transition-all flex items-center gap-1.5"
                   >
                     <Brain className="w-4 h-4 text-rose-500" />
-                    <span>Ask AI About Back & Hip Comfort 🤖</span>
+                    <span>Ask AI About Back & Hip Comfort</span>
                   </button>
                 </div>
               </div>

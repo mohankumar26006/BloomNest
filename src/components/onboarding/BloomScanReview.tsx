@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import { ExtractedMedicalField } from "../../types";
 import { ProgressHeader } from "./ProgressHeader";
-import { ShieldAlert, CheckCircle2, Edit2, Trash2, Plus, ArrowRight, Sparkles, FileText } from "lucide-react";
+import { ShieldAlert, CheckCircle2, Edit2, Trash2, Plus, ArrowRight, Sparkles, FileText, Calendar, HeartPulse, Building2, Bot } from "lucide-react";
 
 interface BloomScanReviewProps {
   initialFields?: ExtractedMedicalField[];
@@ -67,17 +67,17 @@ export const BloomScanReview: React.FC<BloomScanReviewProps> = ({
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 bg-gradient-to-br from-[#FFF0F5] via-[#FFF7F9] to-[#F5E6EC] dark:from-[#120E18] dark:via-[#1A1424] dark:to-[#22172A] text-gray-900 dark:text-rose-100">
+    <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 bg-[#FFF7F9] dark:bg-[#120E18] text-gray-900 dark:text-rose-100">
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="w-full max-w-2xl bg-white/90 dark:bg-[#1A1523]/90 backdrop-blur-xl p-6 sm:p-8 rounded-[36px] border border-rose-100 dark:border-rose-900/40 shadow-2xl shadow-rose-200/50 dark:shadow-none space-y-6"
+        className="w-full max-w-2xl bg-white/90 dark:bg-[#1A1523]/90 p-6 sm:p-8 rounded-2xl border border-rose-100 dark:border-rose-900/40 shadow-sm space-y-6"
       >
         <ProgressHeader
           currentStep={4}
           totalSteps={4}
-          title="👩 Human Review & Data Confirmation"
+          title="Human Review & Data Confirmation"
           onBack={onBack}
         />
 
@@ -191,26 +191,26 @@ export const BloomScanReview: React.FC<BloomScanReviewProps> = ({
         </div>
 
         {/* Personalization Calibration Preview */}
-        <div className="p-4 rounded-2xl bg-gradient-to-br from-rose-500/10 via-pink-500/5 to-purple-500/10 border border-rose-200 dark:border-rose-900/40 space-y-2 text-xs">
+        <div className="p-4 rounded-2xl bg-rose-500/10 border border-rose-200 dark:border-rose-900/40 space-y-2 text-xs">
           <div className="flex items-center gap-1.5 font-bold text-rose-600 dark:text-rose-300">
             <Sparkles className="w-4 h-4 text-rose-500" />
             <span>Automatic Dashboard Personalization</span>
           </div>
           <div className="grid grid-cols-2 gap-2 text-[11px] text-gray-600 dark:text-rose-200">
             <div className="flex items-center gap-1.5 bg-white/70 dark:bg-black/30 p-2 rounded-xl border border-rose-100 dark:border-rose-900/30">
-              <span className="text-sm">🗓️</span>
+              <Calendar className="w-3.5 h-3.5 text-rose-500 shrink-0" />
               <span><strong>Gestational Week:</strong> Auto-set to scan date</span>
             </div>
             <div className="flex items-center gap-1.5 bg-white/70 dark:bg-black/30 p-2 rounded-xl border border-rose-100 dark:border-rose-900/30">
-              <span className="text-sm">🩺</span>
+              <HeartPulse className="w-3.5 h-3.5 text-rose-500 shrink-0" />
               <span><strong>Baseline Vitals:</strong> BP, Sugar & Hb synced</span>
             </div>
             <div className="flex items-center gap-1.5 bg-white/70 dark:bg-black/30 p-2 rounded-xl border border-rose-100 dark:border-rose-900/30">
-              <span className="text-sm">🏥</span>
+              <Building2 className="w-3.5 h-3.5 text-rose-500 shrink-0" />
               <span><strong>Care Team:</strong> OB-GYN & Hospital saved</span>
             </div>
             <div className="flex items-center gap-1.5 bg-white/70 dark:bg-black/30 p-2 rounded-xl border border-rose-100 dark:border-rose-900/30">
-              <span className="text-sm">🤖</span>
+              <Bot className="w-3.5 h-3.5 text-rose-500 shrink-0" />
               <span><strong>AI Guidance:</strong> Calibrated to your report</span>
             </div>
           </div>
@@ -219,7 +219,7 @@ export const BloomScanReview: React.FC<BloomScanReviewProps> = ({
         {/* Confirm Action */}
         <button
           onClick={() => onConfirm(fields)}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-rose-500 hover:from-emerald-600 hover:to-rose-600 text-white font-bold text-sm shadow-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.01]"
+          className="w-full py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-sm flex items-center justify-center gap-2 transition-colors"
         >
           <CheckCircle2 className="w-5 h-5" />
           <span>Confirm & Enter Personalized Dashboard →</span>

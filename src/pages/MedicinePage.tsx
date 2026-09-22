@@ -91,7 +91,7 @@ export const MedicinePage: React.FC = () => {
                   </div>
                   {med.notes && (
                     <div className="text-[11px] text-rose-600 dark:text-rose-300 italic mt-1">
-                      💡 {med.notes}
+                      {med.notes}
                     </div>
                   )}
                 </div>
@@ -171,7 +171,7 @@ export const MedicinePage: React.FC = () => {
 
           <button
             type="submit"
-            className="w-full py-3 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-bold text-xs shadow-md"
+            className="w-full py-3 rounded-2xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-md"
           >
             {t("addReminder")}
           </button>

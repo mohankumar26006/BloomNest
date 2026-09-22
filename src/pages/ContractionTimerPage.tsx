@@ -105,7 +105,7 @@ export const ContractionTimerPage: React.FC = () => {
 
       {/* TRIAGE RECOMMENDATION BANNER */}
       {isRule511Met ? (
-        <div className="p-6 rounded-3xl bg-gradient-to-r from-red-600 via-rose-600 to-pink-600 text-white shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4 animate-pulse">
+        <div className="p-6 rounded-3xl bg-red-600 text-white shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4 animate-pulse">
           <div className="flex items-start gap-3">
             <div className="p-3 bg-white/20 rounded-2xl shrink-0">
               <Siren className="w-6 h-6 text-white" />
@@ -153,7 +153,7 @@ export const ContractionTimerPage: React.FC = () => {
       )}
 
       {/* Timer Controls Stage */}
-      <div className="p-8 rounded-3xl bg-gradient-to-tr from-rose-500 to-rose-600 text-white shadow-xl flex flex-col items-center justify-center text-center space-y-6">
+      <div className="p-8 rounded-3xl bg-rose-600 text-white shadow-sm flex flex-col items-center justify-center text-center space-y-6">
         <div className="text-xs font-bold px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md">
           {isRunning ? t("contractionActive") : t("readyForContraction")}
         </div>

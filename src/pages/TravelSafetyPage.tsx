@@ -13,7 +13,7 @@ export const TravelSafetyPage: React.FC = () => {
     badgeClass: "bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-200 border-emerald-300 dark:border-emerald-800",
     iconColor: "text-emerald-600",
     label: `Current Week ${week} (Golden Travel Window)`,
-    bannerGradient: "from-emerald-500 to-teal-600",
+    bannerColor: "bg-teal-600",
     bannerTitle: "Trimester 2 (Weeks 14 – 28): Optimal Travel Window",
     bannerDesc: "Morning sickness has typically subsided, energy levels are optimal, and the risk of early complications is statistically lowest.",
   };
@@ -23,7 +23,7 @@ export const TravelSafetyPage: React.FC = () => {
       badgeClass: "bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-200 border-amber-300 dark:border-amber-800",
       iconColor: "text-amber-600",
       label: `Current Week ${week} (First Trimester Caution Window)`,
-      bannerGradient: "from-amber-500 to-orange-600",
+      bannerColor: "bg-orange-600",
       bannerTitle: "Trimester 1 (Weeks 1 – 13): Early Pregnancy Caution",
       bannerDesc: "Early symptoms like nausea and fatigue are common. Stay well hydrated, avoid strenuous journeys, and carry medical prescriptions.",
     };
@@ -32,7 +32,7 @@ export const TravelSafetyPage: React.FC = () => {
       badgeClass: "bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-200 border-rose-300 dark:border-rose-800",
       iconColor: "text-rose-600",
       label: `Current Week ${week} (Travel Restricted - Imminent Delivery)`,
-      bannerGradient: "from-rose-600 via-red-600 to-pink-700",
+      bannerColor: "bg-rose-700",
       bannerTitle: "Week 36+: Commercial Airlines Restrict Travel",
       bannerDesc: "Labor can begin spontaneously. Long-distance and air travel are strictly discouraged. Stay close to your designated delivery hospital.",
     };
@@ -41,7 +41,7 @@ export const TravelSafetyPage: React.FC = () => {
       badgeClass: "bg-purple-100 dark:bg-purple-950 text-purple-800 dark:text-purple-200 border-purple-300 dark:border-purple-800",
       iconColor: "text-purple-600",
       label: `Current Week ${week} (Third Trimester - Fit-to-Fly Required)`,
-      bannerGradient: "from-purple-600 to-indigo-600",
+      bannerColor: "bg-indigo-600",
       bannerTitle: "Trimester 3 (Weeks 29 – 35): Doctor Clearance Required",
       bannerDesc: "A signed Fit-to-Fly certificate from your OB-GYN is required by airlines. Wear compression socks and take frequent rest walks.",
     };
@@ -71,7 +71,7 @@ export const TravelSafetyPage: React.FC = () => {
       </div>
 
       {/* Dynamic Travel Window Banner */}
-      <div className={`bg-gradient-to-r ${travelStatus.bannerGradient} text-white p-6 rounded-3xl shadow-lg space-y-2`}>
+      <div className={`${travelStatus.bannerColor} text-white p-6 rounded-3xl shadow-sm space-y-2`}>
         <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/80">
           <Globe className="w-4 h-4" />
           <span>ACOG Clinical Travel Guidance</span>

@@ -51,7 +51,7 @@ export const PartnerPage: React.FC = () => {
       </div>
 
       {/* Hero Tip for Current Week */}
-      <div className="p-8 rounded-3xl bg-gradient-to-tr from-purple-900 via-indigo-900 to-rose-950 text-white shadow-xl space-y-4">
+      <div className="p-8 rounded-3xl bg-purple-950 text-white shadow-xl space-y-4">
         <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full text-xs font-bold w-fit text-amber-300">
           <Sparkles className="w-4 h-4" />
           <span>{t("weekPartnerFocus", { week: user.currentWeek })}</span>

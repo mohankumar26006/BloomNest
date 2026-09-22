@@ -133,9 +133,9 @@ export const LogScanLabResultModal: React.FC<LogScanLabResultModalProps> = ({
                 onChange={(e) => setType(e.target.value as any)}
                 className="w-full p-2.5 rounded-xl border border-rose-200 dark:border-rose-900/60 bg-rose-50/40 dark:bg-rose-950/20 text-xs font-semibold"
               >
-                <option value="ULTRASOUND">Ultrasound Imaging 📷</option>
-                <option value="LAB_INVESTIGATION">Laboratory Investigation 🧪</option>
-                <option value="FETAL_MONITORING">Fetal Monitoring / NST 🫀</option>
+                <option value="ULTRASOUND">Ultrasound Imaging</option>
+                <option value="LAB_INVESTIGATION">Laboratory Investigation</option>
+                <option value="FETAL_MONITORING">Fetal Monitoring / NST</option>
               </select>
             </div>
           </div>

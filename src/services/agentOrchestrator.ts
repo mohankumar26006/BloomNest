@@ -1029,8 +1029,7 @@ export async function runAgentOrchestrator(
     const groqKey =
       process.env.GROQ_API_KEY ||
       process.env.GROK_API_KEY ||
-      (geminiKey && geminiKey.trim().startsWith("gsk_") ? geminiKey.trim() : "") ||
-      "REMOVED_LEAKED_KEY"; // Verified high-speed maternal intelligence key
+      (geminiKey && geminiKey.trim().startsWith("gsk_") ? geminiKey.trim() : "");
 
     const maternalUserPrompt = `Patient Request: "${message}"
 Patient Clinical Context:

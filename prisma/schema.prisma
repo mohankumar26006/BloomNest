@@ -1,0 +1,533 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// =============================================================
+// BLOOMNEST 2.0 CANONICAL RELATIONAL MATERNAL DATA MODEL
+// =============================================================
+
+// -------------------------------------------------------------
+// 1. INFRASTRUCTURE & SYNC MODELS
+// -------------------------------------------------------------
+
+/// Infrastructure store for tracking processed client mutation IDs to enforce idempotency (30-day retention)
+model SyncMutationAck {
+  id               String   @id @default(uuid())
+  userId           String
+  clientMutationId String   @unique
+  entityName       String
+  entityId         String
+  action           String // CREATE | UPDATE | DELETE
+  acknowledgedAt   DateTime @default(now())
+
+  @@index([userId, clientMutationId])
+}
+
+// -------------------------------------------------------------
+// 2. CANONICAL MATERNAL DOMAIN ENTITIES (23 ENTITIES)
+// -------------------------------------------------------------
+
+/// Primary account identity & authentication (VERSIONED)
+model User {
+  id                     String   @id @default(uuid())
+  email                  String   @unique
+  password               String? // Bcrypt password hash enforced at runtime
+  name                   String
+  role                   String   @default("user") // "user" | "admin"
+  preferredLanguage      String   @default("en") // "en", "hi", "ta", "te", "mr", "bn"
+  theme                  String   @default("soft-pastel-minimal") // Canonical theme owner
+  isAudioMuted           Boolean  @default(false)
+  hasCompletedOnboarding Boolean  @default(false)
+  version                Int      @default(1)
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+
+  journeyProfile           JourneyProfile?
+  preconceptionCycleLogs   PreconceptionCycleLog[]
+  preconceptionSupplements PreconceptionSupplementLog[]
+  vitalLogs                HealthVitalLog[]
+  bloodSugarLogs           BloodSugarLog[]
+  kickSessions             KickSession[]
+  contractionLogs          ContractionLog[]
+  medications              Medication[]
+  appointments             Appointment[]
+  birthPlan                BirthPlan?
+  hospitalBagItems         HospitalBagItem[]
+  moodLogs                 MoodLog[]
+  journalEntries           JournalEntry[]
+  babyNameFavorites        UserBabyNameFavorite[]
+  medicalReports           MedicalReportAttachment[]
+  emergencyContacts        EmergencyContact[]
+  memories                 AgentMemory[]
+  agentRuns                AgentRun[]
+  timelineTaskStates       TimelineTaskState[]
+  notifications            AppNotification[]
+}
+
+/// Core maternal stage profile (Preconception, Pregnancy, Postpartum context) (VERSIONED)
+model JourneyProfile {
+  id                  String    @id @default(uuid())
+  userId              String    @unique
+  journeyStage        String    @default("PREGNANCY") // PRE_PREGNANCY, PREGNANCY, POST_PREGNANCY
+  lmpDate             DateTime? @db.Date // PostgreSQL DATE representation for milestone calculations
+  eddDate             DateTime? @db.Date // Estimated due date
+  currentWeek         Int       @default(24)
+  trimester           Int       @default(2)
+  cycleLengthDays     Int       @default(28)
+  periodDurationDays  Int       @default(5)
+  conceptionGoal      String?
+  wellnessFocus       Json      @default("[]")
+  babyDob             DateTime? @db.Date // Newborn date of birth
+  babyName            String?
+  babyGender          String? // Boy, Girl, Surprise
+  recoveryGoals       Json      @default("[]")
+  doctorName          String?
+  hospitalName        String?
+  bloodGroup          String?
+  carePreferences     Json      @default("{}")
+  extractedHealthData Json      @default("{}")
+  version             Int       @default(1)
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+/// Daily cycle tracking observation logs for preconception (LWW)
+model PreconceptionCycleLog {
+  id                String    @id @default(uuid())
+  userId            String
+  logDate           String // YYYY-MM-DD ISO calendar date for timezone-safe client logging
+  cervicalMucus     String? // dry, sticky, creamy, watery, eggwhite
+  lhTestResult      String? // negative, positive, peak
+  bbtTemperature    Float? // Degrees C or F
+  intercourseLogged Boolean   @default(false)
+  symptoms          Json      @default("[]")
+  notes             String?
+  clientMutationId  String?
+  isDeleted         Boolean   @default(false)
+  deletedAt         DateTime?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, logDate])
+  @@index([userId, logDate])
+}
+
+/// Folate & preconception supplement adherence logs (LWW)
+model PreconceptionSupplementLog {
+  id               String    @id @default(uuid())
+  userId           String
+  logDate          String // YYYY-MM-DD ISO calendar date
+  folateTaken      Boolean   @default(false)
+  dosageMcg        Int       @default(400)
+  vitaminDTaken    Boolean   @default(false)
+  ironTaken        Boolean   @default(false)
+  clientMutationId String?
+  isDeleted        Boolean   @default(false)
+  deletedAt        DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, logDate])
+  @@index([userId, logDate])
+}
+
+/// Time-series physiological vital sign observations (APPEND_ONLY)
+model HealthVitalLog {
+  id                      String   @id @default(uuid())
+  userId                  String
+  systolicBp              Int? // Nullable to allow logging single vitals without requiring BP
+  diastolicBp             Int? // Nullable to allow logging single vitals without requiring BP
+  pulse                   Int?
+  temperature             Float?
+  weightKg                Float?
+  waterMl                 Int? // Single canonical owner for daily fluid volume mL
+  energyLevel             Int?
+  symptomAlerts           Json     @default("[]")
+  status                  String   @default("NORMAL") // NORMAL, ATTENTION, HIGH, SEVERE
+  requiresUrgentAttention Boolean  @default(false)
+  recordedAt              DateTime @default(now())
+  clientMutationId        String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, recordedAt])
+}
+
+/// Single canonical owner for gestational diabetes glucose tracking (APPEND_ONLY)
+model BloodSugarLog {
+  id               String   @id @default(uuid())
+  userId           String
+  glucoseMgDl      Float
+  glucoseContext   String? // fasting, 1h_post_meal, 2h_post_meal, postprandial
+  notes            String?
+  recordedAt       DateTime @default(now())
+  clientMutationId String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, recordedAt])
+}
+
+/// Single canonical owner for timed 2-hour fetal kick counting sessions (APPEND_ONLY)
+model KickSession {
+  id               String   @id @default(uuid())
+  userId           String
+  sessionDate      String // YYYY-MM-DD ISO calendar date
+  sessionStartTime DateTime
+  kickCount        Int
+  durationMinutes  Int
+  notes            String?
+  clientMutationId String?
+  createdAt        DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, sessionDate])
+}
+
+/// Single canonical owner for labor contraction timer events (APPEND_ONLY)
+model ContractionLog {
+  id               String    @id @default(uuid())
+  userId           String
+  startTime        DateTime
+  endTime          DateTime?
+  durationSeconds  Int
+  intervalSeconds  Int
+  intensity        String // mild, moderate, severe
+  notes            String?
+  clientMutationId String?
+  createdAt        DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, startTime])
+}
+
+/// Prescribed prenatal medications & supplement schedule master definitions (VERSIONED)
+model Medication {
+  id        String    @id @default(uuid())
+  userId    String
+  name      String
+  dosage    String
+  time      String
+  frequency String // daily, twice_daily
+  notes     String?
+  isActive  Boolean   @default(true)
+  version   Int       @default(1)
+  isDeleted Boolean   @default(false)
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  user          User                     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  adherenceLogs MedicationAdherenceLog[]
+
+  @@index([userId, isActive])
+}
+
+/// Daily adherence logs for prescribed medications (LWW)
+model MedicationAdherenceLog {
+  id               String    @id @default(uuid())
+  medicationId     String
+  logDate          String // YYYY-MM-DD ISO calendar date
+  isTaken          Boolean   @default(false)
+  takenAt          DateTime?
+  clientMutationId String?
+  isDeleted        Boolean   @default(false)
+  deletedAt        DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  medication Medication @relation(fields: [medicationId], references: [id], onDelete: Cascade)
+
+  @@unique([medicationId, logDate])
+  @@index([medicationId, logDate])
+}
+
+/// Prenatal doctor visits and hospital appointments (VERSIONED)
+model Appointment {
+  id              String    @id @default(uuid())
+  userId          String
+  doctorName      String
+  hospitalName    String
+  appointmentDate DateTime
+  purpose         String
+  notes           String?
+  reminderEnabled Boolean   @default(true)
+  status          String    @default("upcoming") // upcoming, completed, cancelled
+  version         Int       @default(1)
+  isDeleted       Boolean   @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, appointmentDate])
+}
+
+/// Single canonical owner for user birth plan preferences (VERSIONED)
+model BirthPlan {
+  id                String   @id @default(uuid())
+  userId            String   @unique
+  deliveryType      String   @default("vaginal") // vaginal, c-section-medically-required, planned-c-section
+  painManagement    Json     @default("[]")
+  birthPartnerName  String?
+  birthPartnerRole  String?
+  skinToSkin        String? // immediate, delayed
+  cordClamping      String? // delayed-1-3-mins, immediate
+  newbornProcedures Json     @default("{}")
+  specialNotes      String?
+  version           Int      @default(1)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+/// Hospital bag packing list checklist items (SPECIAL_RULE)
+model HospitalBagItem {
+  id        String    @id @default(uuid())
+  userId    String
+  category  String // mother, baby, partner, documents, essentials, medicine
+  item      String
+  isPacked  Boolean   @default(false)
+  quantity  Int       @default(1)
+  isDeleted Boolean   @default(false)
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, category])
+}
+
+/// Single canonical owner for daily emotional mood & sleep tracking (LWW)
+model MoodLog {
+  id               String    @id @default(uuid())
+  userId           String
+  logDate          String // YYYY-MM-DD ISO calendar date
+  mood             String
+  intensityScore   Int       @default(5)
+  sleepHours       Float     @default(8.0)
+  sleepQuality     String    @default("good") // poor, fair, good, excellent
+  tags             Json      @default("[]")
+  notes            String?
+  clientMutationId String?
+  isDeleted        Boolean   @default(false)
+  deletedAt        DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, logDate])
+  @@index([userId, logDate])
+}
+
+/// Maternal memory journal entries & single photo attachments (VERSIONED)
+model JournalEntry {
+  id         String    @id @default(uuid())
+  userId     String
+  entryDate  String // YYYY-MM-DD ISO calendar date
+  title      String
+  content    String
+  imageUrl   String? // Single S3 / Object Storage path reference
+  mood       String?
+  weekNumber Int
+  isPrivate  Boolean   @default(false)
+  version    Int       @default(1)
+  isDeleted  Boolean   @default(false)
+  deletedAt  DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, entryDate])
+}
+
+/// User's favorited baby names shortlist (LWW)
+model UserBabyNameFavorite {
+  id         String    @id @default(uuid())
+  userId     String
+  nameId     String
+  name       String
+  gender     String // Girl, Boy, Unisex
+  origin     String?
+  meaning    String?
+  isFavorite Boolean   @default(true)
+  isDeleted  Boolean   @default(false)
+  deletedAt  DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, nameId])
+  @@index([userId, isFavorite])
+}
+
+/// Metadata & object-storage path references for medical scan report PDFs & images (APPEND_ONLY)
+model MedicalReportAttachment {
+  id          String   @id @default(uuid())
+  userId      String
+  scanId      String // e.g. "anomaly-scan", "growth-doppler"
+  fileName    String
+  fileType    String // "pdf" | "image"
+  fileSize    String
+  storagePath String // S3 / MinIO Object Storage reference
+  uploadedAt  DateTime @default(now())
+  notes       String?
+
+  user                User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  extractedBiomarkers ExtractedBiomarker[]
+
+  @@index([userId, scanId])
+}
+
+/// OCR & AI extracted structured clinical lab values with 6-stage provenance (LWW)
+model ExtractedBiomarker {
+  id                 String    @id @default(uuid())
+  attachmentId       String
+  category           String // lab, ultrasound, prescription, vitals
+  label              String // e.g. "Hemoglobin", "AFI", "TSH"
+  numericValue       Float?
+  stringValue        String?
+  unit               String?
+  referenceRange     String?
+  status             String    @default("normal") // normal, low, high, borderline
+  verificationStatus String    @default("UNVERIFIED_AI") // UNVERIFIED_AI, VERIFIED_BY_USER, VERIFIED_BY_CLINICIAN
+  rawText            String? // Unvalidated raw OCR text string from image/PDF
+  aiConfidence       Float? // Confidence score (0.0 - 1.0)
+  interpretation     String?
+  verifiedAt         DateTime? // Timestamp when user or physician verified value
+  verifiedBy         String? // User ID or Clinician name who verified value
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  attachment MedicalReportAttachment @relation(fields: [attachmentId], references: [id], onDelete: Cascade)
+
+  @@unique([attachmentId, label])
+  @@index([attachmentId])
+}
+
+/// Emergency contacts for one-tap SOS dialing (VERSIONED)
+model EmergencyContact {
+  id             String    @id @default(uuid())
+  userId         String
+  name           String
+  relation       String
+  phone          String
+  secondaryPhone String?
+  address        String?
+  notes          String?
+  isPrimary      Boolean   @default(false)
+  version        Int       @default(1)
+  isDeleted      Boolean   @default(false)
+  deletedAt      DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, isPrimary])
+}
+
+/// Long-term AI memory facts extracted by MaternalMemoryService (APPEND_ONLY)
+model AgentMemory {
+  id         String    @id @default(uuid())
+  userId     String
+  memoryType String // PROFILE, JOURNEY, PREFERENCE, CARE_CONTEXT, QUESTION, CONVERSATION_SUMMARY
+  summary    String
+  source     String    @default("USER_INPUT")
+  confidence Float     @default(1.0)
+  validFrom  DateTime  @default(now())
+  validUntil DateTime?
+  createdAt  DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, memoryType])
+}
+
+/// AI agent execution traces & safety audit logs from agentOrchestrator (APPEND_ONLY)
+model AgentRun {
+  id                  String    @id @default(uuid())
+  userId              String?
+  message             String
+  intent              String    @default("GENERAL")
+  agentsInvolved      Json      @default("[]")
+  safetyLevel         String    @default("INFO")
+  requiresHumanReview Boolean   @default(false)
+  toolCalls           Json      @default("[]")
+  status              String    @default("COMPLETED")
+  error               String?
+  startedAt           DateTime  @default(now())
+  completedAt         DateTime?
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId, startedAt])
+}
+
+/// Gestational week checklist task completion states (SPECIAL_RULE)
+model TimelineTaskState {
+  id          String    @id @default(uuid())
+  userId      String
+  weekNumber  Int
+  taskId      String
+  isCompleted Boolean   @default(false)
+  isDeleted   Boolean   @default(false)
+  deletedAt   DateTime?
+  completedAt DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, weekNumber, taskId])
+  @@index([userId, weekNumber])
+}
+
+/// Application notifications drawer history & read status (LWW)
+model AppNotification {
+  id        String    @id @default(uuid())
+  userId    String
+  title     String
+  message   String
+  type      String    @default("system") // reminder, milestone, health, system
+  isRead    Boolean   @default(false)
+  isDeleted Boolean   @default(false)
+  deletedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, isRead])
+}
+
+// -------------------------------------------------------------
+// 3. STATIC SYSTEM DATA MODELS
+// -------------------------------------------------------------
+
+/// Application i18n translation lookup strings (STATIC DATA)
+model Translation {
+  id       Int    @id @default(autoincrement())
+  language String
+  key      String
+  value    String
+
+  @@unique([language, key])
+}

@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #fff7f9;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --card-bg: #ffffff;
+    --card-border: #f5cad6;
+    --accent-primary: #e26989;
+    --accent-glow: rgba(226, 105, 137, 0.15);
+  }
+
+  [data-theme="soft-pastel-minimal"] {
+    --bg-main: #fff7f9;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --card-bg: #ffffff;
+    --card-border: #f5cad6;
+    --accent-primary: #e26989;
+    --accent-glow: rgba(226, 105, 137, 0.15);
+  }
+
+  [data-theme="black-rosegold"] {
+    --bg-main: #0d0b0e;
+    --text-primary: #f8f1f2;
+    --text-secondary: #c9b8bd;
+    --card-bg: #15111c;
+    --card-border: rgba(224, 159, 156, 0.3);
+    --accent-primary: #e09f9c;
+    --accent-glow: rgba(224, 159, 156, 0.2);
+  }
+
+  [data-theme="serene-rose"] {
+    --bg-main: #fdf9f6;
+    --text-primary: #211518;
+    --text-secondary: #735d64;
+    --card-bg: #ffffff;
+    --card-border: rgba(244, 63, 94, 0.15);
+    --accent-primary: #f43f5e;
+    --accent-glow: rgba(244, 63, 94, 0.1);
+  }
+
+  [data-theme="midnight-lavender"] {
+    --bg-main: #110c18;
+    --text-primary: #f3e8ff;
+    --text-secondary: #a894c2;
+    --card-bg: #1a1526;
+    --card-border: rgba(168, 85, 247, 0.25);
+    --accent-primary: #a855f7;
+    --accent-glow: rgba(168, 85, 247, 0.15);
+  }
+
+  [data-theme="botanical-sage"] {
+    --bg-main: #f8f7f4;
+    --text-primary: #112217;
+    --text-secondary: #4a6353;
+    --card-bg: #ffffff;
+    --card-border: rgba(5, 150, 105, 0.2);
+    --accent-primary: #059669;
+    --accent-glow: rgba(5, 150, 105, 0.12);
+  }
+
+  [data-theme="sunset-coral"] {
+    --bg-main: #fff7ed;
+    --text-primary: #261208;
+    --text-secondary: #7c5844;
+    --card-bg: #ffffff;
+    --card-border: rgba(234, 88, 12, 0.2);
+    --accent-primary: #ea580c;
+    --accent-glow: rgba(234, 88, 12, 0.12);
+  }
+
+  @theme {
+    --font-sans: 'Outfit', 'Nunito', system-ui, -apple-system, sans-serif;
+    --font-serif: 'Fraunces', 'Lora', Georgia, serif;
+  }
+
+  body {
+    font-family: 'Outfit', 'Nunito', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+  }
+
+  .dark body {
+    background-color: #0d0b0e;
+    color: #f8f1f2;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Fraunces', 'Lora', Georgia, serif;
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(224, 159, 156, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(224, 159, 156, 0.5);
+}
+
+/* Metallic Rose Gold Gradients & Badges */
+.text-rosegold {
+  background: linear-gradient(135deg, #f3c5c1 0%, #e09f9c 50%, #b87370 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-rosegold-gradient {
+  background: linear-gradient(135deg, #e09f9c 0%, #c47d79 100%);
+}
+
+.border-rosegold {
+  border-color: rgba(224, 159, 156, 0.35);
+}
+
+.rosegold-badge {
+  background-color: rgba(224, 159, 156, 0.15);
+  color: #f3c5c1;
+  border: 1px solid rgba(224, 159, 156, 0.35);
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* UI Card & Glass Helpers */
+.app-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1.5rem; /* 24px */
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.app-card:hover {
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.dark .glass-card {
+  background: rgba(21, 17, 28, 0.75);
+  border: 1px solid rgba(224, 159, 156, 0.2);
+}
+
+/* Warm Cream & Serene Rose Theme Helper Classes */
+.cream-card {
+  background-color: #fdfbf7;
+  border: 1px solid #e8dfd5;
+  border-radius: 1.75rem; /* 28px */
+  box-shadow: 0 4px 20px -2px rgba(160, 130, 110, 0.06);
+}
+
+.dusty-rose-card {
+  background-color: #d29b9b;
+  color: #2c1a1a;
+  border-radius: 1.75rem;
+}
+
+.rose-pill {
+  background-color: #e8cccc;
+  color: #5c2c2c;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cream-icon-circle {
+  background-color: #f0e6dc;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Remove default number input spinner controls across all browsers */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+

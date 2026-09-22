@@ -95,7 +95,7 @@ export const BloomScanProcessing: React.FC<BloomScanProcessingProps> = ({
 
           <div className="w-full h-3 bg-rose-100 dark:bg-rose-950/60 rounded-full overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 transition-all duration-500 ease-out"
+              className="h-full bg-gradient-to-r from-rose-500 to-rose-600 transition-all duration-500 ease-out"
               style={{ width: `${progress}%` }}
             />
           </div>

@@ -36,10 +36,7 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
           {timeOfDayGreeting}
         </Caption>
 
-        <PageHeading className="flex items-center gap-2">
-          <span>{displayName}</span>
-          <span className="text-pink-400 text-xl sm:text-2xl animate-pulse">✨</span>
-        </PageHeading>
+        <PageHeading>{displayName}</PageHeading>
 
         <div className="flex flex-wrap items-center gap-2 pt-0.5">
           <Badge variant="rose" size="sm">

@@ -119,7 +119,7 @@ export const BloomScanUpload: React.FC<BloomScanUploadProps> = ({
         <button
           disabled={!selectedFile}
           onClick={() => onStartAnalyze(selectedFile?.name || "Report.pdf")}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 hover:from-rose-600 hover:to-purple-600 text-white font-bold text-sm shadow-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.01] disabled:opacity-50"
+          className="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold text-sm shadow-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.01] disabled:opacity-50"
         >
           <Sparkles className="w-4 h-4" />
           <span>Analyze Report with BloomScan →</span>

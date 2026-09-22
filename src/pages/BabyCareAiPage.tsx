@@ -235,7 +235,7 @@ export const BabyCareAiPage: React.FC<BabyCareAiPageProps> = ({ onNavigatePage }
   return (
     <div className="space-y-6 max-w-5xl mx-auto pb-12">
       {/* HEADER BANNER */}
-      <div className="bg-gradient-to-r from-pink-500 via-rose-500 to-purple-600 rounded-3xl p-6 sm:p-8 text-white shadow-xl shadow-pink-500/15 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-rose-500 to-rose-600 rounded-3xl p-6 sm:p-8 text-white shadow-xl shadow-pink-500/15 relative overflow-hidden">
         <div className="absolute right-0 top-0 w-80 h-80 bg-white/10 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
 
         <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">

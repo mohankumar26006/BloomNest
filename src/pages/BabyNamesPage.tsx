@@ -797,7 +797,7 @@ export const BabyNamesPage: React.FC = () => {
                 </Button>
               </Card>
             ) : currentCard && (
-              <div className="w-full max-w-md bg-gradient-to-tr from-rose-500 via-pink-500 to-purple-600 rounded-[36px] text-white p-8 shadow-2xl relative space-y-6 text-center transform transition-all duration-300 hover:scale-[1.01]">
+              <div className="w-full max-w-md bg-gradient-to-tr from-rose-500 to-rose-600 rounded-[36px] text-white p-8 shadow-2xl relative space-y-6 text-center transform transition-all duration-300 hover:scale-[1.01]">
                 
                 {/* Card Top Pills */}
                 <div className="flex items-center justify-between">

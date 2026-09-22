@@ -32,7 +32,7 @@ export const Card: React.FC<CardProps> = ({
     flat:
       "bg-white dark:bg-[#1A1523] border border-gray-100 dark:border-rose-900/30 shadow-sm text-gray-900 dark:text-rose-100",
     gradient:
-      "bg-gradient-to-br from-rose-50/80 via-pink-50/50 to-purple-50/70 dark:from-[#221221] dark:via-[#291528] dark:to-[#2e172e] border border-rose-200/60 dark:border-rose-900/50 shadow-md text-gray-900 dark:text-rose-100",
+      "bg-gradient-to-br from-rose-50/80 to-rose-100/60 dark:from-[#221221] dark:to-[#2e172e] border border-rose-200/60 dark:border-rose-900/50 shadow-md text-gray-900 dark:text-rose-100",
     border:
       "bg-transparent border-2 border-rose-200 dark:border-rose-900/50 text-gray-900 dark:text-rose-100",
   };

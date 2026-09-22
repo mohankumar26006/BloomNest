@@ -2,10 +2,9 @@ import React from "react";
 import { PageView } from "../../types";
 import { Card } from "../ui/Card";
 import { ProgressRing } from "../ui/ProgressRing";
-import { Heart, ChevronRight, Sparkles } from "lucide-react";
+import { Heart, ChevronRight } from "lucide-react";
 
 // Asset Images
-import pastelMotherArt from "../../assets/images/pastel_mother_art_1785746033662.jpg";
 import cornCobArt from "../../assets/images/corn_cob_art_1785746048803.jpg";
 import { PREGNANCY_WEEKS_DATA } from "../../data/pregnancyWeeksData";
 
@@ -41,34 +40,23 @@ export const HeroFetalProgress: React.FC<HeroFetalProgressProps> = ({
       radius="3xl"
       className="p-5 sm:p-6 space-y-5 relative overflow-hidden"
     >
-      {/* Upper Grid: Progress Ring + Days Remaining + Artwork */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
-        <div className="flex items-center gap-4 shrink-0">
-          <ProgressRing
-            percentage={progressPercent}
-            size={110}
-            strokeWidth={10}
-            label={t("complete")}
-          />
+      {/* Upper Grid: Progress Ring + Days Remaining */}
+      <div className="flex items-center gap-5">
+        <ProgressRing
+          percentage={progressPercent}
+          size={110}
+          strokeWidth={10}
+          label={t("complete")}
+        />
 
-          <div className="space-y-0.5 text-center sm:text-left">
-            <div className="text-2xl sm:text-3xl font-serif font-bold text-[#8f2d48] dark:text-rose-200">
-              {daysRemaining} {t("days")}
-            </div>
-            <div className="text-xs font-bold text-[#b84a6b] dark:text-rose-300 flex items-center justify-center sm:justify-start gap-1">
-              <span>{t("remaining")}</span>
-              <Heart className="w-3.5 h-3.5 fill-current text-rose-500 inline" />
-            </div>
+        <div className="space-y-0.5">
+          <div className="text-2xl sm:text-3xl font-serif font-bold text-[#8f2d48] dark:text-rose-200">
+            {daysRemaining} {t("days")}
           </div>
-        </div>
-
-        {/* Soft Mother Artwork */}
-        <div className="relative shrink-0 flex items-center justify-center">
-          <img
-            src={pastelMotherArt}
-            alt="Pregnant Mother Watercolor Art"
-            className="w-32 h-32 sm:w-36 sm:h-36 object-contain rounded-2xl drop-shadow-xs hover:scale-105 transition-transform"
-          />
+          <div className="text-xs font-bold text-[#b84a6b] dark:text-rose-300 flex items-center gap-1">
+            <span>{t("remaining")}</span>
+            <Heart className="w-3.5 h-3.5 fill-current text-rose-500 inline" />
+          </div>
         </div>
       </div>
 
@@ -90,9 +78,8 @@ export const HeroFetalProgress: React.FC<HeroFetalProgressProps> = ({
             </div>
           )}
           <div>
-            <div className="text-[11px] font-extrabold text-gray-400 dark:text-rose-300/60 uppercase tracking-wider flex items-center gap-1">
-              <span>{t("babyToday")}</span>
-              <Sparkles className="w-3 h-3 text-amber-400" />
+            <div className="text-[11px] font-extrabold text-gray-400 dark:text-rose-300/60 uppercase tracking-wider">
+              {t("babyToday")}
             </div>
             <div className="text-base sm:text-lg font-bold font-serif text-gray-900 dark:text-rose-100">
               Size of {babySize.name}

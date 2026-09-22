@@ -153,7 +153,7 @@ export const ContractionTimerPage: React.FC = () => {
       )}
 
       {/* Timer Controls Stage */}
-      <div className="p-8 rounded-3xl bg-gradient-to-tr from-rose-500 via-pink-500 to-purple-600 text-white shadow-xl flex flex-col items-center justify-center text-center space-y-6">
+      <div className="p-8 rounded-3xl bg-gradient-to-tr from-rose-500 to-rose-600 text-white shadow-xl flex flex-col items-center justify-center text-center space-y-6">
         <div className="text-xs font-bold px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md">
           {isRunning ? t("contractionActive") : t("readyForContraction")}
         </div>

@@ -217,7 +217,7 @@ export const KickCounterPage: React.FC = () => {
       )}
 
       {/* Main Counter Stage */}
-      <div className="p-8 rounded-3xl bg-gradient-to-tr from-rose-500 via-pink-500 to-purple-600 text-white shadow-xl flex flex-col items-center justify-center text-center space-y-6 relative overflow-hidden">
+      <div className="p-8 rounded-3xl bg-gradient-to-tr from-rose-500 to-rose-600 text-white shadow-xl flex flex-col items-center justify-center text-center space-y-6 relative overflow-hidden">
         <div className="text-xs font-bold px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md flex items-center gap-2">
           <Clock className="w-4 h-4" />
           <span>{t("elapsedTime")}: {formatTime(elapsedSeconds)}</span>

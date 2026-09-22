@@ -343,7 +343,7 @@ Disclaimer: ${sbarData.disclaimer}`;
   return (
     <div className="space-y-6 pb-16 animate-in fade-in duration-300 max-w-6xl mx-auto">
       {/* Top Banner Header */}
-      <div className="bg-gradient-to-r from-rose-50 via-pink-50 to-purple-50 dark:from-[#1a1523] dark:via-[#1e172a] dark:to-[#171422] p-6 rounded-3xl border border-rose-200/70 dark:border-rose-900/40 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="bg-gradient-to-r from-rose-50 to-rose-100 dark:from-[#1a1523] dark:via-[#1e172a] dark:to-[#171422] p-6 rounded-3xl border border-rose-200/70 dark:border-rose-900/40 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 text-rose-600 dark:text-rose-400 text-xs font-bold uppercase tracking-wider">
             <span className="flex h-2 w-2 relative">

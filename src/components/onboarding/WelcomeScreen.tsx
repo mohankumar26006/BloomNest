@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { Sparkles, Heart, ArrowRight, ShieldCheck, Flower2, Baby } from "lucide-react";
+import { ArrowRight, ShieldCheck, Flower2, Baby } from "lucide-react";
 
 interface WelcomeScreenProps {
   onGetStarted: () => void;
@@ -22,13 +22,13 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onGetStarted, onSi
 
         {/* Brand Header */}
         <div className="space-y-3 relative">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-rose-50 to-pink-50 dark:from-rose-950/60 dark:to-purple-950/60 border border-rose-200/60 dark:border-rose-800/40 text-rose-600 dark:text-rose-300 text-xs font-bold uppercase tracking-wider shadow-xs">
-            <Flower2 className="w-4 h-4 text-rose-500 animate-spin-slow" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-50 dark:bg-rose-950/60 border border-rose-200/60 dark:border-rose-800/40 text-rose-600 dark:text-rose-300 text-xs font-bold uppercase tracking-wider shadow-xs">
+            <Flower2 className="w-4 h-4 text-rose-500" />
             <span>BloomNest Life-Stage Companion</span>
           </div>
 
           <h1 className="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-rose-100">
-            🌸 BloomNest
+            BloomNest
           </h1>
           <p className="text-xs sm:text-sm text-gray-600 dark:text-rose-300 font-medium max-w-md mx-auto leading-relaxed">
             Your personalized maternal wellness & clinical care companion — supporting you from preconception to pregnancy and postpartum.
@@ -36,15 +36,14 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onGetStarted, onSi
         </div>
 
         {/* Dreamy Visual Hero Card */}
-        <div className="relative p-6 rounded-3xl bg-gradient-to-tr from-rose-100/70 via-pink-50/60 to-purple-100/70 dark:from-rose-950/40 dark:via-purple-950/30 dark:to-pink-950/40 border border-white dark:border-rose-900/40 shadow-inner flex flex-col items-center justify-center space-y-4">
-          <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-rose-400 via-pink-400 to-purple-500 text-white flex items-center justify-center shadow-lg shadow-rose-300/50 dark:shadow-none animate-bounce-slow">
+        <div className="relative p-6 rounded-3xl bg-gradient-to-tr from-rose-100/70 to-pink-50/60 dark:from-rose-950/40 dark:to-pink-950/40 border border-white dark:border-rose-900/40 shadow-inner flex flex-col items-center justify-center space-y-4">
+          <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-rose-400 to-rose-500 text-white flex items-center justify-center shadow-lg shadow-rose-300/50 dark:shadow-none">
             <Baby className="w-10 h-10" />
           </div>
 
           <div className="space-y-1">
-            <div className="font-serif font-bold text-lg text-gray-900 dark:text-rose-100 flex items-center justify-center gap-2">
-              <span>Warm, Body-Positive & Evidence-Backed</span>
-              <Sparkles className="w-4 h-4 text-amber-400" />
+            <div className="font-serif font-bold text-lg text-gray-900 dark:text-rose-100">
+              Warm, Body-Positive & Evidence-Backed
             </div>
             <p className="text-xs text-gray-500 dark:text-rose-300">
               Garbha Sanskar wellness, AI triage, vital tracking, and clinical dossier reports.
@@ -62,7 +61,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({ onGetStarted, onSi
         <div className="space-y-3 pt-2">
           <button
             onClick={onGetStarted}
-            className="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 hover:from-rose-600 hover:to-purple-600 text-white font-bold text-sm shadow-xl shadow-rose-300/40 dark:shadow-none flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-[0.99]"
+            className="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold text-sm shadow-xl shadow-rose-300/40 dark:shadow-none flex items-center justify-center gap-2 transition-all hover:scale-[1.01] active:scale-[0.99]"
           >
             <span>Get Started</span>
             <ArrowRight className="w-4 h-4" />

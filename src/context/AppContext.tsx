@@ -627,7 +627,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   const loadDemoData = () => {
-    setUser(DEMO_USER);
+    setUser({ ...DEMO_USER, hasCompletedOnboarding: true });
     setVitals(DEMO_VITALS);
     setMedicines(DEMO_MEDICINES);
     setAppointments(DEMO_APPOINTMENTS);

@@ -348,7 +348,7 @@ export const Sidebar: React.FC<{
               updateUser({ hasCompletedOnboarding: false });
               onClose();
             }}
-            className="w-full flex items-center justify-between p-2.5 rounded-2xl bg-gradient-to-r from-rose-500/10 via-pink-500/10 to-purple-500/10 dark:from-rose-950/40 dark:via-pink-950/40 dark:to-purple-950/40 border border-rose-200/60 dark:border-rose-800/40 hover:border-rose-400 text-rose-700 dark:text-rose-200 transition-all group"
+            className="w-full flex items-center justify-between p-2.5 rounded-2xl bg-gradient-to-r from-rose-500/10 to-pink-500/10 dark:from-rose-950/40 dark:to-pink-950/40 border border-rose-200/60 dark:border-rose-800/40 hover:border-rose-400 text-rose-700 dark:text-rose-200 transition-all group"
           >
             <div className="flex items-center gap-2 min-w-0">
               <div className="w-7 h-7 rounded-xl bg-gradient-to-tr from-rose-500 to-pink-600 text-white flex items-center justify-center shadow-xs shrink-0 group-hover:scale-105 transition-transform">

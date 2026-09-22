@@ -273,7 +273,7 @@ export const SettingsPage: React.FC = () => {
 
         <button
           onClick={() => updateUser({ hasCompletedOnboarding: false })}
-          className="px-4 py-2.5 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 hover:from-rose-600 hover:to-purple-700 text-white font-bold text-xs shadow-md shrink-0 flex items-center gap-1.5 transition-all"
+          className="px-4 py-2.5 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold text-xs shadow-md shrink-0 flex items-center gap-1.5 transition-all"
         >
           <LogOut className="w-4 h-4" />
           <span>Setup New User Profile</span>

@@ -30,7 +30,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   const variantStyles: Record<ButtonVariant, string> = {
     primary:
-      "bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 hover:from-rose-600 hover:to-purple-600 text-white shadow-md shadow-rose-300/40 dark:shadow-none border border-rose-400/20",
+      "bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white shadow-md shadow-rose-300/40 dark:shadow-none border border-rose-400/20",
     secondary:
       "bg-rose-50/80 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/60 text-rose-700 dark:text-rose-200 border border-rose-200/60 dark:border-rose-900/40 shadow-xs",
     ghost:

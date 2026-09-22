@@ -228,10 +228,10 @@ export const DashboardPage: React.FC = () => {
       />
 
       {/* 4.5. MY DIGITAL TWIN (ADAPTIVE 3D MATERNAL TWIN) */}
-      <div className="p-6 rounded-3xl bg-gradient-to-r from-rose-100/70 via-purple-50/70 to-white/90 dark:from-slate-900/90 dark:via-purple-950/40 dark:to-slate-900/90 border border-rose-200/70 dark:border-purple-900/40 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 backdrop-blur-md">
+      <div className="p-6 rounded-3xl bg-gradient-to-r from-rose-50/80 to-white/90 dark:from-slate-900/90 dark:to-slate-900/90 border border-rose-200/70 dark:border-rose-900/40 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 backdrop-blur-md">
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-rose-500 to-purple-600 text-white flex items-center justify-center shrink-0 shadow-md">
-            <Sparkles className="w-6 h-6 animate-pulse" />
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-rose-500 to-rose-600 text-white flex items-center justify-center shrink-0 shadow-md">
+            <Sparkles className="w-6 h-6" />
           </div>
           <div>
             <div className="flex items-center gap-2 mb-1">
@@ -254,7 +254,7 @@ export const DashboardPage: React.FC = () => {
         <button
           type="button"
           onClick={() => setActivePage("digital-twin")}
-          className="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-rose-500 to-purple-600 hover:from-rose-600 hover:to-purple-700 text-white font-bold text-xs shadow-md transition-all flex items-center gap-2 shrink-0"
+          className="px-5 py-2.5 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold text-xs shadow-md transition-all flex items-center gap-2 shrink-0"
         >
           <span>Open 3D Twin View</span>
           <ArrowRight className="w-4 h-4" />

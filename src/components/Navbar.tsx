@@ -40,7 +40,7 @@ export const Navbar: React.FC<{ onOpenMobileMenu: () => void }> = ({ onOpenMobil
   return (
     <header className="sticky top-0 z-30 bg-white/80 dark:bg-[#120e18]/85 backdrop-blur-xl border-b border-rose-100/80 dark:border-rose-900/40 transition-all shadow-xs">
       {/* Top Rose Gold Accent Line */}
-      <div className="h-0.5 bg-gradient-to-r from-rose-400 via-pink-500 to-purple-600 w-full" />
+      <div className="h-0.5 bg-gradient-to-r from-rose-400 to-rose-500 w-full" />
 
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
         {/* Left: Mobile Menu Button & Logo */}
@@ -57,11 +57,11 @@ export const Navbar: React.FC<{ onOpenMobileMenu: () => void }> = ({ onOpenMobil
             onClick={() => setActivePage("dashboard")}
             className="flex items-center gap-2 text-left group shrink-0"
           >
-            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-rose-400 via-pink-500 to-purple-500 flex items-center justify-center text-white shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all shrink-0">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-rose-400 to-rose-500 flex items-center justify-center text-white shadow-md shadow-rose-500/20 group-hover:scale-105 transition-all shrink-0">
               <Heart className="w-4 h-4 fill-current" />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="font-serif text-lg sm:text-xl font-bold bg-gradient-to-r from-rose-700 via-pink-600 to-purple-700 dark:from-rose-200 dark:to-pink-200 bg-clip-text text-transparent tracking-tight leading-none">
+              <span className="font-serif text-lg sm:text-xl font-bold bg-gradient-to-r from-rose-600 to-rose-700 dark:from-rose-200 dark:to-pink-200 bg-clip-text text-transparent tracking-tight leading-none">
                 BloomNest
               </span>
               <span className="hidden xl:block text-[9px] font-bold tracking-widest text-rose-500/90 dark:text-rose-300/80 uppercase mt-0.5 whitespace-nowrap">
@@ -73,7 +73,7 @@ export const Navbar: React.FC<{ onOpenMobileMenu: () => void }> = ({ onOpenMobil
 
         {/* Center: Trimester & Week Progress Badge (Visible on XL screens to keep mobile/tablet header compact) */}
         <div className="hidden xl:flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-rose-50/80 dark:bg-rose-950/40 border border-rose-200/60 dark:border-rose-900/40 text-xs font-semibold text-rose-800 dark:text-rose-200 shadow-xs whitespace-nowrap shrink-0">
-          <Sparkles className="w-3.5 h-3.5 text-rose-500 animate-pulse shrink-0" />
+          <Sparkles className="w-3.5 h-3.5 text-rose-500 shrink-0" />
           <span>
             {t("trimesterWeekBadge", { tri: pregnancyProgress.trimester, week: pregnancyProgress.currentWeek })}
           </span>
@@ -88,7 +88,7 @@ export const Navbar: React.FC<{ onOpenMobileMenu: () => void }> = ({ onOpenMobil
           {/* AI Shortcut */}
           <button
             onClick={() => setActivePage("ai-assistant")}
-            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white text-xs font-bold shadow-sm transition-all hover:scale-105 active:scale-95 whitespace-nowrap shrink-0"
+            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-purple-600 hover:bg-purple-700 text-white text-xs font-bold shadow-sm transition-all hover:scale-105 active:scale-95 whitespace-nowrap shrink-0"
           >
             <Bot className="w-3.5 h-3.5" />
             <span>{t("aiDoctor")}</span>

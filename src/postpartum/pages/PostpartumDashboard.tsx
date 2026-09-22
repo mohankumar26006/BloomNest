@@ -154,7 +154,7 @@ export const PostpartumDashboard: React.FC<{ onNavigateSubPage: (page: string) =
       </section>
 
       {/* 3.5 AGENT 1 — MOTHER & RECOVERY AI COPILOT HERO BANNER */}
-      <section className="bg-gradient-to-r from-pink-600 via-rose-600 to-purple-700 rounded-3xl p-6 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+      <section className="bg-gradient-to-r from-rose-600 to-rose-700 rounded-3xl p-6 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0">
             <Bot className="w-7 h-7 text-white" />
@@ -183,7 +183,7 @@ export const PostpartumDashboard: React.FC<{ onNavigateSubPage: (page: string) =
       </section>
 
       {/* AGENT 2 — BABY CARE AI AGENT HERO BANNER */}
-      <section className="bg-gradient-to-r from-pink-600 via-rose-500 to-purple-600 rounded-3xl p-6 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+      <section className="bg-gradient-to-r from-rose-500 to-rose-600 rounded-3xl p-6 text-white shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center shrink-0">
             <Baby className="w-7 h-7 text-white" />

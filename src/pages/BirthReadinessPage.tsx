@@ -75,7 +75,7 @@ export const BirthReadinessPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-3 bg-gradient-to-r from-rose-500 to-purple-600 text-white p-4 rounded-2xl shadow-md shrink-0">
+        <div className="flex items-center gap-3 bg-gradient-to-r from-rose-500 to-rose-600 text-white p-4 rounded-2xl shadow-md shrink-0">
           <div className="text-right">
             <div className="text-[10px] uppercase font-bold text-rose-200">{t("overallScore")}</div>
             <div className="font-serif text-2xl font-extrabold">{readinessPercent}%</div>
@@ -95,7 +95,7 @@ export const BirthReadinessPage: React.FC = () => {
 
         <div className="w-full bg-rose-100 dark:bg-rose-950/50 h-3 rounded-full overflow-hidden">
           <div
-            className="bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 h-full rounded-full transition-all duration-700"
+            className="bg-gradient-to-r from-rose-500 to-rose-600 h-full rounded-full transition-all duration-700"
             style={{ width: `${readinessPercent}%` }}
           />
         </div>

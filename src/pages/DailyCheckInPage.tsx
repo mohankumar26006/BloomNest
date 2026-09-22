@@ -190,7 +190,7 @@ export const DailyCheckInPage: React.FC<DailyCheckInPageProps> = ({ onNavigateSu
       <div className="max-w-5xl mx-auto space-y-6">
         
         {/* TOP HEADER BANNER */}
-        <div className="bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden">
+        <div className="bg-gradient-to-r from-rose-500 to-rose-600 rounded-3xl p-6 text-white shadow-xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
           <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>

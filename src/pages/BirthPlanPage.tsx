@@ -246,7 +246,7 @@ export const BirthPlanPage: React.FC = () => {
         </div>
 
         {/* Live Admission Card Preview */}
-        <div className="bg-gradient-to-br from-rose-500 via-pink-600 to-purple-700 text-white p-6 rounded-3xl shadow-xl space-y-5 h-fit print:border print:text-black print:bg-white">
+        <div className="bg-gradient-to-br from-rose-500 to-rose-600 text-white p-6 rounded-3xl shadow-xl space-y-5 h-fit print:border print:text-black print:bg-white">
           <div className="border-b border-white/20 pb-4">
             <div className="text-[10px] font-extrabold uppercase tracking-widest text-rose-200">
               Official Hospital Document

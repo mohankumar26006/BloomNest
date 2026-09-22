@@ -143,7 +143,7 @@ export const JourneySelectionScreen: React.FC<JourneySelectionScreenProps> = ({
             className={`w-full py-4 rounded-2xl text-white font-bold text-sm shadow-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.01] ${
               selected === "PRE_PREGNANCY"
                 ? "bg-emerald-600 hover:bg-emerald-700 shadow-emerald-500/30"
-                : "bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 hover:from-rose-600 hover:to-purple-600 shadow-rose-300/40"
+                : "bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 shadow-rose-300/40"
             }`}
           >
             <span>{selected === "PRE_PREGNANCY" ? "🌱 Enter Pre-Pregnancy App" : "Continue to Pregnancy Suite"}</span>

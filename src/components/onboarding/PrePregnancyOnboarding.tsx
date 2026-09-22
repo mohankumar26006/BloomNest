@@ -200,7 +200,7 @@ export const PrePregnancyOnboarding: React.FC<PrePregnancyOnboardingProps> = ({
 
           <button
             type="submit"
-            className="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-500 to-purple-500 hover:from-rose-600 hover:to-purple-600 text-white font-bold text-sm shadow-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.01]"
+            className="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold text-sm shadow-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.01]"
           >
             <span>Next: Medical Report Check</span>
             <ArrowRight className="w-4 h-4" />

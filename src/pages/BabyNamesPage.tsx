@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { apiFetch } from "../services/apiClient";
 import { useApp } from "../context/AppContext";
 import { BabyName } from "../types";
 import {
@@ -200,7 +201,7 @@ export const BabyNamesPage: React.FC = () => {
     setIsGenerating(true);
 
     try {
-      const response = await fetch("/api/generate-baby-names", {
+      const response = await apiFetch("/api/generate-baby-names", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

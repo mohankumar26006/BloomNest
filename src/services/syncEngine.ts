@@ -1,4 +1,5 @@
 import { get, set } from "idb-keyval";
+import { apiFetch } from "./apiClient";
 
 export type SyncStatus = "synced" | "syncing" | "offline" | "pending_sync";
 
@@ -109,7 +110,7 @@ export async function flushOfflineQueue(): Promise<{ success: boolean; syncedCou
   updateSyncStatus("syncing", queue.length);
 
   try {
-    const response = await fetch("/api/sync", {
+    const response = await apiFetch("/api/sync", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ mutations: queue }),
@@ -145,7 +146,7 @@ export async function flushOfflineQueue(): Promise<{ success: boolean; syncedCou
 export async function fetchCanonicalHydration(userId: string): Promise<any | null> {
   if (typeof navigator !== "undefined" && !navigator.onLine) return null;
   try {
-    const res = await fetch(`/api/sync/hydrate/${userId}`);
+    const res = await apiFetch(`/api/sync/hydrate/${userId}`);
     if (!res.ok) return null;
     const data = await res.json();
     return data.canonicalState || null;

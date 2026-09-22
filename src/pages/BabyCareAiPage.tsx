@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { apiFetch } from "../services/apiClient";
 import {
   BabyCareContext,
   BabyAgentResponse,
@@ -152,7 +153,7 @@ export const BabyCareAiPage: React.FC<BabyCareAiPageProps> = ({ onNavigatePage }
     setContext(currentCtx);
 
     try {
-      const res = await fetch("/api/agent/baby-care", {
+      const res = await apiFetch("/api/agent/baby-care", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: messageText, babyId: selectedBabyId, context: currentCtx }),

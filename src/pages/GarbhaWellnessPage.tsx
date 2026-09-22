@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { apiFetch } from "../services/apiClient";
 import { useApp } from "../context/AppContext";
 import { DynamicLyricsViewer } from "../components/DynamicLyricsViewer";
 import {
@@ -477,7 +478,7 @@ export const GarbhaWellnessPage: React.FC = () => {
   const handleGenerateStory = async () => {
     setIsGeneratingStory(true);
     try {
-      const response = await fetch("/api/ai-story", {
+      const response = await apiFetch("/api/ai-story", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

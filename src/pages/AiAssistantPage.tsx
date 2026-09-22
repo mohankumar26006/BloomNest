@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { apiFetch } from "../services/apiClient";
 import { useApp } from "../context/AppContext";
 import {
   Bot,
@@ -162,7 +163,7 @@ export const AiAssistantPage: React.FC = () => {
   const fetchCarePlan = async () => {
     setLoadingCarePlan(true);
     try {
-      const res = await fetch(`/api/agent/care-plan?week=${user.currentWeek || 24}&trimester=${user.trimester || 2}`);
+      const res = await apiFetch(`/api/agent/care-plan?week=${user.currentWeek || 24}&trimester=${user.trimester || 2}`);
       if (res.ok) {
         const data = await res.json();
         setCarePlanData(data);
@@ -184,7 +185,7 @@ export const AiAssistantPage: React.FC = () => {
       const hospitalName = user.hospitalName || "Apollo Cradle Maternity";
       const bloodGroup = user.bloodGroup || "O+";
       const age = user.age || 28;
-      const res = await fetch(
+      const res = await apiFetch(
         `/api/agent/doctor-brief?week=${user.currentWeek || 24}&trimester=${user.trimester || 2}&symptom=${encodeURIComponent(querySymptom)}&patientName=${encodeURIComponent(patientName)}&doctorName=${encodeURIComponent(doctorName)}&hospitalName=${encodeURIComponent(hospitalName)}&bloodGroup=${encodeURIComponent(bloodGroup)}&age=${age}`
       );
       if (res.ok) {
@@ -230,7 +231,7 @@ export const AiAssistantPage: React.FC = () => {
     ]);
 
     try {
-      const response = await fetch("/api/agent/ask", {
+      const response = await apiFetch("/api/agent/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

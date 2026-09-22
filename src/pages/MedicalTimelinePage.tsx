@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { apiFetch } from "../services/apiClient";
 import { useApp } from "../context/AppContext";
 import { INDIAN_SCANS } from "../data/medicalScans";
 import {
@@ -220,7 +221,7 @@ export const MedicalTimelinePage: React.FC = () => {
   const executeAnalysis = async (currentRecords: ScanLabMilestoneRecord[], scenarioKey?: string) => {
     setIsAnalyzing(true);
     try {
-      const response = await fetch("/api/scan-lab-timeline/analyze", {
+      const response = await apiFetch("/api/scan-lab-timeline/analyze", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

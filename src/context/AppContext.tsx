@@ -36,6 +36,7 @@ import { playUrgentAlertSound } from "../utils/alertSound";
 import { evaluateHealthVital } from "../services/healthVitalsService";
 import { enqueueMutation, subscribeSyncStatus, SyncStatus } from "../services/syncEngine";
 import { calculatePregnancyProgress } from "../utils/pregnancyCalculation";
+import { apiFetch } from "../services/apiClient";
 
 interface AppContextType {
   syncStatus: SyncStatus;
@@ -203,7 +204,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           const controller = new AbortController();
           const timeoutId = setTimeout(() => controller.abort(), 800);
           try {
-            const response = await fetch("/api/state", { signal: controller.signal });
+            const response = await apiFetch("/api/state", { signal: controller.signal });
             clearTimeout(timeoutId);
             if (response.ok) {
               const parsed = await response.json();
@@ -266,7 +267,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         await set(LOCAL_STORAGE_KEY, stateToSaveLocal);
 
         // Optional server backup
-        fetch("/api/state", {
+        apiFetch("/api/state", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -319,7 +320,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     let isMounted = true;
     const fetchDict = async () => {
       try {
-        const res = await fetch(`/api/translations?lang=${language}`);
+        const res = await apiFetch(`/api/translations?lang=${language}`);
         if (res.ok) {
           const data = await res.json();
           if (isMounted && data.translations) {
@@ -397,7 +398,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const addVital = async (vital: Omit<HealthVital, "id">): Promise<HealthVital> => {
     try {
-      const res = await fetch("/api/vitals", {
+      const res = await apiFetch("/api/vitals", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(vital),
@@ -457,7 +458,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
       waterMl: (latest.waterMl || 0) + amountMl,
     };
 
-    fetch("/api/vitals", {
+    apiFetch("/api/vitals", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedCandidate),
@@ -488,7 +489,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const candidate = { ...(existing || {}), ...updated, id };
 
     try {
-      const res = await fetch("/api/vitals", {
+      const res = await apiFetch("/api/vitals", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(candidate),

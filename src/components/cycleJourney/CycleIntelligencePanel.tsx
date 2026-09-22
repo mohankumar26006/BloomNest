@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Sparkles, Droplet, TrendingUp, Lightbulb, ChevronRight, Bot, RefreshCw } from "lucide-react";
 import { Button } from "../ui/Button";
+import { apiFetch } from "../../services/apiClient";
 
 export interface CycleIntelligencePanelProps {
   selectedDay: number;
@@ -63,7 +64,7 @@ export const CycleIntelligencePanel: React.FC<CycleIntelligencePanelProps> = ({
     setIsAiLoading(true);
     try {
       const prompt = `Analyze current cycle day ${selectedDay} (Est. fertile window: ${isFertileWindow}). Cervical mucus: ${cervicalMucusObserved || "not recorded"}. LH test: ${lhTestObserved || "not recorded"}. Provide a concise 2-sentence clinical fertility insight.`;
-      const res = await fetch("/api/agent/orchestrate", {
+      const res = await apiFetch("/api/agent/orchestrate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: prompt }),

@@ -3,6 +3,7 @@ import path from "path";
 import fs from "fs";
 import dotenv from "dotenv";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 import crypto from "crypto";
 import { GoogleGenAI } from "@google/genai";
 import { PrismaClient } from "@prisma/client";
@@ -14,7 +15,6 @@ import { EXPANDED_FOOD_SAFETY_DATABASE } from "./src/data/foodSafetyData";
 import { runAgentOrchestrator } from "./src/services/agentOrchestrator";
 import { AGENT_TOOLS } from "./src/services/agentTools";
 import { AgentContext } from "./src/services/agents/types";
-import { MaternalMemoryService } from "./src/services/maternalMemoryService";
 
 dotenv.config();
 
@@ -22,6 +22,64 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json({ limit: "15mb" }));
+
+// =============================================================
+// JWT SESSION AUTHENTICATION
+// =============================================================
+
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) {
+  throw new Error("JWT_SECRET is not configured. Set it in your .env file before starting the server.");
+}
+
+function signSessionToken(userId: string): string {
+  return jwt.sign({ userId }, JWT_SECRET, { expiresIn: "30d" });
+}
+
+declare global {
+  namespace Express {
+    interface Request {
+      userId?: string;
+    }
+  }
+}
+
+// Routes reachable without a session token (account creation/entry points + public content).
+// Paths are relative to the "/api" mount point below (req.path excludes the "/api" prefix).
+const PUBLIC_API_PATHS = new Set([
+  "/health",
+  "/auth/signup",
+  "/auth/signin",
+  "/auth/forgot-password",
+  "/auth/verify-reset-code",
+  "/auth/reset-password",
+  "/translations",
+]);
+
+function requireAuth(req: Request, res: Response, next: NextFunction): void {
+  if (PUBLIC_API_PATHS.has(req.path)) {
+    next();
+    return;
+  }
+
+  const authHeader = req.headers.authorization;
+  const token = authHeader && authHeader.startsWith("Bearer ") ? authHeader.slice(7) : null;
+
+  if (!token) {
+    res.status(401).json({ error: "Authentication required. Please sign in again." });
+    return;
+  }
+
+  try {
+    const payload = jwt.verify(token, JWT_SECRET) as { userId: string };
+    req.userId = payload.userId;
+    next();
+  } catch {
+    res.status(401).json({ error: "Invalid or expired session. Please sign in again." });
+  }
+}
+
+app.use("/api", requireAuth);
 
 // Initialize Prisma
 const prisma = new PrismaClient();
@@ -174,6 +232,7 @@ app.post("/api/auth/signup", async (req: Request, res: Response) => {
     res.status(201).json({
       success: true,
       message: "Account created successfully!",
+      token: signSessionToken(newUserRecord.id),
       user: {
         id: newUserRecord.id,
         email: newUserRecord.email,
@@ -258,6 +317,7 @@ app.post("/api/auth/signin", async (req: Request, res: Response) => {
     res.json({
       success: true,
       message: "Authentication successful!",
+      token: signSessionToken(userToVerify.id),
       user: {
         id: userToVerify.id,
         email: userToVerify.email,
@@ -1804,31 +1864,6 @@ app.post("/api/vitals/eval", (req: Request, res: Response) => {
 
   const evaluation = evaluateHealthVital(input);
   res.json({ success: true, evaluation });
-});
-
-app.post("/api/vitals", async (req: Request, res: Response) => {
-  const input = req.body;
-  const validation = validateVitalInput(input);
-  if (!validation.isValid) {
-    res.status(400).json({ error: "Validation failed", details: validation.errors });
-    return;
-  }
-
-  const evaluation = evaluateHealthVital(input);
-  const fullEntry = {
-    ...input,
-    id: input.id || Date.now(),
-    date: input.date || new Date().toISOString().split("T")[0],
-    timestamp: new Date().toISOString(),
-    evaluation,
-  };
-
-  // Safely persist to normalized HealthVitalLog in background
-  MaternalMemoryService.logVitalEntry("demo_user_1", input).catch((err) => {
-    console.warn("MaternalMemoryService background vital logging note:", err.message || err);
-  });
-
-  res.json({ success: true, entry: fullEntry, evaluation });
 });
 
 // Helper: Intelligent obstetric fallback response generator when AI endpoints are rate-limited or offline
@@ -4493,185 +4528,6 @@ Output ONLY valid JSON array without any markdown wrappers or extra prose.`;
   return res.json({ names: fallbackNames });
 });
 
-// Agent 1: Mother & Recovery AI Agent Endpoint
-app.post("/api/agent/mother-recovery", async (req: Request, res: Response) => {
-  try {
-    const { message, context } = req.body;
-    if (!message || !context) {
-      res.status(400).json({ error: "Missing message or context" });
-      return;
-    }
-
-    const isUrgent = context.safetyStatus === "URGENT_ATTENTION";
-    const urgentMessage = context.urgentSafetyMessage || "Severe physiological symptom (e.g. Pain 10/10) flagged by F4 Safety Shield.";
-
-    const systemPrompt = `You are Mother & Recovery AI (Agent 1 of BloomNest), an empathetic, evidence-based postpartum recovery assistant.
-You possess full context for the mother's recovery (Postpartum Day ${context.postpartumDay}, ${context.recoveryStage}, ${context.deliveryType} delivery).
-
-RULES:
-1. You do NOT diagnose or prescribe medical treatments.
-2. If safetyStatus is URGENT_ATTENTION, your response MUST start with:
-"🚨 **CLINICAL SAFETY ALERT (Feature 04 Safety Shield):**\nYour recent health logs indicate an urgent safety pattern requiring prompt medical attention.\n- **Safety Finding:** ${urgentMessage}\n- **Recommended Action:** Please contact your primary OB-GYN or visit your maternity triage center without delay.\n\n---\n\n"
-3. ANSWER the mother's specific question directly, concisely, and empathetically right after the safety alert (or at the top if no safety alert is active).
-4. Do NOT invent data. If asked about a vital not logged (like blood pressure), state clearly: "I don't have a recorded blood-pressure value for yesterday in your logs."
-
-User Question: "${message}"
-Sanitized Context: "${context.sanitizedSummaryText}"`;
-
-    const geminiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_API_KEY;
-    if (geminiKey) {
-      try {
-        const ai = new GoogleGenAI({ apiKey: geminiKey });
-        const geminiRes = await ai.models.generateContent({
-          model: "gemini-3.6-flash",
-          contents: `${systemPrompt}\n\nUser Question: "${message}"\nSanitized Context: "${context.sanitizedSummaryText}"`
-        });
-
-        const llmText = geminiRes?.text;
-        if (llmText) {
-          let finalText = llmText;
-          if (isUrgent && !finalText.includes("CLINICAL SAFETY ALERT")) {
-            finalText = `🚨 **CLINICAL SAFETY ALERT (Feature 04 Safety Shield):**\nYour recent health logs indicate an urgent safety pattern requiring prompt medical attention.\n- **Safety Finding:** ${urgentMessage}\n- **Recommended Action:** Please contact your primary OB-GYN or visit your maternity triage center without delay.\n\n---\n\n` + finalText;
-          }
-
-          return res.json({
-            answer: finalText,
-            responseType: isUrgent ? "SAFETY_EXPLANATION" : "QUESTION_ANSWER",
-            facts: [
-              {
-                tag: isUrgent ? "SAFETY_ALERT" : "RECORDED_FACT",
-                label: isUrgent ? "Authoritative F4 Alert" : "Postpartum Stage",
-                text: isUrgent ? urgentMessage : `Day ${context.postpartumDay} (${context.recoveryStage})`,
-              },
-            ],
-            observations: [`Postpartum Day ${context.postpartumDay}`],
-            safetyStatus: isUrgent ? "URGENT_ATTENTION" : "NO_CONCERNS",
-            recommendedActions: isUrgent
-              ? [
-                  {
-                    title: "Review Clinical Safety Shield",
-                    description: "Inspect active F4 clinical safety rules and emergency contacts",
-                    targetPage: "safety",
-                    buttonText: "Open Safety Shield",
-                  },
-                  {
-                    title: "Contact Emergency Triage",
-                    description: "Call emergency contact or maternity hospital link",
-                    targetPage: "emergency-contacts",
-                    buttonText: "Open SOS Contacts",
-                  },
-                ]
-              : [
-                  {
-                    title: "View Recovery Hub",
-                    description: "Inspect physical recovery progress",
-                    targetPage: "recovery",
-                    buttonText: "Open Recovery Hub",
-                  },
-                ],
-            sourceFeatures: isUrgent ? ["Feature 04 Safety Shield", "Feature 01 Postpartum Care"] : ["Feature 01 Postpartum Care"],
-            whyAmISeeingThis: {
-              sourceFeatures: isUrgent ? ["F04 Safety Shield", "F01 Care Context"] : ["F01 Care Context"],
-              dataPointsUsed: ["User Question", "Postpartum Day", "Safety Status"],
-              timeRange: "Current Log State",
-            },
-            confidence: "HIGH",
-            dataSufficiency: "FULL",
-            isUrgentOverride: isUrgent,
-          });
-        }
-      } catch (err) {
-        console.warn("Gemini API call error in mother-recovery route:", err);
-      }
-    }
-
-    if (process.env.GROQ_API_KEY) {
-      try {
-        const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-          method: "POST",
-          headers: {
-            "Authorization": `Bearer ${process.env.GROQ_API_KEY}`,
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            model: "llama-3.3-70b-versatile",
-            messages: [
-              { role: "system", content: systemPrompt },
-              { role: "user", content: message },
-            ],
-            temperature: 0.5,
-          }),
-        });
-
-        if (groqRes.ok) {
-          const groqData = await groqRes.json();
-          const llmText = groqData.choices?.[0]?.message?.content;
-          if (llmText) {
-            let finalText = llmText;
-            if (isUrgent && !finalText.includes("CLINICAL SAFETY ALERT")) {
-              finalText = `🚨 **CLINICAL SAFETY ALERT (Feature 04 Safety Shield):**\nYour recent health logs indicate an urgent safety pattern requiring prompt medical attention.\n- **Safety Finding:** ${urgentMessage}\n- **Recommended Action:** Please contact your primary OB-GYN or visit your maternity triage center without delay.\n\n---\n\n` + finalText;
-            }
-
-            return res.json({
-              answer: finalText,
-              responseType: isUrgent ? "SAFETY_EXPLANATION" : "QUESTION_ANSWER",
-              facts: [
-                {
-                  tag: isUrgent ? "SAFETY_ALERT" : "RECORDED_FACT",
-                  label: isUrgent ? "Authoritative F4 Alert" : "Postpartum Stage",
-                  text: isUrgent ? urgentMessage : `Day ${context.postpartumDay} (${context.recoveryStage})`,
-                },
-              ],
-              observations: [`Postpartum Day ${context.postpartumDay}`],
-              safetyStatus: isUrgent ? "URGENT_ATTENTION" : "NO_CONCERNS",
-              recommendedActions: isUrgent
-                ? [
-                    {
-                      title: "Review Clinical Safety Shield",
-                      description: "Inspect active F4 clinical safety rules and emergency contacts",
-                      targetPage: "safety",
-                      buttonText: "Open Safety Shield",
-                    },
-                    {
-                      title: "Contact Emergency Triage",
-                      description: "Call emergency contact or maternity hospital link",
-                      targetPage: "emergency-contacts",
-                      buttonText: "Open SOS Contacts",
-                    },
-                  ]
-                : [
-                    {
-                      title: "View Recovery Hub",
-                      description: "Inspect physical recovery progress",
-                      targetPage: "recovery",
-                      buttonText: "Open Recovery Hub",
-                    },
-                  ],
-              sourceFeatures: isUrgent ? ["Feature 04 Safety Shield", "Feature 01 Postpartum Care"] : ["Feature 01 Postpartum Care"],
-              whyAmISeeingThis: {
-                sourceFeatures: isUrgent ? ["F04 Safety Shield", "F01 Care Context"] : ["F01 Care Context"],
-                dataPointsUsed: ["User Question", "Postpartum Day", "Safety Status"],
-                timeRange: "Current Log State",
-              },
-              confidence: "HIGH",
-              dataSufficiency: "FULL",
-              isUrgentOverride: isUrgent,
-            });
-          }
-        }
-      } catch (err) {
-        console.warn("Groq API call error in mother-recovery route:", err);
-      }
-    }
-
-    const { generateDeterministicRecoveryFallback } = await import("./src/services/motherRecoveryAgentService");
-    const fallbackRes = generateDeterministicRecoveryFallback(message, context);
-    return res.json(fallbackRes);
-  } catch (err) {
-    res.status(500).json({ error: "Failed to process agent request" });
-  }
-});
-
 // Agent 2: Baby Care AI Agent Endpoint
 app.post("/api/agent/baby-care", async (req: Request, res: Response) => {
   try {
@@ -5047,13 +4903,6 @@ Sanitized Context: "${context.sanitizedSummaryText}"`;
   } catch (err) {
     res.status(500).json({ error: "Failed to process agent request" });
   }
-});
-
-// Dynamic Multi-Lingual Translations API
-app.get("/api/translations", (req: Request, res: Response) => {
-  const lang = (req.query.lang as string) || "en";
-  const dict = TRANSLATIONS[lang] || TRANSLATIONS["en"] || {};
-  res.json({ language: lang, translations: dict });
 });
 
 // 3. Mount Vite or serve static files

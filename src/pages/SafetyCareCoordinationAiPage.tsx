@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { apiFetch } from "../services/apiClient";
 import {
   SafetyCoordinationContext,
   SafetyCoordinationAgentResponse,
@@ -159,7 +160,7 @@ export const SafetyCareCoordinationAiPage: React.FC<SafetyCareCoordinationAiPage
     setContext(currentCtx);
 
     try {
-      const res = await fetch("/api/agent/safety-care-coordination", {
+      const res = await apiFetch("/api/agent/safety-care-coordination", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: messageText, babyId: selectedBabyId, context: currentCtx }),

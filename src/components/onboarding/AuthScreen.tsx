@@ -17,6 +17,7 @@ import {
   EyeOff,
   Inbox
 } from "lucide-react";
+import { setAuthToken } from "../../services/apiClient";
 
 interface AuthScreenProps {
   initialMode?: "signin" | "signup";
@@ -102,6 +103,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
           return;
         }
 
+        setAuthToken(data.token || null);
         setSuccessMsg("Account created securely! Redirecting to journey selection...");
         setTimeout(() => {
           onAuthenticated({
@@ -148,6 +150,7 @@ export const AuthScreen: React.FC<AuthScreenProps> = ({
           return;
         }
 
+        setAuthToken(data.token || null);
         setSuccessMsg("Credentials verified! Taking you straight to Dashboard... 🌸");
         setTimeout(() => {
           onAuthenticated({

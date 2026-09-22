@@ -1,10 +1,11 @@
 import { NutritionAiResult, RecipeAiResult } from "../types";
+import { apiFetch } from "./apiClient";
 
 export async function askNutritionAI(
   query: string,
   trimester?: number
 ): Promise<NutritionAiResult> {
-  const res = await fetch("/api/nutrition/ask", {
+  const res = await apiFetch("/api/nutrition/ask", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -31,7 +32,7 @@ export async function fetchRecipeAI(
   dishName: string,
   trimester?: number
 ): Promise<RecipeAiResult> {
-  const res = await fetch("/api/nutrition/recipe", {
+  const res = await apiFetch("/api/nutrition/recipe", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

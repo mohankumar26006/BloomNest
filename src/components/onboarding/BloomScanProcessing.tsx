@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { Bot, FileText, CheckCircle2, Sparkles, Search } from "lucide-react";
+import { apiFetch } from "../../services/apiClient";
 
 interface BloomScanProcessingProps {
   fileName: string;
@@ -18,7 +19,7 @@ export const BloomScanProcessing: React.FC<BloomScanProcessingProps> = ({
     let extractedPayload: any = null;
 
     // Trigger AI OCR Extraction from Backend
-    fetch("/api/scan/extract", {
+    apiFetch("/api/scan/extract", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ fileName }),

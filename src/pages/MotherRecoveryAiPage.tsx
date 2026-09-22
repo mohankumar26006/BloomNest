@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { apiFetch } from "../services/apiClient";
 import {
   Sparkles,
   Bot,
@@ -122,7 +123,7 @@ export const MotherRecoveryAiPage: React.FC<MotherRecoveryAiPageProps> = ({
 
     try {
       // 1. Call Server API Endpoint /api/agent/mother-recovery
-      const res = await fetch("/api/agent/mother-recovery", {
+      const res = await apiFetch("/api/agent/mother-recovery", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: messageText, context: currentCtx }),
